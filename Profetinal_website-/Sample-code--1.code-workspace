@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "../../../../source/repos/Sample-code--1"
+		},
+		{
+			"path": "../.git"
+		},
+		{
+			"path": "../assets"
+		},
+		{
+			"path": "../images"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../Profetinal_website--1"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Profetinal_website-",
+		"liveServer.settings.port": 5501
+	}
+}
