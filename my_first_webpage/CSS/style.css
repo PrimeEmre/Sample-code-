@@ -1,0 +1,108 @@
+.body-style {
+    background: black;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+h1 {
+    color: blue;
+}
+
+h2 {
+    color: green;
+}
+
+h3 {
+    color: red;
+}
+
+h4 {
+    color: purple;
+}
+
+h5 {
+    color: orange;
+}
+
+h6 {
+    color: brown;
+}
+
+.market-shopping {
+    background: white;
+    color: black;
+    width: 200px;
+    border-radius: 15%;
+    padding: 30px;
+    font-weight: 500;
+    box-shadow: -4px 4px 17px  20px purple; 
+    margin-left: 20px;
+    font-size: 23px;
+}
+.market-shopping h1{
+color: black;
+margin-left: 20px;
+font-size: 40px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.bugatti-img {
+    border-radius: 15%;
+    width: 500px;
+    opacity: 1;
+    margin-left: 2rem;
+}
+
+.custom-button{
+    text-decoration: none;
+    color: black;
+     background: white;
+     font-size: 15px;
+     padding-top: 4px;
+     padding: 10px;
+     margin-left: 2rem;
+     text-align: center;
+     border-radius: 10%;
+     font-weight: 500;
+     box-shadow: -2px 1px 7px 8px gold;
+}
+.custom-button:hover{
+    transition: all .5s;
+    background: dodgerblue;
+    color: black;
+}
+
+
+.market-shopping {
+    color: crimson;
+}
+.famous-people{
+    color: aliceblue;
+}
+table{
+    width: 400px;
+    color: black;
+    background: white;
+    border-radius: 10%;
+    padding: 20px;
+    text-align: center;
+    box-sizing: 200px;
+    font-weight: 400;
+    text-indent: 20px;
+    box-shadow: -2px 5px 10px 20px red;
+    margin-left: 30px;
+}
+table thead:hover{
+    transition: all .5s;
+    background: dodgerblue;
+    color:black;
+    
+}
+table tbody :hover{
+    transition: all .5s;
+    background: black;
+    color:white;
+}
