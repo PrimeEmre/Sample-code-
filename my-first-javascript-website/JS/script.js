@@ -12,3 +12,5 @@ console.log(cloriList)
 console.log(fruitList)
 console.log(decimalList)
 
+document.getElementById("all-about-me").innerHTML = "My name is James smith and I am 30 years  old programer form Istanbul "
+
