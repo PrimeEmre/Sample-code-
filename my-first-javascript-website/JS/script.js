@@ -2,16 +2,16 @@
 // const cloriList = ["Chips:" +" "+ 300 + " ", "Penuts" + " " + 280 + " " + " " , "Chocolate" + " "+ 500 + " ", "Candy" +" " + 150 + " " ]
 // let fruitList = [" Apple", "Banana", "Orange", "Grapes"]
 // let decimalList = [1.2, 2.3, 3.4, 4.5]
-let age = 20; 
+let age = 20
 
-if (age >= 17) {
+if (age > 17) {
     document.getElementById("movie-rating").innerHTML = "You are allowed to watch R-rated movies."
-} else if (age >= 13) {
+} else if (age > 13) {
     document.getElementById("movie-rating").innerHTML = "You are allowed to watch PG-13 rated movies."
-} else if (age >= 0) {
+} else if (age > 0) {
     document.getElementById("movie-rating").innerHTML = "You are allowed to watch G and PG-rated movies."
 } else {
-    document.getElementById("movie-rating").innerHTML = "Invalid age. You are not allowed to watch any movies."
+    document.getElementById("movie-rating").innerHTML = "  You are not allowed to watch any movies."
 }
 
 
