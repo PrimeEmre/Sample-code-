@@ -32,7 +32,7 @@ function helloWorld() {
                 break
             }
         }
-        document.getElementById("all-about-me").innerHTML = "The result is " + result + " and the remainder is " + remainder;
+        document.getElementById("find-answer").innerHTML = "The result is " + result + " and the remainder is " + remainder
     }
 
 
