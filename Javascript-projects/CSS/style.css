@@ -8,7 +8,7 @@ body {
     margin-left: 2rem;
 }
 
-#num-1 {
+#base-of-triangle{
     padding: 10px;
     font-size: 1.2rem;
     border-radius: 5px;
@@ -16,7 +16,7 @@ body {
     margin: 10px;
 }
 
-#num-2 {
+#height-of-triangle{
     padding: 10px;
     font-size: 1.2rem;
     border-radius: 5px;
@@ -43,8 +43,8 @@ body {
     margin-left: 7rem;
 }
 
-.addion-img {
+.area-of-triangle {
     margin-left: 50%;
-    margin-top: -10%;
+    margin-top: -8%;
     width: 100%;
 }
