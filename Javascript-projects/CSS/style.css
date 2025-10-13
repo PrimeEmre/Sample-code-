@@ -1,0 +1,41 @@
+html{
+    font-size: 16px;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightgrey;
+    margin-left: 2rem;
+}
+#num-1{
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+}
+
+#num-2{
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+}
+.calcualte{
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    margin-left: 4rem;
+}
+
+.plus{
+    display: inline-block;
+    font-size: 2rem;
+    text-align: center;
+        color: green;
+        margin-left: 7rem;
+}
