@@ -8,9 +8,21 @@
 // }
 
 //Area Of Triangle Calculator 
-function calcualte() {
-    let baseOfTriangle = document.getElementById("base-of-triangle").value
-    let heightOfTriangle = document.getElementById("height-of-triangle").value
-    let result = parseInt(baseOfTriangle) * parseInt(heightOfTriangle) / 2
-    document.getElementById("result").innerHTML = "The result is " + result +" cm²"
+// function calcualte() {
+//     let baseOfTriangle = document.getElementById("base-of-triangle").value
+//     let heightOfTriangle = document.getElementById("height-of-triangle").value
+//     let result = parseInt(baseOfTriangle) * parseInt(heightOfTriangle) / 2
+//     document.getElementById("result").innerHTML = "The result is " + result +" cm²"
+// }
+
+//Fahrenheit to Celsius Converter
+function convert() {
+    // Setting up the variables
+    let fahrenheitValue =  parseFloat (document.getElementById("Fahrenheit").value)
+    let celsiusInput  = document.getElementById("Celsius")
+    let celsiusValue  = (fahrenheitValue - 32) * 5/9
+    
+    // calculating the celsius value
+    celsiusInput.value = celsiusValue.toFixed(2)
+    document.getElementById("formula").innerHTML = "Formula: (" + fahrenheitValue + " - " + 32 + ") X 5/9"
 }
