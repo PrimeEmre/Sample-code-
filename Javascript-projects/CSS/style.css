@@ -8,7 +8,7 @@ body {
     margin-left: 2rem;
 }
 
-#base-of-triangle{
+#Fahrenheit{
     padding: 10px;
     font-size: 1.2rem;
     border-radius: 5px;
@@ -16,7 +16,7 @@ body {
     margin: 10px;
 }
 
-#height-of-triangle{
+#Celsius{
     padding: 10px;
     font-size: 1.2rem;
     border-radius: 5px;
@@ -24,7 +24,7 @@ body {
     margin: 10px;
 }
 
-.calcualte {
+.convert {
     padding: 10px 20px;
     font-size: 1.2rem;
     border-radius: 5px;
@@ -43,7 +43,7 @@ body {
     margin-left: 7rem;
 } */
 
-.area-of-triangle {
+.fahrenheit-to-celsius-converter-img{
     margin-left: 50%;
     margin-top: -8%;
     width: 100%;
