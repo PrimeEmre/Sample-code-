@@ -39,9 +39,8 @@ function convert() {
     let formattedPrice = new Intl.NumberFormat('en-CA', {
         style: 'currency',
         currency: 'CAD',
-    });
+    })
+    // Showing the result
     document.getElementById("result").innerHTML = '<b> '+ 'Take Home Pay: ' + "</b>" + formattedPrice.format(takeHomePay) + '<br> <b> Taxes: </b>' + formattedPrice.format(taxes)
-
-
 
 }
