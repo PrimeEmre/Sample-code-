@@ -40,7 +40,7 @@ function convert() {
         style: 'currency',
         currency: 'CAD',
     });
-    document.getElementById("result").innerHTML = 'Take Home Pay: ' + formattedPrice.format(takeHomePay) + '<br> Taxes: ' + formattedPrice.format(taxes)
+    document.getElementById("result").innerHTML = '<b> '+ 'Take Home Pay: ' + "</b>" + formattedPrice.format(takeHomePay) + '<br> <b> Taxes: </b>' + formattedPrice.format(taxes)
 
 
 
