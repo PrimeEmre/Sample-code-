@@ -1,0 +1,42 @@
+html{
+font-size: 16px;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+   margin-left: 2rem;
+}
+
+
+#hourly-worked{
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+}
+
+#hourly-wage{
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+}
+
+.convert {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    margin-left: 4rem;
+}
+
+.salary-calculator-img{
+    margin-left: 50%;
+    margin-top: -8%;
+    width: 100%;
+}
