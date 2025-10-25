@@ -10,7 +10,7 @@
 // }
 // }
 function convert() {
-    let grade = parseInt(document.getElementById("grade").value);
+    let grade = parseInt(document.getElementById("grade").value)
     let result = "" 
     if (grade >= 95 && grade <= 100) {
         result = "You got an A+"
@@ -42,5 +42,5 @@ function convert() {
         result = "Invalid grade entered"
     }
 
-    document.getElementById("convert").innerHTML = result;
+    document.getElementById("convert").innerHTML = result
 }
