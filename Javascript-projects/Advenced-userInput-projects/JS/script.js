@@ -47,3 +47,15 @@
 
 //     document.getElementById("convert").innerHTML = result
 // }
+
+const randomNumber = Math.floor(Math.random() * 6) + 1
+function round(){
+    const usserNumber = document.getElementById("random-number").value
+
+    if(usserNumber == randomNumber){
+        document.getElementById('result').innerHTML = '<p> You have guessed the corecet number!</p>'
+    }
+    else{
+          document.getElementById('result').innerHTML = '<p> The correct number was:' + ' '+ randomNumber + '</p>'
+    }
+}
