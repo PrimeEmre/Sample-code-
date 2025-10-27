@@ -21,13 +21,13 @@ body{
       color: white;
     }
 
-#grade{
+/* #grade{
     padding: 10px;
     font-size: 1.2rem;
     border-radius: 5px;
     border: none;
     margin: 10px;
-}
+} */
 
 /* #hourly-wage{
     padding: 10px;
@@ -37,7 +37,7 @@ body{
     margin: 10px;
 } */
 
-.convert {
+.round {
     padding: 10px 20px;
     font-size: 1.2rem;
     border-radius: 5px;
