@@ -32,7 +32,7 @@
     </div> -->
 
     <!-- Random Number -->
-    <h1>Random Number</h1>
+    <!-- <h1>Random Number</h1>
     <select id="random-number">
         <option>1</option>
         <option>2</option>
@@ -46,7 +46,108 @@
     <p id="result"></p>
     <div class="dice">
         <img src="images/dice.jpg" alt="Dice">
-    </div>
+    </div> -->
+<main class="container">
+
+        <h1 class="turkish-restaurant">Turkish Restaurant</h1>
+
+        <div class="card form-card">
+            <h2>Customize Your Order</h2>
+            
+            <label for="kebab-type" class="form-label">Kebab Type</label>
+            <input list="kebab-list" name="kebab-type" id="kebab-type" class="form-control" placeholder="Choose or type a kebab">
+            <datalist id="kebab-list">
+                <option value="Adana Kebab">
+                <option value="Urfa Kebab">
+                <option value="Iskender Kebab">
+                <option value="Döner Kebab">
+                <option value="Lahmacun">
+                <option value="Çiğ köfte">
+            </datalist>
+
+            <label for="desert-type" class="form-label">Dessert Type</label>
+            <input list="desert-list" name="desert-type" id="desert-type" class="form-control" placeholder="Choose or type a dessert">
+            <datalist id="desert-list">
+                <option value="Baklava">
+                <option value="Künefe">
+                <option value="Şekerpare">
+                <option value="Lokma">
+                <option value="Maraş Ice Cream">
+                <option value="Turkish Delight">
+            </datalist>
+
+            <label for="spice-level" class="form-label">Spice Level</label>
+            <select id="spice-level">
+                <option>1</option>
+                <option>2</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+
+            <label for="size" class="form-label">Size</label>
+            <select id="size">
+                <option>Small (250g)</option>
+                <option>Medium (500g)</option>
+                <option>Large (1Kg)</option>
+                <option>X large (1.5Kg)</option>
+                <option>XX large (2Kg)</option>
+                <option>Death large (6Kg)</option>
+            </select>
+        </div>
+
+        <div class="card menu-card">
+            <section class="menu-section">
+                <h2>Main Courses</h2>
+                <ul class="menu-list">
+                    <li>
+                        <span class="item-name">Adana Kebab</span>
+                        <span class="item-price">$18.00</span>
+                    </li>
+                    <li>
+                        <span class="item-name">Çiğ Köfte (Portion)</span>
+                        <span class="item-price">$12.00</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="menu-section">
+                <h2>Desserts</h2>
+                <ul class="menu-list">
+                    <li>
+                        <span class="item-name">Baklava (4 pieces)</span>
+                        <span class="item-price">$8.00</span>
+                    </li>
+                    <li>
+                        <span class="item-name">Turkish Delight (Box)</span>
+                        <span class="item-price">$9.00</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="menu-section">
+                <h2>Kebab Sizes (Take-out)</h2>
+                <ul class="menu-list">
+                    <li>
+                        <span class="item-name">Small (250g)</span>
+                        <span class="item-price">$20.00</span>
+                    </li>
+                    <li>
+                        <span class="item-name">Death Large (6Kg)</span>
+                        <span class="item-price">$350.00</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="card actions-card">
+            <button class="round" onclick="round()">Amount</button>
+            <p id="result"></p>
+            <div class="dice">
+                <img src="images/dice.jpg" alt="Dice">
+            </div>
+        </div>
+
+    </main> </body>
     <script src="JS/script.js"></script>
 </body>
 

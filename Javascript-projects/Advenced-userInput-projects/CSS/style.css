@@ -1,41 +1,128 @@
-html{
-font-size: 16px;
+html {
+    font-size: 16px;
 }
-body{
+
+body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f4f4;
-   margin-left: 2rem;
+    margin: 0; /* Removed margin-left */
+    padding: 20px 0; /* Added padding for top/bottom */
 }
-   select {
-      padding: 10px 16px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      background-color: #007bff;
-      color: white;
-      cursor: pointer;
-      margin-left: 2%;
-    }
 
-    option {
-      color: white;
-    }
+/* This new container centers everything on the page */
+.container {
+    width: 90%;
+    max-width: 650px; /* Set a max width for large screens */
+    margin: 0 auto;   /* This is the key to centering */
+}
 
-/* #grade{
-    padding: 10px;
+/* Main title of the restaurant */
+h1.turkish-restaurant {
+    text-align: center;
+    color: #c0392b;
+    font-weight: 900;
+    font-size: 2.4rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+/* NEW: Base styles for all "cards" */
+.card {
+    width: 100%; /* Make card fill the container */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 25px 35px;
+    margin-bottom: 25px; /* Adds space between cards */
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+/* --- FORM CARD STYLES --- */
+.form-card h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-card .form-label {
     font-size: 1.2rem;
-    border-radius: 5px;
-    border: none;
-    margin: 10px;
-} */
+    font-weight: 900;
+    display: block; /* Make labels take their own line */
+    margin-top: 20px; /* Space above each label */
+    margin-bottom: 8px; /* Space between label and input */
+}
 
-/* #hourly-wage{
-    padding: 10px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    border: none;
-    margin: 10px;
-} */
+/* Style for ALL select dropdowns and inputs in the form */
+.form-card select,
+.form-card input[list] {
+    width: 100%; /* Make form elements fill the card */
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Important for 100% width + padding */
+}
+
+/* Overriding the blue select box for a more standard look */
+.form-card select {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+/* --- MENU CARD STYLES --- */
+/* (These are mostly from your original file, just targeted inside the menu-card) */
+.menu-section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.menu-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.menu-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    font-size: 1rem;
+    border-bottom: 1px dotted #ccc;
+}
+
+.menu-list li:last-child {
+    border-bottom: none;
+}
+
+.item-name {
+    font-weight: bold;
+    color: #444;
+}
+
+.item-price {
+    font-weight: bold;
+    color: #c0392b;
+    white-space: nowrap;
+    padding-left: 15px;
+}
+
+.menu-section {
+    margin-bottom: 20px;
+}
+
+
+/* --- ACTIONS CARD STYLES --- */
+.actions-card {
+    text-align: center; /* Centers the button and dice */
+}
 
 .round {
     padding: 10px 20px;
@@ -45,11 +132,24 @@ body{
     background-color: blue;
     color: white;
     cursor: pointer;
-    margin-left: 4rem;
 }
 
-.dice{
-    margin-left: 50%;
-    margin-top: -4%;
-    width: 100%;
+.dice {
+    margin-top: 20px; /* Space above the dice */
+    width: 100%; /* Make it container-aware */
 }
+
+.dice img {
+    max-width: 80px; /* Control the dice image size */
+    height: auto;
+}
+
+/* --- REMOVED / CLEANED UP --- */
+/* All of these specific margin-left rules are no longer needed */
+/* .size { margin-left: 6rem; }
+.spice-level { margin-left: 2rem; }
+.form-label { margin-left: 2rem; }
+select { margin-left: 2%; }
+.round { margin-left: 4rem; }
+.dice { margin-left: 50%; margin-top: -4%; }
+*/
