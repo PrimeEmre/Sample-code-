@@ -5,20 +5,13 @@ html {
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f4f4;
-    margin: 0; /* Removed margin-left */
-    padding: 20px 0; /* Added padding for top/bottom */
-}
-
-/* This new container centers everything on the page */
-.container {
-    width: 90%;
-    max-width: 650px; /* Set a max width for large screens */
-    margin: 0 auto;   /* This is the key to centering */
+    margin: 0; 
+    padding: 20px;
 }
 
 /* Main title of the restaurant */
 h1.turkish-restaurant {
-    text-align: center;
+    text-align: center; /* Center the main title */
     color: #c0392b;
     font-weight: 900;
     font-size: 2.4rem;
@@ -28,15 +21,43 @@ h1.turkish-restaurant {
     padding-bottom: 15px;
 }
 
-/* NEW: Base styles for all "cards" */
+/* NEW: This container holds the two columns */
+main.page-content {
+    display: flex; /* This creates the columns */
+    justify-content: center; /* Centers the columns on the page */
+    flex-wrap: wrap; /* Allows columns to stack on small screens */
+    gap: 2rem; /* Creates space between the two columns */
+    align-items: flex-start; /* Aligns columns to the top */
+}
+
+/* NEW: The left column */
+.left-column {
+    flex: 2; /* Makes this column larger */
+    min-width: 350px;
+    max-width: 650px;
+}
+
+/* NEW: The right column */
+.right-column {
+    flex: 1; /* Makes this column smaller */
+    min-width: 300px;
+    max-width: 400px;
+    
+    /* Stacks the form and action cards vertically */
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Space between the form and action cards */
+}
+
+/* Base styles for ALL cards */
 .card {
-    width: 100%; /* Make card fill the container */
+    width: 100%; /* Makes cards fill their column */
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     padding: 25px 35px;
-    margin-bottom: 25px; /* Adds space between cards */
-    box-sizing: border-box; /* Ensures padding doesn't break width */
+    box-sizing: border-box; 
+    /* REMOVED ALL MARGINS - the columns handle layout */
 }
 
 /* --- FORM CARD STYLES --- */
@@ -48,24 +69,22 @@ h1.turkish-restaurant {
 .form-card .form-label {
     font-size: 1.2rem;
     font-weight: 900;
-    display: block; /* Make labels take their own line */
-    margin-top: 20px; /* Space above each label */
-    margin-bottom: 8px; /* Space between label and input */
+    display: block; 
+    margin-top: 20px; 
+    margin-bottom: 8px;
 }
 
-/* Style for ALL select dropdowns and inputs in the form */
 .form-card select,
 .form-card input[list] {
-    width: 100%; /* Make form elements fill the card */
+    width: 100%; 
     padding: 12px;
     font-size: 1rem;
     border-radius: 6px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
-    box-sizing: border-box; /* Important for 100% width + padding */
+    box-sizing: border-box; 
 }
 
-/* Overriding the blue select box for a more standard look */
 .form-card select {
     background-color: #007bff;
     color: white;
@@ -73,9 +92,8 @@ h1.turkish-restaurant {
 }
 
 /* --- MENU CARD STYLES --- */
-/* (These are mostly from your original file, just targeted inside the menu-card) */
 .menu-section h2 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; 
     color: #333;
     font-weight: 500;
     margin-bottom: 15px;
@@ -84,18 +102,18 @@ h1.turkish-restaurant {
 }
 
 .menu-list {
-    list-style-type: none;
+    list-style-type: none; 
     padding-left: 0;
     margin: 0;
 }
 
 .menu-list li {
-    display: flex;
-    justify-content: space-between;
+    display: flex; 
+    justify-content: space-between; 
     align-items: center;
-    padding: 12px 0;
-    font-size: 1rem;
-    border-bottom: 1px dotted #ccc;
+    padding: 12px 0; 
+    font-size: 1rem; 
+    border-bottom: 1px dotted #ccc; 
 }
 
 .menu-list li:last-child {
@@ -109,9 +127,9 @@ h1.turkish-restaurant {
 
 .item-price {
     font-weight: bold;
-    color: #c0392b;
-    white-space: nowrap;
-    padding-left: 15px;
+    color: #c0392b; 
+    white-space: nowrap; 
+    padding-left: 15px; 
 }
 
 .menu-section {
@@ -121,7 +139,7 @@ h1.turkish-restaurant {
 
 /* --- ACTIONS CARD STYLES --- */
 .actions-card {
-    text-align: center; /* Centers the button and dice */
+    text-align: center; 
 }
 
 .round {
@@ -135,21 +153,11 @@ h1.turkish-restaurant {
 }
 
 .dice {
-    margin-top: 20px; /* Space above the dice */
-    width: 100%; /* Make it container-aware */
+    margin-top: 20px; 
+    width: 100%; 
 }
 
 .dice img {
-    max-width: 80px; /* Control the dice image size */
+    max-width: 100px;
     height: auto;
 }
-
-/* --- REMOVED / CLEANED UP --- */
-/* All of these specific margin-left rules are no longer needed */
-/* .size { margin-left: 6rem; }
-.spice-level { margin-left: 2rem; }
-.form-label { margin-left: 2rem; }
-select { margin-left: 2%; }
-.round { margin-left: 4rem; }
-.dice { margin-left: 50%; margin-top: -4%; }
-*/
