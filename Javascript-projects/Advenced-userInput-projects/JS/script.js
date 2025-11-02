@@ -60,3 +60,8 @@
 //         document.getElementById('result').innerHTML = '<p> The correct number was:' + ' ' + randomNumber + '</p>'
 //     }
 // }
+
+// Turkish resturant 
+function amount(){
+
+}
