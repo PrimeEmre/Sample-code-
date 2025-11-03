@@ -47,101 +47,107 @@
     <div class="dice">
         <img src="images/dice.jpg" alt="Dice">
     </div> -->
-<body>
 
-    <h1 class="turkish-restaurant">Turkish Restaurant</h1>
+    <body>
 
-    <main class="page-content">
+        <h1 class="turkish-restaurant">Turkish Restaurant</h1>
 
-        <div class="left-column">
-            <div class="card menu-card">
-                <section class="menu-section">
-                    <h2>Main Menu</h2>
-                    <ul class="menu-list">
-                        <li><span class="item-name">Adana Kebab</span><span class="item-price">$30.00</span></li>
-                        <li><span class="item-name">Urfa </span><span class="item-price">$25.00</span></li>
-                          <li><span class="item-name">Iskender Kebab </span><span class="item-price">$27.00</span></li>
-                           <li><span class="item-name">Doner Kebab </span><span class="item-price">$20.00</span></li>
-                              <li><span class="item-name">Chicken kebab </span><span class="item-price">$18.00</span></li>
-                    </ul>
-                </section>
-                <section class="menu-section">
-                    <h2>Desserts</h2>
-                    <ul class="menu-list">
-                        <li><span class="item-name">Baklava </span><span class="item-price">$10.00</span></li>
-                        <li><span class="item-name">Künefe</span><span class="item-price">$14.00</span></li>
-                         <li><span class="item-name">Lokum</span><span class="item-price">$10.00</span></li>
-                          <li><span class="item-name">Lokma</span><span class="item-price">$7.00</span></li>
-                          <li><span class="item-name">Maras Iceream </span><span class="item-price">$10.00</span></li>
-                    </ul>
-                </section>
-                <section class="menu-section">
-                    <h2>Kebab Sizes (Take-out)</h2>
-                    <ul class="menu-list">
-                        <li><span class="item-name">Small (250g)</span><span class="item-price">$0.00</span></li>
-                        <li><span class="item-name">Medium (500g)</span><span class="item-price">$3.00</span></li>
-                         <li><span class="item-name">Large (1KG)</span><span class="item-price">$5.00</span></li>
-                          <li><span class="item-name"> Large (1KG)</span><span class="item-price">$6.00</span></li>
-                          <li><span class="item-name">X Large (2KG)</span><span class="item-price">$10.00</span></li>
-                             <li><span class="item-name">XX Large (6KG)</span><span class="item-price">$20.00</span></li>
-                    </ul>
-                </section>
-            </div>
-        </div>
+        <main class="page-content">
 
-        <div class="right-column">
-            <div class="card form-card">
-                <h2>Customize Your Order</h2>
-                <label for="kebab-type" class="form-label">Kebab Type</label>
-                <input list="kebab-list" name="kebab-type" id="kebab-type" class="form-control" placeholder="Choose or type a kebab">
-                <datalist id="kebab-list">
-                    <option value="Adana Kebab"></option>
-                    <option value="Urfa Kebab"></option>
-                    <option value="Doner Kebab"></option>
-                    <option value="Iskender Kebab"></option>
-                    <option value="Chicken kebabi"></option>
-                     <option value="Cağ kebabı"></option>
-                </datalist>
-
-                <label for="desert-type" class="form-label">Dessert Type</label>
-                <input list="desert-list" name="desert-type" id="desert-type" class="form-control" placeholder="Choose or type a dessert">
-                <datalist id="desert-list">
-                    <option value="Baklava"></option>
-                    <option value="Künefe"></option>
-                    <option value="Lokum"></option>
-                     <option value="Lokma"></option>
-                      <option value="Maras Icecream"></option>
-                </datalist>
-
-                <label for="spice-level" class="form-label">Spice Level</label>
-                <select id="spice-level">
-                    <option>1</option>
-                    <option>2</option>
-                     <option>3</option>
-                     <option>4</option>
-                      <option>5</option>
-                </select>
-
-                <label for="size" class="form-label">Size</label>
-                <select id="size">
-                    <option>Small (250g)</option>
-                    <option>Medium (500g)</option>
-                      <option>Large (1KG)</option>
-                      <option>X Large (2KG)</option>
-                      <option>XX Large (6KG)</option>
-                </select>
-            </div>
-
-            <div class="card actions-card">
-                <button class="round" onclick="amount()">Amount</button>
-                <p id="result"></p>
-                <div class="dice">
-                    <img src="images/Keab.jpg" alt="Dice">
+            <div class="left-column">
+                <div class="card menu-card">
+                    <section class="menu-section">
+                        <h2>Main Menu</h2>
+                        <ul class="menu-list">
+                            <li><span class="item-name">Adana Kebab</span><span class="item-price">$30.00</span></li>
+                            <li><span class="item-name">Urfa </span><span class="item-price">$25.00</span></li>
+                            <li><span class="item-name">Iskender Kebab </span><span class="item-price">$27.00</span>
+                            </li>
+                            <li><span class="item-name">Doner Kebab </span><span class="item-price">$20.00</span></li>
+                            <li><span class="item-name">Chicken kebab </span><span class="item-price">$18.00</span></li>
+                             <li><span class="item-name">Cağ kebabı </span><span class="item-price">$32.00</span></li>
+                        </ul>
+                    </section>
+                    <section class="menu-section">
+                        <h2>Desserts</h2>
+                        <ul class="menu-list">
+                            <li><span class="item-name">Baklava </span><span class="item-price">$10.00</span></li>
+                            <li><span class="item-name">Künefe</span><span class="item-price">$14.00</span></li>
+                            <li><span class="item-name">Lokum</span><span class="item-price">$10.00</span></li>
+                            <li><span class="item-name">Lokma</span><span class="item-price">$7.00</span></li>
+                            <li><span class="item-name">Maras Iceream </span><span class="item-price">$10.00</span></li>
+                        </ul>
+                    </section>
+                    <section class="menu-section">
+                        <h2>Kebab Sizes (Take-out)</h2>
+                        <ul class="menu-list">
+                            <li><span class="item-name">Small (250g)</span><span class="item-price">$0.00</span></li>
+                            <li><span class="item-name">Medium (500g)</span><span class="item-price">$3.00</span></li>
+                            <li><span class="item-name">Large (1KG)</span><span class="item-price">$5.00</span></li>
+                            <li><span class="item-name"> Large (1KG)</span><span class="item-price">$6.00</span></li>
+                            <li><span class="item-name">X Large (2KG)</span><span class="item-price">$10.00</span></li>
+                            <li><span class="item-name">XX Large (6KG)</span><span class="item-price">$20.00</span></li>
+                        </ul>
+                    </section>
                 </div>
             </div>
-        </div>
 
-    </main> </body>
+            <div class="right-column">
+                <div class="card form-card">
+                    <h2>Customize Your Order</h2>
+                    <label for="kebab-type" class="form-label">Kebab Type</label>
+                    <input list="kebab-list" name="kebab-type" id="kebab-type" class="form-control"
+                        placeholder="Choose or type a kebab">
+                    <datalist id="kebab-list">
+                        <option value="Adana Kebab"></option>
+                        <option value="Urfa Kebab"></option>
+                        <option value="Doner Kebab"></option>
+                        <option value="Iskender Kebab"></option>
+                        <option value="Chicken kebabi"></option>
+                        <option value="Cağ kebabı"></option>
+                    </datalist>
+
+                    <label for="desert-type" class="form-label">Dessert Type</label>
+                    <input list="desert-list" name="desert-type" id="desert-type" class="form-control"
+                        placeholder="Choose or type a dessert">
+                    <datalist id="desert-list">
+                        <option value="Baklava"></option>
+                        <option value="Künefe"></option>
+                        <option value="Lokum"></option>
+                        <option value="Lokma"></option>
+                        <option value="Maras Icecream"></option>
+                    </datalist>
+
+                    <label for="spice-level" class="form-label">Spice Level</label>
+                    <select id="spice-level">
+                        <option value="less-spice">1</option>
+                        <option value="bit-spice ">2</option>
+                        <option value="medium-spice">3</option>
+                        <option value="spice">4</option>
+                        <option value="death-spice">5</option>
+                    </select>
+
+                    <label for="size" class="form-label">Size</label>
+                    <select id="size">
+                        <option value="small">Small (250g)</option>
+                        <option value="medium">Medium (500g)</option>
+                        <option value="large">Large (1KG)</option>
+                        <option value="x-large">X Large (2KG)</option>
+                        <option value="xx-large">XX Large (6KG)</option>
+                    </select>
+                </div>
+
+                <div class="card actions-card">
+                    <button class="round" onclick="amount()">Amount</button>
+                    <p id="result"></p>
+                    <div class="dice">
+                        <img src="images/Keab.jpg" alt="Dice">
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </body>
     <script src="JS/script.js"></script>
 </body>
 
