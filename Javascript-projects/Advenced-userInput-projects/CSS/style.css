@@ -5,13 +5,15 @@ html {
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f4f4;
-    margin: 0; 
+    margin: 0;
     padding: 20px;
+    margin-left: 2rem;
 }
 
 /* Main title of the restaurant */
 h1.turkish-restaurant {
-    text-align: center; /* Center the main title */
+    text-align: center;
+    /* Center the main title */
     color: #c0392b;
     font-weight: 900;
     font-size: 2.4rem;
@@ -23,40 +25,49 @@ h1.turkish-restaurant {
 
 /* NEW: This container holds the two columns */
 main.page-content {
-    display: flex; /* This creates the columns */
-    justify-content: center; /* Centers the columns on the page */
-    flex-wrap: wrap; /* Allows columns to stack on small screens */
-    gap: 2rem; /* Creates space between the two columns */
-    align-items: flex-start; /* Aligns columns to the top */
+    display: flex;
+    /* This creates the columns */
+    justify-content: center;
+    /* Centers the columns on the page */
+    flex-wrap: wrap;
+    /* Allows columns to stack on small screens */
+    gap: 2rem;
+    /* Creates space between the two columns */
+    align-items: flex-start;
+    /* Aligns columns to the top */
 }
 
 /* NEW: The left column */
 .left-column {
-    flex: 2; /* Makes this column larger */
+    flex: 2;
+    /* Makes this column larger */
     min-width: 350px;
     max-width: 650px;
 }
 
 /* NEW: The right column */
 .right-column {
-    flex: 1; /* Makes this column smaller */
+    flex: 1;
+    /* Makes this column smaller */
     min-width: 300px;
     max-width: 400px;
-    
+
     /* Stacks the form and action cards vertically */
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Space between the form and action cards */
+    gap: 25px;
+    /* Space between the form and action cards */
 }
 
 /* Base styles for ALL cards */
 .card {
-    width: 100%; /* Makes cards fill their column */
+    width: 100%;
+    /* Makes cards fill their column */
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     padding: 25px 35px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     /* REMOVED ALL MARGINS - the columns handle layout */
 }
 
@@ -69,20 +80,20 @@ main.page-content {
 .form-card .form-label {
     font-size: 1.2rem;
     font-weight: 900;
-    display: block; 
-    margin-top: 20px; 
+    display: block;
+    margin-top: 20px;
     margin-bottom: 8px;
 }
 
 .form-card select,
 .form-card input[list] {
-    width: 100%; 
+    width: 100%;
     padding: 12px;
     font-size: 1rem;
     border-radius: 6px;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 .form-card select {
@@ -93,7 +104,7 @@ main.page-content {
 
 /* --- MENU CARD STYLES --- */
 .menu-section h2 {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
     color: #333;
     font-weight: 500;
     margin-bottom: 15px;
@@ -102,18 +113,18 @@ main.page-content {
 }
 
 .menu-list {
-    list-style-type: none; 
+    list-style-type: none;
     padding-left: 0;
     margin: 0;
 }
 
 .menu-list li {
-    display: flex; 
-    justify-content: space-between; 
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 12px 0; 
-    font-size: 1rem; 
-    border-bottom: 1px dotted #ccc; 
+    padding: 12px 0;
+    font-size: 1rem;
+    border-bottom: 1px dotted #ccc;
 }
 
 .menu-list li:last-child {
@@ -127,9 +138,9 @@ main.page-content {
 
 .item-price {
     font-weight: bold;
-    color: #c0392b; 
-    white-space: nowrap; 
-    padding-left: 15px; 
+    color: #c0392b;
+    white-space: nowrap;
+    padding-left: 15px;
 }
 
 .menu-section {
@@ -139,25 +150,72 @@ main.page-content {
 
 /* --- ACTIONS CARD STYLES --- */
 .actions-card {
-    text-align: center; 
+    text-align: center;
 }
 
-.round {
+.calculate {
     padding: 10px 20px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border-radius: 5px;
     border: none;
     background-color: blue;
     color: white;
     cursor: pointer;
+    margin-left: 3%;
 }
 
-.dice {
-    margin-top: 20px; 
-    width: 100%; 
+.input-group {
+    width: 100%;
+    max-width: 380px;
+    margin-bottom: 1.5rem;
 }
 
-.dice img {
-    max-width: 100%;
+/* --- Style 1: Standard Professional Input --- */
+.input-group .styled-input {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 0.875rem 1rem;
+    /* 14px 16px */
+    font-size: 1rem;
+    /* 16px */
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    /* 8px rounded corners */
+    background-color: #ffffff;
+    color: var(--text-color);
+    box-sizing: border-box;
+    /* Important for padding to work correctly */
+
+    /* Smooth transition for focus */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Style for the placeholder text */
+.input-group .styled-input::placeholder {
+    color: var(--placeholder-color);
+}
+
+/* Professional Focus State */
+.input-group .styled-input:focus {
+    outline: none;
+    /* Removes the default blue outline */
+    border-color: var(--primary-color);
+    /* Adds a subtle "glow" effect */
+    box-shadow: 0 0 0 3px var(--focus-shadow);
+}
+.times{
+    margin-left: 5%;
+    font-size: 2rem;
+}
+
+.repated-mutiplycation {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.repated-mutiplycation img {
+    max-width: 40%;
     height: auto;
+    margin-left: 35%;
+    margin-top: -13%;
 }

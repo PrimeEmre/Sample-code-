@@ -10,11 +10,11 @@
 // }
 // }
 
-//Grade Calculator 
+//Grade Calculator
 
 // function convert() {
 //     let grade = parseInt(document.getElementById("grade").value)
-//     let result = "" 
+//     let result = ""
 //     if (grade >= 95 && grade <= 100) {
 //         result = "You got an A+"
 //     } else if (grade >= 85 && grade <= 94) {
@@ -61,84 +61,84 @@
 //     }
 // }
 
-// Turkish resturant 
-function amount() {
-    //Setting the veribles 
-    let kebabList = document.getElementById("kebab-type").value;
-    let desertList = document.getElementById("desert-type").value;
-    let spiceLevel = document.getElementById("spice-level").value;
-    let size = document.getElementById("size").value;
+// Turkish resturant
+// function amount() {
+//     //Setting the veribles
+//     let kebabList = document.getElementById("kebab-type").value;
+//     let desertList = document.getElementById("desert-type").value;
+//     let spiceLevel = document.getElementById("spice-level").value;
+//     let size = document.getElementById("size").value;
 
-    let kebabPrice = 0;
-    let desertPrice = 0;
-    let spiceLevelExtra = 0;
-    let sizePrice = 0;
-    let resultMessage = "";
+//     let kebabPrice = 0;
+//     let desertPrice = 0;
+//     let spiceLevelExtra = 0;
+//     let sizePrice = 0;
+//     let resultMessage = "";
 
-    // Settting the kebab
-    if (kebabList == "Adana Kebab") {
-        kebabPrice = 30.00;
-    } else if (kebabList == "Urfa Kebab") {
-        kebabPrice = 25.00;
-    } else if (kebabList == "Iskender Kebab") {
-        kebabPrice = 27.00;
-    } else if (kebabList == "Doner Kebab") {
-        kebabPrice = 20.00;
-    } else if (kebabList == "Chicken kebabi") { 
-        kebabPrice = 18.00;
-    }else if(kebabList == "Cağ kebabı"){
-        kebabPrice = 32.00
-    }
+//     // Settting the kebab
+//     if (kebabList == "Adana Kebab") {
+//         kebabPrice = 30.00;
+//     } else if (kebabList == "Urfa Kebab") {
+//         kebabPrice = 25.00;
+//     } else if (kebabList == "Iskender Kebab") {
+//         kebabPrice = 27.00;
+//     } else if (kebabList == "Doner Kebab") {
+//         kebabPrice = 20.00;
+//     } else if (kebabList == "Chicken kebabi") {
+//         kebabPrice = 18.00;
+//     }else if(kebabList == "Cağ kebabı"){
+//         kebabPrice = 32.00
+//     }
 
-    //Setting the deserts 
-    if (desertList == "Baklava") {
-        desertPrice = 10.00;
-    } else if (desertList == "Künefe") {
-        desertPrice = 14.00;
-    } else if (desertList == "Lokum") {
-        desertPrice = 10.00;
-    } else if (desertList == "Lokma") {
-        desertPrice = 7.00;
-    } else if (desertList == "Maras Icecream") {
-        desertPrice = 10.00;
-    }
+//     //Setting the deserts
+//     if (desertList == "Baklava") {
+//         desertPrice = 10.00;
+//     } else if (desertList == "Künefe") {
+//         desertPrice = 14.00;
+//     } else if (desertList == "Lokum") {
+//         desertPrice = 10.00;
+//     } else if (desertList == "Lokma") {
+//         desertPrice = 7.00;
+//     } else if (desertList == "Maras Icecream") {
+//         desertPrice = 10.00;
+//     }
 
-    // Setting the spice level 
-    if (spiceLevel == "less-spice") {
-        spiceLevelExtra = 1.00;
-    } else if (spiceLevel == "bit-spice") { 
-        spiceLevelExtra = 2.00;
-    } else if (spiceLevel == "medium-spice") {
-        spiceLevelExtra = 2.50;
-    } else if (spiceLevel == "spice") { 
-        spiceLevelExtra = 3.50;
-    } else if (spiceLevel == "death-spice") {
-        spiceLevelExtra = 5.50;
-    }
-    //Setting the sizes
-    if (size == "small") {
-        sizePrice = 0.00;
-    } else if (size == "medium") {
-        sizePrice = 3.00;
-    } else if (size == "large") {
-        sizePrice = 5.00;
-    } else if (size == "x-large") {
-        sizePrice = 10.00;
-    } else if (size == "xx-large") {
-        sizePrice = 20.00;
-    }
+//     // Setting the spice level
+//     if (spiceLevel == "less-spice") {
+//         spiceLevelExtra = 1.00;
+//     } else if (spiceLevel == "bit-spice") {
+//         spiceLevelExtra = 2.00;
+//     } else if (spiceLevel == "medium-spice") {
+//         spiceLevelExtra = 2.50;
+//     } else if (spiceLevel == "spice") {
+//         spiceLevelExtra = 3.50;
+//     } else if (spiceLevel == "death-spice") {
+//         spiceLevelExtra = 5.50;
+//     }
+//     //Setting the sizes
+//     if (size == "small") {
+//         sizePrice = 0.00;
+//     } else if (size == "medium") {
+//         sizePrice = 3.00;
+//     } else if (size == "large") {
+//         sizePrice = 5.00;
+//     } else if (size == "x-large") {
+//         sizePrice = 10.00;
+//     } else if (size == "xx-large") {
+//         sizePrice = 20.00;
+//     }
 
-    const subtotal = kebabPrice + desertPrice + sizePrice + spiceLevelExtra;
-    const taxRate = 0.13;
-    const tax = subtotal * taxRate;
-    const total = subtotal + tax;
+//     const subtotal = kebabPrice + desertPrice + sizePrice + spiceLevelExtra;
+//     const taxRate = 0.13;
+//     const tax = subtotal * taxRate;
+//     const total = subtotal + tax;
 
-    resultMessage += "Kebab Price: $" + kebabPrice.toFixed(2) + "<br>";
-    resultMessage += "Dessert Price: $" + desertPrice.toFixed(2) + "<br>";
-    resultMessage += "Size Price: $" + sizePrice.toFixed(2) + "<br>";
-    resultMessage += "Spice Extra: $" + spiceLevelExtra.toFixed(2) + "<br>";
-    resultMessage += "Tax (13%): $" + tax.toFixed(2) + "<br>";
-    resultMessage += "<strong>Total: $" + total.toFixed(2) + "</strong>";
+//     resultMessage += "Kebab Price: $" + kebabPrice.toFixed(2) + "<br>";
+//     resultMessage += "Dessert Price: $" + desertPrice.toFixed(2) + "<br>";
+//     resultMessage += "Size Price: $" + sizePrice.toFixed(2) + "<br>";
+//     resultMessage += "Spice Extra: $" + spiceLevelExtra.toFixed(2) + "<br>";
+//     resultMessage += "Tax (13%): $" + tax.toFixed(2) + "<br>";
+//     resultMessage += "<strong>Total: $" + total.toFixed(2) + "</strong>";
 
-    document.getElementById("result").innerHTML = resultMessage;
-}
+//     document.getElementById("result").innerHTML = resultMessage;
+// }
