@@ -208,14 +208,14 @@ main.page-content {
     font-size: 2rem;
 }
 
-.repated-mutiplycation {
+.formula{
     margin-top: 20px;
     width: 100%;
 }
 
-.repated-mutiplycation img {
+.formula img {
     max-width: 40%;
     height: auto;
     margin-left: 35%;
-    margin-top: -13%;
+    margin-top: -12%;
 }

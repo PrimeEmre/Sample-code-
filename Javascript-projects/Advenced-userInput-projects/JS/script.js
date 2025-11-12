@@ -143,42 +143,47 @@
 //     document.getElementById("result").innerHTML = resultMessage;
 // }
 
+// // Repated Mutiplycation
+// function calculate() {
+//     // Get numbers from the user
+//     let fisrtNum = parseInt(document.getElementById("fisrt-num").value)
+//     let secondNum = parseInt(document.getElementById("second-num").value)
+
+//     // setting our veribles
+//     let result = 0
+//     let count = 0
+//     let additionText = ""
+//     let negativeResult = false
+
+//     if ((fisrtNum < 0 && secondNum > 0) || (fisrtNum > 0 && secondNum < 0)) {
+//         negativeResult = true
+//     }
+//     // Check if the result should be negative
+//     if (fisrtNum < 0) {
+//         fisrtNum = 0 - fisrtNum
+//     }
+//     if (secondNum < 0) {
+//         secondNum = 0 - secondNum
+//     }
+//     // Multiply using repeated addition
+//     while (count < secondNum) {
+//         result += fisrtNum
+//         additionText += fisrtNum
+
+//         if (count < secondNum - 1) {
+//             additionText += " + "
+//         }
+
+//         count++
+//     }
+
+//     // Make result negative if needed
+//     if (negativeResult) {
+//         result = 0 - result
+//     }
+//     document.getElementById("result").textContent = additionText + " = " + result
+// }
+
 function calculate() {
-    // Get numbers from the user
-    let fisrtNum = parseInt(document.getElementById("fisrt-num").value)
-    let secondNum = parseInt(document.getElementById("second-num").value)
 
-    // setting our veribles
-    let result = 0
-    let count = 0
-    let additionText = ""
-    let negativeResult = false
-
-    if ((fisrtNum < 0 && secondNum > 0) || (fisrtNum > 0 && secondNum < 0)) {
-        negativeResult = true
-    }
-    // Check if the result should be negative
-    if (fisrtNum < 0) {
-        fisrtNum = 0 - fisrtNum
-    }
-    if (secondNum < 0) {
-        secondNum = 0 - secondNum
-    }
-    // Multiply using repeated addition
-    while (count < secondNum) {
-        result += fisrtNum
-        additionText += fisrtNum
-
-        if (count < secondNum - 1) {
-            additionText += " + "
-        }
-
-        count++
-    }
-
-    // Make result negative if needed
-    if (negativeResult) {
-        result = 0 - result
-    }
-    document.getElementById("result").textContent = additionText + " = " + result
 }
