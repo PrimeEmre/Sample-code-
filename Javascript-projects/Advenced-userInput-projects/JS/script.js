@@ -204,7 +204,21 @@
 // }
 
 // Long Division Program
-function calculate(){
+function calculate() {
     // setting the veribles
-    
+    firstNum = parseInt(document.getElementById("first-num").value)
+    secondNum = parseInt(document.getElementById("second-num").value)
+    let result = 0
+    let remainder = firstNum
+    // Setting the loop
+    while (true) {
+        if (remainder >= secondNum) {
+            remainder = remainder - secondNum
+            result++
+        }
+        else {
+            break
+        }
+    }
+    document.getElementById("result").innerHTML = "<strong>" + firstNum + "</strong>" + " ÷ " + "<strong>" + secondNum + "</strong>" + " = " + "<strong>" + result + "<storong>" + "<br>" + "<strong>" + " Remainder: " + "</strong>" + remainder
 }
