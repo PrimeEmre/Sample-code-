@@ -192,9 +192,9 @@ function calculate() {
     let additionText = ""
     // Setting the loop
     for (num = num; num > 0; num--) {
-        result = result + num;
-        additionText = additionText + num;
-        
+        result = result + num
+        additionText = additionText + num
+
         if (num > 1) {
             additionText = additionText + " + ";
         }
