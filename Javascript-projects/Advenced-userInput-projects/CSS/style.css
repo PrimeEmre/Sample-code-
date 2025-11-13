@@ -203,19 +203,20 @@ main.page-content {
     /* Adds a subtle "glow" effect */
     box-shadow: 0 0 0 3px var(--focus-shadow);
 }
-.times{
+
+.times {
     margin-left: 5%;
     font-size: 2rem;
 }
 
-.formula{
+.divition {
     margin-top: 20px;
     width: 100%;
 }
 
-.formula img {
+.divition img {
     max-width: 40%;
     height: auto;
     margin-left: 35%;
-    margin-top: 2%;
+    margin-top: -12%;
 }

@@ -185,19 +185,26 @@
 // }
 
 // Sum of n natural numbers
-function calculate() {
-    // setting the veribles
-    let num = parseInt(document.getElementById("num").value)
-    let result = 0
-    let additionText = ""
-    // Setting the loop
-    for (num = num; num > 0; num--) {
-        result = result + num
-        // additionText = additionText + num
+// function calculate() {
+//     // setting the veribles
+//     let num = parseInt(document.getElementById("num").value)
+//     let result = 0
+//     let additionText = ""
+//     // Setting the loop
+//     for (num = num; num > 0; num--) {
+//         result = result + num
+//         // extending the numbers 
+//         // additionText = additionText + num
 
-        // if (num > 1) {
-        //     additionText = additionText + " + ";
-        // }
-    }
-    document.getElementById("result").textContent = additionText + " = " + result
+//         // if (num > 1) {
+//         //     additionText = additionText + " + ";
+//         // }
+//     }
+//     document.getElementById("result").textContent = additionText + " = " + result
+// }
+
+// Long Division Program
+function calculate(){
+    // setting the veribles
+    
 }
