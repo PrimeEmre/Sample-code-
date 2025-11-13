@@ -193,11 +193,11 @@ function calculate() {
     // Setting the loop
     for (num = num; num > 0; num--) {
         result = result + num
-        additionText = additionText + num
+        // additionText = additionText + num
 
-        if (num > 1) {
-            additionText = additionText + " + ";
-        }
+        // if (num > 1) {
+        //     additionText = additionText + " + ";
+        // }
     }
     document.getElementById("result").textContent = additionText + " = " + result
 }
