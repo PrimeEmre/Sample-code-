@@ -204,21 +204,52 @@
 // }
 
 // Long Division Program
-function calculate() {
-    // setting the veribles
-    firstNum = parseInt(document.getElementById("first-num").value)
-    secondNum = parseInt(document.getElementById("second-num").value)
-    let result = 0
-    let remainder = firstNum
-    // Setting the loop
-    while (true) {
-        if (remainder >= secondNum) {
-            remainder = remainder - secondNum
-            result++
-        }
-        else {
-            break
-        }
+// function calculate() {
+//     // setting the veribles
+//     firstNum = parseInt(document.getElementById("first-num").value)
+//     secondNum = parseInt(document.getElementById("second-num").value)
+//     let result = 0
+//     let remainder = firstNum
+//     // Setting the loop
+//     while (true) {
+//         if (remainder >= secondNum) {
+//             remainder = remainder - secondNum
+//             result++
+//         }
+//         else {
+//             break
+//         }
+//     }
+//     document.getElementById("result").innerHTML = "<strong>" + firstNum + "</strong>" + " ÷ " + "<strong>" + secondNum + "</strong>" + " = " + "<strong>" + result + "<storong>" + "<br>" + "<strong>" + " Remainder: " + "</strong>" + remainder
+// }
+
+// Intereset clacualtor
+function calculateBtn() {
+    // Setting the veribles
+    const principal = parseFloat(document.getElementById("principal").value)
+    const rate = parseFloat(document.getElementById("rate").value)
+    const time = parseFloat(document.getElementById("time").value)
+    const frequency = parseFloat(document.getElementById("frequency").value);
+    const totalDisplay = document.getElementById("total-display")
+    const principalDisplay = document.getElementById("principal-display")
+    const interestDisplay = document.getElementById("interest-display")
+    let totalAmount = principal
+    // formaitting currency
+    const currencyFormatter = new Intl.NumberFormat('en-CA', {
+            style: 'currency',
+            currency: 'CAD'
+        })
+        // Calculating rate per period
+        const ratePerPeriod = (rate / 100) / frequency
+        
+    // Setting the looping & claculations 
+    for (let year = 1; year <= time; year++) {
+       totalAmount += totalAmount * ratePerPeriod
     }
-    document.getElementById("result").innerHTML = "<strong>" + firstNum + "</strong>" + " ÷ " + "<strong>" + secondNum + "</strong>" + " = " + "<strong>" + result + "<storong>" + "<br>" + "<strong>" + " Remainder: " + "</strong>" + remainder
+    const totalInterest = totalAmount - principal
+    
+    // Displaying the results
+    totalDisplay.textContent = currencyFormatter.format(totalAmount)
+    principalDisplay.textContent = currencyFormatter.format(principal)
+    interestDisplay.textContent = '+' + currencyFormatter.format(totalInterest)
 }
