@@ -399,3 +399,96 @@ main.page-content {
                 padding: 30px;
             }
         }
+
+
+        /* --- CALCULATOR CONTAINER --- */
+        .calculator {
+            background-color: var(--calculator-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 350px; /* Standard calculator width */
+            overflow: hidden; /* Ensures display and buttons fit in rounded corners */
+            display: flex;
+            flex-direction: column; /* Stack display on top of buttons */
+        }
+
+        /* --- DISPLAY AREA --- */
+        .display {
+            background-color: var(--display-bg);
+            color: var(--text-color-display);
+            font-family: var(--font-mono);
+            padding: 20px;
+            text-align: right;
+            font-size: 2.5rem; /* Large font for readability */
+            min-height: 80px; /* Ensure display has minimum height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around; /* Distribute content */
+            align-items: flex-end; /* Align text to the right */
+            word-break: break-all; /* Break long numbers */
+        }
+
+        .previous-operand {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7); /* Slightly faded for previous calculation */
+            min-height: 1.2em; /* Reserve space */
+        }
+
+        .current-operand {
+            font-size: 2.5rem;
+            font-weight: 500;
+            min-height: 1.5em; /* Reserve space */
+        }
+
+        /* --- BUTTONS GRID --- */
+        .buttons-grid {
+            display: grid;
+            /* 4 columns of equal width */
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 1px; /* Tiny gap between buttons for visual separation */
+            border-top: 1px solid #333; /* Line to separate display from buttons */
+        }
+
+        /* --- BUTTON STYLING --- */
+        button {
+            padding: 20px 0;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.1s ease-in-out;
+            color: var(--text-color-light);
+            font-family: var(--font-sans);
+            font-weight: 500;
+        }
+
+        /* Number buttons */
+        button.number {
+            background-color: var(--button-num-bg);
+        }
+        button.number:hover {
+            background-color: var(--button-num-hover);
+        }
+
+        /* Operator buttons */
+        button.operator {
+            background-color: var(--button-op-bg);
+            color: var(--text-color-light); /* Ensure text is visible on orange */
+        }
+        button.operator:hover {
+            background-color: var(--button-op-hover);
+        }
+
+        /* Clear and Delete buttons */
+        button.clear-delete {
+            background-color: var(--button-clear-bg);
+        }
+        button.clear-delete:hover {
+            background-color: var(--button-clear-hover);
+        }
+
+        /* Special button for zero to span 2 columns */
+        button.span-two {
+            grid-column: span 2;
+        }

@@ -189,7 +189,7 @@
     <!-- </div> -->
 
     <!--  Investment calculator final project for looping  -->
-    <div class="calculator-card">
+    <!-- <div class="calculator-card">
 
         <div class="form-section">
             <div class="form-header">
@@ -228,8 +228,8 @@
             </div>
 
             <button class="calculate-btn" onclick="calculateBtn()">Calculate Returns</button>
-        </div>
-
+        </div> -->
+        <!-- 
         <div class="result-section">
             <div class="result-card">
                 <div class="result-label">Total Value</div>
@@ -250,9 +250,41 @@
                 <img src="images/money.jpg" alt="Long divition">
             </div>
         </div>
-    </div>
+    </div> -->
+    
+        <!-- Ending this code with a nice final project with developing calculator  -->
+        <div class="calculator">
+        <div class="display">
+            <div id="previous-operand" class="previous-operand"></div> 
+            <div id="current-operand" class="current-operand">0</div> 
+        </div>
 
-    <script src="JS/script.js"></script>
+        <div class="buttons-grid">
+            <button class="clear-delete" id="clear" onclick="claer()">AC</button>
+            <button class="clear-delete" id="delete" onclick="del()">DEL</button>
+            <button class="operator" id="percent" onclick="percent()">%</button>
+            <button class="operator" id="divide" onclick="divide()">/</button>
+
+            <button class="number">7</button>
+            <button class="number">8</button>
+            <button class="number">9</button>
+            <button class="operator" id="multiply">*</button>
+
+            <button class="number">4</button>
+            <button class="number">5</button>
+            <button class="number">6</button>
+            <button class="operator" id="add">+</button>
+
+            <button class="number">1</button>
+            <button class="number">2</button>
+            <button class="number">3</button>
+            <button class="operator" id="subtract">-</button>
+
+            <button class="number span-two">0</button> <button class="number">.</button>
+            <button class="operator" id="equals">=</button>
+        </div>
+    </div>
+        <script src="JS/script.js"></script>
 
 </html>
 </body>
