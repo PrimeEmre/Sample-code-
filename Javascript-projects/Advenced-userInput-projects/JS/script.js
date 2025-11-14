@@ -224,32 +224,45 @@
 // }
 
 // Intereset clacualtor for our final project
-function calculateBtn() {
-    // Setting the veribles
-    const principal = parseFloat(document.getElementById("principal").value)
-    const rate = parseFloat(document.getElementById("rate").value)
-    const time = parseFloat(document.getElementById("time").value)
-    const frequency = parseFloat(document.getElementById("frequency").value);
-    const totalDisplay = document.getElementById("total-display")
-    const principalDisplay = document.getElementById("principal-display")
-    const interestDisplay = document.getElementById("interest-display")
-    let totalAmount = principal
-    // formaitting currency
-    const currencyFormatter = new Intl.NumberFormat('en-CA', {
-        style: 'currency',
-        currency: 'CAD'
-    })
-    // Calculating rate per period
-    const ratePerPeriod = (rate / 100) / frequency
+// function calculateBtn() {
+//     // Setting the veribles
+//     const principal = parseFloat(document.getElementById("principal").value)
+//     const rate = parseFloat(document.getElementById("rate").value)
+//     const time = parseFloat(document.getElementById("time").value)
+//     const frequency = parseFloat(document.getElementById("frequency").value);
+//     const totalDisplay = document.getElementById("total-display")
+//     const principalDisplay = document.getElementById("principal-display")
+//     const interestDisplay = document.getElementById("interest-display")
+//     let totalAmount = principal
+//     // formaitting currency
+//     const currencyFormatter = new Intl.NumberFormat('en-CA', {
+//         style: 'currency',
+//         currency: 'CAD'
+//     })
+//     // Calculating rate per period
+//     const ratePerPeriod = (rate / 100) / frequency
 
-    // Setting the looping & claculations 
-    for (let year = 1; year <= time; year++) {
-        totalAmount += totalAmount * ratePerPeriod
+//     // Setting the looping & claculations 
+//     for (let year = 1; year <= time; year++) {
+//         totalAmount += totalAmount * ratePerPeriod
+//     }
+//     const totalInterest = totalAmount - principal
+
+//     // Displaying the results
+//     totalDisplay.textContent = currencyFormatter.format(totalAmount)
+//     principalDisplay.textContent = currencyFormatter.format(principal)
+//     interestDisplay.textContent = '+' + currencyFormatter.format(totalInterest)
+// }
+
+// Calculator project
+// Setting the clases and the veribles that holds the logics 
+class Calculator {
+    constructor(previousOperandTextElement, currentOperandTextElement) {
+        this.currentOperand = '0'
+        this.previousOperand = ''
+        this.operation = undefined
     }
-    const totalInterest = totalAmount - principal
-
-    // Displaying the results
-    totalDisplay.textContent = currencyFormatter.format(totalAmount)
-    principalDisplay.textContent = currencyFormatter.format(principal)
-    interestDisplay.textContent = '+' + currencyFormatter.format(totalInterest)
+    clear(){
+        
+    }
 }
