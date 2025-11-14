@@ -223,7 +223,7 @@
 //     document.getElementById("result").innerHTML = "<strong>" + firstNum + "</strong>" + " ÷ " + "<strong>" + secondNum + "</strong>" + " = " + "<strong>" + result + "<storong>" + "<br>" + "<strong>" + " Remainder: " + "</strong>" + remainder
 // }
 
-// Intereset clacualtor
+// Intereset clacualtor for our final project
 function calculateBtn() {
     // Setting the veribles
     const principal = parseFloat(document.getElementById("principal").value)
@@ -236,18 +236,18 @@ function calculateBtn() {
     let totalAmount = principal
     // formaitting currency
     const currencyFormatter = new Intl.NumberFormat('en-CA', {
-            style: 'currency',
-            currency: 'CAD'
-        })
-        // Calculating rate per period
-        const ratePerPeriod = (rate / 100) / frequency
-        
+        style: 'currency',
+        currency: 'CAD'
+    })
+    // Calculating rate per period
+    const ratePerPeriod = (rate / 100) / frequency
+
     // Setting the looping & claculations 
     for (let year = 1; year <= time; year++) {
-       totalAmount += totalAmount * ratePerPeriod
+        totalAmount += totalAmount * ratePerPeriod
     }
     const totalInterest = totalAmount - principal
-    
+
     // Displaying the results
     totalDisplay.textContent = currencyFormatter.format(totalAmount)
     principalDisplay.textContent = currencyFormatter.format(principal)
