@@ -48,9 +48,8 @@
         <img src="images/dice.jpg" alt="Dice">
     </div> -->
 
-    <body>
-
-        <!-- <h1 class="turkish-restaurant">Turkish Restaurant</h1>
+    <!-- Turkish Restaurant  final project for if and else statements  -->
+    <!-- <h1 class="turkish-restaurant">Turkish Restaurant</h1>
 
         <main class="page-content">
 
@@ -147,7 +146,7 @@
             </div>
 
         </main> -->
-        <!-- Repeated Multiplication application
+    <!-- Repeated Multiplication application
     <h1>Repeated Multiplication application</h1>
     <div class="input-group">
         <input type="text" id="fisrt-num" class="styled-input" placeholder="Enter First number ">
@@ -164,8 +163,8 @@
             <img src="images/mutipllycation.jpg" alt="repated-mutiplycation">
         </div> -->
 
-        <!-- Sum of n natural numbers -->
-        <!-- <h1> Sum of n natural numbers </h1>
+    <!-- Sum of n natural numbers -->
+    <!-- <h1> Sum of n natural numbers </h1>
         <div class="input-group">
             <input type="text" id="num" class="styled-input" placeholder="Enter a  number ">
         </div>
@@ -174,9 +173,9 @@
         <div class="formula">
             <img src="images/fomula.jpg" alt="repated-mutiplycation">
         </div> -->
-        
-        <!--  Long Divition Program  -->
-        <h1> Long Divition Program  </h1>
+
+    <!--  Long Divition Program  -->
+    <!-- <h1> Long Divition Program  </h1>
         <div class="input-group">
             <input type="text" id="first-num" class="styled-input" placeholder="Enter the first number ">
         </div>
@@ -186,9 +185,74 @@
         <button class="calculate" onclick="calculate()">calculate </button>
         <p id="result"></p>
         <div class="divition">
-            <img src="images/divition.jpg" alt="Long divition">
+            <img src="images/divition.jpg" alt="Long divition"> -->
+    <!-- </div> -->
+
+    <!--  Interest calculator final project for looping  -->
+    <div class="calculator-card">
+
+        <div class="form-section">
+            <div class="form-header">
+                <h1>Investment Calculator</h1>
+                <p>Calculate your potential returns over time.</p>
+            </div>
+
+            <div class="input-group">
+                <label for="principal">Principal Amount</label>
+                <div class="input-wrapper">
+                    <span class="currency-symbol">$</span>
+                    <input type="number" id="principal" placeholder="5000" style="padding-left: 25px;">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="rate">Annual Interest Rate</label>
+                <div class="input-wrapper">
+                    <input type="number" id="rate" placeholder="5" style="padding-right: 25px; padding-left: 16px;">
+                    <span class="percent-symbol">%</span>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="time">Time Period (Years)</label>
+                <input type="number" id="time" placeholder="10">
+            </div>
+
+            <div class="input-group">
+                <label for="frequency">Compound Frequency</label>
+                <select id="frequency">
+                    <option value="1">Annually (Once a year)</option>
+                    <option value="12">Monthly (12 times a year)</option>
+                    <option value="4">Quarterly (4 times a year)</option>
+                </select>
+            </div>
+
+            <button class="calculate-btn">Calculate Returns</button>
         </div>
-        <script src="JS/script.js"></script>
-    
+
+        <div class="result-section">
+            <div class="result-card">
+                <div class="result-label">Total Value</div>
+                <div class="result-value" id="total-display">$0.00</div>
+
+                <div class="breakdown">
+                    <div class="breakdown-row">
+                        <span>Initial Investment</span>
+                        <span id="principal-display">$0.00</span>
+                    </div>
+                    <div class="breakdown-row">
+                        <span>Total Interest Earned</span>
+                        <span style="color: #10b981;">+$0.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="divition">
+                <img src="images/divition.jpg" alt="Long divition">
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/script.js"></script>
+
 </html>
 </body>
