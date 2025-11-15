@@ -253,35 +253,38 @@
     </div> -->
     
         <!-- Ending this code with a nice final project with developing calculator  -->
-        <div class="calculator">
+      <div class="calculator">
         <div class="display">
-            <div id="previous-operand" class="previous-operand"></div> 
-            <div id="current-operand" class="current-operand">0</div> 
+            <!-- Give your display elements data attributes to select them -->
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operand">0</div>
         </div>
 
         <div class="buttons-grid">
-            <button class="clear-delete" id="clear" onclick="claer()">AC</button>
-            <button class="clear-delete" id="delete" onclick="del()">DEL</button>
-            <button class="operator" id="percent" onclick="percent()">%</button>
-            <button class="operator" id="divide" onclick="divide()">/</button>
+            <!-- Give your buttons data attributes to identify them -->
+            <button data-clear class="clear-delete" id="clear">AC</button>
+            <button data-delete class="clear-delete" id="delete">DEL</button>
+            <button data-operation class="operator" id="percent">%</button>
+            <button data-operation class="operator" id="divide">/</button>
 
-            <button class="number">7</button>
-            <button class="number">8</button>
-            <button class="number">9</button>
-            <button class="operator" id="multiply">*</button>
+            <button data-number class="number">7</button>
+            <button data-number class="number">8</button>
+            <button data-number class="number">9</button>
+            <button data-operation class="operator" id="multiply">*</button>
 
-            <button class="number">4</button>
-            <button class="number">5</button>
-            <button class="number">6</button>
-            <button class="operator" id="add">+</button>
+            <button data-number class="number">4</button>
+            <button data-number class="number">5</button>
+            <button data-number class="number">6</button>
+            <button data-operation class="operator" id="add">+</button>
 
-            <button class="number">1</button>
-            <button class="number">2</button>
-            <button class="number">3</button>
-            <button class="operator" id="subtract">-</button>
+            <button data-number class="number">1</button>
+            <button data-number class="number">2</button>
+            <button data-number class="number">3</button>
+            <button data-operation class="operator" id="subtract">-</button>
 
-            <button class="number span-two">0</button> <button class="number">.</button>
-            <button class="operator" id="equals">=</button>
+            <button data-number class_name="number" class="number span-two">0</button>
+            <button data-number class="number">.</button>
+            <button data-equals class="operator" id="equals">=</button>
         </div>
     </div>
         <script src="JS/script.js"></script>

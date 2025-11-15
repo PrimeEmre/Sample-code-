@@ -258,11 +258,163 @@
 // Setting the clases and the veribles that holds the logics 
 class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
+        this.previousOperandTextElement = previousOperandTextElement
+        this.currentOperandTextElement = currentOperandTextElement
+        this.clear(); // clearing the calculator
+    }
+
+    // This resets the calculator to its default state
+    clear() {
         this.currentOperand = '0'
         this.previousOperand = ''
         this.operation = undefined
+        this.updateDisplay(); // Added this call to update the screen on clear
     }
-    clear(){
-        
+
+    // This adds a number or a decimal to the display
+    appendNumber(number) {
+        if (number == '.' && this.currentOperand.includes('.')) return
+        // If the current number is 0, replace it
+        if (this.currentOperand == '0' && number !== '.') {
+            this.currentOperand = number
+        } else {
+            this.currentOperand = this.currentOperand.toString() + number.toString()
+        }
+    }
+
+    // Setting the (+,-,*,/)
+    chooseOperation(operation) {
+        if (this.currentOperand == '') return
+        // If the user enters the first number, it will calculate that number first
+        if (this.previousOperand !== '') {
+            // FIX: Misspelled "compute"
+            this.compute()
+        }
+        this.operation = operation;
+        this.previousOperand = this.currentOperand
+        this.currentOperand = '' // clearing the text
+    }
+
+    // Setting the calculation
+    // FIX: Misspelled "compute"
+    compute() {
+        let computation
+        const prev = parseFloat(this.previousOperand)
+        const current = parseFloat(this.currentOperand)
+        // Checking the valid numbers
+        if (isNaN(prev) || isNaN(current)) return
+
+        // Setting the operators
+        switch (this.operation) {
+            case '+':
+                computation = prev + current
+                break
+            case '-':
+                computation = prev - current
+                break
+            case '*':
+                computation = prev * current
+                break
+            case '/':
+                computation = prev / current
+                break
+            default:
+                return
+        }
+        // Storing the result
+        this.currentOperand = computation.toString()
+        this.operation = undefined
+        this.previousOperand = ''
+    }
+
+    // Logic for the DELETE button
+    delete() {
+        // If the string is just "0", do nothing
+        if (this.currentOperand =='0') return
+        // Use .slice(0, -1) to cut off the last character
+        this.currentOperand = this.currentOperand.toString().slice(0, -1)
+        // If you've deleted everything, set it back to "0"
+        if (this.currentOperand == '') {
+            this.currentOperand = '0';
+        }
+    }
+
+    // Logic for the PERCENT button
+    percent() {
+        const current = parseFloat(this.currentOperand)
+        if (isNaN(current)) return;
+        this.currentOperand = (current / 100).toString()
+    }
+
+    // Updating the page
+    updateDisplay() {
+        this.currentOperandTextElement.innerText = this.currentOperand
+        if (this.operation != null) {
+            this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`
+        } else {
+            this.previousOperandTextElement.innerText = ''
+        }
     }
 }
+
+// Setting the Data
+const numberButtons = document.querySelectorAll('[data-number]')
+const operationButtons = document.querySelectorAll('[data-operation]')
+const equalsButton = document.querySelector('[data-equals]')
+const deleteButton = document.querySelector('[data-delete]')
+const clearButton = document.querySelector('[data-clear]')
+// --- ADDED THIS SELECTION ---
+const percentButton = document.querySelector('#percent') // Select the percent button by its ID
+const previousOperandTextElement = document.querySelector('[data-previous-operand]')
+const currentOperandTextElement = document.querySelector('[data-current-operand]')
+
+// Updating the display element
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+
+// Adding an event for every single number button
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText)
+        calculator.updateDisplay()
+    })
+})
+
+// Setting the operator buttons
+operationButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // This stops the percent button from running "chooseOperation"
+        if (button.id == 'percent') return
+        
+        calculator.chooseOperation(button.innerText)
+        
+        // FIX: Added missing ()
+        calculator.updateDisplay()
+    });
+});
+
+// Setting the =
+equalsButton.addEventListener('click', () => {
+    // FIX: Misspelled "compute"
+    calculator.compute()
+    calculator.updateDisplay()
+});
+
+
+// Setting the AC button
+clearButton.addEventListener('click', () => {
+    calculator.clear()
+})
+
+// Setting the DEL button
+deleteButton.addEventListener('click', () => {
+    calculator.delete()
+    calculator.updateDisplay()
+});
+
+// Setting the % button
+percentButton.addEventListener('click', () => {
+    calculator.percent()
+    calculator.updateDisplay()
+})
+
+
