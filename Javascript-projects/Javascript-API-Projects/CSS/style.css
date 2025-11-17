@@ -1,9 +1,39 @@
 html {
-font-size: 16px;
+    font-size: 16px;
 }
 
 body {
     font-family: Arial, sans-serif;
     margin-left: 2rem;
     background-color: #f4f4f4;
+}
+
+.news {
+    padding: 12px 24px;
+    background: black;
+    color: white;
+    /* Text & Font */
+    font-size: 1rem;
+    /* 16px */
+    font-weight: 900;
+    text-decoration: none;
+    /* Removes underline from <a> tags */
+    text-align: center;
+
+    /* Border & Shape */
+    border: 2px solid transparent;
+    /* Set up border for outline button */
+    border-radius: 8px;
+    /* Rounded corners */
+
+    /* Interaction */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    /* For buttons with icons */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /* Space between icon and text */
 }
