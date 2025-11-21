@@ -37,3 +37,21 @@ body {
     gap: 8px;
     /* Space between icon and text */
 }
+#image-generate{    
+    margin-top: 1rem;
+    padding: 8px;
+    font-size: 1rem;
+    width: 18%;
+}
+
+.ai-image {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.ai-image img {
+    max-width: 100%;
+    height: auto;
+    margin-left: 26%;
+    margin-top: -15%;
+}
