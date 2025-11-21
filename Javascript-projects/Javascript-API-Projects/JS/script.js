@@ -11,7 +11,7 @@
 //         // showing the title and description of the news
 //         const title = jsonData.results[0].title;
 //         const description = jsonData.results[0].description;
-    
+
 //     document.getElementById('result').innerHTML = `<h2>${title}</h2><p>${description}</p>`;
 //         }else{
 //             console.log('No data found');
@@ -22,7 +22,10 @@
 // }
 
 // AI image generate API
-function genareteImg(){
-    imgageGenreate = document.getElementById('image-generate').value;
-    const apiUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(userPrompt)}?width=1920&height=1080&model=flux`;
+function genareteImg() {
+    imagePrompt = document.getElementById('image-generate').value;
+    const apiUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(imagePrompt)}?width=1920&height=1080&model=flux`;
+    const imgElement = document.getElementById('result');
+    
+    document.getElementById('result').innerHTML = `<img src="${apiUrl}" alt="Generated Image" width="500">`;
 }
