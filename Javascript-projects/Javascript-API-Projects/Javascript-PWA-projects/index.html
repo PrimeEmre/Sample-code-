@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AI Image Generator</title>
+    
+    <link rel="manifest" href="./site.webmanifest" />
     <link rel="stylesheet" href="CSS/style.css">
+
+     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
 </head>
 <body>
+    <h1>AI Image Generator</h1>
+    
+    <input type="text" placeholder="Enter the name of the image" id="image-generate">
+    <br><br>
+    
+    <button class="news" onclick="generateImg()">Generate Image</button>
+    
+    <p id="result"></p>
+    
+    <div class="ai-image">
+        <img id="result-image" src="images/AI-genrate.jpg" alt="Result">
+    </div>
     
     <script src="js/script.js"></script>
 </body>
