@@ -22,10 +22,29 @@
 // }
 
 // AI image generate API
+// function genareteImg() {
+//     imagePrompt = document.getElementById('image-generate').value;
+//     const apiUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(imagePrompt)}?width=1920&height=1080&model=flux`;
+//     const imgElement = document.getElementById('result');
+//     console.log(apiUrl);
+//     document.getElementById('result').innerHTML = `<img src="${apiUrl}" alt="Generated Image" width="500">`;
+// }
+
 function genareteImg() {
-    imagePrompt = document.getElementById('image-generate').value;
-    const apiUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(imagePrompt)}?width=1920&height=1080&model=flux`;
-    const imgElement = document.getElementById('result');
-    console.log(apiUrl);
-    document.getElementById('result').innerHTML = `<img src="${apiUrl}" alt="Generated Image" width="500">`;
+    // setting the veribles for the APIS
+    const apiKey = "TYZi0oVILORrouXMNncM9RLpxUGiZAe31n0osVqe"
+    const baseURL = "https://api.nasa.gov/planetary/apod"
+    const apiUrl = `${baseURL}?api_key=${apiKey}`
+    console.log("fetching from", apiUrl) 
+    // fetching data from the API
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            document.getElementById("space-image").src = data.url;
+            document.getElementById("description").innerText = data.explanation;
+        })
+        .catch(error => console.log(error))
+        // showing the image from the API
+
 }
