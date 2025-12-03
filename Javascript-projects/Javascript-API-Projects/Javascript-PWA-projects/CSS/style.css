@@ -37,7 +37,8 @@ body {
     gap: 8px;
     /* Space between icon and text */
 }
-#image-generate{    
+
+#image-generate {
     margin-top: 1rem;
     padding: 8px;
     font-size: 1rem;
@@ -54,4 +55,16 @@ body {
     height: auto;
     margin-left: 26%;
     margin-top: -15%;
+}
+
+#space-image {
+    max-width: 100%;
+    margin-top: 20px;
+    display: block;
+}
+
+#description {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #333;
 }

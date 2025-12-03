@@ -35,16 +35,16 @@ function genareteImg() {
     const apiKey = "TYZi0oVILORrouXMNncM9RLpxUGiZAe31n0osVqe"
     const baseURL = "https://api.nasa.gov/planetary/apod"
     const apiUrl = `${baseURL}?api_key=${apiKey}`
-    console.log("fetching from", apiUrl) 
+    console.log("fetching from", apiUrl)
     // fetching data from the API
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            document.getElementById("space-image").src = data.url;
-            document.getElementById("description").innerText = data.explanation;
+            document.getElementById("space-image").src = data.url
+            document.getElementById("description").innerText = data.explanation
         })
         .catch(error => console.log(error))
-        // showing the image from the API
+    // showing the image from the API
 
 }
