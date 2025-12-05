@@ -37,11 +37,11 @@ body {
     gap: 8px;
     /* Space between icon and text */
 }
-#user-prompt{    
+#enter-city{    
     margin-top: 1rem;
     padding: 8px;
     font-size: 1rem;
-    width: 18%;
+    width: 5%;
 }
 
 .ai-image {
