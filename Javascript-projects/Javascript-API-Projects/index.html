@@ -41,16 +41,35 @@
     <!-- API -->
     <!-- TYZi0oVILORrouXMNncM9RLpxUGiZAe31n0osVqe -->
 
-    <h1>Weather API </h1>
-    <input type="text" placeholder="Enter city " id="enter-city">
-    <!-- <input type="text" placeholder="Search planet or astorid image" id="user-prompt"> -->
-    <br><br>
-    <button class="news" onclick="genareteImg()"> Genareate iamge </button>
-    <p id="result"></p>
-    <div class="ai-image">
-    <img src="" alt="">
-        <img src="" alt="">
+   <div class="card">
+        <h1>Weather API</h1>
+        
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Enter city name..." spellcheck="false">
+            <button onclick="getWeather()">Search</button>
+        </div>
+
+        <p class="error" id="errorMsg">City not found. Please try again.</p>
+
+        <!-- Result Section -->
+        <div class="weather-result" id="result">
+            <img src="" id="icon" class="icon" alt="Weather Icon">
+            <div class="temp" id="temp">0°c</div>
+            <div class="description" id="desc">Sunny</div>
+            
+            <div class="meta">
+                <div>
+                    <span id="humidity">0%</span>
+                    <span>Humidity</span>
+                </div>
+                <div>
+                    <span id="wind">0 km/h</span>
+                    <span>Wind Speed</span>
+                </div>
+            </div>
+        </div>
     </div>
+
     <script src="JS/script.js"></script>
     <!-- API -->
  <!-- "a1b2c3d4e5f6g7h8i9j0";
