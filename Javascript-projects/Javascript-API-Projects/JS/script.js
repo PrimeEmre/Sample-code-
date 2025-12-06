@@ -51,10 +51,10 @@
 
 
 // Weather API
-//setting the weather 
-// Weather API
+//setting the API
 const apikey = '6ed4f81aa0ad45d082c34616250612'
 
+//Setting the function and veribles 
 async function getWeather() {
     const cityName = document.getElementById("cityInput").value
     const resultBox = document.getElementById("result") 
@@ -65,22 +65,18 @@ async function getWeather() {
         alert("Please enter a valid city name")
         return;
     }
-
-    // 1. FIXED: Build the URL *inside* the function so 'cityName' works
+    //Setting the API url 
     const url = `http://api.weatherapi.com/v1/current.json?key=${apikey}&q=${cityName}&aqi=no`
 
     // Fetching the API 
     try {
         const response = await fetch(url)
-
-        // 2. FIXED: response is an object, use !response.ok to check for errors
         if (!response.ok) {
             errorMsg.style.display = "block"
             resultBox.style.display = "none"
         } else {
             const data = await response.json()
-
-            // 3. FIXED: Using the correct data structure for WeatherAPI.com
+            // setting the required inforamtion 
             document.getElementById("temp").innerHTML = Math.round(data.current.temp_c) + "°c"
             document.getElementById("desc").innerHTML = data.current.condition.text
             document.getElementById("humidity").innerHTML = data.current.humidity + "%"
@@ -91,7 +87,7 @@ async function getWeather() {
             resultBox.style.display = "block"
             errorMsg.style.display = "none"
         }
-
+        // catching the erros 
     } catch (error) {
         console.log("Error fetching weather", error)
     }
