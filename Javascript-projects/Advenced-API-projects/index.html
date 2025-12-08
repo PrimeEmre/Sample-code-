@@ -7,12 +7,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/Javascript-projects/AI-API-projects/assets/CSS/style.css">
+    <link rel="stylesheet" href="/Javascript-projects/Advenced-API-projects/assets/CSS/style.css">
     
 </head>
 <body>
-    
 
-    <script src="/Javascript-projects/AI-API-projects/assets/JS/script.js"></script>
+    <div class="container">
+        
+        <header>
+            <h1>AI Code Explainer</h1>
+            <p>Paste any confusing code snippet below.</p>
+        </header>
+
+        <!-- Input Section -->
+        <div class="editor-card">
+            <label for="codeInput">Source Code</label>
+            <textarea id="codeInput" placeholder="// Paste your code here..."></textarea>
+            
+            <button onclick="readCode()">
+                Explain Code
+            </button>
+        </div>
+
+        <!-- Result Section -->
+        <div class="result-box" id="result">
+            <p class="placeholder-text">The explanation will appear here...</p>
+        </div>
+
+    </div>
+
+
+    <script src="/Javascript-projects/Advenced-API-projects/assets/JS/script.js"></script>
 </body>
 </html>
