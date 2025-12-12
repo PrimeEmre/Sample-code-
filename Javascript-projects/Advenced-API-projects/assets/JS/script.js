@@ -1,7 +1,6 @@
-document.addEventListener('DOMContentLoaded',function(){
+document.addEventListener('DOMContentLoaded', function () {
     console.log(localStorage.getItem('APIKey'))
-    if(localStorage.getItem('APIKEY')!= null)
-    {
+    if (localStorage.getItem('APIKEY') != null) {
         document.getElementById('APIKey').value = localStorage.getItem('APIKEY');
     }
 });
@@ -17,7 +16,7 @@ async function readCode() {
     }
 
     resultBox.innerText = "Thinking... (This might take a few seconds)";
- 
+
 
     let apiKey = document.getElementById('APIKey').value;
     localStorage.setItem('APIKEY', apiKey);
