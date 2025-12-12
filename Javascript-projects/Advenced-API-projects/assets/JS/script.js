@@ -1,3 +1,10 @@
+document.addEventListener('DOMContentLoaded',function(){
+    console.log(localStorage.getItem('APIKey'))
+    if(localStorage.getItem('APIKEY')!= null)
+    {
+        document.getElementById('APIKey').value = localStorage.getItem('APIKEY');
+    }
+});
 async function readCode() {
     // 1. Get the user's code
     const userCode = document.getElementById('codeInput').value;
@@ -10,15 +17,17 @@ async function readCode() {
     }
 
     resultBox.innerText = "Thinking... (This might take a few seconds)";
+ 
 
-    const apiKey = "AIzaSyDnvdyTV8r4bUv3BiCkvmJ9QTflZWiJcRU"; 
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+    let apiKey = document.getElementById('APIKey').value;
+    localStorage.setItem('APIKEY', apiKey);
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
     // 3. The Request Body (Required by Google)
     const requestBody = {
         contents: [{
-            parts: [{ 
-                text: "Explain this code simply and clearly for a beginner:\n\n" + userCode 
+            parts: [{
+                text: "Explain this code simply and clearly for a beginner:\n\n" + userCode
             }]
         }]
     };
