@@ -60,6 +60,66 @@ document.addEventListener('DOMContentLoaded', function () {
 //     }
 // }
 
+// peom analysis version
+
+// async function readCode() {
+//     // 1. Get the user's code
+//     const userCode = document.getElementById('codeInput').value;
+//     const resultBox = document.getElementById('result');
+
+//     // Basic validation
+//     if (!userCode.trim()) {
+//         alert("Please paste some code first!");
+//         return;
+//     }
+
+//     resultBox.innerText = "Thinking... (This might take a few seconds)";
+
+
+//     let apiKey = document.getElementById('APIKey').value;
+//     localStorage.setItem('APIKEY', apiKey);
+//     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+
+//     // 3. The Request Body (Required by Google)
+//     const requestBody = {
+//         contents: [{
+//             parts: [{
+//             text: "Analyze the following poem. Explain its meaning, mood, and metaphors simply and clearly for a new learner (ESL student). IMPORTANT: If the poem is in a different language (e.g., French, Spanish), you MUST write the explanation in ENGLISH.\n\nPoem:\n" + userCode
+//             }]
+//         }]
+//     };
+
+//     try {
+//         // 4. The Fetch Call
+//         const response = await fetch(apiUrl, {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify(requestBody)
+//         });
+
+//         // 5. Check for Errors
+//         if (!response.ok) {
+//             const errorData = await response.json();
+//             throw new Error(`API Error: ${errorData.error.message}`);
+//         }
+
+//         // 6. Get the Answer
+//         const data = await response.json();
+//         const explanation = data.candidates[0].content.parts[0].text;
+
+//         // 7. Show the Result
+//         resultBox.innerText = explanation;
+
+//     } catch (error) {
+//         console.error("Error details:", error);
+//         resultBox.innerText = "Error: " + error.message;
+//     }
+// }
+
+
+// quiz generator  
 async function readCode() {
     // 1. Get the user's code
     const userCode = document.getElementById('codeInput').value;
@@ -82,7 +142,8 @@ async function readCode() {
     const requestBody = {
         contents: [{
             parts: [{
-            text: "Analyze the following poem. Explain its meaning, mood, and metaphors simply and clearly for a new learner (ESL student). IMPORTANT: If the poem is in a different language (e.g., French, Spanish), you MUST write the explanation in ENGLISH.\n\nPoem:\n" + userCode
+                // Updated Prompt for a Multi-Subject Quiz
+                text: "Create a 5-question multiple-choice quiz. The first few questions should focus on the user's topic: '" + userCode + "'. Then, include diverse questions from other general knowledge categories such as Automotive, Law, Science, or History. \n\nFor each question:\n1. Provide the question text.\n2. List 4 options (A, B, C, D).\n3. Reveal the correct answer at the very end."
             }]
         }]
     };
