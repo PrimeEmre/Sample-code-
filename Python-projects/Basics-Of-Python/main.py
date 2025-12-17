@@ -6,4 +6,4 @@
 my_list = [10,20,30,40,50]
 print (len(my_list))
 fruit_list = ['apple:', 100, 'banana:', 50, 'cherry:',75]
-print (type(fruit_list))
+print (fruit_list)
