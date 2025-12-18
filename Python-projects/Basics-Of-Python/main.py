@@ -12,7 +12,7 @@
 # print ("My name is " + name + " and I am " + str(age) + " years old.")
 age = 30 
 name = "James Smith"
-job= " software developer"
+job = " software developer"
 print  ("my name is" + " " + name +"."+ " " "I am "  + str(age) + " " + "years old." + " My job is" + job +"." )
 
 # lists in python
