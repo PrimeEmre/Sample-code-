@@ -29,3 +29,17 @@
 
 # coding_list = ["python", "java", "c++", "javascript", "ruby"]
 # print (coding_list [2:4])
+
+# Functions 
+# def hello():
+#     print ("hello , world ")
+#     print ("Welcome to Python programming.")
+# hello()
+
+def country_function(country = "Turkey "):
+    print( "I am from", country)
+country_function("Germany")
+country_function("USA")
+country_function("Dubai")
+country_function("Italy")
+country_function("Canada")
