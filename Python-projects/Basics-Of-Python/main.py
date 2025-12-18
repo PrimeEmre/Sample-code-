@@ -45,9 +45,14 @@
 # country_function("Italy")
 # country_function("Canada")
 
-def furit_list():
-    return ["apple", "banana", "cherry", "date"]
-fruits = furit_list()
-print (fruits [0])
-print (fruits [2])
-print (fruits [3])
+# def furit_list():
+#     return ["apple", "banana", "cherry", "date"]
+# fruits = furit_list()
+# print (fruits [0])
+# print (fruits [2])
+# print (fruits [3])
+
+def expensive_car(* cars):
+    print ("The most expensive car in the world is " + cars[0])
+
+expensive_car("Bugatti Chiron" , "Rolls-Royce Sweptail" , "Pagani Zonda HP Barchetta")
