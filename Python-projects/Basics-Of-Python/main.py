@@ -85,14 +85,46 @@
 # calcualte_area_show()
 
 # If and else 
+
+# Voting 
 # age = 18
 # if(age >= 18):
 #     print("You are eligible for vote")
 # else:
 #     print ("you are not eligible for vote ")
 
-age = int(input ("enter your age "))
-if (age >= 18):
-     print("You are eligible for vote")
-else:
-    print ("you are not eligible for vote ")
+# age = int(input ("enter your age "))
+# if (age >= 18):
+#      print("You are eligible for vote")
+# else:
+#     print ("you are not eligible for vote ")
+
+ # Grade calculator 
+grade = 79
+
+if (grade >= 100 and grade >= 90):
+    print("A+")
+elif(grade >= 89 and grade >=85):
+    print("A")
+elif (grade >= 84 and grade >= 80):
+    print("A-")
+elif (grade >=79 and grade >=75):
+    print("B+")
+elif(grade >=74 and grade >=70):
+    print("B")
+elif(grade >=74 and grade >=70):
+    print("B")
+elif(grade >=69 and grade >= 65):
+    print("C+")
+elif (grade >=64 and grade >= 60):
+    print("C")
+elif (grade >=59 and grade >= 55):
+    print("D+")
+elif (grade >=54 and grade >= 50):
+    print("D")
+elif (grade >=49 and grade >= 40):
+    print("D")
+elif (grade >=49 and grade >= 40):
+    print("D")
+elif (grade >=0 and grade >= 39):
+    print("F")
