@@ -52,7 +52,45 @@
 # print (fruits [2])
 # print (fruits [3])
 
-def expensive_car(* cars):
-    print ("The most expensive car in the world is " + cars[0])
+# def expensive_car(* cars):
+#     print ("The most expensive car in the world is " + cars[0])
 
-expensive_car("Bugatti Chiron" , "Rolls-Royce Sweptail" , "Pagani Zonda HP Barchetta")
+# expensive_car("Bugatti Chiron" , "Rolls-Royce Sweptail" , "Pagani Zonda HP Barchetta")
+
+#Making equation from python using function 
+# def area_of_tringangle(area):
+#     result = area  * (4*2) /2 
+#     return result
+    
+# print (area_of_tringangle(10))
+# print (area_of_tringangle (100))
+# print (area_of_tringangle (78))
+
+def area_of_triangle():
+    base = (input ("Please enter the base of the triangle "))
+    height = (input ("Please enter the height  of the triangle "))
+    
+def calculate_ara(base, height):
+    print ("The area of the triangle is: " + str((base * height) / 2))
+    
+    def calcuate_area(base, height):
+        area_of_triangle (base, height)
+        equation = (base * height) / 2
+        
+        
+        
+        
+        
+# def get_input(a,b):
+#     a = int(input("Please enter the width: \n"))
+#     b = int(input("Please enter the length: \n"))
+
+# def show_area(c):
+#     print("The area of the rectangle is: {c}".format(c))
+    
+# def calculate_area(a,b):
+#     get_input(a,b)
+#     c=a*b
+#     show_area(c)    
+    
+# calculate_area(a,b)
