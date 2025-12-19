@@ -66,31 +66,21 @@
 # print (area_of_tringangle (100))
 # print (area_of_tringangle (78))
 
-def area_of_triangle():
-    base = (input ("Please enter the base of the triangle "))
-    height = (input ("Please enter the height  of the triangle "))
+# Defining the function and veribles 
+def area_of_triangle(base , height):
+    result = (float(base) * float(height)) / 2
+    return result
     
-def calculate_ara(base, height):
-    print ("The area of the triangle is: " + str((base * height) / 2))
+# Calcualting the result and showing the answer 
+def calcualte_area_show():
     
-    def calcuate_area(base, height):
-        area_of_triangle (base, height)
-        equation = (base * height) / 2
-        
-        
-        
-        
-        
-# def get_input(a,b):
-#     a = int(input("Please enter the width: \n"))
-#     b = int(input("Please enter the length: \n"))
-
-# def show_area(c):
-#     print("The area of the rectangle is: {c}".format(c))
+    # Getting the base and heihgt 
+   base = input("Please enter the base of the triangle: ")
+   height = input("Please enter the height of the triangle: ")
+   
+   #callculating 
+   area = area_of_triangle (base, height)
+   print("The area of the triangle is: " + str(area))
+   
+calcualte_area_show()
     
-# def calculate_area(a,b):
-#     get_input(a,b)
-#     c=a*b
-#     show_area(c)    
-    
-# calculate_area(a,b)
