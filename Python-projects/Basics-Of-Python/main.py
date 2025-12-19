@@ -66,21 +66,33 @@
 # print (area_of_tringangle (100))
 # print (area_of_tringangle (78))
 
-# Defining the function and veribles 
-def area_of_triangle(base , height):
-    result = (float(base) * float(height)) / 2
-    return result
+# # Defining the function and veribles 
+# def area_of_triangle(base , height):
+#     result = (float(base) * float(height)) / 2
+#     return result
     
-# Calcualting the result and showing the answer 
-def calcualte_area_show():
+# # Calcualting the result and showing the answer 
+# def calcualte_area_show():
     
-    # Getting the base and heihgt 
-   base = input("Please enter the base of the triangle: ")
-   height = input("Please enter the height of the triangle: ")
+#     # Getting the base and heihgt 
+#    base = input("Please enter the base of the triangle: ")
+#    height = input("Please enter the height of the triangle: ")
    
-   #callculating 
-   area = area_of_triangle (base, height)
-   print("The area of the triangle is: " + str(area))
+#    #callculating 
+#    area = area_of_triangle (base, height)
+#    print("The area of the triangle is: " + str(area))
    
-calcualte_area_show()
-    
+# calcualte_area_show()
+
+# If and else 
+# age = 18
+# if(age >= 18):
+#     print("You are eligible for vote")
+# else:
+#     print ("you are not eligible for vote ")
+
+age = int(input ("enter your age "))
+if (age >= 18):
+     print("You are eligible for vote")
+else:
+    print ("you are not eligible for vote ")
