@@ -125,27 +125,61 @@
 # elif grade <= 39 and grade >= 0:
 #     print("F")
 
-grade = int(input("Enter your grade  "))
+# grade = int(input("Enter your grade  "))
 
-if (grade <= 100 and grade >= 90):
-    print("A+")
-elif(grade <= 89 and grade >=85):
-    print("A")
-elif (grade <= 84 and grade >= 80):
-    print("A-")
-elif (grade <=79 and grade >=75):
-    print("B+")
-elif(grade <=74 and grade >=70):
-    print("B")
-elif(grade <=74 and grade >=70):
-    print("B")
-elif(grade <=69 and grade >= 65):
-    print("C+")
-elif (grade <=64 and grade >= 60):
-    print("C")
-elif (grade <=59 and grade >= 55):
-    print("D+")
-elif (grade <=54 and grade >= 50):
-    print("D")
-elif grade <= 39 and grade >= 0:
-    print("F")
+# if (grade <= 100 and grade >= 90):
+#     print("A+")
+# elif(grade <= 89 and grade >=85):
+#     print("A")
+# elif (grade <= 84 and grade >= 80):
+#     print("A-")
+# elif (grade <=79 and grade >=75):
+#     print("B+")
+# elif(grade <=74 and grade >=70):
+#     print("B")
+# elif(grade <=74 and grade >=70):
+#     print("B")
+# elif(grade <=69 and grade >= 65):
+#     print("C+")
+# elif (grade <=64 and grade >= 60):
+#     print("C")
+# elif (grade <=59 and grade >= 55):
+#     print("D+")
+# elif (grade <=54 and grade >= 50):
+#     print("D")
+# elif grade <= 39 and grade >= 0:
+#     print("F")
+
+#Day Of THe Week Calculator 
+# day = 1
+# if(day == 1):
+#     print("Monday")
+# elif (day == 2):
+#     print("Tuesday")
+# elif (day == 3):
+#     print("Wendsday")
+# elif (day == 4):
+#     print("Thursday")
+# elif(day == 5):
+#     print("Friday")
+# elif(day == 6 ):
+#     print("Saturday")
+# elif(day == 7):
+#     print("Sunday")
+
+day = int(input("Enter the day of the week "))
+if(day == 1):
+    print("Monday")
+elif (day == 2):
+    print("Tuesday")
+elif (day == 3):
+    print("Wendsday")
+elif (day == 4):
+    print("Thursday")
+elif(day == 5):
+    print("Friday")
+elif(day == 6 ):
+    print("Saturday")
+elif(day == 7):
+    print("Sunday")
+#outside time 
