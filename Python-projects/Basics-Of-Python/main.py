@@ -100,31 +100,52 @@
 #     print ("you are not eligible for vote ")
 
  # Grade calculator 
-grade = 79
+# grade = 100
 
-if (grade >= 100 and grade >= 90):
+# if (grade <= 100 and grade >= 90):
+#     print("A+")
+# elif(grade <= 89 and grade >=85):
+#     print("A")
+# elif (grade <= 84 and grade >= 80):
+#     print("A-")
+# elif (grade <=79 and grade >=75):
+#     print("B+")
+# elif(grade <=74 and grade >=70):
+#     print("B")
+# elif(grade <=74 and grade >=70):
+#     print("B")
+# elif(grade <=69 and grade >= 65):
+#     print("C+")
+# elif (grade <=64 and grade >= 60):
+#     print("C")
+# elif (grade <=59 and grade >= 55):
+#     print("D+")
+# elif (grade <=54 and grade >= 50):
+#     print("D")
+# elif grade <= 39 and grade >= 0:
+#     print("F")
+
+grade = int(input("Enter your grade  "))
+
+if (grade <= 100 and grade >= 90):
     print("A+")
-elif(grade >= 89 and grade >=85):
+elif(grade <= 89 and grade >=85):
     print("A")
-elif (grade >= 84 and grade >= 80):
+elif (grade <= 84 and grade >= 80):
     print("A-")
-elif (grade >=79 and grade >=75):
+elif (grade <=79 and grade >=75):
     print("B+")
-elif(grade >=74 and grade >=70):
+elif(grade <=74 and grade >=70):
     print("B")
-elif(grade >=74 and grade >=70):
+elif(grade <=74 and grade >=70):
     print("B")
-elif(grade >=69 and grade >= 65):
+elif(grade <=69 and grade >= 65):
     print("C+")
-elif (grade >=64 and grade >= 60):
+elif (grade <=64 and grade >= 60):
     print("C")
-elif (grade >=59 and grade >= 55):
+elif (grade <=59 and grade >= 55):
     print("D+")
-elif (grade >=54 and grade >= 50):
+elif (grade <=54 and grade >= 50):
     print("D")
-elif (grade >=49 and grade >= 40):
-    print("D")
-elif (grade >=49 and grade >= 40):
-    print("D")
-elif (grade >=0 and grade >= 39):
+elif grade <= 39 and grade >= 0:
     print("F")
