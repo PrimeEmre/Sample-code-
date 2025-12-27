@@ -167,19 +167,34 @@
 # elif(day == 7):
 #     print("Sunday")
 
-day = int(input("Enter the day of the week "))
-if(day == 1):
-    print("Monday")
-elif (day == 2):
-    print("Tuesday")
-elif (day == 3):
-    print("Wendsday")
-elif (day == 4):
-    print("Thursday")
-elif(day == 5):
-    print("Friday")
-elif(day == 6 ):
-    print("Saturday")
-elif(day == 7):
-    print("Sunday")
-#outside time 
+# day = int(input("Enter the day of the week "))
+# if(day == 1):
+#     print("Monday")
+# elif (day == 2):
+#     print("Tuesday")
+# elif (day == 3):
+#     print("Wendsday")
+# elif (day == 4):
+#     print("Thursday")
+# elif(day == 5):
+#     print("Friday")
+# elif(day == 6 ):
+#     print("Saturday")
+# elif(day == 7):
+#     print("Sunday")
+#sleep time 
+age = 8
+sleep_time = 1
+
+if age<=5:
+    if(sleep_time >=19 or sleep_time < 6):
+        print("You need to go to bed, it's " + str(sleep_time))
+elif age<=10:
+    if(sleep_time >=20 or sleep_time < 6):
+         print("You need to go to bed, it's " + str(sleep_time))
+elif age <= 15:
+    if(sleep_time >=22 or sleep_time <6):
+          print("You need to go to bed, it's " + str(sleep_time))
+elif age <=18:
+    if(sleep_time >=1 or sleep_time< 6):
+        print("You need to go to bed, it's " + str(sleep_time))
