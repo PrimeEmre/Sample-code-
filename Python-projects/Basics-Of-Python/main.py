@@ -183,18 +183,26 @@
 # elif(day == 7):
 #     print("Sunday")
 #sleep time 
-age = 8
-sleep_time = 1
+age =  2
+sleep_time = 19
 
-if age<=5:
-    if(sleep_time >=19 or sleep_time < 6):
+if age <= 5:
+    if (sleep_time >= 19 or sleep_time < 6):
         print("You need to go to bed, it's " + str(sleep_time))
-elif age<=10:
-    if(sleep_time >=20 or sleep_time < 6):
-         print("You need to go to bed, it's " + str(sleep_time))
+    else:
+        print("Do not go to the bed, it's " + str(sleep_time) + " too early")
+elif age <= 10:
+    if (sleep_time >= 20 or sleep_time < 6):
+        print("You need to go to bed, it's " + str(sleep_time))
+    else:
+        print("Do not go to the bed, it's " + str(sleep_time) + " too early")
 elif age <= 15:
-    if(sleep_time >=22 or sleep_time <6):
-          print("You need to go to bed, it's " + str(sleep_time))
-elif age <=18:
-    if(sleep_time >=1 or sleep_time< 6):
+    if (sleep_time >= 22 or sleep_time < 6):
         print("You need to go to bed, it's " + str(sleep_time))
+    else:
+        print("Do not go to the bed, it's " + str(sleep_time) + " too early")
+elif age <= 18:
+    if (sleep_time >= 1 or sleep_time < 6):
+        print("You need to go to bed, it's " + str(sleep_time))
+    else:
+        print("Do not go to the bed, it's " + str(sleep_time) + " too early")
