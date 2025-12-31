@@ -184,28 +184,52 @@
 #     print("Sunday")
 
 #sleep time 
-age = 13
-sleep_time = 12
+# age = 13
+# sleep_time = 12
 
-if age <= 5:
-    if sleep_time >= 19 or sleep_time < 6:
-        print("You need to go to bed, it's " + str(sleep_time))
-    else:
-        print("Do not go to bed, it's " + str(sleep_time) + " too early")
-elif age <= 10:
-    M
-    if sleep_time >= 20 or sleep_time < 6:
-        print("You need to go to bed, it's " + str(sleep_time))
-    else:
-        print("Do not go to bed, it's " + str(sleep_time) + " too early")
-elif age <= 15:
-    if sleep_time >= 22 or sleep_time < 6:
-        print("You need to go to bed, it's " + str(sleep_time))
-    else:
-        print("Do not go to bed, it's " + str(sleep_time) + " too early")
+# if age <= 5:
+#     if sleep_time >= 19 or sleep_time < 6:
+#         print("You need to go to bed, it's " + str(sleep_time))
+#     else:
+#         print("Do not go to bed, it's " + str(sleep_time) + " too early")
+# elif age <= 10:
+#     if sleep_time >= 20 or sleep_time < 6:
+#         print("You need to go to bed, it's " + str(sleep_time))
+#     else:
+#         print("Do not go to bed, it's " + str(sleep_time) + " too early")
+# elif age <= 15:
+#     if sleep_time >= 22 or sleep_time < 6:
+#         print("You need to go to bed, it's " + str(sleep_time))
+#     else:
+#         print("Do not go to bed, it's " + str(sleep_time) + " too early")
 
-elif age <= 18:
-    if sleep_time >= 1 or sleep_time < 6: 
-        print("You need to go to bed, it's " + str(sleep_time))
-    else:
-        print("Do not go to bed, it's " + str(sleep_time) + " too early")
+# elif age <= 18:
+#     if sleep_time >= 1 or sleep_time < 6: 
+#         print("You need to go to bed, it's " + str(sleep_time))
+#     else:
+#         print("Do not go to bed, it's " + str(sleep_time) + " too early")
+
+# age =int(input("Enter yout age "))
+# sleep_time= int(input("Enter the time"))
+
+# if age <= 5:
+#     if sleep_time >= 19 or sleep_time < 6:
+#         print("You need to go to bed, it's " + str(sleep_time))
+#     else:
+#         print("Do not go to bed, it's " + str(sleep_time) + " too early")
+# elif age <= 10:
+#     if sleep_time >= 20 or sleep_time < 6:
+#         print("You need to go to bed, it's " + str(sleep_time))
+#     else:
+#         print("Do not go to bed, it's " + str(sleep_time) + " too early")
+# elif age <= 15:
+#     if sleep_time >= 22 or sleep_time < 6:
+#         print("You need to go to bed, it's " + str(sleep_time))
+#     else:
+#         print("Do not go to bed, it's " + str(sleep_time) + " too early")
+
+# elif age <= 18:
+#     if sleep_time >= 1 or sleep_time < 6: 
+#         print("You need to go to bed, it's " + str(sleep_time))
+#     else:
+#         print("Do not go to bed, it's " + str(sleep_time) + " too early")
