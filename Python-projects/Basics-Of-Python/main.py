@@ -233,3 +233,20 @@
 #         print("You need to go to bed, it's " + str(sleep_time))
 #     else:
 #         print("Do not go to bed, it's " + str(sleep_time) + " too early")
+
+# num = 0
+# numbers = []
+# while num < 6:
+#     print("At the top num is %d" % num)
+#     numbers.append(num)
+#     num = num + 1
+#     print("Numbers now:", numbers)
+
+# count =[2,4,6,8,10]
+# fruit = ['Apple','Banna', ' watermelon']
+
+# for number in count:
+#     print("Lets start counting for 2's %d" % number)
+
+# for fruit_list in fruit:
+#     print("Lets see the furit types: %s" % fruit)
