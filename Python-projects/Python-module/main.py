@@ -34,21 +34,46 @@
 #         print(Fore.WHITE + "\nSimulation stopped.")
 
 #Pillow 
-import os
+# import os
+# from PIL import Image
+
+# script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# image_path = os.path.join(script_dir, "billgates.jpg")
+
+# try:
+#     img = Image.open(image_path)
+#     print(f"Format: {img.format}")
+#     print(f"Size: {img.size}")
+#     print(f"Mode: {img.mode}")
+    
+#     new_img = img.resize((4000, 3000))
+#     new_img.show()
+    
+# except FileNotFoundError:
+#     print(f"Error: The file '{image_path}' was not found.")
+    
+import os,sys
 from PIL import Image
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
 image_path = os.path.join(script_dir, "billgates.jpg")
 
-try:
-    img = Image.open(image_path)
-    print(f"Format: {img.format}")
-    print(f"Size: {img.size}")
-    print(f"Mode: {img.mode}")
+size = (1000,1000)
+for infile  in sys.argv[1:]:
+    outfile = os.path.splitext(infile[0] + "thumbnail")
+    if infile != outfile:
+        pass
+
+
+
+#     if infile != outfile:
+#         try:
+#             with Image.open(infile) as im:
+#                 im.thumbnail(size)
+#                 im.save(outfile, "JPEG")
+#         except OSError:
+#             print("cannot create thumbnail for", infile)
+
     
-    new_img = img.resize((4000, 3000))
-    new_img.show()
-    
-except FileNotFoundError:
-    print(f"Error: The file '{image_path}' was not found.")
