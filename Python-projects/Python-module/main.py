@@ -53,23 +53,56 @@
 # except FileNotFoundError:
 #     print(f"Error: The file '{image_path}' was not found.")
     
-import os,sys
+# import os,sys
+# from PIL import Image
+
+# script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# image_path = os.path.join(script_dir, "billgates.jpg")
+
+# size = (128,(128))
+# for infile in [image_path]: 
+#     outfile = os.path.splitext(infile)[0] + ".thumbnail.jpg"
+#     if infile != outfile:
+#         try:
+#             with Image.open(infile) as im:
+#                 im.thumbnail(size)
+#                 im.save(outfile, "JPEG")
+#                 print(f"Success! Saved thumbnail to: {outfile}")
+#         except OSError as e:
+#             print("Cannot create thumbnail for", infile)
+#             print("Error details:", e)
+    
 from PIL import Image
+import os
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
 image_path = os.path.join(script_dir, "billgates.jpg")
 
-size = (128,(128))
-for infile in [image_path]: 
-    outfile = os.path.splitext(infile)[0] + ".thumbnail.jpg"
-    if infile != outfile:
-        try:
-            with Image.open(infile) as im:
-                im.thumbnail(size)
-                im.save(outfile, "JPEG")
-                print(f"Success! Saved thumbnail to: {outfile}")
-        except OSError as e:
-            print("Cannot create thumbnail for", infile)
-            print("Error details:", e)
-    
+try:
+    original_image = Image.open(image_path) 
+except FileNotFoundError:
+    print(f"Error: Cannot find file at {image_path}")
+    exit()
+
+
+angles = [360, 270, 180, 90]
+images = [original_image] 
+
+
+for angle in angles:
+    new_image = original_image.rotate(angle)
+    images.append(new_image)
+    new_image.save(f"rotated_billgates_{angle}.jpg")
+
+
+images[0].save(
+    "animated_billgates.gif",
+    save_all=True,
+    append_images=images[1:],
+    duration=500,
+    loop=0
+)
+
+print("Success! animated_billgates.gif has been created.")
