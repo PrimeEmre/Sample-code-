@@ -60,20 +60,16 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 
 image_path = os.path.join(script_dir, "billgates.jpg")
 
-size = (1000,1000)
-for infile  in sys.argv[1:]:
-    outfile = os.path.splitext(infile[0] + "thumbnail")
+size = (128,(128))
+for infile in [image_path]: 
+    outfile = os.path.splitext(infile)[0] + ".thumbnail.jpg"
     if infile != outfile:
-        pass
-
-
-
-#     if infile != outfile:
-#         try:
-#             with Image.open(infile) as im:
-#                 im.thumbnail(size)
-#                 im.save(outfile, "JPEG")
-#         except OSError:
-#             print("cannot create thumbnail for", infile)
-
+        try:
+            with Image.open(infile) as im:
+                im.thumbnail(size)
+                im.save(outfile, "JPEG")
+                print(f"Success! Saved thumbnail to: {outfile}")
+        except OSError as e:
+            print("Cannot create thumbnail for", infile)
+            print("Error details:", e)
     
