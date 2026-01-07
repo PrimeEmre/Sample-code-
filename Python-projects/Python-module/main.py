@@ -73,36 +73,88 @@
 #             print("Cannot create thumbnail for", infile)
 #             print("Error details:", e)
     
-from PIL import Image
-import os
+# from PIL import Image
+# import os
 
-script_dir = os.path.dirname(os.path.abspath(__file__))
+# script_dir = os.path.dirname(os.path.abspath(__file__))
 
-image_path = os.path.join(script_dir, "billgates.jpg")
+# image_path = os.path.join(script_dir, "billgates.jpg")
 
-try:
-    original_image = Image.open(image_path) 
-except FileNotFoundError:
-    print(f"Error: Cannot find file at {image_path}")
-    exit()
-
-
-angles = [360, 270, 180, 90]
-images = [original_image] 
+# try:
+#     original_image = Image.open(image_path) 
+# except FileNotFoundError:
+#     print(f"Error: Cannot find file at {image_path}")
+#     exit()
 
 
-for angle in angles:
-    new_image = original_image.rotate(angle)
-    images.append(new_image)
-    new_image.save(f"rotated_billgates_{angle}.jpg")
+# angles = [360, 270, 180, 90]
+# images = [original_image] 
 
 
-images[0].save(
-    "animated_billgates.gif",
-    save_all=True,
-    append_images=images[1:],
-    duration=500,
-    loop=0
-)
+# for angle in angles:
+#     new_image = original_image.rotate(angle)
+#     images.append(new_image)
+#     new_image.save(f"rotated_billgates_{angle}.jpg")
 
-print("Success! animated_billgates.gif has been created.")
+
+# images[0].save(
+#     "animated_billgates.gif",
+#     save_all=True,
+#     append_images=images[1:],
+#     duration=500,
+#     loop=0
+# )
+
+# print("Success! animated_billgates.gif has been created.")
+
+#Dynamic Open Graph (OG) Image Generator(final project for pillow module)
+
+from PIL import Image, ImageDraw, ImageFont
+
+def create_og_image( title , author):
+    # creating the canvas
+    width = 1200
+    height = 630
+    bg_color = (25, 25, 25)
+    image = Image.new('RGB', (width, height), color=bg_color)
+    draw = ImageDraw.Draw(image)
+
+#loding the fonts 
+    try:
+        title_font = ImageFont.truetype("arial.ttf", 70)
+        author_font = ImageFont.truetype("arial.ttf", 40)
+    except IOError:
+        print("Custom font not found. Using default font.")
+        title_font = ImageFont.load_default()
+        author_font = ImageFont.load_default()
+    
+    left, top, right, bottom = draw.textbbox((0, 0), title, font=title_font)
+    title_width = right - left
+    title_height = bottom - top
+
+# making the text center
+    title_x = (width - title_width) / 2
+    title_y = (height - title_height) / 2 - 50
+
+    draw.text((title_x, title_y), title, font=title_font, fill="white")
+    
+        # 5. Calculate Layout for Author
+    bbox_auth = draw.textbbox((0, 0), author, font=author_font)
+    auth_w = bbox_auth[2] - bbox_auth[0]
+    
+    auth_x = (width - auth_w) / 2
+    auth_y = (title_y + title_height) + 60
+    # drawing the author
+    draw.text((auth_x, auth_y), author, font=author_font, fill="#00ffcc")
+    
+    #save 
+    filename = "og_image_generator.png"
+    image.save(filename)
+    print(f"Success! {filename} has been created.")
+    
+    # Running the function
+create_og_image("Dynamic Open Graph Image Generator", "by Emre Guzel ")
+    
+    # image.save("og_image_generator.png")
+    # print("Success! og_image_generator.png has been created.")
+
