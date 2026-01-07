@@ -148,12 +148,15 @@ def create_og_image( title , author):
     draw.text((auth_x, auth_y), author, font=author_font, fill="#00ffcc")
     
     #save 
-    filename = "og_image_generator.png"
+    filename = "billgates_card.jpg"
     image.save(filename)
     print(f"Success! {filename} has been created.")
     
     # Running the function
-create_og_image("Dynamic Open Graph Image Generator", "by Emre Guzel ")
+articles = ["My First Blog", "Why Python is Great", "Top 10 Coding Tips"]
+
+for title in articles:
+    create_og_image(title, "Emre Guzel")
     
     # image.save("og_image_generator.png")
     # print("Success! og_image_generator.png has been created.")
