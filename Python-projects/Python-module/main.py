@@ -153,7 +153,7 @@ def create_og_image( title , author):
     print(f"Success! {filename} has been created.")
     
     # Running the function
-articles = ["My First Blog", "Why Python is Great", "Top 10 Coding Tips"]
+articles = ["My First Blog", "Why Python is Great", "Bill gates is owner of  Microsoft"]
 
 for title in articles:
     create_og_image(title, "Emre Guzel")
