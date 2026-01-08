@@ -109,55 +109,56 @@
 
 #Dynamic Open Graph (OG) Image Generator(final project for pillow module)
 
-from PIL import Image, ImageDraw, ImageFont
+# from PIL import Image, ImageDraw, ImageFont
 
-def create_og_image( title , author):
-    # creating the canvas
-    width = 1200
-    height = 630
-    bg_color = (25, 25, 25)
-    image = Image.new('RGB', (width, height), color=bg_color)
-    draw = ImageDraw.Draw(image)
+# def create_og_image( title , author):
+#     # creating the canvas
+#     width = 1200
+#     height = 630
+#     bg_color = (25, 25, 25)
+#     image = Image.new('RGB', (width, height), color=bg_color)
+#     draw = ImageDraw.Draw(image)
 
-#loding the fonts 
-    try:
-        title_font = ImageFont.truetype("arial.ttf", 70)
-        author_font = ImageFont.truetype("arial.ttf", 40)
-    except IOError:
-        print("Custom font not found. Using default font.")
-        title_font = ImageFont.load_default()
-        author_font = ImageFont.load_default()
+# #loding the fonts 
+#     try:
+#         title_font = ImageFont.truetype("arial.ttf", 70)
+#         author_font = ImageFont.truetype("arial.ttf", 40)
+#     except IOError:
+#         print("Custom font not found. Using default font.")
+#         title_font = ImageFont.load_default()
+#         author_font = ImageFont.load_default()
     
-    left, top, right, bottom = draw.textbbox((0, 0), title, font=title_font)
-    title_width = right - left
-    title_height = bottom - top
+#     left, top, right, bottom = draw.textbbox((0, 0), title, font=title_font)
+#     title_width = right - left
+#     title_height = bottom - top
 
-# making the text center
-    title_x = (width - title_width) / 2
-    title_y = (height - title_height) / 2 - 50
+# # making the text center
+#     title_x = (width - title_width) / 2
+#     title_y = (height - title_height) / 2 - 50
 
-    draw.text((title_x, title_y), title, font=title_font, fill="white")
+#     draw.text((title_x, title_y), title, font=title_font, fill="white")
     
-        # 5. Calculate Layout for Author
-    bbox_auth = draw.textbbox((0, 0), author, font=author_font)
-    auth_w = bbox_auth[2] - bbox_auth[0]
+#         # 5. Calculate Layout for Author
+#     bbox_auth = draw.textbbox((0, 0), author, font=author_font)
+#     auth_w = bbox_auth[2] - bbox_auth[0]
     
-    auth_x = (width - auth_w) / 2
-    auth_y = (title_y + title_height) + 60
-    # drawing the author
-    draw.text((auth_x, auth_y), author, font=author_font, fill="#00ffcc")
+#     auth_x = (width - auth_w) / 2
+#     auth_y = (title_y + title_height) + 60
+#     # drawing the author
+#     draw.text((auth_x, auth_y), author, font=author_font, fill="#00ffcc")
     
-    #save 
-    filename = "billgates_card.jpg"
-    image.save(filename)
-    print(f"Success! {filename} has been created.")
+#     #save 
+#     filename = "billgates_card.jpg"
+#     image.save(filename)
+#     print(f"Success! {filename} has been created.")
     
-    # Running the function
-articles = ["My First Blog", "Why Python is Great", "Bill gates is owner of  Microsoft"]
+#     # Running the function
+# articles = ["My First Blog", "Why Python is Great", "Bill gates is owner of  Microsoft"]
 
-for title in articles:
-    create_og_image(title, "Emre Guzel")
+# for title in articles:
+#     create_og_image(title, "Emre Guzel")
     
-    # image.save("og_image_generator.png")
-    # print("Success! og_image_generator.png has been created.")
+#     # image.save("og_image_generator.png")
+#     # print("Success! og_image_generator.png has been created.")
 
+import cv2
