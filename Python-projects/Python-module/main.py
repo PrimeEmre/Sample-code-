@@ -161,11 +161,15 @@
 #     # image.save("og_image_generator.png")
 #     # print("Success! og_image_generator.png has been created.")
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fc65ccf742d51e0c58e37f7d17b00e4677df0bb4
 import cv2
 
 image = cv2.imread("dubai.png")
 height, width = image.shape[:2]
+<<<<<<< HEAD
 print("Height = {}, Width = {}".format(height, width))
 
 (Red, Green, Blue) = image[100, 100]
@@ -174,3 +178,6 @@ print('Red = {}, Green = {} , Blue = {}'.format(Red, Green, Blue))
 blue = image[100, 100]
 print("Blue = {}".format(Blue))
 
+=======
+print("Height = {}, Width = {}".format(height, width))
+>>>>>>> fc65ccf742d51e0c58e37f7d17b00e4677df0bb4
