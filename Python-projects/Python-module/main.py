@@ -161,14 +161,27 @@
 #     # image.save("og_image_generator.png")
 #     # print("Success! og_image_generator.png has been created.")
 
+# import cv2
+
+# image = cv2.imread("dubai.png")
+# height, width = image.shape[:2]
+# print("Height = {}, Width = {}".format(height, width))
+
+# (Red, Green, Blue) = image[100, 100]
+# print('Red = {}, Green = {} , Blue = {}'.format(Red, Green, Blue))
+
+# blue = image[100, 100]
+# print("Blue = {}".format(Blue))
+
+# Rototating image 
+
 import cv2
 
 image = cv2.imread("dubai.png")
-height, width = image.shape[:2]
-print("Height = {}, Width = {}".format(height, width))
-
-(Red, Green, Blue) = image[100, 100]
-print('Red = {}, Green = {} , Blue = {}'.format(Red, Green, Blue))
-
-blue = image[100, 100]
-print("Blue = {}".format(Blue))
+resize = cv2.resize(image, None, fx=2, fy=2)
+(rows, cols) = image.shape[:2]
+calcuale_image = cv2.getRotationMatrix2D((cols / 2, rows / 2), 180, 1)
+roteted_img = cv2.warpAffine(image, calcuale_image, (cols, rows))
+cropped_img = image[100:500, 500:600]
+cv2.imshow("Rotated", roteted_img)
+cv2.waitKey(0)
