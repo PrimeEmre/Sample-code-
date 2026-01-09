@@ -175,13 +175,25 @@
 
 # Rototating image 
 
-import cv2
+# import cv2
 
-image = cv2.imread("dubai.png")
-resize = cv2.resize(image, None, fx=2, fy=2)
-(rows, cols) = image.shape[:2]
-calcuale_image = cv2.getRotationMatrix2D((cols / 2, rows / 2), 180, 1)
-roteted_img = cv2.warpAffine(image, calcuale_image, (cols, rows))
-cropped_img = image[100:500, 500:600]
-cv2.imshow("Rotated", roteted_img)
-cv2.waitKey(0)
+# image = cv2.imread("dubai.png")
+# resize = cv2.resize(image, None, fx=2, fy=2)
+# (rows, cols) = image.shape[:2]
+# calcuale_image = cv2.getRotationMatrix2D((cols / 2, rows / 2), 180, 1)
+# roteted_img = cv2.warpAffine(image, calcuale_image, (cols, rows))
+# cropped_img = image[100:500, 500:600]
+# cv2.imshow("Rotated", roteted_img)
+# cv2.waitKey(0)
+
+# Webcam capture in cv2(final project for cv2 module)
+import cv2
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
+    cv2.imshow('Sketch Filter', frame)
+    if cv2.waitKey(1) == ord('q'):
+        break
+    cap.release()
+    cv2.destroyAllWindows()
