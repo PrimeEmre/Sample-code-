@@ -188,12 +188,31 @@
 
 # Webcam capture in cv2(final project for cv2 module)
 import cv2
+
+cap = cv2.VideoCapture(0)
+
 while True:
     ret, frame = cap.read()
     if not ret:
         break
+
+    # --- Sketch Logic ---
+    gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    inverted_image = 255 - gray_image
+    blurred = cv2.GaussianBlur(inverted_image, (51, 51), 0)
+    inverted_blur = 255 - blurred
+    sketch = cv2.divide(gray_image, inverted_blur, scale=256.0)
+
     cv2.imshow('Sketch Filter', frame)
-    if cv2.waitKey(1) == ord('q'):
+
+    key = cv2.waitKey(1)
+
+    if key == ord('q'):
         break
-    cap.release()
-    cv2.destroyAllWindows()
+
+    if key == ord('s'):
+        cv2.imwrite("emre_guzel.png", sketch)
+        print("Screenshot saved as emre_guzel.png!")
+
+cap.release()
+cv2.destroyAllWindows()
