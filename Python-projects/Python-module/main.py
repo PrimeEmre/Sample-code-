@@ -187,8 +187,11 @@
 # cv2.waitKey(0)
 
 # Webcam capture in cv2(final project for cv2 module)
-import cv2
 
+import cv2
+from ultralytics import YOLO
+
+model = YOLO("yolov8n.pt")
 cap = cv2.VideoCapture(0)
 
 while True:
@@ -202,13 +205,12 @@ while True:
     blurred = cv2.GaussianBlur(inverted_image, (51, 51), 0)
     inverted_blur = 255 - blurred
     sketch = cv2.divide(gray_image, inverted_blur, scale=256.0)
+    results = model(frame)
+    anmoted_frame = results[0].plot()
 
-    cv2.imshow('Sketch Filter', frame)
+    cv2.imshow('AI camera  ', anmoted_frame)
 
     key = cv2.waitKey(1)
-
-    if key == ord('q'):
-        break
 
     if key == ord('s'):
         cv2.imwrite("emre_guzel.png", sketch)
