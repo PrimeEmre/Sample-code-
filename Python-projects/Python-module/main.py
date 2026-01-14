@@ -188,7 +188,43 @@
 
 # Webcam capture in cv2(final project for cv2 module)
 import cv2
+from ultralytics import YOLO
 
+model = YOLO("yolov8s-world.pt")
+
+model.set_classes([
+    # -- Standard 80 Objects (COCO) --
+    "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat",
+    "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
+    "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack",
+    "umbrella", "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard", "sports ball",
+    "kite", "baseball bat", "baseball glove", "skateboard", "surfboard", "tennis racket",
+    "bottle", "wine glass", "cup", "fork", "knife", "spoon", "bowl", "banana", "apple",
+    "sandwich", "orange", "broccoli", "carrot", "hot dog", "pizza", "donut", "cake",
+    "chair", "couch", "potted plant", "bed", "dining table", "toilet", "tv", "laptop",
+    "mouse", "remote", "keyboard", "cell phone", "microwave", "oven", "toaster", "sink",
+    "refrigerator", "book", "clock", "vase", "scissors", "teddy bear", "hair drier",
+    "toothbrush",
+
+    # -- YOUR EXTRAS --
+    "headphones", "wallet",
+
+    # -- GAMING & TECH (Good for your setup) --
+    "game controller", "joystick", "computer monitor", "tablet", "smart watch",
+    "charger", "usb stick", "camera", "speaker", "router",
+
+    # -- SCHOOL & OFFICE --
+    "pen", "pencil", "eraser", "marker", "notebook", "stapler", "calculator",
+    "paper", "folder", "whiteboard",
+
+    # -- CLOTHING & WEARABLES --
+    "glasses", "sunglasses", "hat", "cap", "jacket", "shoe", "sneaker", "sock",
+    "glove", "belt", "ring", "wrist watch",
+
+    # -- ROOM & HOUSEHOLD --
+    "lamp", "light bulb", "fan", "trash can", "door", "window", "curtain", "mirror",
+    "pillow", "blanket", "shelf", "drawer", "box", "key", "coin", "credit card"
+])
 cap = cv2.VideoCapture(0)
 
 while True:
@@ -203,12 +239,12 @@ while True:
     inverted_blur = 255 - blurred
     sketch = cv2.divide(gray_image, inverted_blur, scale=256.0)
 
-    cv2.imshow('Sketch Filter', frame)
+    results = model.predict(frame, conf=0.25, iou=0.5)
+    annotated_frame = results[0].plot()
+
+    cv2.imshow('AI camera  ', annotated_frame)
 
     key = cv2.waitKey(1)
-
-    if key == ord('q'):
-        break
 
     if key == ord('s'):
         cv2.imwrite("emre_guzel.png", sketch)
