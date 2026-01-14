@@ -191,11 +191,6 @@ import cv2
 from ultralytics import YOLO
 
 
-
-import cv2
-from ultralytics import YOLO
-
-
 model = YOLO("yolov8s-world.pt")
 
 model.set_classes([
