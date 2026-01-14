@@ -190,6 +190,12 @@
 import cv2
 from ultralytics import YOLO
 
+
+
+import cv2
+from ultralytics import YOLO
+
+
 model = YOLO("yolov8s-world.pt")
 
 model.set_classes([
@@ -240,6 +246,8 @@ while True:
     sketch = cv2.divide(gray_image, inverted_blur, scale=256.0)
 
     results = model.predict(frame, conf=0.25, iou=0.5)
+    results = model.predict(frame, conf=0.05)
+
     annotated_frame = results[0].plot()
 
     cv2.imshow('AI camera  ', annotated_frame)
