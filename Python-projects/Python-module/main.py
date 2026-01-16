@@ -349,4 +349,9 @@ while True:
     if cv2.waitKey(1) == ord('q'):
         break
 
- 
+# Numpy
+import numpy as np
+
+my_array = np.array([100, 200, 300, 400, 500])
+
+print(my_array)
