@@ -187,7 +187,10 @@
 # cv2.waitKey(0)
 
 # Webcam capture in cv2(final project for cv2 module)
+# import cv2
+# from ultralytics import YOLO
 
+<<<<<<< HEAD
 # import cv2
 # from ultralytics import YOLO
 
@@ -231,3 +234,169 @@ my_array = np.array([[[100, 200, 300], [400, 500, 600], [700, 800,900 ], [1000, 
 
 print(my_array)
 
+
+
+# model = YOLO("yolov8s-world.pt")
+
+# model.set_classes([
+#     # -- Standard 80 Objects (COCO) --
+#     "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat",
+#     "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
+#     "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack",
+#     "umbrella", "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard", "sports ball",
+#     "kite", "baseball bat", "baseball glove", "skateboard", "surfboard", "tennis racket",
+#     "bottle", "wine glass", "cup", "fork", "knife", "spoon", "bowl", "banana", "apple",
+#     "sandwich", "orange", "broccoli", "carrot", "hot dog", "pizza", "donut", "cake",
+#     "chair", "couch", "potted plant", "bed", "dining table", "toilet", "tv", "laptop",
+#     "mouse", "remote", "keyboard", "cell phone", "microwave", "oven", "toaster", "sink",
+#     "refrigerator", "book", "clock", "vase", "scissors", "teddy bear", "hair drier",
+#     "toothbrush",
+
+#     # -- YOUR EXTRAS --
+#     "headphones", "wallet",
+
+#     # -- GAMING & TECH (Good for your setup) --
+#     "game controller", "joystick", "computer monitor", "tablet", "smart watch",
+#     "charger", "usb stick", "camera", "speaker", "router",
+
+#     # -- SCHOOL & OFFICE --
+#     "pen", "pencil", "eraser", "marker", "notebook", "stapler", "calculator",
+#     "paper", "folder", "whiteboard",
+
+#     # -- CLOTHING & WEARABLES --
+#     "glasses", "sunglasses", "hat", "cap", "jacket", "shoe", "sneaker", "sock",
+#     "glove", "belt", "ring", "wrist watch",
+
+#     # -- ROOM & HOUSEHOLD --
+#     "lamp", "light bulb", "fan", "trash can", "door", "window", "curtain", "mirror",
+#     "pillow", "blanket", "shelf", "drawer", "box", "key", "coin", "credit card"
+# ])
+# cap = cv2.VideoCapture(0)
+
+# while True:
+#     ret, frame = cap.read()
+#     if not ret:
+#         break
+
+#     # --- Sketch Logic ---
+#     gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+#     inverted_image = 255 - gray_image
+#     blurred = cv2.GaussianBlur(inverted_image, (51, 51), 0)
+#     inverted_blur = 255 - blurred
+#     sketch = cv2.divide(gray_image, inverted_blur, scale=256.0)
+
+#     results = model.predict(frame, conf=0.25, iou=0.5)
+#     results = model.predict(frame, conf=0.05)
+
+#     annotated_frame = results[0].plot()
+
+#     cv2.imshow('AI camera  ', annotated_frame)
+
+#     key = cv2.waitKey(1)
+
+#     if key == ord('s'):
+#         cv2.imwrite("emre_guzel.png", sketch)
+#         print("Screenshot saved as emre_guzel.png!")
+
+# cap.release()
+# cv2.destroyAllWindows()
+
+# import cv2
+# from ultralytics import YOLO
+#
+# model = YOLO("yolov8s-world.pt")
+#
+# model.set_classes([
+#     # -- Standard 80 Objects (COCO) --
+#     "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat",
+#     "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
+#     "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack",
+#     "umbrella", "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard", "sports ball",
+#     "kite", "baseball bat", "baseball glove", "skateboard", "surfboard", "tennis racket",
+#     "bottle", "wine glass", "cup", "fork", "knife", "spoon", "bowl", "banana", "apple",
+#     "sandwich", "orange", "broccoli", "carrot", "hot dog", "pizza", "donut", "cake",
+#     "chair", "couch", "potted plant", "bed", "dining table", "toilet", "tv", "laptop",
+#     "mouse", "remote", "keyboard", "cell phone", "microwave", "oven", "toaster", "sink",
+#     "refrigerator", "book", "clock", "vase", "scissors", "teddy bear", "hair drier",
+#     "toothbrush",
+#
+#     # -- YOUR EXTRAS --
+#     "headphones", "wallet",
+#
+#     # -- GAMING & TECH (Good for your setup) --
+#     "game controller", "joystick", "computer monitor", "tablet", "smart watch",
+#     "charger", "usb stick", "camera", "speaker", "router",
+#
+#     # -- SCHOOL & OFFICE --
+#     "pen", "pencil", "eraser", "marker", "notebook", "stapler", "calculator",
+#     "paper", "folder", "whiteboard",
+#
+#     # -- CLOTHING & WEARABLES --
+#     "glasses", "sunglasses", "hat", "cap", "jacket", "shoe", "sneaker", "sock",
+#     "glove", "belt", "ring", "wrist watch",
+#
+#     # -- ROOM & HOUSEHOLD --
+#     "lamp", "light bulb", "fan", "trash can", "door", "window", "curtain", "mirror",
+#     "pillow", "blanket", "shelf", "drawer", "box", "key", "coin", "credit card"
+# ])
+# cap = cv2.VideoCapture(0)
+#
+# while True:
+#     ret, frame = cap.read()
+#     if not ret:
+#         break
+#
+#     # --- Sketch Logic ---
+#     gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+#     inverted_image = 255 - gray_image
+#     blurred = cv2.GaussianBlur(inverted_image, (51, 51), 0)
+#     inverted_blur = 255 - blurred
+#     sketch = cv2.divide(gray_image, inverted_blur, scale=256.0)
+#
+#     results = model.predict(frame, conf=0.05)
+#     annotated_frame = results[0].plot()
+#
+#     cv2.imshow('AI camera  ', annotated_frame)
+#
+#     key = cv2.waitKey(1)
+#
+#     if key == ord('s'):
+#         cv2.imwrite("emre_guzel.png", sketch)
+#         print("Screenshot saved as emre_guzel.png!")
+#
+# cap.release()
+# hand tracker 
+import cv2
+import mediapipe as mp
+
+# Setting the MediaPipe and movements
+mp_hands = mp.solutions.hands
+hands = mp_hands.Hands(max_num_hands=2)
+mp_draw = mp.solutions.drawing_utils
+
+cap = cv2.VideoCapture(0)
+
+while True:
+    ret, frame = cap.read()
+    if not ret: break
+
+    #Setting the RGB
+    img_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    results = hands.process(img_rgb)
+
+    # Drawing the hands
+    if results.multi_hand_landmarks:
+        for hand_landmarks in results.multi_hand_landmarks:
+            mp_draw.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+
+    cv2.imshow("Hand camera tracking" , frame)
+
+    if cv2.waitKey(1) == ord('q'):
+        break
+
+# Numpy
+import numpy as np
+
+my_array = np.array([100, 200, 300, 400, 500])
+
+print(my_array)
