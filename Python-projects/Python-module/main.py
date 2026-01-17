@@ -188,33 +188,46 @@
 
 # Webcam capture in cv2(final project for cv2 module)
 
-import cv2
-from ultralytics import YOLO
+# import cv2
+# from ultralytics import YOLO
 
-model = YOLO("yolov8n.pt")
-cap = cv2.VideoCapture(0)
+# model = YOLO("yolov8n.pt")
+# cap = cv2.VideoCapture(0)
 
-while True:
-    ret, frame = cap.read()
-    if not ret:
-        break
+# while True:
+#     ret, frame = cap.read()
+#     if not ret:
+#         break
 
-    # --- Sketch Logic ---
-    gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    inverted_image = 255 - gray_image
-    blurred = cv2.GaussianBlur(inverted_image, (51, 51), 0)
-    inverted_blur = 255 - blurred
-    sketch = cv2.divide(gray_image, inverted_blur, scale=256.0)
-    results = model(frame)
-    anmoted_frame = results[0].plot()
+#     # --- Sketch Logic ---
+#     gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+#     inverted_image = 255 - gray_image
+#     blurred = cv2.GaussianBlur(inverted_image, (51, 51), 0)
+#     inverted_blur = 255 - blurred
+#     sketch = cv2.divide(gray_image, inverted_blur, scale=256.0)
+#     results = model(frame)
+#     anmoted_frame = results[0].plot()
 
-    cv2.imshow('AI camera  ', anmoted_frame)
+#     cv2.imshow('AI camera  ', anmoted_frame)
 
-    key = cv2.waitKey(1)
+#     key = cv2.waitKey(1)
 
-    if key == ord('s'):
-        cv2.imwrite("emre_guzel.png", sketch)
-        print("Screenshot saved as emre_guzel.png!")
+#     if key == ord('s'):
+#         cv2.imwrite("emre_guzel.png", sketch)
+#         print("Screenshot saved as emre_guzel.png!")
 
-cap.release()
-cv2.destroyAllWindows()
+# cap.release()
+# cv2.destroyAllWindows()
+
+
+# Numpy
+# import numpy as np
+#
+# my_numpy = np.array([100, 200, 300, 400, 500])
+# print(my_numpy)
+
+import numpy as np
+my_array = np.array([[[100, 200, 300], [400, 500, 600], [700, 800,900 ], [1000, 1100, 1200],[1300,1400,1500]]])
+
+print(my_array)
+
