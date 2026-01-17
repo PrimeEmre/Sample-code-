@@ -349,8 +349,13 @@
 #         break
 
 # Numpy array 
-import numpy as np
+# import numpy as np
 
-my_array = np.array([100, 200, 300, 400, 500])
+# my_array = np.array([100, 200, 300, 400, 500])
+
+# print(my_array)
+
+import numpy as np
+my_array = np.array([[[100, 200, 300], [400, 500, 600], [700, 800,900 ], [1000, 1100, 1200],[1300,1400,1500]]])
 
 print(my_array)
