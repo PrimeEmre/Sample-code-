@@ -355,7 +355,22 @@
 
 # print(my_array)
 
-import numpy as np
-my_array = np.array([[[100, 200, 300], [400, 500, 600], [700, 800,900 ], [1000, 1100, 1200],[1300,1400,1500]]])
+# Drawing graphs in numpy 
 
-print(my_array)
+# import matplotlib.pyplot as plt
+# import seaborn as sns
+# sns.distplot([100,200,300,500])
+# plt.show()
+
+from numpy import random
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+data = {
+  "normal": random.normal(loc=100, scale=10, size=1000),
+  "binomial": random.binomial(n=100, p=1, size=1000)
+}
+
+sns.displot(data, kind="kde")
+
+plt.show()
