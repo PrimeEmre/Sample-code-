@@ -375,4 +375,3 @@
 
 # plt.show()
 
-print("hi")
