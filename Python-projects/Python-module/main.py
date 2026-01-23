@@ -362,15 +362,17 @@
 # sns.distplot([100,200,300,500])
 # plt.show()
 
-from numpy import random
-import matplotlib.pyplot as plt
-import seaborn as sns
+# from numpy import random
+# import matplotlib.pyplot as plt
+# import seaborn as sns
 
-data = {
-  "normal": random.normal(loc=100, scale=10, size=1000),
-  "binomial": random.binomial(n=100, p=1, size=1000)
-}
+# data = {
+#   "normal": random.normal(loc=100, scale=10, size=1000),
+#   "binomial": random.binomial(n=100, p=1, size=1000)
+# }
 
-sns.displot(data, kind="kde")
+# sns.displot(data, kind="kde")
 
-plt.show()
+# plt.show()
+
+print("hi")
