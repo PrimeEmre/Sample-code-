@@ -375,3 +375,47 @@
 
 # plt.show()
 
+# import numpy as np
+# import matplotlib.pyplot as plt
+# x_axis = np.arange(1,11)
+# y_axis = np.array([100, 10, 300, 20, 500, 60, 700, 80, 900, 100])
+
+# plt.title("Company growth")
+# plt.xlabel("X axis")
+# plt.ylabel("Y axis")
+# plt.plot(x_axis,y_axis,color= "darkgreen")
+# plt.show()
+
+# The Interactive Stock Tracker
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Setting the month in days
+days = np.arange(1, 31)
+initial_price = 2000
+fluctuations = np.random.normal(2, 5, 30)
+growth_data = initial_price + np.cumsum(fluctuations)
+
+# calcualtating the grapth
+arvage_price = np.mean(growth_data)
+peak_value = np.max(growth_data)
+peak_day = np.argmax(growth_data)
+
+# drawing the graph
+plt.figure(figsize=(10, 5))
+plt.plot(days, growth_data, color="darkgreen", marker='o', label="Daily Value ")
+
+plt.axhline(y=arvage_price, color='r', linestyle='--', label=f"Avg: {arvage_price:.2f}")
+
+# Highlights the Highest point
+plt.annotate(f"PEAK: {peak_value:.2f}", xy=(peak_day, peak_value),
+             xytext=(peak_day+2, peak_value+5),
+             arrowprops=dict(facecolor='black', shrink=0.05))
+
+# Formatting the graph
+plt.title("Stock tracker ")
+plt.xlabel("Day of Month")
+plt.ylabel("Value ($)")
+plt.legend()
+plt.grid(True ,alpha = 0.3)
+plt.show()
