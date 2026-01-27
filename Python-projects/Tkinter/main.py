@@ -21,54 +21,203 @@
 # my_button.pack()
 # window.mainloop()
 
+# import tkinter
+# from tkinter import messagebox
+
+# # Login form
+# window = tkinter.Tk()
+# window.title("Login Form")
+# window.minsize(1000,1000)
+# window.config(padx= 20, pady=20)
+
+# def login_btn():
+#     if firt_name_entry.get() and last_name_entry.get() and pasword_entry.get():
+#         messagebox.showinfo(title="Thank you", message="you have filing the requirements  ")
+#     else:
+#         messagebox.showerror(title="Eror", message="You did not fill out the requirements ")
+
+#     if firt_name_entry.get().isalpha() and last_name_entry.get().isalpha():
+#         messagebox.showinfo(message="Valid First name and Last name and you have successfully login ")
+#     else:
+#         messagebox.showerror(
+#             title="Invalid Name",
+#             message="Please use letters only (no spaces or numbers)."
+#         )
+
+
+# label_title = tkinter.Label(text="Log in form" , font=("Arial", 34), bg="black" , fg="white")
+# label_title.pack(pady=12)
+
+# label_firstname = tkinter.Label(text="Enter your first name" , font=("Arial",18) , bg="black", fg="white")
+# label_firstname.pack(pady=12)
+
+# firt_name_entry = tkinter.Entry(bg="black" , fg="white" ,font=("Arial" ,12),)
+# firt_name_entry.pack(pady=12)
+
+# label_lastname = tkinter.Label(text="Enter your last name" , font=("Arial",18) , bg="black", fg="white")
+# label_lastname.pack(pady=12)
+
+# last_name_entry = tkinter.Entry(bg="black" , fg="white" ,font=("Arial" ,12),)
+# last_name_entry.pack(pady=12)
+
+# password_lable = tkinter.Label(text="Enter your password" , font=("Arial", 12),bg="black" , fg="white")
+# password_lable.pack(pady=12)
+
+# pasword_entry = tkinter.Entry(font=("Arial" , 12),bg="black" ,fg="white")
+# pasword_entry.pack(pady=12)
+
+# login_button = tkinter.Button(text="Login" , font=("Arial" ,12 ), bg="black" , fg="white" , command=login_btn)
+# login_button.pack()
+
+# window.mainloop()
+
+# import tkinter
+#
+# window = tkinter.Tk()
+# window.title("Hello World GUI")
+# window.minsize(width=1000, height=1000)
+# window.config(padx=20, pady=20)
+#
+# my_label = tkinter.Label(text="Hello world", bg="black", fg="white", font=("Roboto", 24))
+# my_label.pack()
+# my_name_lable = tkinter.Label(text="Enter your name " ,bg="light blue" , fg="black", font=("Roboto" ,18))
+# my_name_lable.pack(pady=12)
+# my_entry = tkinter.Entry(bg="light green", fg="blue", font=("Roboto", 12))
+# my_entry.pack(pady= 12)
+#
+# window.mainloop()
+
+# login form
+# import tkinter
+# from tkinter import messagebox
+# # Login form
+# window = tkinter.Tk()
+# window.title("Login Form")
+# window.minsize(1000,1000)
+# window.config(padx= 20, pady=20)
+#
+# def login_btn():
+#     if firt_name_entry.get() and last_name_entry.get() and pasword_entry.get():
+#         messagebox.showinfo(title="Thank you", message="you have filing the requirements  ")
+#     else:
+#         messagebox.showerror(title="Eror", message="You did not fill out the requirements ")
+#
+#     if firt_name_entry.get().isalpha() and last_name_entry.get().isalpha():
+#         messagebox.showinfo(message="Valid First name and Last name and you have successfully login ")
+#     else:
+#         messagebox.showerror(
+#             title="Invalid Name",
+#             message="Please use letters only (no spaces or numbers)."
+#         )
+#
+#
+# label_title = tkinter.Label(text="Log in form" , font=("Arial", 34), bg="black" , fg="white")
+# label_title.pack(pady=12)
+#
+# label_firstname = tkinter.Label(text="Enter your first name" , font=("Arial",18) , bg="black", fg="white")
+# label_firstname.pack(pady=12)
+#
+# firt_name_entry = tkinter.Entry(bg="black" , fg="white" ,font=("Arial" ,12),)
+# firt_name_entry.pack(pady=12)
+#
+# label_lastname = tkinter.Label(text="Enter your last name" , font=("Arial",18) , bg="black", fg="white")
+# label_lastname.pack(pady=12)
+#
+# last_name_entry = tkinter.Entry(bg="black" , fg="white" ,font=("Arial" ,12),)
+# last_name_entry.pack(pady=12)
+#
+# password_lable = tkinter.Label(text="Enter your password" , font=("Arial", 12),bg="black" , fg="white")
+# password_lable.pack(pady=12)
+#
+# pasword_entry = tkinter.Entry(font=("Arial" , 12),bg="black" ,fg="white")
+# pasword_entry.pack(pady=12)
+#
+# login_button = tkinter.Button(text="Login" , font=("Arial" ,12 ), bg="black" , fg="white" , command=login_btn)
+# login_button.pack()
+#
+# window.mainloop()
+
+# Calculator
+# Importing modules
 import tkinter
-from tkinter import messagebox
 
-# Login form
+# Setting the GUI
 window = tkinter.Tk()
-window.title("Login Form")
-window.minsize(1000,1000)
-window.config(padx= 20, pady=20)
+window.title("Calcualtor")
+window.minsize(1000, 1000)
+window.config(pady=20, padx=20)
 
-def login_btn():
-    if firt_name_entry.get() and last_name_entry.get() and pasword_entry.get():
-        messagebox.showinfo(title="Thank you", message="you have filing the requirements  ")
-    else:
-        messagebox.showerror(title="Eror", message="You did not fill out the requirements ")
+#setting the backend
+def get_first_num():
+    first_num_entry.get()
 
-    if firt_name_entry.get().isalpha() and last_name_entry.get().isalpha():
-        messagebox.showinfo(message="Valid First name and Last name and you have successfully login ")
-    else:
-        messagebox.showerror(
-            title="Invalid Name",
-            message="Please use letters only (no spaces or numbers)."
-        )
+def get_second_num():
+    second_num_entry.get()
+
+def dropdwon(selection):
+    math_opratins.set(selection)
 
 
-label_title = tkinter.Label(text="Log in form" , font=("Arial", 34), bg="black" , fg="white")
-label_title.pack(pady=12)
+def clacualte_btn():
+    try:
+        num1 = float(first_num_entry.get())
+        num2 = float(second_num_entry.get())
+        operation = selceted_math_options.get()
 
-label_firstname = tkinter.Label(text="Enter your first name" , font=("Arial",18) , bg="black", fg="white")
-label_firstname.pack(pady=12)
+        res = None  # Initialize result variable
 
-firt_name_entry = tkinter.Entry(bg="black" , fg="white" ,font=("Arial" ,12),)
-firt_name_entry.pack(pady=12)
+        if operation == '+':
+            res = num1 + num2
+        elif operation == "-":
+            res = num1 - num2
+        elif operation == "*":
+            res = num1 * num2
+        elif operation == "/":
+            if num2 == 0:
+                result_label.configure(text="Error: Division by zero")
+                return
+            res = num1 / num2
+        else:
+            result_label.configure(text="Select an operation")
+            return
 
-label_lastname = tkinter.Label(text="Enter your last name" , font=("Arial",18) , bg="black", fg="white")
-label_lastname.pack(pady=12)
+        result_label.configure(text=f"Result: {res}")
 
-last_name_entry = tkinter.Entry(bg="black" , fg="white" ,font=("Arial" ,12),)
-last_name_entry.pack(pady=12)
+    except ValueError:
+        result_label.configure(text="Invalid input! Enter numbers.")
 
-password_lable = tkinter.Label(text="Enter your password" , font=("Arial", 12),bg="black" , fg="white")
-password_lable.pack(pady=12)
 
-pasword_entry = tkinter.Entry(font=("Arial" , 12),bg="black" ,fg="white")
-pasword_entry.pack(pady=12)
 
-login_button = tkinter.Button(text="Login" , font=("Arial" ,12 ), bg="black" , fg="white" , command=login_btn)
-login_button.pack()
+
+
+
+# Setting the frontend of GUI
+calcualtor_heding = tkinter.Label(text="Calculator", bg="black", fg="white", font=("Open Sans",32))
+calcualtor_heding.pack(pady=20)
+
+first_num = tkinter.Label(text="Enter your first num", font=("Open Sans",18), bg="black", fg="white")
+first_num.pack()
+
+first_num_entry = tkinter.Entry(font=("Open Sans", 18), bg="black" , fg="white")
+first_num_entry.pack(pady=20)
+
+second_num = tkinter.Label(text="Enter second num",font=("Open Sans", 18),bg="black" , fg="white")
+second_num.pack(pady=2)
+second_num_entry = tkinter.Entry(font=("Open Sans", 18),bg="black" , fg="white")
+second_num_entry.pack()
+
+#dropdown
+selceted_math_options = tkinter.StringVar(window)
+selceted_math_options.set("Select the math operation")
+
+math_opratins = ["+" , "-" , "*" , "/"]
+dropdown = tkinter.OptionMenu(window , selceted_math_options, *math_opratins)
+dropdown.pack(pady=2)
+
+calcualte_btn = tkinter.Button(text="calculate", font=("Open Sans",12), bg="black", fg="white",command=clacualte_btn)
+calcualte_btn.pack()
+
+result_label = tkinter.Label(window, text="", font=("Arial", 14, "bold"))
+result_label.pack(pady=5)
 
 window.mainloop()
-
-#Hello
