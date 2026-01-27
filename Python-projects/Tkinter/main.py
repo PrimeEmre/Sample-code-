@@ -137,35 +137,125 @@
 #
 # window.mainloop()
 
-# Calculator
-# Importing modules
-import tkinter
+# # Calculator
+# # Importing modules
+# import tkinter
 
-# Setting the GUI
-window = tkinter.Tk()
-window.title("Calcualtor")
-window.minsize(1000, 1000)
-window.config(pady=20, padx=20)
+# # Setting the GUI
+# window = tkinter.Tk()
+# window.title("Calcualtor")
+# window.minsize(1000, 1000)
+# window.config(pady=20, padx=20)
 
-#setting the backend
+# #setting the backend
+# def get_first_num():
+#     first_num_entry.get()
+
+# def get_second_num():
+#     second_num_entry.get()
+
+# def dropdwon(selection):
+#     math_opratins.set(selection)
+
+
+# def clacualte_btn():
+#     try:
+#         num1 = float(first_num_entry.get())
+#         num2 = float(second_num_entry.get())
+#         operation = selceted_math_options.get()
+
+#         res = None  # Initialize result variable
+
+#         if operation == '+':
+#             res = num1 + num2
+#         elif operation == "-":
+#             res = num1 - num2
+#         elif operation == "*":
+#             res = num1 * num2
+#         elif operation == "/":
+#             if num2 == 0:
+#                 result_label.configure(text="Error: Division by zero")
+#                 return
+#             res = num1 / num2
+#         else:
+#             result_label.configure(text="Select an operation")
+#             return
+
+#         result_label.configure(text=f"Result: {res}")
+
+#     except ValueError:
+#         result_label.configure(text="Invalid input! Enter numbers.")
+
+
+
+
+
+
+# # Setting the frontend of GUI
+# calcualtor_heding = tkinter.Label(text="Calculator", bg="black", fg="white", font=("Open Sans",32))
+# calcualtor_heding.pack(pady=20)
+
+# first_num = tkinter.Label(text="Enter your first num", font=("Open Sans",18), bg="black", fg="white")
+# first_num.pack()
+
+# first_num_entry = tkinter.Entry(font=("Open Sans", 18), bg="black" , fg="white")
+# first_num_entry.pack(pady=20)
+
+# second_num = tkinter.Label(text="Enter second num",font=("Open Sans", 18),bg="black" , fg="white")
+# second_num.pack(pady=2)
+# second_num_entry = tkinter.Entry(font=("Open Sans", 18),bg="black" , fg="white")
+# second_num_entry.pack()
+
+# #dropdown
+# selceted_math_options = tkinter.StringVar(window)
+# selceted_math_options.set("Select the math operation")
+
+# math_opratins = ["+" , "-" , "*" , "/"]
+# dropdown = tkinter.OptionMenu(window , selceted_math_options, *math_opratins)
+# dropdown.pack(pady=2)
+
+# calcualte_btn = tkinter.Button(text="calculate", font=("Open Sans",12), bg="black", fg="white",command=clacualte_btn)
+# calcualte_btn.pack()
+
+# result_label = tkinter.Label(window, text="", font=("Arial", 14, "bold"))
+# result_label.pack(pady=5)
+
+# window.mainloop()
+
+
+import customtkinter
+# Setting up the main window
+window = customtkinter.CTk()
+window.title("Calculator")
+window.geometry("1000x1000")
+
+customtkinter.set_appearance_mode('dark')
+customtkinter.set_default_color_theme("dark-blue")
+
+
+# Function to get first number
 def get_first_num():
-    first_num_entry.get()
+    return enter_number_entry.get()
 
+
+# Function to get second number
 def get_second_num():
-    second_num_entry.get()
-
-def dropdwon(selection):
-    math_opratins.set(selection)
+    return second_num_entry.get()
 
 
-def clacualte_btn():
+# Handling dropdown selection
+def dropdown(selection):
+    selected_calc_options.set(selection)
+
+
+# Function to calculate result
+def result():
     try:
-        num1 = float(first_num_entry.get())
-        num2 = float(second_num_entry.get())
-        operation = selceted_math_options.get()
+        num1 = float(get_first_num())
+        num2 = float(get_second_num())
+        operation = selected_calc_options.get()
 
-        res = None  # Initialize result variable
-
+        # Operations
         if operation == '+':
             res = num1 + num2
         elif operation == "-":
@@ -174,50 +264,51 @@ def clacualte_btn():
             res = num1 * num2
         elif operation == "/":
             if num2 == 0:
-                result_label.configure(text="Error: Division by zero")
+                result_label.configure(text='Cannot divide by 0')
                 return
             res = num1 / num2
         else:
-            result_label.configure(text="Select an operation")
+            result_label.configure(text='Select an operation')
             return
 
+        # Display result
         result_label.configure(text=f"Result: {res}")
 
     except ValueError:
-        result_label.configure(text="Invalid input! Enter numbers.")
+        result_label.configure(text="Enter valid numbers!")
 
 
+# UI Elements
+calculator_title = customtkinter.CTkLabel(window, text="Calculator", font=("Arial", 25))
+calculator_title.pack(pady=13)
 
+first_num_label = customtkinter.CTkLabel(window, text="Enter first number", font=('Arial', 15, 'bold'))
+first_num_label.pack(pady=3)
 
+enter_number_entry = customtkinter.CTkEntry(window, font=("Arial", 12, 'italic'), width=150)
+enter_number_entry.pack()
 
+# Setting the dropdown
+selected_calc_options = customtkinter.StringVar(value="Select a calc option")
 
-# Setting the frontend of GUI
-calcualtor_heding = tkinter.Label(text="Calculator", bg="black", fg="white", font=("Open Sans",32))
-calcualtor_heding.pack(pady=20)
+# Setting calc options
+calc_options = ['+', '-', '*', '/']
+dropdown = customtkinter.CTkOptionMenu(window, variable=selected_calc_options, values=calc_options, command=dropdown)
+dropdown.pack(pady=5)
 
-first_num = tkinter.Label(text="Enter your first num", font=("Open Sans",18), bg="black", fg="white")
-first_num.pack()
+# Setting the second entry
+num_label_second = customtkinter.CTkLabel(window, text="Enter second number", font=("Arial", 15, 'bold'))
+num_label_second.pack(pady=3)
 
-first_num_entry = tkinter.Entry(font=("Open Sans", 18), bg="black" , fg="white")
-first_num_entry.pack(pady=20)
+second_num_entry = customtkinter.CTkEntry(window, font=('Arial', 12, 'italic'), width=150)
+second_num_entry.pack(pady=3)
 
-second_num = tkinter.Label(text="Enter second num",font=("Open Sans", 18),bg="black" , fg="white")
-second_num.pack(pady=2)
-second_num_entry = tkinter.Entry(font=("Open Sans", 18),bg="black" , fg="white")
-second_num_entry.pack()
+# Result button
+result_button = customtkinter.CTkButton(window, font=("Arial", 12, 'italic'), text="Result", command=result)
+result_button.pack(pady=5)
 
-#dropdown
-selceted_math_options = tkinter.StringVar(window)
-selceted_math_options.set("Select the math operation")
-
-math_opratins = ["+" , "-" , "*" , "/"]
-dropdown = tkinter.OptionMenu(window , selceted_math_options, *math_opratins)
-dropdown.pack(pady=2)
-
-calcualte_btn = tkinter.Button(text="calculate", font=("Open Sans",12), bg="black", fg="white",command=clacualte_btn)
-calcualte_btn.pack()
-
-result_label = tkinter.Label(window, text="", font=("Arial", 14, "bold"))
+# Result label
+result_label = customtkinter.CTkLabel(window, text="", font=("Arial", 14, "bold"))
 result_label.pack(pady=5)
 
 window.mainloop()
