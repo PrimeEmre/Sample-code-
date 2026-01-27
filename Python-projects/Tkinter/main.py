@@ -223,92 +223,164 @@
 # window.mainloop()
 
 
-import customtkinter
-# Setting up the main window
-window = customtkinter.CTk()
-window.title("Calculator")
-window.geometry("1000x1000")
+# import customtkinter
+# # Setting up the main window
+# window = customtkinter.CTk()
+# window.title("Calculator")
+# window.geometry("1000x1000")
 
-customtkinter.set_appearance_mode('dark')
-customtkinter.set_default_color_theme("dark-blue")
+# customtkinter.set_appearance_mode('dark')
+# customtkinter.set_default_color_theme("dark-blue")
 
 
-# Function to get first number
-def get_first_num():
-    return enter_number_entry.get()
+# # Function to get first number
+# def get_first_num():
+#     return enter_number_entry.get()
 
 
 # Function to get second number
-def get_second_num():
-    return second_num_entry.get()
+# def get_second_num():
+#     return second_num_entry.get()
 
 
-# Handling dropdown selection
-def dropdown(selection):
-    selected_calc_options.set(selection)
+# # Handling dropdown selection
+# def dropdown(selection):
+#     selected_calc_options.set(selection)
 
 
-# Function to calculate result
-def result():
+# # Function to calculate result
+# def result():
+#     try:
+#         num1 = float(get_first_num())
+#         num2 = float(get_second_num())
+#         operation = selected_calc_options.get()
+
+#         # Operations
+#         if operation == '+':
+#             res = num1 + num2
+#         elif operation == "-":
+#             res = num1 - num2
+#         elif operation == "*":
+#             res = num1 * num2
+#         elif operation == "/":
+#             if num2 == 0:
+#                 result_label.configure(text='Cannot divide by 0')
+#                 return
+#             res = num1 / num2
+#         else:
+#             result_label.configure(text='Select an operation')
+#             return
+
+#         # Display result
+#         result_label.configure(text=f"Result: {res}")
+
+#     except ValueError:
+#         result_label.configure(text="Enter valid numbers!")
+
+
+# # UI Elements
+# calculator_title = customtkinter.CTkLabel(window, text="Calculator", font=("Arial", 25))
+# calculator_title.pack(pady=13)
+
+# first_num_label = customtkinter.CTkLabel(window, text="Enter first number", font=('Arial', 15, 'bold'))
+# first_num_label.pack(pady=3)
+
+# enter_number_entry = customtkinter.CTkEntry(window, font=("Arial", 12, 'italic'), width=150)
+# enter_number_entry.pack()
+
+# # Setting the dropdown
+# selected_calc_options = customtkinter.StringVar(value="Select a calc option")
+
+# # Setting calc options
+# calc_options = ['+', '-', '*', '/']
+# dropdown = customtkinter.CTkOptionMenu(window, variable=selected_calc_options, values=calc_options, command=dropdown)
+# dropdown.pack(pady=5)
+
+# # Setting the second entry
+# num_label_second = customtkinter.CTkLabel(window, text="Enter second number", font=("Arial", 15, 'bold'))
+# num_label_second.pack(pady=3)
+
+# second_num_entry = customtkinter.CTkEntry(window, font=('Arial', 12, 'italic'), width=150)
+# second_num_entry.pack(pady=3)
+
+# # Result button
+# result_button = customtkinter.CTkButton(window, font=("Arial", 12, 'italic'), text="Result", command=result)
+# result_button.pack(pady=5)
+
+# # Result label
+# result_label = customtkinter.CTkLabel(window, text="", font=("Arial", 14, "bold"))
+# result_label.pack(pady=5)
+
+# window.mainloop()
+
+import tkinter
+from tkinter import messagebox
+
+window = tkinter.Tk()
+window.minsize(1000, 1000)
+window.title("BMI App")
+window.config(pady=2, padx=2)
+
+
+# Setting up the backend and setting the BMI clacualtions
+def calcualte_bmi():
     try:
-        num1 = float(get_first_num())
-        num2 = float(get_second_num())
-        operation = selected_calc_options.get()
+        age = int(age_entry.get())
+        heigth = int(height_entry.get())
+        weight = int(weight_entry.get())
 
-        # Operations
-        if operation == '+':
-            res = num1 + num2
-        elif operation == "-":
-            res = num1 - num2
-        elif operation == "*":
-            res = num1 * num2
-        elif operation == "/":
-            if num2 == 0:
-                result_label.configure(text='Cannot divide by 0')
-                return
-            res = num1 / num2
+        heigth_calcualte = heigth / 100
+        bmi = weight / (heigth_calcualte ** 2)
+        result_label.config(text=f"Your BMI is: {bmi:.2f}")
+
+        # setting the bmi
+        if bmi < 16:
+            messagebox.showinfo(title="BMI Status", message="Underweight")  # Added Title
+        elif 16 <= bmi < 17:
+            messagebox.showinfo(title="BMI Status", message="Moderately underweight")
+        elif 17 <= bmi < 18:
+            messagebox.showinfo(title="BMI Status", message="Slightly underweight")
+        elif 18 <= bmi < 25:
+            messagebox.showinfo(title="BMI Status", message="normal  weight")
+        elif 25 <= bmi < 30:
+            messagebox.showinfo(title="BMI Status",message="Overweight")
+        elif 30 <= bmi < 35:
+            messagebox.showinfo( title="BMI Status" ,message="Obese Class I")
+        elif 35 <= bmi < 40:
+            messagebox.showinfo( title="BMI Status",message="Obese Class II")
         else:
-            result_label.configure(text='Select an operation')
-            return
-
-        # Display result
-        result_label.configure(text=f"Result: {res}")
-
+            messagebox.showinfo( title="BMI Status",message="Obese Class III")
     except ValueError:
-        result_label.configure(text="Enter valid numbers!")
+        messagebox.showerror("Input error", "Please enter valid numbers for age, height, and weight")
 
 
-# UI Elements
-calculator_title = customtkinter.CTkLabel(window, text="Calculator", font=("Arial", 25))
-calculator_title.pack(pady=13)
+# Setting the frontedn
+bmi_title = tkinter.Label(text="BMI", font=("Bitcount Single", 34), bg="light blue", fg="black")
+bmi_title.pack(pady=12)
 
-first_num_label = customtkinter.CTkLabel(window, text="Enter first number", font=('Arial', 15, 'bold'))
-first_num_label.pack(pady=3)
+age_label = tkinter.Label(text="Enter your age ", font=("Bitcount Single", 18), bg="light grey", fg="dark blue")
+age_label.pack()
+age_entry = tkinter.Entry(font=("Bitcount Single", 15), bg="black", fg="white", width=10)
+age_entry.pack(pady=20)
 
-enter_number_entry = customtkinter.CTkEntry(window, font=("Arial", 12, 'italic'), width=150)
-enter_number_entry.pack()
+height_label = tkinter.Label(text="Enter your height", font=("Bitcount Single", 18), bg="light grey", fg="dark blue")
+height_label.pack()
 
-# Setting the dropdown
-selected_calc_options = customtkinter.StringVar(value="Select a calc option")
+height_entry = tkinter.Entry(font=("Bitcount Single", 15), bg="black", fg="white", width=10)
+height_entry.pack(pady=12)
 
-# Setting calc options
-calc_options = ['+', '-', '*', '/']
-dropdown = customtkinter.CTkOptionMenu(window, variable=selected_calc_options, values=calc_options, command=dropdown)
-dropdown.pack(pady=5)
+wieght_label = tkinter.Label(text="Enter your weight", font=("Bitcount Single", 15), bg="light grey", fg="dark blue")
+wieght_label.pack(pady=2)
 
-# Setting the second entry
-num_label_second = customtkinter.CTkLabel(window, text="Enter second number", font=("Arial", 15, 'bold'))
-num_label_second.pack(pady=3)
+weight_entry = tkinter.Entry(font=("Bitcount Single", 15), bg="black", fg="white", width=10)
+weight_entry.pack(pady=12)
 
-second_num_entry = customtkinter.CTkEntry(window, font=('Arial', 12, 'italic'), width=150)
-second_num_entry.pack(pady=3)
+calcualte_btn = tkinter.Button(text="Calculate your btn", font=("Bitcount Single", 15), bg="black", fg="white",
+                               width=20, command=calcualte_bmi)
+calcualte_btn.pack()
 
-# Result button
-result_button = customtkinter.CTkButton(window, font=("Arial", 12, 'italic'), text="Result", command=result)
-result_button.pack(pady=5)
-
-# Result label
-result_label = customtkinter.CTkLabel(window, text="", font=("Arial", 14, "bold"))
-result_label.pack(pady=5)
+result_label = tkinter.Label(text='', font=('Arial', 15))
+result_label.pack(pady=10)
 
 window.mainloop()
+
