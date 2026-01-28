@@ -313,16 +313,85 @@
 
 # window.mainloop()
 
-import tkinter
+# import tkinter
+# from tkinter import messagebox
+
+# window = tkinter.Tk()
+# window.minsize(1000, 1000)
+# window.title("BMI App")
+# window.config(pady=2, padx=2)
+
+
+# # Setting up the backend and setting the BMI clacualtions
+# def calcualte_bmi():
+#     try:
+#         age = int(age_entry.get())
+#         heigth = int(height_entry.get())
+#         weight = int(weight_entry.get())
+
+#         heigth_calcualte = heigth / 100
+#         bmi = weight / (heigth_calcualte ** 2)
+#         result_label.config(text=f"Your BMI is: {bmi:.2f}")
+
+#         # setting the bmi
+#         if bmi < 16:
+#             messagebox.showinfo(title="BMI Status", message="Underweight")  # Added Title
+#         elif 16 <= bmi < 17:
+#             messagebox.showinfo(title="BMI Status", message="Moderately underweight")
+#         elif 17 <= bmi < 18:
+#             messagebox.showinfo(title="BMI Status", message="Slightly underweight")
+#         elif 18 <= bmi < 25:
+#             messagebox.showinfo(title="BMI Status", message="normal  weight")
+#         elif 25 <= bmi < 30:
+#             messagebox.showinfo(title="BMI Status",message="Overweight")
+#         elif 30 <= bmi < 35:
+#             messagebox.showinfo( title="BMI Status" ,message="Obese Class I")
+#         elif 35 <= bmi < 40:
+#             messagebox.showinfo( title="BMI Status",message="Obese Class II")
+#         else:
+#             messagebox.showinfo( title="BMI Status",message="Obese Class III")
+#     except ValueError:
+#         messagebox.showerror("Input error", "Please enter valid numbers for age, height, and weight")
+
+
+# # Setting the frontedn
+# bmi_title = tkinter.Label(text="BMI", font=("Bitcount Single", 34), bg="light blue", fg="black")
+# bmi_title.pack(pady=12)
+
+# age_label = tkinter.Label(text="Enter your age ", font=("Bitcount Single", 18), bg="light grey", fg="dark blue")
+# age_label.pack()
+# age_entry = tkinter.Entry(font=("Bitcount Single", 15), bg="black", fg="white", width=10)
+# age_entry.pack(pady=20)
+
+# height_label = tkinter.Label(text="Enter your height", font=("Bitcount Single", 18), bg="light grey", fg="dark blue")
+# height_label.pack()
+
+# height_entry = tkinter.Entry(font=("Bitcount Single", 15), bg="black", fg="white", width=10)
+# height_entry.pack(pady=12)
+
+# wieght_label = tkinter.Label(text="Enter your weight", font=("Bitcount Single", 15), bg="light grey", fg="dark blue")
+# wieght_label.pack(pady=2)
+
+# weight_entry = tkinter.Entry(font=("Bitcount Single", 15), bg="black", fg="white", width=10)
+# weight_entry.pack(pady=12)
+
+# calcualte_btn = tkinter.Button(text="Calculate your btn", font=("Bitcount Single", 15), bg="black", fg="white",
+#                                width=20, command=calcualte_bmi)
+# calcualte_btn.pack()
+
+# result_label = tkinter.Label(text='', font=('Arial', 15))
+# result_label.pack(pady=10)
+
+# window.mainloop()
+
+import customtkinter
 from tkinter import messagebox
-
-window = tkinter.Tk()
-window.minsize(1000, 1000)
-window.title("BMI App")
-window.config(pady=2, padx=2)
+window = customtkinter.CTk()
+window.geometry("1000x1000")
+window.title("BMI app")
 
 
-# Setting up the backend and setting the BMI clacualtions
+
 def calcualte_bmi():
     try:
         age = int(age_entry.get())
@@ -331,7 +400,7 @@ def calcualte_bmi():
 
         heigth_calcualte = heigth / 100
         bmi = weight / (heigth_calcualte ** 2)
-        result_label.config(text=f"Your BMI is: {bmi:.2f}")
+        result_label.configure(text=f"Your BMI is: {bmi:.2f}")
 
         # setting the bmi
         if bmi < 16:
@@ -355,32 +424,29 @@ def calcualte_bmi():
 
 
 # Setting the frontedn
-bmi_title = tkinter.Label(text="BMI", font=("Bitcount Single", 34), bg="light blue", fg="black")
+bmi_title = customtkinter.CTkLabel(window, text="BMI", font=("Arial", 34))
 bmi_title.pack(pady=12)
 
-age_label = tkinter.Label(text="Enter your age ", font=("Bitcount Single", 18), bg="light grey", fg="dark blue")
+age_label = customtkinter.CTkLabel(window, text="Enter your age", font=("Arial", 18))
 age_label.pack()
-age_entry = tkinter.Entry(font=("Bitcount Single", 15), bg="black", fg="white", width=10)
-age_entry.pack(pady=20)
+age_entry = customtkinter.CTkEntry(window, width=150)
+age_entry.pack(pady=10)
 
-height_label = tkinter.Label(text="Enter your height", font=("Bitcount Single", 18), bg="light grey", fg="dark blue")
+height_label = customtkinter.CTkLabel(window, text="Enter your height (cm)", font=("Arial", 18))
 height_label.pack()
+height_entry = customtkinter.CTkEntry(window, width=150)
+height_entry.pack(pady=10)
 
-height_entry = tkinter.Entry(font=("Bitcount Single", 15), bg="black", fg="white", width=10)
-height_entry.pack(pady=12)
+weight_label = customtkinter.CTkLabel(window, text="Enter your weight (kg)", font=("Arial", 18))
+weight_label.pack()
+weight_entry = customtkinter.CTkEntry(window, width=150)
+weight_entry.pack(pady=10)
 
-wieght_label = tkinter.Label(text="Enter your weight", font=("Bitcount Single", 15), bg="light grey", fg="dark blue")
-wieght_label.pack(pady=2)
+ # Step 7: The Calculate Button
+calc_btn = customtkinter.CTkButton(window, text="Calculate BMI", command=calcualte_bmi)
+calc_btn.pack(pady=20)
 
-weight_entry = tkinter.Entry(font=("Bitcount Single", 15), bg="black", fg="white", width=10)
-weight_entry.pack(pady=12)
-
-calcualte_btn = tkinter.Button(text="Calculate your btn", font=("Bitcount Single", 15), bg="black", fg="white",
-                               width=20, command=calcualte_bmi)
-calcualte_btn.pack()
-
-result_label = tkinter.Label(text='', font=('Arial', 15))
+result_label = customtkinter.CTkLabel(window, text="", font=("Arial", 15))
 result_label.pack(pady=10)
 
 window.mainloop()
-
