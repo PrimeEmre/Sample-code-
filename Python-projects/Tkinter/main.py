@@ -88,6 +88,7 @@
 # window.mainloop()
 
 # login form
+
 # import tkinter
 # from tkinter import messagebox
 # # Login form
@@ -137,7 +138,8 @@
 #
 # window.mainloop()
 
-# # Calculator
+ # Calculator
+
 # # Importing modules
 # import tkinter
 
@@ -313,6 +315,8 @@
 
 # window.mainloop()
 
+#BMI calcualtor 
+
 # import tkinter
 # from tkinter import messagebox
 
@@ -384,69 +388,118 @@
 
 # window.mainloop()
 
-import customtkinter
-from tkinter import messagebox
-window = customtkinter.CTk()
-window.geometry("1000x1000")
-window.title("BMI app")
+# import customtkinter
+# from tkinter import messagebox
+# window = customtkinter.CTk()
+# window.geometry("1000x1000")
+# window.title("BMI app")
 
 
 
-def calcualte_bmi():
-    try:
-        age = int(age_entry.get())
-        heigth = int(height_entry.get())
-        weight = int(weight_entry.get())
+# def calcualte_bmi():
+#     try:
+#         age = int(age_entry.get())
+#         heigth = int(height_entry.get())
+#         weight = int(weight_entry.get())
 
-        heigth_calcualte = heigth / 100
-        bmi = weight / (heigth_calcualte ** 2)
-        result_label.configure(text=f"Your BMI is: {bmi:.2f}")
+#         heigth_calcualte = heigth / 100
+#         bmi = weight / (heigth_calcualte ** 2)
+#         result_label.configure(text=f"Your BMI is: {bmi:.2f}")
 
-        # setting the bmi
-        if bmi < 16:
-            messagebox.showinfo(title="BMI Status", message="Underweight")  # Added Title
-        elif 16 <= bmi < 17:
-            messagebox.showinfo(title="BMI Status", message="Moderately underweight")
-        elif 17 <= bmi < 18:
-            messagebox.showinfo(title="BMI Status", message="Slightly underweight")
-        elif 18 <= bmi < 25:
-            messagebox.showinfo(title="BMI Status", message="normal  weight")
-        elif 25 <= bmi < 30:
-            messagebox.showinfo(title="BMI Status",message="Overweight")
-        elif 30 <= bmi < 35:
-            messagebox.showinfo( title="BMI Status" ,message="Obese Class I")
-        elif 35 <= bmi < 40:
-            messagebox.showinfo( title="BMI Status",message="Obese Class II")
-        else:
-            messagebox.showinfo( title="BMI Status",message="Obese Class III")
-    except ValueError:
-        messagebox.showerror("Input error", "Please enter valid numbers for age, height, and weight")
+#         # setting the bmi
+#         if bmi < 16:
+#             messagebox.showinfo(title="BMI Status", message="Underweight")  # Added Title
+#         elif 16 <= bmi < 17:
+#             messagebox.showinfo(title="BMI Status", message="Moderately underweight")
+#         elif 17 <= bmi < 18:
+#             messagebox.showinfo(title="BMI Status", message="Slightly underweight")
+#         elif 18 <= bmi < 25:
+#             messagebox.showinfo(title="BMI Status", message="normal  weight")
+#         elif 25 <= bmi < 30:
+#             messagebox.showinfo(title="BMI Status",message="Overweight")
+#         elif 30 <= bmi < 35:
+#             messagebox.showinfo( title="BMI Status" ,message="Obese Class I")
+#         elif 35 <= bmi < 40:
+#             messagebox.showinfo( title="BMI Status",message="Obese Class II")
+#         else:
+#             messagebox.showinfo( title="BMI Status",message="Obese Class III")
+#     except ValueError:
+#         messagebox.showerror("Input error", "Please enter valid numbers for age, height, and weight")
 
 
-# Setting the frontedn
-bmi_title = customtkinter.CTkLabel(window, text="BMI", font=("Arial", 34))
-bmi_title.pack(pady=12)
+# # Setting the frontedn
+# bmi_title = customtkinter.CTkLabel(window, text="BMI", font=("Arial", 34))
+# bmi_title.pack(pady=12)
 
-age_label = customtkinter.CTkLabel(window, text="Enter your age", font=("Arial", 18))
-age_label.pack()
-age_entry = customtkinter.CTkEntry(window, width=150)
-age_entry.pack(pady=10)
+# age_label = customtkinter.CTkLabel(window, text="Enter your age", font=("Arial", 18))
+# age_label.pack()
+# age_entry = customtkinter.CTkEntry(window, width=150)
+# age_entry.pack(pady=10)
 
-height_label = customtkinter.CTkLabel(window, text="Enter your height (cm)", font=("Arial", 18))
-height_label.pack()
-height_entry = customtkinter.CTkEntry(window, width=150)
-height_entry.pack(pady=10)
+# height_label = customtkinter.CTkLabel(window, text="Enter your height (cm)", font=("Arial", 18))
+# height_label.pack()
+# height_entry = customtkinter.CTkEntry(window, width=150)
+# height_entry.pack(pady=10)
 
-weight_label = customtkinter.CTkLabel(window, text="Enter your weight (kg)", font=("Arial", 18))
-weight_label.pack()
-weight_entry = customtkinter.CTkEntry(window, width=150)
-weight_entry.pack(pady=10)
+# weight_label = customtkinter.CTkLabel(window, text="Enter your weight (kg)", font=("Arial", 18))
+# weight_label.pack()
+# weight_entry = customtkinter.CTkEntry(window, width=150)
+# weight_entry.pack(pady=10)
 
- # Step 7: The Calculate Button
-calc_btn = customtkinter.CTkButton(window, text="Calculate BMI", command=calcualte_bmi)
-calc_btn.pack(pady=20)
+#  # Step 7: The Calculate Button
+# calc_btn = customtkinter.CTkButton(window, text="Calculate BMI", command=calcualte_bmi)
+# calc_btn.pack(pady=20)
 
-result_label = customtkinter.CTkLabel(window, text="", font=("Arial", 15))
-result_label.pack(pady=10)
+# result_label = customtkinter.CTkLabel(window, text="", font=("Arial", 15))
+# result_label.pack(pady=10)
+
+# window.mainloop()
+
+#Weather app
+
+import tkinter
+import requests
+
+# APi key
+# 6ed4f81aa0ad45d082c34616250612
+
+api_key = "6ed4f81aa0ad45d082c34616250612"
+api_url = 'http://api.weatherapi.com/v1/current.json'
+
+
+def find_location():
+    location = location_entry.get()
+    params = {
+        'key': api_key,
+        'q': location,
+        'aqi': 'no'  # Optional: set to 'yes' if you want air quality data
+    }
+    responce = requests.get(api_url, params=params)
+    data = responce.json()
+    temp = data['current']['temp_c']
+    condition = data['current']['condition']['text']
+    result.config(text=f"Temp: {temp}°C\nSky: {condition}")
+
+
+window = tkinter.Tk()
+window.minsize(1000, 1000)
+window.title("Weather app")
+window.config(padx=2, pady=2)
+
+wheater_title = tkinter.Label(text="Weather app", font=("Bungee", 34), bg="Dodger blue", fg="black")
+wheater_title.pack(pady=30)
+
+location_label = tkinter.Label(text="Please enter your location", font=("Bungee", 18), bg="Dodger blue", fg="black")
+location_label.pack()
+
+location_entry = tkinter.Entry(font=("Bungee", 18), bg="Dodger blue", fg='black')
+location_entry.pack(pady=20)
+
+find_loacation = tkinter.Button(text="Find Location", font=("Bungee", 12), bg='Dodger blue', fg="black",
+                                command=find_location)
+find_loacation.pack(pady=10)
+
+result = tkinter.Label(text="", font=("Bungee", 12), bg="Dodger blue", fg="black")
+result.pack()
 
 window.mainloop()
