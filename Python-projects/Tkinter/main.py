@@ -513,6 +513,70 @@ from io import BytesIO
 # APi key
 # 6ed4f81aa0ad45d082c34616250612
 
+# api_key = "6ed4f81aa0ad45d082c34616250612"
+# api_url = 'http://api.weatherapi.com/v1/current.json'
+
+
+# def find_location():
+#     location = location_entry.get()
+#     params = {
+#         'key': api_key,
+#         'q': location,
+#         'aqi': 'no'  # Optional: set to 'yes' if you want air quality data
+#     }
+#     responce = requests.get(api_url, params=params)
+#     data = responce.json()
+#     temp = data['current']['temp_c']
+#     condition = data['current']['condition']['text']
+#     icon_url = "https:" + data['current']['condition']['icon']
+
+#     # creating whether icon
+#     image_response = requests.get(icon_url)
+#     image_data = Image.open(BytesIO(image_response.content))
+#     weather_icon = ImageTk.PhotoImage(image_data)
+
+#     result.config(text=f"Temp: {temp}°C\nSky: {condition}", image=weather_icon, compound="top")
+#     result.image = weather_icon
+
+
+# window = tkinter.Tk()
+# window.minsize(1000, 1000)
+# window.title("Weather app")
+# window.config(padx=2, pady=2)
+
+# wheater_title = tkinter.Label(text="Weather app", font=("Bungee", 34), bg="Dodger blue", fg="black")
+# wheater_title.pack(pady=30)
+
+# location_label = tkinter.Label(text="Please enter your location", font=("Bungee", 18), bg="Dodger blue", fg="black")
+# location_label.pack()
+
+# location_entry = tkinter.Entry(font=("Bungee", 18), bg="Dodger blue", fg='black')
+# location_entry.pack(pady=20)
+
+# find_loacation = tkinter.Button(text="Find Location", font=("Bungee", 12), bg='Dodger blue', fg="black",
+#                                 command=find_location)
+# find_loacation.pack(pady=10)
+
+# result = tkinter.Label(text="", font=("Bungee", 12), bg="Dodger blue", fg="black")
+# result.pack()
+
+# window.mainloop()
+
+#weather app profetinal  
+# Setting the modeuls and window
+import customtkinter
+import requests
+from PIL import Image, ImageTk
+from io import BytesIO
+
+window = customtkinter.CTk()
+window.minsize(1000, 1000)
+window.title("Weather app")
+window.config(padx=2, pady=2)
+
+# APi key
+# 6ed4f81aa0ad45d082c34616250612
+
 api_key = "6ed4f81aa0ad45d082c34616250612"
 api_url = 'http://api.weatherapi.com/v1/current.json'
 
@@ -535,29 +599,25 @@ def find_location():
     image_data = Image.open(BytesIO(image_response.content))
     weather_icon = ImageTk.PhotoImage(image_data)
 
-    result.config(text=f"Temp: {temp}°C\nSky: {condition}", image=weather_icon, compound="top")
+    result.configure(text=f"Temp: {temp}°C\nSky: {condition}", image=weather_icon, compound="top")
     result.image = weather_icon
 
 
-window = tkinter.Tk()
-window.minsize(1000, 1000)
-window.title("Weather app")
-window.config(padx=2, pady=2)
+#setting the UI
 
-wheater_title = tkinter.Label(text="Weather app", font=("Bungee", 34), bg="Dodger blue", fg="black")
+wheater_title = customtkinter.CTkLabel(window, text="Weather app", font=("Bungee", 34))
 wheater_title.pack(pady=30)
 
-location_label = tkinter.Label(text="Please enter your location", font=("Bungee", 18), bg="Dodger blue", fg="black")
+location_label = customtkinter.CTkLabel(window, text="Please enter your location", font=("Bungee", 18))
 location_label.pack()
 
-location_entry = tkinter.Entry(font=("Bungee", 18), bg="Dodger blue", fg='black')
+location_entry = customtkinter.CTkEntry(window, font=("Bungee", 18))
 location_entry.pack(pady=20)
 
-find_loacation = tkinter.Button(text="Find Location", font=("Bungee", 12), bg='Dodger blue', fg="black",
-                                command=find_location)
+find_loacation = customtkinter.CTkButton(window, text="Find Location", font=("Bungee", 12), command=find_location)
 find_loacation.pack(pady=10)
 
-result = tkinter.Label(text="", font=("Bungee", 12), bg="Dodger blue", fg="black")
+result = customtkinter.CTkLabel(window, text="", font=("Bungee", 12), )
 result.pack()
 
 window.mainloop()
