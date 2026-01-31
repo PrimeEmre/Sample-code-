@@ -564,60 +564,117 @@
 
 #weather app profetinal  
 # Setting the modeuls and window
-import customtkinter
-import requests
-from PIL import Image, ImageTk
-from io import BytesIO
+# import customtkinter
+# import requests
+# from PIL import Image, ImageTk
+# from io import BytesIO
 
-window = customtkinter.CTk()
-window.minsize(1000, 1000)
-window.title("Weather app")
-window.config(padx=2, pady=2)
+# window = customtkinter.CTk()
+# window.minsize(1000, 1000)
+# window.title("Weather app")
+# window.config(padx=2, pady=2)
 
 # APi key
 # 6ed4f81aa0ad45d082c34616250612
 
-api_key = "6ed4f81aa0ad45d082c34616250612"
-api_url = 'http://api.weatherapi.com/v1/current.json'
+# api_key = "6ed4f81aa0ad45d082c34616250612"
+# api_url = 'http://api.weatherapi.com/v1/current.json'
 
 
-def find_location():
-    location = location_entry.get()
-    params = {
-        'key': api_key,
-        'q': location,
-        'aqi': 'no'  # Optional: set to 'yes' if you want air quality data
+# def find_location():
+#     location = location_entry.get()
+#     params = {
+#         'key': api_key,
+#         'q': location,
+#         'aqi': 'no'  # Optional: set to 'yes' if you want air quality data
+#     }
+#     responce = requests.get(api_url, params=params)
+#     data = responce.json()
+#     temp = data['current']['temp_c']
+#     condition = data['current']['condition']['text']
+#     icon_url = "https:" + data['current']['condition']['icon']
+
+#     # creating whether icon
+#     image_response = requests.get(icon_url)
+#     image_data = Image.open(BytesIO(image_response.content))
+#     weather_icon = ImageTk.PhotoImage(image_data)
+
+#     result.configure(text=f"Temp: {temp}°C\nSky: {condition}", image=weather_icon, compound="top")
+#     result.image = weather_icon
+
+
+# #setting the UI
+
+# wheater_title = customtkinter.CTkLabel(window, text="Weather app", font=("Bungee", 34))
+# wheater_title.pack(pady=30)
+
+# location_label = customtkinter.CTkLabel(window, text="Please enter your location", font=("Bungee", 18))
+# location_label.pack()
+
+# location_entry = customtkinter.CTkEntry(window, font=("Bungee", 18))
+# location_entry.pack(pady=20)
+
+# find_loacation = customtkinter.CTkButton(window, text="Find Location", font=("Bungee", 12), command=find_location)
+# find_loacation.pack(pady=10)
+
+# result = customtkinter.CTkLabel(window, text="", font=("Bungee", 12), )
+# result.pack()
+
+# window.mainloop()
+
+
+
+
+# Youtube downlad
+#Setting the youtube
+import customtkinter
+import yt_dlp
+
+window = customtkinter.CTk()
+window.minsize(1000,1000)
+window.title("Youtube Download")
+window.config(padx=2,pady=2)
+
+#setting the backend
+
+def downlad_btn ():
+    url = url_entry.get()
+    if not url:
+        print("please enter a valid URL ")
+        return
+
+    options = {
+        'format': 'best',
+        'outtmpl': r'C:\Users\ynsem\Downloads\%(title)s.%(ext)s',
+        'noplaylist': True,
+        'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+        'referer': 'https://www.youtube.com/',
     }
-    responce = requests.get(api_url, params=params)
-    data = responce.json()
-    temp = data['current']['temp_c']
-    condition = data['current']['condition']['text']
-    icon_url = "https:" + data['current']['condition']['icon']
 
-    # creating whether icon
-    image_response = requests.get(icon_url)
-    image_data = Image.open(BytesIO(image_response.content))
-    weather_icon = ImageTk.PhotoImage(image_data)
+    try:
+         with yt_dlp.YoutubeDL(options) as yt_dl:
+            yt_dl.download([url])
+            print("success!")
+    except Exception as e:
+        print(f"Download failed: {e}")
 
-    result.configure(text=f"Temp: {temp}°C\nSky: {condition}", image=weather_icon, compound="top")
-    result.image = weather_icon
+title_youtube = customtkinter.CTkLabel(window,text="Youtube Downloader ",font=("Roboto",34))
+title_youtube.pack(pady=2)
 
+downlad_title = customtkinter.CTkLabel(window , text="Download your video" , font=("Roboto", 18))
+downlad_title.pack(pady=10 )
 
-#setting the UI
+url_entry= customtkinter.CTkEntry(window , placeholder_text="Plase paste your Youtube link here .... ", width=400 , font=("Roboto" , 12))
+url_entry.pack(pady=10)
 
-wheater_title = customtkinter.CTkLabel(window, text="Weather app", font=("Bungee", 34))
-wheater_title.pack(pady=30)
+dwonlad_btn = customtkinter.CTkButton(window,text="download now" ,font=("Roboto" ,16,),fg_color="red" , hover_color="darkred" , command= downlad_btn)
+dwonlad_btn.pack()
 
-location_label = customtkinter.CTkLabel(window, text="Please enter your location", font=("Bungee", 18))
-location_label.pack()
+progress_label = customtkinter.CTkLabel(window, text="0%", font=("Roboto", 12))
+progress_label.pack()
 
-location_entry = customtkinter.CTkEntry(window, font=("Bungee", 18))
-location_entry.pack(pady=20)
-
-find_loacation = customtkinter.CTkButton(window, text="Find Location", font=("Bungee", 12), command=find_location)
-find_loacation.pack(pady=10)
-
-result = customtkinter.CTkLabel(window, text="", font=("Bungee", 12), )
-result.pack()
+progress_bar = customtkinter.CTkProgressBar(window, width=400)
+progress_bar.set(0)
+progress_bar.pack(pady=10)
 
 window.mainloop()
