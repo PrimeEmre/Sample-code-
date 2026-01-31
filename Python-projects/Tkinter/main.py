@@ -138,8 +138,8 @@
 #
 # window.mainloop()
 
- # Calculator
 
+ # Calculator
 # # Importing modules
 # import tkinter
 
@@ -224,6 +224,7 @@
 
 # window.mainloop()
 
+# profetinal calculator 
 
 # import customtkinter
 # # Setting up the main window
@@ -388,6 +389,8 @@
 
 # window.mainloop()
 
+#Profetinal BMI calculator
+
 # import customtkinter
 # from tkinter import messagebox
 # window = customtkinter.CTk()
@@ -503,6 +506,7 @@
 # result.pack()
 
 # window.mainloop()
+
 
 #Adding image in tkinter 
 # import tkinter
