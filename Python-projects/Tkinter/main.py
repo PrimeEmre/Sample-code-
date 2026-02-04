@@ -720,7 +720,7 @@ ctk.set_default_color_theme("dark-blue")
 window.title("AI Sergeroy app ")
 window.minsize(1000,800)
 window.config(padx=5, pady=5)
-window.grid_columnconfigure(1,weight=5)
+window.grid_columnconfigure(1, weight=3) # Main area is 3x larger than sidebar
 window.grid_rowconfigure(0, weight=1)
 
 
@@ -728,12 +728,12 @@ window.grid_rowconfigure(0, weight=1)
 
 
 sidebar = ctk.CTkFrame(window, width=200, corner_radius=0)
-sidebar.grid(row=0, column=0, sticky="nswe")
+sidebar.grid(row=0, column=0, sticky="nsew")
 
-title_app = ctk.CTkLabel(window, text="AI Sergeroy app", font=("Open Sans", 34))
-title_app.pack(pady=20,padx=20)
+title_app = ctk.CTkLabel(sidebar, text="AI Surgery", font=ctk.CTkFont(family="Open Sans", size=24, weight="bold"))
+title_app.pack(pady=20, padx=10)
 
-upload_button = ctk.CTkButton(sidebar, text="Upload scan", font=("Open Sans", 24, weight="bold"))
+upload_button = ctk.CTkButton(sidebar, text="Upload scan", font=("Open Sans", 24))
 upload_button.pack(pady=10, padx=10)
 
 
