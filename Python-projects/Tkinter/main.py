@@ -708,6 +708,8 @@
 
 # window.mainloop()
 
+#AI Surgery app UI design
+
 import customtkinter as ctk
 from tkinter import filedialog
 from PIL import Image, ImageTk
@@ -725,8 +727,6 @@ window.grid_rowconfigure(0, weight=1)
 
 
 #Setting the UI
-
-
 sidebar = ctk.CTkFrame(window, width=200, corner_radius=0)
 sidebar.grid(row=0, column=0, sticky="nsew")
 
