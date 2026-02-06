@@ -715,6 +715,7 @@ import google.generativeai as genai
 import customtkinter as ctk
 from PIL import Image, ImageTk
 from tkinter import filedialog
+import threading
 
 #Setting the window
 window = ctk.CTk()
@@ -726,8 +727,8 @@ window.config(padx=5, pady=5)
 window.grid_columnconfigure(1, weight=3) # Main area is 3x larger than sidebar
 window.grid_rowconfigure(0, weight=1)
 
-genai.configure(api_key="AIzaSyD29nNcdx2u8FyEJe3paw9YmR8F_AUzhn4")
-model = genai.GenerativeModel('gemini-2.5-flash')
+genai.configure(api_key="")
+model = genai.GenerativeModel('')
 
 # Use the correct model name
 
