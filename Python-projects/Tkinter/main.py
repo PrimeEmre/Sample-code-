@@ -710,12 +710,14 @@
 
 #AI Surgery app UI design
 
+
+import google.generativeai as genai
 import customtkinter as ctk
 from tkinter import filedialog
 from PIL import Image, ImageTk
 
 
-#Setting the window 
+#Setting the window
 window = ctk.CTk()
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -725,6 +727,45 @@ window.config(padx=5, pady=5)
 window.grid_columnconfigure(1, weight=3) # Main area is 3x larger than sidebar
 window.grid_rowconfigure(0, weight=1)
 
+genai.configure(api_key="AIzaSyD29nNcdx2u8FyEJe3paw9YmR8F_AUzhn4")
+model = genai.GenerativeModel('gemini-2.5-flash')
+
+import google.generativeai as genai
+import customtkinter as ctk
+from PIL import Image, ImageTk
+from tkinter import filedialog
+
+# Use the correct model name
+
+
+def upload_action():
+    path = filedialog.askopenfilename(filetypes=[("Image files", "*.png *.jpg *.jpeg")])
+    if path:
+        # 1. Load and Display locally
+        img = Image.open(path)
+
+        # We make a copy for displaying so we don't ruin the original for the AI
+        display_img = img.copy()
+        display_img.thumbnail((800, 800))  # Added the missing ( )
+        img_tk = ImageTk.PhotoImage(display_img)
+
+        display_panel.configure(image=img_tk, text="AI is analyzing... please wait.")
+        display_panel.image = img_tk
+
+        # 2. Gemini Analysis
+        try:
+            # We send the original 'img' to Gemini for better resolution
+            response = model.generate_content([
+                "Identify the surgical instruments or anatomical structures. "
+                "Provide a professional medical summary.",
+                img
+            ])
+            analysis_text = response.text
+            print(analysis_text)
+            display_panel.configure(text=f"Analysis Complete:\n{analysis_text[:200]}...")
+        except Exception as e:
+            display_panel.configure(text=f"Error: {str(e)}")
+
 
 #Setting the UI
 sidebar = ctk.CTkFrame(window, width=200, corner_radius=0)
@@ -733,11 +774,11 @@ sidebar.grid(row=0, column=0, sticky="nsew")
 title_app = ctk.CTkLabel(sidebar, text="AI Surgery", font=ctk.CTkFont(family="Open Sans", size=24, weight="bold"))
 title_app.pack(pady=20, padx=10)
 
-upload_button = ctk.CTkButton(sidebar, text="Upload scan", font=("Open Sans", 24))
+upload_button = ctk.CTkButton(sidebar, text="Upload scan", font=("Open Sans", 24), command=upload_action)
 upload_button.pack(pady=10, padx=10)
 
-
-
+display_panel = ctk.CTkLabel(window, text="Awaiting Medical Scan...")
+display_panel.grid(row=0, column=1, sticky="nsew", padx=20, pady=20)
 
 
 window.mainloop()
