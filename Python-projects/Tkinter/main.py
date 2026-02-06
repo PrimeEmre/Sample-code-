@@ -713,9 +713,8 @@
 
 import google.generativeai as genai
 import customtkinter as ctk
-from tkinter import filedialog
 from PIL import Image, ImageTk
-
+from tkinter import filedialog
 
 #Setting the window
 window = ctk.CTk()
@@ -730,13 +729,7 @@ window.grid_rowconfigure(0, weight=1)
 genai.configure(api_key="AIzaSyD29nNcdx2u8FyEJe3paw9YmR8F_AUzhn4")
 model = genai.GenerativeModel('gemini-2.5-flash')
 
-import google.generativeai as genai
-import customtkinter as ctk
-from PIL import Image, ImageTk
-from tkinter import filedialog
-
 # Use the correct model name
-
 
 def upload_action():
     path = filedialog.askopenfilename(filetypes=[("Image files", "*.png *.jpg *.jpeg")])
