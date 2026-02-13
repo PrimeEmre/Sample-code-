@@ -717,10 +717,14 @@ import customtkinter as ctk
 from PIL import Image
 import threading
 from tkinter import filedialog
+<<<<<<< HEAD
 import base64
 from io import BytesIO
 import time
 import socket
+=======
+import threading
+>>>>>>> 994bb2fbb177ed7641760faa1a212691172e6ced
 
 # 1. Window Setup
 window = ctk.CTk()
@@ -733,6 +737,11 @@ window.grid_columnconfigure(0, weight=1)
 window.grid_columnconfigure(1, weight=3)
 window.grid_rowconfigure(0, weight=1)
 
+<<<<<<< HEAD
+=======
+genai.configure(api_key="")
+model = genai.GenerativeModel('')
+>>>>>>> 994bb2fbb177ed7641760faa1a212691172e6ced
 
 # ========== PASTE THE NEW FUNCTIONS HERE ==========
 
