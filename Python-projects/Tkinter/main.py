@@ -710,180 +710,530 @@
 
 #AI Surgery app UI design
 
+# import http.client
+# import json
+# import customtkinter as ctk
+# from PIL import Image
+# import threading
+# from tkinter import filedialog
+# import base64
+# from io import BytesIO
+# import time
+# import socket
+
+# # 1. Window Setup
+# window = ctk.CTk()
+# ctk.set_appearance_mode("dark")
+# ctk.set_default_color_theme("dark-blue")
+# window.title("AI Surgery App")
+# window.minsize(1000, 800)
+
+# window.grid_columnconfigure(0, weight=1)
+# window.grid_columnconfigure(1, weight=3)
+# window.grid_rowconfigure(0, weight=1)
+
+
+# # ========== PASTE THE NEW FUNCTIONS HERE ==========
+
+# def check_available_models():
+#     """Check what models are available on your Ollama server"""
+#     conn = None
+#     try:
+#         print("🔍 Checking available models on server...")
+#         conn = http.client.HTTPSConnection("ai.recepguzel.com", timeout=30)
+#         headers = {'authorization': "Basic YWl1c2VyOkJ1QWk1UGFyYUV0bWV6IQ=="}
+
+#         conn.request("GET", "/api/tags", headers=headers)
+#         res = conn.getresponse()
+
+#         if res.status == 200:
+#             data = json.loads(res.read().decode("utf-8"))
+#             print("\n✅ Server response:")
+#             print(json.dumps(data, indent=2))
+
+#             # Extract model names if available
+#             if "models" in data:
+#                 print("\n📋 Available models:")
+#                 model_names = []
+#                 for model in data["models"]:
+#                     name = model.get('name', str(model))
+#                     print(f"  - {name}")
+#                     model_names.append(name)
+#                 return model_names
+#             else:
+#                 print("⚠️ No 'models' key in response")
+#                 return []
+#         else:
+#             error_body = res.read().decode("utf-8")
+#             print(f"❌ Error {res.status}: {error_body}")
+#             return []
+
+#     except Exception as e:
+#         print(f"❌ Error checking models: {e}")
+#         return []
+#     finally:
+#         if conn:
+#             conn.close()
+
+
+# def ai_analysis(img):
+#     """10X SMARTER AI Analysis with proper vision model and enhanced medical prompting"""
+#     conn = None
+#     try:
+#         window.after(0, lambda: update_status("🔬 Processing image..."))
+
+#         # 1. Process image with higher quality
+#         img_small = img.copy()
+#         img_small.thumbnail((1024, 1024))  # Higher resolution for better detail
+#         buffered = BytesIO()
+#         img_small.save(buffered, format="PNG", quality=95)
+#         img_bytes = buffered.getvalue()
+#         img_str = base64.b64encode(img_bytes).decode("utf-8")
+
+#         window.after(0, lambda: update_status("🌐 Connecting to AI server..."))
+
+#         # 2. Connection
+#         conn = http.client.HTTPSConnection("ai.recepguzel.com", timeout=120)  # Longer timeout for complex analysis
+
+#         # VISION MODELS ONLY - Prioritized by capability
+#         models_to_try = [
+#             "llava:13b",  # Best quality
+#             "llava:7b",  # Good balance
+#             "llava:latest",  # Fallback
+#             "bakllava:latest",  # Alternative
+#             "llava-llama3",  # Alternative
+#         ]
+
+#         last_error = None
+
+#         # Try each model until one works
+#         for model_name in models_to_try:
+#             try:
+#                 print(f"🔄 Trying vision model: {model_name}")
+#                 window.after(0, lambda m=model_name: update_status(f"🤖 Testing {m}..."))
+
+#                 payload_data = {
+#                     "model": model_name,  # ✅ CRITICAL FIX - Uses actual vision model!
+#                     "messages": [
+#                         {
+#                             "role": "user",
+#                             "content": """You are an expert medical imaging AI with specialized training in anatomy and clinical diagnostics. Analyze this medical diagram with extreme precision and thoroughness.
+
+# 🔍 CRITICAL INSTRUCTIONS:
+# - READ ALL TEXT LABELS in the image carefully - list EVERY labeled structure you can see
+# - Identify the COMPLETE anatomical system shown (not just the most prominent part)
+# - If you see labels for "Central Nervous System", "Peripheral Nervous System", "Spinal Cord", "Nerves", etc., YOU MUST MENTION ALL OF THEM
+
+# 📋 PROVIDE A COMPREHENSIVE ANALYSIS:
+
+# **1. BODY PART IDENTIFICATION:**
+# - Identify the COMPLETE anatomical system/structure shown in this diagram
+# - State whether this shows a single organ, multiple organs, or an entire body system
+# - Note if this includes both central and peripheral components
+
+# **2. LABELED STRUCTURES (CRITICAL - READ THE IMAGE LABELS):**
+# - List EVERY structure that has a text label in the image
+# - For each labeled structure, provide:
+#   * Anatomical name
+#   * Location in the body
+#   * Primary function
+#   * Key characteristics
+
+# **3. ANATOMICAL DETAILS:**
+# - Describe the spatial relationships between structures
+# - Explain how different components connect and communicate
+# - Note any color-coding or visual distinctions in the diagram
+
+# **4. PHYSIOLOGICAL FUNCTIONS:**
+# - Explain how this system/structure works
+# - Describe the flow of signals, fluids, or materials
+# - Detail the role in maintaining body homeostasis
+
+# **5. CLINICAL RELEVANCE:**
+# - List 5-7 common medical conditions affecting these structures
+# - Describe diagnostic procedures used to examine this system
+# - Mention surgical procedures or treatments related to these structures
+# - Include prevalence and risk factors where relevant
+
+# **6. PATHOLOGICAL CONSIDERATIONS:**
+# - Describe what happens when these structures are damaged
+# - Explain symptoms of dysfunction
+# - Note emergency conditions requiring immediate attention
+
+# **7. DIAGNOSTIC IMAGING:**
+# - What imaging modalities are used to visualize these structures? (MRI, CT, X-ray, ultrasound, etc.)
+# - When would each imaging type be preferred?
+
+# **8. PROFESSIONAL SUMMARY:**
+# Provide a concise yet comprehensive overview suitable for:
+# - Medical students studying anatomy
+# - Healthcare professionals needing a refresher
+# - Patients seeking to understand their anatomy
+
+# ⚠️ ACCURACY REQUIREMENTS:
+# - Base your analysis ONLY on what you actually see in the image
+# - If you see text labels, you MUST read and include them
+# - Do not hallucinate structures that aren't labeled or visible
+# - If the diagram shows a full body system (e.g., nervous system from head to toe), acknowledge the COMPLETE system, not just one part
+
+# Be thorough, accurate, and use proper medical terminology throughout your analysis.""",
+#                             "images": [img_str]
+#                         }
+#                     ],
+#                     "stream": False,
+#                     "options": {
+#                         "temperature": 0.3,  # Lower temperature for more accurate, less creative responses
+#                         "num_predict": 2000,  # Allow longer responses
+#                     }
+#                 }
+
+#                 headers = {
+#                     'content-type': "application/json",
+#                     'authorization': "Basic YWl1c2VyOkJ1QWk1UGFyYUV0bWV6IQ=="
+#                 }
+
+#                 # Create new connection for each attempt
+#                 if conn:
+#                     conn.close()
+#                 conn = http.client.HTTPSConnection("ai.recepguzel.com", timeout=120)
+#                 conn.request("POST", "/api/chat", json.dumps(payload_data), headers)
+
+#                 res = conn.getresponse()
+
+#                 if res.status == 200:
+#                     # Success! Process the response
+#                     print(f"✅ Vision model {model_name} is analyzing the image!")
+#                     window.after(0, lambda m=model_name: update_status(
+#                         f"✅ Using {m}\n\n🔬 Performing deep medical analysis...\n⏳ This may take 30-60 seconds for detailed results...\n"))
+
+#                     data = res.read()
+#                     result = json.loads(data.decode("utf-8"))
+
+#                     print(f"Full server response: {result}")
+
+#                     # Get response from message format
+#                     full_response = result.get("message", {}).get("content", "")
+
+#                     # Fallback to old format
+#                     if not full_response:
+#                         full_response = result.get("response", "")
+
+#                     if full_response:
+#                         window.after(0, lambda: clear_waiting_message())
+
+#                         # Format the response for better readability
+#                         formatted_response = f"""{'=' * 60}
+# 🏥 MEDICAL IMAGING ANALYSIS REPORT
+# {'=' * 60}
+
+# {full_response}
+
+# {'=' * 60}
+# 📊 Analysis completed using: {model_name}
+# ⏰ Generated: {time.strftime('%Y-%m-%d %H:%M:%S')}
+# {'=' * 60}
+# """
+#                         window.after(0, lambda r=formatted_response: update_ui_with_token(r))
+#                         return  # Success! Exit the function
+#                     else:
+#                         raise Exception(f"No response in server reply. Got: {result}")
+#                 else:
+#                     # This model didn't work, try next one
+#                     error_body = res.read().decode("utf-8")
+#                     last_error = f"Model {model_name}: Status {res.status} - {error_body}"
+#                     print(f"❌ {last_error}")
+#                     continue
+
+#             except Exception as e:
+#                 last_error = f"Model {model_name}: {str(e)}"
+#                 print(f"❌ {last_error}")
+#                 continue
+
+#         # If we get here, none of the models worked
+#         raise Exception(
+#             f"""❌ NO VISION MODELS AVAILABLE ON SERVER!
+
+# You need to install a vision model on your Ollama server.
+
+# On your PC, run:
+#   ollama pull llava:7b
+
+# OR for better quality:
+#   ollama pull llava:13b
+
+# Then restart this application.
+
+# Last error: {last_error}""")
+
+#     except socket.timeout:
+#         window.after(0, lambda: show_error(
+#             "⏱️ Server timeout - AI analysis took too long to respond.\n\nTry:\n1. Using a smaller image\n2. Checking server load\n3. Restarting Ollama"))
+#     except Exception as e:
+#         error_msg = str(e)
+#         print(f"❌ Critical Error: {error_msg}")
+#         window.after(0, lambda m=error_msg: show_error(f"{m}"))
+#     finally:
+#         if conn:
+#             conn.close()
+
+# # ========== HELPER FUNCTIONS ==========
+
+# def update_status(message):
+#     """Update status in the result text box"""
+#     result_text.configure(state="normal")
+#     current_text = result_text.get("1.0", "end-1c")
+#     if "please wait" in current_text.lower() or "analyzing" in current_text.lower():
+#         result_text.delete("1.0", "end")
+#     result_text.insert("end", f"{message}\n")
+#     result_text.see("end")
+#     result_text.configure(state="disabled")
+
+
+# def clear_waiting_message():
+#     """Clear the waiting message when first token arrives"""
+#     result_text.configure(state="normal")
+#     result_text.delete("1.0", "end")
+#     result_text.configure(state="disabled")
+
+
+# def show_error(error_message):
+#     """Display error message"""
+#     result_text.configure(state="normal")
+#     result_text.delete("1.0", "end")
+#     result_text.insert("1.0", f"❌ {error_message}\n\nPlease try again or check your connection.")
+#     result_text.configure(state="disabled")
+
+
+# def update_ui_with_token(token):
+#     """Update the UI safely from a thread"""
+#     result_text.configure(state="normal")
+#     result_text.insert("end", token.replace("**", ""))
+#     result_text.see("end")
+#     result_text.configure(state="disabled")
+
+
+# def upload_action():
+#     path = filedialog.askopenfilename(filetypes=[("Image files", "*.png *.jpg *.jpeg")])
+#     if path:
+#         img = Image.open(path)
+#         img_ctk = ctk.CTkImage(light_image=img, dark_image=img, size=(500, 500))
+#         image_display.configure(image=img_ctk, text="")
+#         image_display.image = img_ctk
+
+#         result_text.configure(state="normal")
+#         result_text.delete("1.0", "end")
+#         result_text.insert("1.0", "AI is analyzing the scan... please wait.")
+#         result_text.configure(state="disabled")
+
+#         thread = threading.Thread(target=ai_analysis, args=(img,), daemon=True)
+#         thread.start()
+
+
+# # ========== UI COMPONENTS ==========
+
+# sidebar = ctk.CTkFrame(window, width=200, corner_radius=0)
+# sidebar.grid(row=0, column=0, sticky="nsew")
+
+# title_app = ctk.CTkLabel(sidebar, text="AI Surgery", font=ctk.CTkFont(family="Open Sans", size=24, weight="bold"))
+# title_app.pack(pady=20, padx=10)
+
+# upload_button = ctk.CTkButton(sidebar, text="Upload scan", font=("Open Sans", 24), command=upload_action)
+# upload_button.pack(pady=10, padx=10)
+
+# main_display = ctk.CTkFrame(window, corner_radius=10)
+# main_display.grid(row=0, column=1, padx=20, pady=20, sticky="nsew")
+# main_display.grid_columnconfigure(0, weight=1)
+# main_display.grid_rowconfigure(0, weight=3)
+# main_display.grid_rowconfigure(1, weight=1)
+
+# image_display = ctk.CTkLabel(main_display, text="Scan will appear here", text_color="gray")
+# image_display.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
+
+# result_text = ctk.CTkTextbox(main_display, font=("Open Sans", 16), wrap="word", corner_radius=10, border_width=2)
+# result_text.grid(row=1, column=0, sticky="nsew", padx=15, pady=15)
+
+# result_text.insert("1.0", "Awaiting Medical Scan...")
+# result_text.configure(state="disabled")
+
+
+# # ========== CHECK MODELS ON STARTUP ==========
+
+# print("\n" + "="*50)
+# print("CHECKING SERVER MODELS...")
+# print("="*50)
+# available = check_available_models()
+# if available:
+#     print(f"\n✅ Found {len(available)} model(s)")
+# else:
+#     print("\n⚠️ Could not retrieve model list or NO MODELS INSTALLED")
+#     print("\n💡 To install a vision model, SSH into your server and run:")
+#     print("   ollama pull llava")
+# print("="*50 + "\n")
+
+
+# # ========== START THE APP ==========
+
+# window.mainloop()
+
+
+#Chatbot 
+
+import customtkinter as ctk
 import http.client
 import json
-import customtkinter as ctk
-from PIL import Image
-import threading
-from tkinter import filedialog
-import base64
-from io import BytesIO
-import time
 import socket
+import time
+import threading
 
-# 1. Window Setup
-window = ctk.CTk()
+# Configure appearance
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
-window.title("AI Surgery App")
-window.minsize(1000, 800)
 
-window.grid_columnconfigure(0, weight=1)
-window.grid_columnconfigure(1, weight=3)
-window.grid_rowconfigure(0, weight=1)
+# Create main window
+window = ctk.CTk()
+window.title("Jarvis AI Assistant")
+window.minsize(1000, 1000)
+window.configure(padx=40, pady=40)
+
+# Status label (for showing AI thinking status)
+status_label = None
+response_text = None
+
+#Setting the backend
+
+#settinf the theme
+def toggle_theme():
+    """Toggle theme between dark and light"""
+    if ctk.get_appearance_mode() == "Dark":
+        ctk.set_appearance_mode("light")
+        theme_button.configure(text="🌙 Dark Mode")
+        # Change frames to light colors
+        header_frame.configure(fg_color="#f0f0f0")
+        response_frame.configure(fg_color="#f0f0f0")
+        response_text.configure(fg_color="#ffffff")
+    else:
+        ctk.set_appearance_mode("dark")
+        theme_button.configure(text="☀️ Light Mode")
+        # Change frames back to dark colors
+        header_frame.configure(fg_color="#1a1a1a")
+        response_frame.configure(fg_color="#1a1a1a")
+        response_text.configure(fg_color="#0a0a0a")
+
+#Setting the API and responding the users mesage
+def update_status(message):
+    """Update status label with current AI activity"""
+    global status_label
+    if status_label:
+        status_label.configure(text=message)
 
 
-# ========== PASTE THE NEW FUNCTIONS HERE ==========
+def clear_waiting_message():
+    """Clear the waiting/loading message"""
+    global status_label
+    if status_label:
+        status_label.configure(text="")
 
-def check_available_models():
-    """Check what models are available on your Ollama server"""
+
+def update_ui_with_token(response):
+    """Display AI response in the UI"""
+    global response_text
+    if response_text:
+        # Enable editing temporarily
+        response_text.configure(state="normal")
+        response_text.delete("1.0", "end")
+        response_text.insert("1.0", response)
+        response_text.configure(state="disabled")
+
+
+def show_error(error_message):
+    """Show error message to user"""
+    global response_text
+    if response_text:
+        response_text.configure(state="normal")
+        response_text.delete("1.0", "end")
+        response_text.insert("1.0", f"❌ Error:\n\n{error_message}")
+        response_text.configure(state="disabled")
+
+
+conversation_history = []
+
+
+def ai_text_chat(user_message):
+    """SMARTER AI chatbot with context memory and better prompting"""
     conn = None
     try:
-        print("🔍 Checking available models on server...")
-        conn = http.client.HTTPSConnection("ai.recepguzel.com", timeout=30)
-        headers = {'authorization': "Basic YWl1c2VyOkJ1QWk1UGFyYUV0bWV6IQ=="}
+        window.after(0, lambda: update_status("🤖 Jarvis is thinking..."))
 
-        conn.request("GET", "/api/tags", headers=headers)
-        res = conn.getresponse()
+        # Add user message to history
+        conversation_history.append({
+            "role": "user",
+            "content": user_message
+        })
 
-        if res.status == 200:
-            data = json.loads(res.read().decode("utf-8"))
-            print("\n✅ Server response:")
-            print(json.dumps(data, indent=2))
+        # Keep only last 10 messages to avoid token limits
+        if len(conversation_history) > 10:
+            conversation_history.pop(0)
 
-            # Extract model names if available
-            if "models" in data:
-                print("\n📋 Available models:")
-                model_names = []
-                for model in data["models"]:
-                    name = model.get('name', str(model))
-                    print(f"  - {name}")
-                    model_names.append(name)
-                return model_names
-            else:
-                print("⚠️ No 'models' key in response")
-                return []
+        # Smart model selection based on query type
+        models_to_try = []
+
+        # Check query type and prioritize models
+        query_lower = user_message.lower()
+
+        if any(word in query_lower for word in ["code", "program", "python", "javascript", "debug"]):
+            # Coding queries - use deepseek (best for code)
+            models_to_try = ["deepseek-r1:8b", "llama3.2:3b", "llava:7b"]
+        elif any(word in query_lower for word in ["explain", "how", "why", "what is"]):
+            # Educational queries - use llama (best for explanations)
+            models_to_try = ["llama3.2:3b", "deepseek-r1:8b", "llava:7b"]
         else:
-            error_body = res.read().decode("utf-8")
-            print(f"❌ Error {res.status}: {error_body}")
-            return []
-
-    except Exception as e:
-        print(f"❌ Error checking models: {e}")
-        return []
-    finally:
-        if conn:
-            conn.close()
-
-
-def ai_analysis(img):
-    """10X SMARTER AI Analysis with proper vision model and enhanced medical prompting"""
-    conn = None
-    try:
-        window.after(0, lambda: update_status("🔬 Processing image..."))
-
-        # 1. Process image with higher quality
-        img_small = img.copy()
-        img_small.thumbnail((1024, 1024))  # Higher resolution for better detail
-        buffered = BytesIO()
-        img_small.save(buffered, format="PNG", quality=95)
-        img_bytes = buffered.getvalue()
-        img_str = base64.b64encode(img_bytes).decode("utf-8")
-
-        window.after(0, lambda: update_status("🌐 Connecting to AI server..."))
-
-        # 2. Connection
-        conn = http.client.HTTPSConnection("ai.recepguzel.com", timeout=120)  # Longer timeout for complex analysis
-
-        # VISION MODELS ONLY - Prioritized by capability
-        models_to_try = [
-            "llava:13b",  # Best quality
-            "llava:7b",  # Good balance
-            "llava:latest",  # Fallback
-            "bakllava:latest",  # Alternative
-            "llava-llama3",  # Alternative
-        ]
+            # General conversation - try all models
+            models_to_try = ["deepseek-r1:8b", "llama3.2:3b", "llava:7b", "llava:13b-v1.6"]
 
         last_error = None
 
-        # Try each model until one works
         for model_name in models_to_try:
             try:
-                print(f"🔄 Trying vision model: {model_name}")
-                window.after(0, lambda m=model_name: update_status(f"🤖 Testing {m}..."))
+                print(f"🔄 Trying model: {model_name}")
+                window.after(0, lambda m=model_name: update_status(f"🤖 Using {m}..."))
+
+                # Enhanced system prompt for better responses
+                system_prompt = """You are Jarvis, an advanced AI assistant with these capabilities:
+
+🎯 CORE ABILITIES:
+- Answer questions with depth and accuracy
+- Provide step-by-step explanations when needed
+- Remember context from our conversation
+- Be helpful, friendly, and conversational
+- Give practical examples when explaining concepts
+
+💡 RESPONSE STYLE:
+- Be clear and concise, but thorough when needed
+- Use analogies to explain complex topics
+- Break down complex answers into digestible parts
+- Ask clarifying questions if the query is ambiguous
+
+🚫 AVOID:
+- Generic or vague responses
+- Overly formal language
+- Unnecessary jargon
+
+Be natural, intelligent, and genuinely helpful."""
 
                 payload_data = {
-                    "model": model_name,  # ✅ CRITICAL FIX - Uses actual vision model!
+                    "model": model_name,
                     "messages": [
-                        {
-                            "role": "user",
-                            "content": """You are an expert medical imaging AI with specialized training in anatomy and clinical diagnostics. Analyze this medical diagram with extreme precision and thoroughness.
-
-🔍 CRITICAL INSTRUCTIONS:
-- READ ALL TEXT LABELS in the image carefully - list EVERY labeled structure you can see
-- Identify the COMPLETE anatomical system shown (not just the most prominent part)
-- If you see labels for "Central Nervous System", "Peripheral Nervous System", "Spinal Cord", "Nerves", etc., YOU MUST MENTION ALL OF THEM
-
-📋 PROVIDE A COMPREHENSIVE ANALYSIS:
-
-**1. BODY PART IDENTIFICATION:**
-- Identify the COMPLETE anatomical system/structure shown in this diagram
-- State whether this shows a single organ, multiple organs, or an entire body system
-- Note if this includes both central and peripheral components
-
-**2. LABELED STRUCTURES (CRITICAL - READ THE IMAGE LABELS):**
-- List EVERY structure that has a text label in the image
-- For each labeled structure, provide:
-  * Anatomical name
-  * Location in the body
-  * Primary function
-  * Key characteristics
-
-**3. ANATOMICAL DETAILS:**
-- Describe the spatial relationships between structures
-- Explain how different components connect and communicate
-- Note any color-coding or visual distinctions in the diagram
-
-**4. PHYSIOLOGICAL FUNCTIONS:**
-- Explain how this system/structure works
-- Describe the flow of signals, fluids, or materials
-- Detail the role in maintaining body homeostasis
-
-**5. CLINICAL RELEVANCE:**
-- List 5-7 common medical conditions affecting these structures
-- Describe diagnostic procedures used to examine this system
-- Mention surgical procedures or treatments related to these structures
-- Include prevalence and risk factors where relevant
-
-**6. PATHOLOGICAL CONSIDERATIONS:**
-- Describe what happens when these structures are damaged
-- Explain symptoms of dysfunction
-- Note emergency conditions requiring immediate attention
-
-**7. DIAGNOSTIC IMAGING:**
-- What imaging modalities are used to visualize these structures? (MRI, CT, X-ray, ultrasound, etc.)
-- When would each imaging type be preferred?
-
-**8. PROFESSIONAL SUMMARY:**
-Provide a concise yet comprehensive overview suitable for:
-- Medical students studying anatomy
-- Healthcare professionals needing a refresher
-- Patients seeking to understand their anatomy
-
-⚠️ ACCURACY REQUIREMENTS:
-- Base your analysis ONLY on what you actually see in the image
-- If you see text labels, you MUST read and include them
-- Do not hallucinate structures that aren't labeled or visible
-- If the diagram shows a full body system (e.g., nervous system from head to toe), acknowledge the COMPLETE system, not just one part
-
-Be thorough, accurate, and use proper medical terminology throughout your analysis.""",
-                            "images": [img_str]
-                        }
-                    ],
+                                    {
+                                        "role": "system",
+                                        "content": system_prompt
+                                    }
+                                ] + conversation_history,  # Include conversation history for context
                     "stream": False,
                     "options": {
-                        "temperature": 0.3,  # Lower temperature for more accurate, less creative responses
-                        "num_predict": 2000,  # Allow longer responses
+                        "temperature": 0.8,  # Slightly higher for more creative responses
+                        "top_p": 0.9,  # Nucleus sampling for better quality
+                        "num_predict": 1500,  # More tokens for detailed responses
+                        "repeat_penalty": 1.1,  # Reduce repetition
                     }
                 }
 
@@ -892,186 +1242,228 @@ Be thorough, accurate, and use proper medical terminology throughout your analys
                     'authorization': "Basic YWl1c2VyOkJ1QWk1UGFyYUV0bWV6IQ=="
                 }
 
-                # Create new connection for each attempt
                 if conn:
                     conn.close()
-                conn = http.client.HTTPSConnection("ai.recepguzel.com", timeout=120)
+                conn = http.client.HTTPSConnection("ai.recepguzel.com", timeout=90)
                 conn.request("POST", "/api/chat", json.dumps(payload_data), headers)
 
                 res = conn.getresponse()
 
                 if res.status == 200:
-                    # Success! Process the response
-                    print(f"✅ Vision model {model_name} is analyzing the image!")
-                    window.after(0, lambda m=model_name: update_status(
-                        f"✅ Using {m}\n\n🔬 Performing deep medical analysis...\n⏳ This may take 30-60 seconds for detailed results...\n"))
+                    print(f"✅ Model {model_name} is responding!")
 
                     data = res.read()
                     result = json.loads(data.decode("utf-8"))
 
-                    print(f"Full server response: {result}")
-
-                    # Get response from message format
+                    # Get response
                     full_response = result.get("message", {}).get("content", "")
 
-                    # Fallback to old format
                     if not full_response:
                         full_response = result.get("response", "")
 
                     if full_response:
-                        window.after(0, lambda: clear_waiting_message())
+                        # Add AI response to history
+                        conversation_history.append({
+                            "role": "assistant",
+                            "content": full_response
+                        })
 
-                        # Format the response for better readability
-                        formatted_response = f"""{'=' * 60}
-🏥 MEDICAL IMAGING ANALYSIS REPORT
-{'=' * 60}
+                        window.after(0, lambda: update_status("✅ Response ready!"))
+
+                        # Enhanced formatting with emoji based on query type
+                        emoji = "🤖"
+                        if any(word in query_lower for word in ["code", "program"]):
+                            emoji = "💻"
+                        elif any(word in query_lower for word in ["explain", "teach"]):
+                            emoji = "📚"
+                        elif any(word in query_lower for word in ["help", "how to"]):
+                            emoji = "🔧"
+
+                        formatted_response = f"""{emoji} Jarvis:
 
 {full_response}
 
-{'=' * 60}
-📊 Analysis completed using: {model_name}
-⏰ Generated: {time.strftime('%Y-%m-%d %H:%M:%S')}
-{'=' * 60}
+{'─' * 50}
+Model: {model_name} | Time: {time.strftime('%H:%M:%S')}
+Messages in context: {len(conversation_history)}
 """
                         window.after(0, lambda r=formatted_response: update_ui_with_token(r))
-                        return  # Success! Exit the function
+                        return  # Success!
                     else:
-                        raise Exception(f"No response in server reply. Got: {result}")
+                        raise Exception("No response from model")
                 else:
-                    # This model didn't work, try next one
                     error_body = res.read().decode("utf-8")
-                    last_error = f"Model {model_name}: Status {res.status} - {error_body}"
+                    last_error = f"Model {model_name}: Status {res.status}"
                     print(f"❌ {last_error}")
                     continue
+
+            except socket.timeout:
+                last_error = f"Model {model_name}: Connection timeout"
+                print(f"❌ {last_error}")
+                continue
 
             except Exception as e:
                 last_error = f"Model {model_name}: {str(e)}"
                 print(f"❌ {last_error}")
                 continue
 
-        # If we get here, none of the models worked
-        raise Exception(
-            f"""❌ NO VISION MODELS AVAILABLE ON SERVER!
+        # If we get here, no models worked
+        error_msg = f"""Could not connect to any AI models!
 
-You need to install a vision model on your Ollama server.
+Tried models: {', '.join(models_to_try)}
 
-On your PC, run:
-  ollama pull llava:7b
+Solutions:
+1. Check if Ollama server is running
+2. Install models:
+   ollama pull deepseek-r1:8b
+   ollama pull llama3.2:3b
+3. Check network connection to ai.recepguzel.com
+4. Verify server authentication
 
-OR for better quality:
-  ollama pull llava:13b
+Last error: {last_error}"""
 
-Then restart this application.
+        window.after(0, lambda m=error_msg: show_error(m))
 
-Last error: {last_error}""")
-
-    except socket.timeout:
-        window.after(0, lambda: show_error(
-            "⏱️ Server timeout - AI analysis took too long to respond.\n\nTry:\n1. Using a smaller image\n2. Checking server load\n3. Restarting Ollama"))
     except Exception as e:
-        error_msg = str(e)
+        error_msg = f"Unexpected error: {str(e)}"
         print(f"❌ Critical Error: {error_msg}")
-        window.after(0, lambda m=error_msg: show_error(f"{m}"))
+        window.after(0, lambda m=error_msg: show_error(m))
     finally:
         if conn:
-            conn.close()
-
-# ========== HELPER FUNCTIONS ==========
-
-def update_status(message):
-    """Update status in the result text box"""
-    result_text.configure(state="normal")
-    current_text = result_text.get("1.0", "end-1c")
-    if "please wait" in current_text.lower() or "analyzing" in current_text.lower():
-        result_text.delete("1.0", "end")
-    result_text.insert("end", f"{message}\n")
-    result_text.see("end")
-    result_text.configure(state="disabled")
+            try:
+                conn.close()
+            except:
+                pass
 
 
-def clear_waiting_message():
-    """Clear the waiting message when first token arrives"""
-    result_text.configure(state="normal")
-    result_text.delete("1.0", "end")
-    result_text.configure(state="disabled")
+def send_message(event=None):
+    """Handle sending a message when user presses Send or Enter"""
+    user_input = chatbot_input.get().strip()
 
+    if user_input:
+        # Show user message
+        print(f"User: {user_input}")
 
-def show_error(error_message):
-    """Display error message"""
-    result_text.configure(state="normal")
-    result_text.delete("1.0", "end")
-    result_text.insert("1.0", f"❌ {error_message}\n\nPlease try again or check your connection.")
-    result_text.configure(state="disabled")
+        # Clear input field
+        chatbot_input.delete(0, 'end')
 
+        # Show user's message in response area
+        response_text.configure(state="normal")
+        response_text.delete("1.0", "end")
+        response_text.insert("1.0", f"You: {user_input}\n\n{'─' * 40}\n\nJarvis is thinking...")
+        response_text.configure(state="disabled")
 
-def update_ui_with_token(token):
-    """Update the UI safely from a thread"""
-    result_text.configure(state="normal")
-    result_text.insert("end", token.replace("**", ""))
-    result_text.see("end")
-    result_text.configure(state="disabled")
-
-
-def upload_action():
-    path = filedialog.askopenfilename(filetypes=[("Image files", "*.png *.jpg *.jpeg")])
-    if path:
-        img = Image.open(path)
-        img_ctk = ctk.CTkImage(light_image=img, dark_image=img, size=(500, 500))
-        image_display.configure(image=img_ctk, text="")
-        image_display.image = img_ctk
-
-        result_text.configure(state="normal")
-        result_text.delete("1.0", "end")
-        result_text.insert("1.0", "AI is analyzing the scan... please wait.")
-        result_text.configure(state="disabled")
-
-        thread = threading.Thread(target=ai_analysis, args=(img,), daemon=True)
+        # Run AI in background thread to keep UI responsive
+        thread = threading.Thread(target=ai_text_chat, args=(user_input,))
+        thread.daemon = True
         thread.start()
+
+    return "break"  # Prevent default Enter behavior
 
 
 # ========== UI COMPONENTS ==========
 
-sidebar = ctk.CTkFrame(window, width=200, corner_radius=0)
-sidebar.grid(row=0, column=0, sticky="nsew")
+theme_button = ctk.CTkButton(
+    window,
+    text="☀️ Light Mode",
+    width=150,
+    height=40,
+    font=("Arial", 12),
+    corner_radius=10,
+    command=toggle_theme
+)
+theme_button.pack(pady=10)
 
-title_app = ctk.CTkLabel(sidebar, text="AI Surgery", font=ctk.CTkFont(family="Open Sans", size=24, weight="bold"))
-title_app.pack(pady=20, padx=10)
+# Header Frame
+header_frame = ctk.CTkFrame(window, fg_color="#1a1a1a", corner_radius=15)
+header_frame.pack(pady=20, fill="x")
 
-upload_button = ctk.CTkButton(sidebar, text="Upload scan", font=("Open Sans", 24), command=upload_action)
-upload_button.pack(pady=10, padx=10)
+# Bot Avatar
+avatar_label = ctk.CTkLabel(header_frame, text="🤖", font=("Arial", 50))
+avatar_label.pack(pady=(30, 10))
 
-main_display = ctk.CTkFrame(window, corner_radius=10)
-main_display.grid(row=0, column=1, padx=20, pady=20, sticky="nsew")
-main_display.grid_columnconfigure(0, weight=1)
-main_display.grid_rowconfigure(0, weight=3)
-main_display.grid_rowconfigure(1, weight=1)
+# Title
+theme_button.pack(pady=10)
 
-image_display = ctk.CTkLabel(main_display, text="Scan will appear here", text_color="gray")
-image_display.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
+chatbot_label = ctk.CTkLabel(
+    header_frame,
+    text="Jarvis Bot",
+    font=("Arial Bold", 42),
+    text_color="#3b8ed0"
+)
+chatbot_label.pack(pady=15)
 
-result_text = ctk.CTkTextbox(main_display, font=("Open Sans", 16), wrap="word", corner_radius=10, border_width=2)
-result_text.grid(row=1, column=0, sticky="nsew", padx=15, pady=15)
+# Greeting
+chat_bot_greetings = ctk.CTkLabel(
+    header_frame,
+    text="My name is Jarvis bot, how may I help you?",
+    font=("Arial", 18),
+    text_color="#a0a0a0"
+)
+chat_bot_greetings.pack(pady=(5, 30))
 
-result_text.insert("1.0", "Awaiting Medical Scan...")
-result_text.configure(state="disabled")
+# Status Label (shows AI activity)
+status_label = ctk.CTkLabel(
+    window,
+    text="",
+    font=("Arial", 12),
+    text_color="#4ade80"
+)
+status_label.pack(pady=5)
 
+# Response Display Area (shows conversation)
+response_frame = ctk.CTkFrame(window, fg_color="#1a1a1a", corner_radius=10)
+response_frame.pack(pady=10, fill="both", expand=True)
 
-# ========== CHECK MODELS ON STARTUP ==========
+response_text = ctk.CTkTextbox(
+    response_frame,
+    font=("Arial", 14),
+    wrap="word",
+    fg_color="#0a0a0a",
+    corner_radius=8
+)
+response_text.pack(padx=10, pady=10, fill="both", expand=True)
+response_text.insert("1.0",
+                     "Welcome! Ask me anything...\n\nExamples:\n• How are you?\n• Tell me a joke\n• Explain quantum physics\n• What's the weather like?")
+response_text.configure(state="disabled")
 
-print("\n" + "="*50)
-print("CHECKING SERVER MODELS...")
-print("="*50)
-available = check_available_models()
-if available:
-    print(f"\n✅ Found {len(available)} model(s)")
-else:
-    print("\n⚠️ Could not retrieve model list or NO MODELS INSTALLED")
-    print("\n💡 To install a vision model, SSH into your server and run:")
-    print("   ollama pull llava")
-print("="*50 + "\n")
+# Input Frame
+input_frame = ctk.CTkFrame(window, fg_color="transparent")
+input_frame.pack(pady=30, fill="x")
 
+# Input Field
+chatbot_input = ctk.CTkEntry(
+    input_frame,
+    width=600,
+    height=60,
+    font=("Arial", 16),
+    placeholder_text="Type your message here...",
+    corner_radius=10,
+    border_width=2
+)
+chatbot_input.pack(pady=20)
+chatbot_input.bind("<Return>", send_message)  # Send on Enter key
 
-# ========== START THE APP ==========
+# Send Button
+send_button = ctk.CTkButton(
+    input_frame,
+    text="Send Message",
+    width=200,
+    height=50,
+    font=("Arial Bold", 16),
+    corner_radius=10,
+    command=send_message  # Fixed: Now calls send_message function
+)
+send_button.pack(pady=10)
 
+# Footer
+footer_label = ctk.CTkLabel(
+    window,
+    text="Powered by AI Technology • Press Enter or click Send to chat",
+    font=("Arial", 11),
+    text_color="#5a5a5a"
+)
+footer_label.pack(side="bottom", pady=20)
+
+# Start the application
 window.mainloop()
-
