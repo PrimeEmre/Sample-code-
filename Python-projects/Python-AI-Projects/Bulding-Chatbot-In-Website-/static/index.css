@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    background-color: #212121;
+    color: #ececec;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 260px;
+    background-color: #171717;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-chat {
+    background: transparent;
+    border: 1px solid #4d4d4d;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.chat-history {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.history-item:hover {
+    background-color: #2f2f2f;
+}
+
+.user-profile {
+    padding-top: 15px;
+    border-top: 1px solid #4d4d4d;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Main Chat Styling */
+.chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #212121;
+}
+
+.top-bar {
+    padding: 15px;
+    font-weight: bold;
+}
+
+.conversation-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px 0;
+}
+
+.message-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+}
+
+.user {
+    justify-content: flex-end;
+}
+
+.message-content {
+    max-width: 85%;
+    line-height: 1.6;
+}
+
+.user .message-content {
+    background-color: #2f2f2f;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+/* Input Styling */
+.input-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.input-wrapper {
+    background-color: #2f2f2f;
+    border-radius: 15px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+textarea {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    resize: none;
+    font-size: 16px;
+    outline: none;
+}
+
+.send-button {
+    background-color: #676767;
+    border: none;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    color: #212121;
+}
+
+.footer-note {
+    font-size: 12px;
+    color: #9b9b9b;
+    text-align: center;
+    margin-top: 10px;
+}

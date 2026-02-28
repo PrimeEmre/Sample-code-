@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional AI Interface</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <button class="new-chat">+ New Chat</button>
+            <div class="chat-history">
+            </div>
+            <div class="user-profile">
+                <div class="avatar">E</div>
+                <span>Emre</span>
+            </div>
+        </aside>
+
+        <main class="chat-main">
+            <header class="top-bar">
+                <div class="model-selector">Jarvis 3.4</div>
+            </header>
+
+            <div class="conversation-container">
+                <div class="message-wrapper bot">
+                    <div class="message-content">
+                        Hello Emre! How can I assist you with your frontend work today?
+                    </div>
+                </div>
+
+                <div class="message-wrapper user">
+                    <div class="message-content">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea placeholder="Message Jarvis 3.4..." rows="1"></textarea>
+                    <button class="send-button">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
+                <p class="footer-note">ChatGPT can make mistakes. Check important info.</p>
+            </div>
+        </main>
+    </div>
+
+<script src="/static/index.js"></script>
+
+</body>
+</html>
