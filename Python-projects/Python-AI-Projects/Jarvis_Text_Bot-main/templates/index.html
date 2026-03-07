@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expo Speach AI </title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+
+    <div class="app-card">
+        <header>
+            <h1>Expo Speach AI </h1>
+            <p>Convert your text into natural-sounding audio</p>
+        </header>
+
+        <main>
+            <!-- Text input with character counter -->
+            <textarea id="text-input" placeholder="Enter your text here..."></textarea>
+            <div class="char-count"><span id="char-count">0</span> characters</div>
+
+            <div class="settings-grid">
+                <div class="control">
+                    <label for="voice-select">Voice Engine</label>
+                    <select id="voice-select">
+                        <option value="en">English</option>
+                        <option value="en-uk">English UK</option>
+                        <option value="en-au">English Australian</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="es">Spanish</option>
+                        <option value="it">Italian</option>
+                        <option value="tr">Turkish</option>
+                    </select>
+                </div>
+
+                <div class="control">
+                    <label for="rate">Playback Speed</label>
+                    <div class="slider-container">
+                        <input type="range" id="rate" min="0.5" max="2" value="1" step="0.1">
+                        <span id="rate-value">1.0x</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generate button -->
+            <button id="action-btn" class="btn-primary">
+                <span class="btn-text">🎙️ Synthesize Speech</span>
+            </button>
+
+            <!-- Loading indicator -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <span>Generating audio...</span>
+            </div>
+
+            <!-- Error message -->
+            <div id="error-msg" class="error hidden"></div>
+
+            <!-- Audio player and download -->
+            <div id="audio-section" class="audio-section hidden">
+                <audio id="audio-player" controls></audio>
+                <a id="download-btn" class="download-btn" download="speech.mp3">
+                    ⬇️ Download MP3
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/sript.js"></script>
+</body>
+</html>
