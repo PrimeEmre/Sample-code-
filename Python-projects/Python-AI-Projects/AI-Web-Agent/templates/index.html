@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>J.A.R.V.I.S</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Corner decorations -->
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+
+  <!-- Scanline overlay -->
+  <div class="scanlines"></div>
+
+  <!-- ── Header ── -->
+  <header>
+    <div class="logo">
+      <div class="logo-arc">
+        <div class="arc-ring"></div>
+        <div class="arc-core"></div>
+      </div>
+      <div class="logo-text-block">
+        <div class="logo-title">J.A.R.V.I.S</div>
+        <div class="logo-sub">JUST A RATHER VERY INTELLIGENT SYSTEM</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="sys-stat">
+        <span class="stat-dot"></span>
+        <span class="stat-label">SYSTEMS ONLINE</span>
+      </div>
+      <div class="sys-stat">
+        <span class="stat-label" id="clock"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Nav tabs ── -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="chat">
+      <span class="tab-icon">◈</span> NEURAL CHAT
+    </button>
+    <button class="tab" data-tab="research">
+      <span class="tab-icon">◉</span> DEEP RESEARCH
+    </button>
+  </nav>
+
+  <!-- ── Panels ── -->
+  <main class="main">
+
+    <!-- CHAT -->
+    <section id="chat-panel" class="panel active">
+      <div class="messages" id="messages">
+        <div class="message assistant">
+          <div class="msg-avatar">JAR</div>
+          <div class="msg-body">
+            <div class="msg-label">J.A.R.V.I.S</div>
+            <div class="msg-bubble">
+              Good day. All systems nominal. How may I assist you?
+            </div>
+            <button class="speak-btn" data-text="Good day. All systems nominal. How may I assist you?">▶ SPEAK</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-footer">
+        <div class="input-wrap">
+          <textarea
+            id="chatInput"
+            class="chat-input"
+            placeholder="Enter directive..."
+            rows="1"
+          ></textarea>
+          <button class="send-btn" id="sendBtn">
+            <span>TRANSMIT</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research-panel" class="panel">
+      <div class="research-top">
+        <div class="research-title">
+          <span class="r-icon">◉</span>
+          <div>
+            <div class="r-heading">DEEP RESEARCH MODULE</div>
+            <div class="r-sub">Autonomous web agent — searches, reads, and synthesizes intelligence reports</div>
+          </div>
+        </div>
+
+        <div class="research-form">
+          <input
+            type="text"
+            id="researchInput"
+            class="research-input"
+            placeholder="Enter research directive..."
+          />
+          <button class="initiate-btn" id="researchBtn">
+            INITIATE <span>⟶</span>
+          </button>
+        </div>
+
+        <div class="research-status" id="researchStatus">
+          <span class="rs-text">AWAITING DIRECTIVE</span>
+        </div>
+      </div>
+
+      <div class="report-container" id="reportBox"></div>
+    </section>
+
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
