@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audiobook Creator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="page">
+
+        <div class="header">
+            <h1>Audiobook Creator</h1>
+            <p>Upload a PDF or text file and convert it into a professional audiobook</p>
+        </div>
+
+        <!-- Upload Card -->
+        <div class="card">
+            <div class="section-label">Upload File</div>
+            <div class="upload-zone" onclick="document.getElementById('file-input').click()">
+                <div class="upload-icon">📄</div>
+                <div class="upload-title">Drop your file here</div>
+                <div class="upload-sub">Supports PDF and TXT files</div>
+                <div class="upload-btn">Browse Files</div>
+            </div>
+            <input type="file" id="file-input" accept=".pdf,.txt" style="display:none" onchange="onFileSelected(this)">
+            <div class="file-selected" id="file-selected">
+                <span>✓</span>
+                <span id="file-name">document.pdf</span>
+            </div>
+        </div>
+
+        <!-- Settings Card -->
+        <div class="card">
+            <div class="section-label">Voice Settings</div>
+
+            <div class="settings-grid">
+                <div class="setting-item">
+                    <label>Voice</label>
+                    <select id="voice-select">
+                        <option value="en-US-Studio-O">Studio O — Female</option>
+                        <option value="en-US-Studio-Q">Studio Q — Male</option>
+                        <option value="en-US-Neural2-A">Neural2 A — Female</option>
+                        <option value="en-US-Neural2-D">Neural2 D — Male</option>
+                        <option value="en-GB-Neural2-A">British A — Female</option>
+                        <option value="en-GB-Neural2-B">British B — Male</option>
+                        <option value="en-AU-Neural2-A">Australian A — Female</option>
+                        <option value="en-AU-Neural2-B">Australian B — Male</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Speed — <span id="speed-val">1.0x</span></label>
+                    <input type="range" id="speed" min="0.5" max="2" step="0.1" value="1"
+                        oninput="document.getElementById('speed-val').textContent=parseFloat(this.value).toFixed(1)+'x'">
+                </div>
+            </div>
+
+            <div class="setting-item">
+                <label>Book Title</label>
+                <input type="text" id="book-title" placeholder="Enter title or leave blank to auto-detect">
+            </div>
+
+            <div class="setting-item">
+                <label>Author</label>
+                <input type="text" id="book-author" placeholder="Author name">
+            </div>
+
+            <!-- Status and Error -->
+            <div class="status-bar" id="status-bar">
+                <div class="spinner"></div>
+                <span id="status-text">Processing your file with AI...</span>
+            </div>
+            <div class="error-bar" id="error-bar"></div>
+
+            <button class="generate-btn" id="generate-btn" onclick="generateAudiobook()">
+                🎙️ Generate Audiobook
+            </button>
+        </div>
+
+        <!-- Player Card -->
+        <div class="card player-section" id="player-section">
+
+            <div class="book-info">
+                <div class="book-cover">📖</div>
+                <div class="book-meta">
+                    <h2 id="player-title">My Audiobook</h2>
+                    <p id="player-author">by Author</p>
+                </div>
+            </div>
+
+            <div class="progress-area">
+                <div class="progress-track" id="progress-track" onclick="seekAudio(event, this)">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="time-row">
+                    <span id="current-time">0:00</span>
+                    <span id="total-time">0:00</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="ctrl-btn" onclick="skipBack()">↺ 15s</button>
+                <button class="play-btn" id="play-btn" onclick="togglePlay()">▶</button>
+                <button class="ctrl-btn" onclick="skipForward()">30s ↻</button>
+            </div>
+
+            <div class="download-row">
+                <button class="download-btn" id="download-btn">⬇ Download MP3</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
