@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Code-Agent — AI Coding Copilot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+
+  <div class="scanlines"></div>
+  <div class="grid-bg"></div>
+  <div class="particles" id="particles"></div>
+
+  <!-- LANDING -->
+  <div class="landing" id="landing">
+    <div class="landing-inner">
+      <div class="glitch-wrapper">
+        <h1 class="glitch" data-text="CODE-AGENT">CODE-AGENT</h1>
+      </div>
+      <p class="landing-sub">AI POWERED CODING COPILOT</p>
+      <div class="landing-tags">
+        <span class="tag">COPILOT</span>
+        <span class="tag-sep">◈</span>
+        <span class="tag">CODE REVIEW</span>
+        <span class="tag-sep">◈</span>
+        <span class="tag">VOICE SYNTHESIS</span>
+        <span class="tag-sep">◈</span>
+        <span class="tag">RESEARCH</span>
+      </div>
+      <button class="btn-launch" id="launchBtn">
+        <span class="btn-launch-text">INITIALIZE SYSTEM</span>
+        <span class="btn-launch-icon">▶</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN APP -->
+  <div class="app hidden" id="app">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="topbar-logo">
+        <span class="logo-bracket">[</span>
+        <span class="logo-name">CODE<span class="logo-ai">-AGENT</span></span>
+        <span class="logo-bracket">]</span>
+      </div>
+      <nav class="tab-nav">
+        <button class="tab-btn active" data-tab="copilot"><span class="tab-btn-icon">◈</span> COPILOT</button>
+        <button class="tab-btn" data-tab="chat"><span class="tab-btn-icon">◈</span> CHAT</button>
+        <button class="tab-btn" data-tab="research"><span class="tab-btn-icon">◈</span> RESEARCH</button>
+        <button class="tab-btn" data-tab="tts"><span class="tab-btn-icon">◈</span> VOICE</button>
+      </nav>
+      <div class="topbar-status">
+        <span class="status-pulse"></span>
+        <span class="status-text">COPILOT ONLINE</span>
+      </div>
+    </header>
+
+    <!-- ══ COPILOT TAB ══ -->
+    <section class="screen active" id="tab-copilot">
+      <div class="screen-inner wide">
+        <div class="screen-title">
+          <span class="title-line"></span>
+          <h2>CODE <span class="neon-text">COPILOT</span></h2>
+          <span class="title-line"></span>
+        </div>
+
+        <div class="copilot-layout">
+
+          <!-- LEFT: Code Editor -->
+          <div class="editor-panel">
+            <div class="panel-header">
+              <span class="panel-label">// YOUR CODE</span>
+              <div class="lang-selector">
+                <select id="langSelect" class="cyber-select-sm">
+                  <option value="python">Python</option>
+                  <option value="javascript">JavaScript</option>
+                  <option value="html">HTML</option>
+                  <option value="css">CSS</option>
+                  <option value="java">Java</option>
+                  <option value="cpp">C++</option>
+                  <option value="typescript">TypeScript</option>
+                  <option value="sql">SQL</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="editor-wrapper">
+              <div class="line-numbers" id="lineNumbers">1</div>
+              <div class="editor-container">
+                <div class="code-highlight" id="codeHighlight" aria-hidden="true"></div>
+                <textarea
+                  id="codeEditor"
+                  class="code-editor"
+                  placeholder="// Paste or write your code here..."
+                  spellcheck="false"
+                  autocorrect="off"
+                  autocapitalize="off"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="editor-footer">
+              <span class="line-count" id="lineCount">1 line</span>
+              <div class="editor-btns">
+                <button class="btn-ghost-cyber" id="clearCode">[ CLEAR ]</button>
+                <button class="btn-cyber neon-pink" id="reviewBtn">◈ REVIEW CODE</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Copilot Output -->
+          <div class="output-panel">
+            <div class="panel-header">
+              <span class="panel-label">// COPILOT ANALYSIS</span>
+              <button class="btn-ghost-cyber" id="copyReview">[ COPY ]</button>
+            </div>
+            <div class="output-empty" id="outputEmpty">
+              <div class="empty-icon">⬡</div>
+              <p>Paste your code on the left<br/>and hit <span class="neon-text">REVIEW CODE</span></p>
+            </div>
+            <div class="cyber-loader hidden" id="copilotLoader">
+              <div class="loader-bar"><div class="loader-fill pink"></div></div>
+              <p class="loader-text">ANALYZING CODE… DETECTING ISSUES…</p>
+            </div>
+            <div class="output-result hidden" id="copilotResult">
+              <div class="badge-row" id="badgeRow"></div>
+              <div class="review-body" id="reviewBody"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Ask about code -->
+        <div class="ask-bar">
+          <div class="panel-header">
+            <span class="panel-label">// ASK ABOUT YOUR CODE</span>
+          </div>
+          <div class="ask-row">
+            <span class="prompt-symbol">&gt;_</span>
+            <input type="text" id="askInput" class="cyber-input" placeholder="e.g. Why is line 5 wrong? How do I fix the loop?"/>
+            <button class="btn-cyber" id="askBtn">ASK ▶</button>
+          </div>
+          <div class="ask-answer hidden" id="askAnswer"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ CHAT TAB ══ -->
+    <section class="screen" id="tab-chat">
+      <div class="screen-inner">
+        <div class="screen-title">
+          <span class="title-line"></span>
+          <h2>CHAT <span class="neon-text">AGENT</span></h2>
+          <span class="title-line"></span>
+        </div>
+        <div class="chat-window" id="chatWindow">
+          <div class="chat-msg ai">
+            <div class="msg-label">CODE-AGENT</div>
+            <div class="msg-body">System initialized. I am your coding assistant. Ask me anything about code, bugs, or programming concepts.</div>
+            <div class="msg-time" id="initTime"></div>
+          </div>
+        </div>
+        <div class="chat-bar">
+          <div class="chat-bar-inner">
+            <span class="prompt-symbol">&gt;_</span>
+            <input type="text" id="chatInput" class="cyber-input" placeholder="Ask a coding question…" autocomplete="off"/>
+            <button class="btn-cyber" id="chatSend">SEND ▶</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ RESEARCH TAB ══ -->
+    <section class="screen" id="tab-research">
+      <div class="screen-inner">
+        <div class="screen-title">
+          <span class="title-line"></span>
+          <h2>RESEARCH <span class="neon-text">AGENT</span></h2>
+          <span class="title-line"></span>
+        </div>
+        <div class="research-panel">
+          <div class="cyber-field">
+            <label class="field-label">// ENTER RESEARCH TOPIC</label>
+            <div class="input-wrapper">
+              <span class="prompt-symbol">&gt;_</span>
+              <input type="text" id="researchInput" class="cyber-input" placeholder="e.g. Best Python async patterns…"/>
+            </div>
+          </div>
+          <button class="btn-cyber wide" id="researchBtn">◈ EXECUTE RESEARCH</button>
+        </div>
+        <div class="cyber-loader hidden" id="researchLoader">
+          <div class="loader-bar"><div class="loader-fill"></div></div>
+          <p class="loader-text">SCANNING WEB SOURCES… COMPILING REPORT…</p>
+        </div>
+        <div class="report-panel hidden" id="researchResult">
+          <div class="report-header">
+            <span class="report-badge">▶ REPORT COMPILED</span>
+            <button class="btn-ghost-cyber" id="copyReport">[ COPY ]</button>
+          </div>
+          <div class="report-body" id="researchOutput"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ VOICE TAB ══ -->
+    <section class="screen" id="tab-tts">
+      <div class="screen-inner">
+        <div class="screen-title">
+          <span class="title-line"></span>
+          <h2>VOICE <span class="neon-text">SYNTHESIS</span></h2>
+          <span class="title-line"></span>
+        </div>
+        <div class="tts-layout">
+          <div class="tts-left">
+            <div class="cyber-field">
+              <label class="field-label">// INPUT TEXT STREAM</label>
+              <textarea id="ttsText" class="cyber-textarea" placeholder="Enter text to synthesize…"></textarea>
+              <div class="char-row">
+                <span class="char-count" id="charCount">0 / 4500</span>
+              </div>
+            </div>
+          </div>
+          <div class="tts-right">
+            <div class="cyber-field">
+              <label class="field-label">// SELECT VOICE MODULE</label>
+              <div class="voice-grid">
+                <button class="voice-chip active" data-voice="en-US-Studio-O">🇺🇸<br><span>Studio O</span><small>Female</small></button>
+                <button class="voice-chip" data-voice="en-US-Studio-Q">🇺🇸<br><span>Studio Q</span><small>Male</small></button>
+                <button class="voice-chip" data-voice="en-US-Neural2-A">🇺🇸<br><span>Neural A</span><small>Female</small></button>
+                <button class="voice-chip" data-voice="en-US-Neural2-D">🇺🇸<br><span>Neural D</span><small>Male</small></button>
+                <button class="voice-chip" data-voice="en-GB-Neural2-A">🇬🇧<br><span>British A</span><small>Female</small></button>
+                <button class="voice-chip" data-voice="en-GB-Neural2-B">🇬🇧<br><span>British B</span><small>Male</small></button>
+                <button class="voice-chip" data-voice="en-AU-Neural2-A">🇦🇺<br><span>Aussie A</span><small>Female</small></button>
+                <button class="voice-chip" data-voice="en-AU-Neural2-B">🇦🇺<br><span>Aussie B</span><small>Male</small></button>
+              </div>
+            </div>
+            <button class="btn-cyber wide neon-green" id="ttsBtn">◈ SYNTHESIZE VOICE</button>
+          </div>
+        </div>
+        <div class="cyber-loader hidden" id="ttsLoader">
+          <div class="loader-bar"><div class="loader-fill green"></div></div>
+          <p class="loader-text">PROCESSING VOICE SYNTHESIS…</p>
+        </div>
+        <div class="player-panel hidden" id="ttsPlayer">
+          <div class="player-header">
+            <span class="report-badge green">▶ AUDIO STREAM READY</span>
+            <a class="btn-ghost-cyber green" id="ttsDownload" download="speech.mp3">[ DOWNLOAD ]</a>
+          </div>
+          <audio controls id="ttsAudio" class="cyber-audio"></audio>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ✅ FIXED: was script.js, now app.js -->
+  <script src="/static/script.js"></script>
+</body>
+</html>
