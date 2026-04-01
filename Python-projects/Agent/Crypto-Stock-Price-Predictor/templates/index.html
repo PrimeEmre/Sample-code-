@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aurum Terminal — Market Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+
+  <!-- TICKER TAPE -->
+  <div class="ticker-tape">
+    <div class="tape-inner">
+      <div class="tape-track" id="tapeTrack">
+        <span class="t-item"><span class="t-sym">SPY</span><span class="t-price">523.14</span><span class="t-chg up">+0.84%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">QQQ</span><span class="t-price">447.29</span><span class="t-chg up">+1.12%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">AAPL</span><span class="t-price">189.84</span><span class="t-chg up">+0.43%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">MSFT</span><span class="t-price">421.07</span><span class="t-chg up">+1.32%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">NVDA</span><span class="t-price">131.38</span><span class="t-chg dn">-2.14%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">TSLA</span><span class="t-price">248.50</span><span class="t-chg dn">-1.07%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">GOOGL</span><span class="t-price">175.93</span><span class="t-chg up">+0.61%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">AMZN</span><span class="t-price">202.77</span><span class="t-chg up">+0.29%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">META</span><span class="t-price">568.44</span><span class="t-chg up">+2.01%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">BTC</span><span class="t-price">97,840</span><span class="t-chg up">+3.22%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">GOLD</span><span class="t-price">2,341</span><span class="t-chg up">+0.18%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">WTI</span><span class="t-price">78.42</span><span class="t-chg dn">-1.02%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">VIX</span><span class="t-price">13.84</span><span class="t-chg dn">-4.11%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">DXY</span><span class="t-price">104.22</span><span class="t-chg dn">-0.31%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">TNX</span><span class="t-price">4.482%</span><span class="t-chg up">+0.02%</span></span>
+        <!-- duplicate for seamless loop -->
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">SPY</span><span class="t-price">523.14</span><span class="t-chg up">+0.84%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">QQQ</span><span class="t-price">447.29</span><span class="t-chg up">+1.12%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">AAPL</span><span class="t-price">189.84</span><span class="t-chg up">+0.43%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">MSFT</span><span class="t-price">421.07</span><span class="t-chg up">+1.32%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">NVDA</span><span class="t-price">131.38</span><span class="t-chg dn">-2.14%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">TSLA</span><span class="t-price">248.50</span><span class="t-chg dn">-1.07%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">GOOGL</span><span class="t-price">175.93</span><span class="t-chg up">+0.61%</span></span>
+        <span class="t-dot">◆</span>
+        <span class="t-item"><span class="t-sym">BTC</span><span class="t-price">97,840</span><span class="t-chg up">+3.22%</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="hdr-left">
+      <div class="logo">
+        <div class="logo-icon">AU</div>
+        <div class="logo-text">
+          <span class="logo-name">AURUM</span>
+          <span class="logo-sub">TERMINAL</span>
+        </div>
+      </div>
+      <nav class="hdr-nav">
+        <a class="hn-link active">Analysis</a>
+      </nav>
+    </div>
+    <div class="hdr-center">
+      <div class="idx-row">
+        <div class="idx-item">
+          <span class="idx-name">S&P 500</span>
+          <span class="idx-val">5,308.42</span>
+          <span class="idx-chg up">▲ +0.84%</span>
+        </div>
+        <div class="idx-div"></div>
+        <div class="idx-item">
+          <span class="idx-name">NASDAQ</span>
+          <span class="idx-val">18,671.26</span>
+          <span class="idx-chg up">▲ +1.12%</span>
+        </div>
+        <div class="idx-div"></div>
+        <div class="idx-item">
+          <span class="idx-name">DOW</span>
+          <span class="idx-val">39,512.84</span>
+          <span class="idx-chg dn">▼ -0.10%</span>
+        </div>
+        <div class="idx-div"></div>
+        <div class="idx-item">
+          <span class="idx-name">VIX</span>
+          <span class="idx-val">13.84</span>
+          <span class="idx-chg dn">▼ -4.09%</span>
+        </div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="mkt-status">
+        <span class="mkt-dot"></span>
+        <span class="mkt-label">NYSE OPEN</span>
+      </div>
+      <div class="hdr-clock" id="hdrClock">--:--:--</div>
+      <div class="hdr-date" id="hdrDate">---</div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main" id="mainWrap">
+
+    <!-- HOME SCREEN -->
+    <div class="home-screen" id="homeScreen">
+      <div class="home-layout">
+        <div class="home-left">
+          <div class="hl-kicker">AI-POWERED EQUITY RESEARCH</div>
+          <h1 class="hl-headline">Institutional<br/><span class="hl-gold">Stock Analysis</span><br/>in Seconds.</h1>
+          <p class="hl-desc">Enter any publicly traded ticker symbol to receive a full AI-generated investment report — covering price data, 6-month performance, fundamentals, latest news, and a professional recommendation.</p>
+
+          <div class="search-box" id="searchBox">
+            <div class="sb-prefix">$</div>
+            <input id="tickerInput" class="sb-input" type="text"
+              placeholder="Enter ticker — AAPL, TSLA, NVDA..."
+              autocomplete="off" spellcheck="false" maxlength="10"/>
+            <button class="sb-btn" id="analyzeBtn">ANALYSE</button>
+          </div>
+
+          <div class="popular-wrap">
+            <div class="pop-label">POPULAR</div>
+            <div class="pop-chips">
+              <button class="pop-chip" data-ticker="AAPL">AAPL</button>
+              <button class="pop-chip" data-ticker="TSLA">TSLA</button>
+              <button class="pop-chip" data-ticker="NVDA">NVDA</button>
+              <button class="pop-chip" data-ticker="MSFT">MSFT</button>
+              <button class="pop-chip" data-ticker="GOOGL">GOOGL</button>
+              <button class="pop-chip" data-ticker="AMZN">AMZN</button>
+              <button class="pop-chip" data-ticker="META">META</button>
+              <button class="pop-chip" data-ticker="BRK-B">BRK-B</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-right">
+          <div class="snap-header-row">
+            <span class="snap-title">MARKET SNAPSHOT</span>
+            <span class="snap-live"><span class="live-dot"></span> LIVE</span>
+          </div>
+          <div class="snap-cards">
+            <div class="snap-card" data-ticker="AAPL">
+              <div class="sc-top"><span class="sc-sym">AAPL</span><span class="sc-badge up">BUY</span></div>
+              <div class="sc-price">$189.84</div>
+              <div class="sc-chg up">▲ +0.43% today</div>
+              <div class="sc-bar-row"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:72%"></div></div></div>
+              <div class="sc-range"><span>$164</span><span>$199</span></div>
+            </div>
+            <div class="snap-card" data-ticker="NVDA">
+              <div class="sc-top"><span class="sc-sym">NVDA</span><span class="sc-badge dn">HOLD</span></div>
+              <div class="sc-price">$131.38</div>
+              <div class="sc-chg dn">▼ -2.14% today</div>
+              <div class="sc-bar-row"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:56%"></div></div></div>
+              <div class="sc-range"><span>$47</span><span>$153</span></div>
+            </div>
+            <div class="snap-card" data-ticker="MSFT">
+              <div class="sc-top"><span class="sc-sym">MSFT</span><span class="sc-badge up">BUY</span></div>
+              <div class="sc-price">$421.07</div>
+              <div class="sc-chg up">▲ +1.32% today</div>
+              <div class="sc-bar-row"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:81%"></div></div></div>
+              <div class="sc-range"><span>$309</span><span>$430</span></div>
+            </div>
+            <div class="snap-card" data-ticker="TSLA">
+              <div class="sc-top"><span class="sc-sym">TSLA</span><span class="sc-badge dn">HOLD</span></div>
+              <div class="sc-price">$248.50</div>
+              <div class="sc-chg dn">▼ -1.07% today</div>
+              <div class="sc-bar-row"><div class="sc-bar-track"><div class="sc-bar-fill" style="width:44%"></div></div></div>
+              <div class="sc-range"><span>$138</span><span>$299</span></div>
+            </div>
+          </div>
+
+          <div class="sector-box">
+            <div class="sector-title">SECTOR PERFORMANCE · TODAY</div>
+            <div class="sector-rows">
+              <div class="sr"><span class="sr-name">Technology</span><div class="sr-bar-wrap"><div class="sr-bar up" style="width:80%"></div></div><span class="sr-val up">+1.42%</span></div>
+              <div class="sr"><span class="sr-name">Healthcare</span><div class="sr-bar-wrap"><div class="sr-bar up" style="width:45%"></div></div><span class="sr-val up">+0.61%</span></div>
+              <div class="sr"><span class="sr-name">Financials</span><div class="sr-bar-wrap"><div class="sr-bar up" style="width:38%"></div></div><span class="sr-val up">+0.39%</span></div>
+              <div class="sr"><span class="sr-name">Energy</span><div class="sr-bar-wrap"><div class="sr-bar dn" style="width:52%"></div></div><span class="sr-val dn">-0.88%</span></div>
+              <div class="sr"><span class="sr-name">Real Estate</span><div class="sr-bar-wrap"><div class="sr-bar dn" style="width:62%"></div></div><span class="sr-val dn">-1.10%</span></div>
+              <div class="sr"><span class="sr-name">Consumer</span><div class="sr-bar-wrap"><div class="sr-bar dn" style="width:28%"></div></div><span class="sr-val dn">-0.34%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOADING -->
+    <div class="load-screen hidden" id="loadScreen">
+      <div class="load-inner">
+        <div class="load-rings">
+          <div class="lr lr1"></div>
+          <div class="lr lr2"></div>
+          <div class="lr lr3"></div>
+          <div class="lr-core">◆</div>
+        </div>
+        <div class="load-ticker" id="loadTicker">—</div>
+        <div class="load-step" id="loadStep">Initialising...</div>
+        <div class="load-bar-wrap"><div class="load-bar-fill" id="loadBarFill"></div></div>
+      </div>
+    </div>
+
+    <!-- ERROR -->
+    <div class="err-screen hidden" id="errScreen">
+      <div class="err-inner">
+        <div class="err-icon">⚠</div>
+        <div class="err-title">Symbol Not Found</div>
+        <div class="err-msg" id="errMsg">The requested ticker could not be located.</div>
+        <button class="err-back" id="retryBtn">← Back to Search</button>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result-screen hidden" id="resultScreen">
+
+      <!-- RESULT HEADER -->
+      <div class="rh-bar">
+        <div class="rh-identity">
+          <span class="rh-ticker" id="rTicker">—</span>
+          <span class="rh-sep">·</span>
+          <span class="rh-company" id="rCompany">—</span>
+          <span class="rh-meta" id="rMeta">—</span>
+        </div>
+        <div class="rh-price-block">
+          <span class="rh-currency" id="rCurrency">$</span>
+          <span class="rh-price" id="rPrice">—</span>
+          <span class="rh-change" id="rChange">—</span>
+        </div>
+        <div class="rh-verdict" id="rVerdict">
+          <span class="rv-label">AI VERDICT</span>
+          <span class="rv-val" id="rVerdictVal">HOLD</span>
+        </div>
+        <button class="rh-new-btn" id="newBtn">← New Analysis</button>
+      </div>
+
+      <!-- PERFORMANCE ROW -->
+      <div class="perf-bar">
+        <div class="perf-title">PERFORMANCE</div>
+        <div class="perf-row" id="perfRow">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+      <!-- RESULT BODY -->
+      <div class="result-body">
+
+        <!-- SIDEBAR -->
+        <div class="rb-sidebar">
+
+          <div class="rb-panel">
+            <div class="rbp-title">52-WEEK RANGE</div>
+            <div class="rng-block">
+              <div class="rng-bar-outer">
+                <div class="rng-gradient"></div>
+                <div class="rng-dot" id="rngDot" style="left:50%"></div>
+              </div>
+              <div class="rng-labels">
+                <div>
+                  <div class="rng-lbl">LOW</div>
+                  <div class="rng-val" id="r52Low">—</div>
+                </div>
+                <div style="text-align:right">
+                  <div class="rng-lbl">HIGH</div>
+                  <div class="rng-val" id="r52High">—</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6-MONTH MINI CHART -->
+          <div class="rb-panel">
+            <div class="rbp-title">6-MONTH PRICE CHART</div>
+            <canvas id="miniChart" width="260" height="160" style="width:100%;height:auto;display:block;"></canvas>
+          </div>
+
+          <div class="rb-panel">
+            <div class="rbp-title">KEY METRICS</div>
+            <div class="km-list">
+              <div class="km-row"><span class="km-k">Market Cap</span><span class="km-v" id="rMktCap">—</span></div>
+              <div class="km-row"><span class="km-k">P/E Ratio</span><span class="km-v" id="rPE">—</span></div>
+              <div class="km-row"><span class="km-k">Forward P/E</span><span class="km-v" id="rFwdPE">—</span></div>
+              <div class="km-row"><span class="km-k">Dividend</span><span class="km-v" id="rDiv">—</span></div>
+              <div class="km-row"><span class="km-k">Beta</span><span class="km-v" id="rBeta">—</span></div>
+              <div class="km-row"><span class="km-k">Avg Volume</span><span class="km-v" id="rVol">—</span></div>
+              <div class="km-row"><span class="km-k">Target Price</span><span class="km-v" id="rTarget">—</span></div>
+              <div class="km-row"><span class="km-k">Analyst Rating</span><span class="km-v" id="rRating">—</span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- REPORT -->
+        <div class="rb-report">
+          <div class="rbr-header">
+            <div class="rbr-title">◆ AI ANALYSIS REPORT</div>
+            <div class="rbr-actions">
+              <button class="rbr-btn" id="copyBtn">Copy Report</button>
+              <span class="rbr-saved" id="rSaved"></span>
+            </div>
+          </div>
+          <div class="rbr-body" id="rReport">—</div>
+          <div class="rbr-footer">
+            ⚠ This report is generated by AI and is for informational purposes only. It does not constitute financial advice.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="ft-inner">
+      <span class="ft-brand">◆ AURUM TERMINAL</span>
+      <span class="ft-mid">Market data via yfinance · AI analysis via Ollama · 6-month price history</span>
+      <span class="ft-right">Not financial advice · © 2025</span>
+    </div>
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
