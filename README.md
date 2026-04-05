@@ -27,21 +27,20 @@ Source code for my Python tutorials can be found within the [**/Python-projects*
 
 ### 🎨 JavaScript Projects
 **Source Folder:** [`/Javascript-projects`](./Javascript-projects/)
-* 📖 **How to Make Websites Using API JavaScript** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/06/how-to-make-webistes-using-api/)
-* 📖 **Addition Program / Mini Projects** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/13/javascript-mini-projects-for-beginners/)
-* 📖 **Full Website Build (HTML/CSS/JS)** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/12/take-your-web-development-skills-to-the-next-level-this-guide-teaches-you-how-to-build-a-website-from-scratch-using-html-css-and-the-power-of-javascript-for-interactivity-a-beginners-guide-to-cr/)
+* 📖 **Websites Using APIs** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/06/how-to-make-webistes-using-api/) | 📁 Sub-Folders: `Advenced-API-projects` or `Javascript-API-projects`
+* 📖 **User Input & Mini Projects** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/13/javascript-mini-projects-for-beginners/) | 📁 Sub-Folders: `basic-userInput-projects` or `Advenced-userInput-projects`
+* 📖 **First JS Website Build** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/12/take-your-web-development-skills-to-the-next-level-this-guide-teaches-you-how-to-build-a-website-from-scratch-using-html-css-and-the-power-of-javascript-for-interactivity-a-beginners-guide-to-cr/) | 📁 Sub-Folder: `my-first-javascript-website`
 
 ### 🎮 Unity & Game Design
 **Source Folder:** [`/maze_game`](./maze_game/)
-* 📖 **3D Maze Game in Unity** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/08/21/program-a-game-in-unity/)
-* 📖 **Create a Mini Project in Unity** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/08/14/how-to-create-a-mini-project-in-unity/)
-* 📖 **Unity Installation Guide** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/08/13/how-to-use-unity-with-right-installations/)
+* 📖 **3D Maze Game Build** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/08/21/program-a-game-in-unity/) | 📁 Key Files: `BallController.cs`, `tutorial 3.1.sln`
+* 📖 **Mini Projects & Installation** 🔗 [Blog Posts](https://blog.emreguzel.ca/2025/08/13/how-to-use-unity-with-right-installations/) | 📁 Folder: `Assets`, `Scenes`
 
 ### 💼 Web Design & Portfolios
 **Source Folders:** [`/professional_website`](./professional_website/) & [`/my_first_webpage`](./my_first_webpage/)
-* 📖 **Professional Website Build** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/27/learn-web-design-how-to-build-your-first-professional-website/)
-* 📖 **Website using CSS** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/10/how-to-make-a-website-with-html-and-css/)
-* 📖 **Your First Webpage** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/08/27/how-to-make-your-first-webpage/)
+* 📖 **Professional Website Build** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/27/learn-web-design-how-to-build-your-first-professional-website/) | 📁 Main File: `index.html`
+* 📖 **HTML & CSS Foundations** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/10/how-to-make-a-website-with-html-and-css/) | 📁 Main Files: `chess.html`, `coding.html`, `vedio_game.html`
+* 📖 **Your First Webpage** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/08/27/how-to-make-your-first-webpage/) | 📁 Main File: `my_first_webpage/index.html`
 
 ---
 
