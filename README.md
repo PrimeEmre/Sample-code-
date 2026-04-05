@@ -13,6 +13,7 @@ This repository is a versatile workspace documenting my journey as a frontend de
 Backend logic, automation scripts, and AI agents.
 * **AI Web Agent**: Intelligent scripts for navigating and interacting with web content.
 * **AI Audiobook Agent**: Automation for text-to-speech processing.
+* 📖 **Detailed Build:** [Creating Agents: A Complete Guide](https://blog.emreguzel.ca/2026/03/16/creating-agents/)
 * 📖 **Detailed Build:** [How to Make an AI in Python](https://blog.emreguzel.ca/how-to-make-ai-in-python)
 * 📖 **Detailed Build:** [How to Make a Tkinter Project in Python](https://blog.emreguzel.ca/2026/01/02/python-modules-the-ultimate-guide/)
 * 📖 **Detailed Build:** [Basics of Python](https://blog.emreguzel.ca/2025/12/15/learn-python-for-beginners/)
