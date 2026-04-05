@@ -12,22 +12,28 @@ This repository is a versatile workspace documenting my journey as a frontend de
 ### 🐍 [Python-projects](./Python-projects)
 Backend logic, automation scripts, and AI agents.
 * **AI Web Agent**: Intelligent scripts for navigating and interacting with web content.
-* **AI Audiobook Agent**: Automation for text-to-speech processing and asset management.
-* *Detailed Build:* [How to Make an AI in Python](https://blog.emreguzel.ca/how-to-make-ai-in-python)
+* **AI Audiobook Agent**: Automation for text-to-speech processing.
+* 📖 **Detailed Build:** [How to Make an AI in Python](https://blog.emreguzel.ca/how-to-make-ai-in-python)
+* 📖 **Detailed Build:** [How to Make an tkinter project  in Python](https://blog.emreguzel.ca/2026/01/02/python-modules-the-ultimate-guide/)
+* 📖 **Detailed Build:** [Basicsa of Python  ](https://blog.emreguzel.ca/2025/12/15/learn-python-for-beginners/)
 
 ### 🎨 [Javascript-projects](./Javascript-projects)
 A collection of interactive frontend applications and logic exercises built with vanilla JavaScript.
+* 📖 **Detailed Build:** [How to Make Mini Projects Using JavaScript](https://blog.emreguzel.ca/how-to-make-mini-projects-using-javascript)
+* 📖 **Detailed Build:** [Addition Program: Getting Values from Input](https://blog.emreguzel.ca/addition-program-getting-values-from-input)
+* 📖 **Detailed Build:** [How to Make a Website Using JS](https://blog.emreguzel.ca/how-to-make-website-using-js)
 
 ### 🎮 [maze_game](./maze_game)
-A dedicated project exploring game mechanics, including:
-* Collision detection and pathfinding.
-* Interactive user controls and gameplay loops.
+A dedicated project exploring game mechanics, including collision detection and pathfinding logic.
 
 ### 💼 [professional_website](./professional_website)
-A high-quality frontend project showcasing modern UI/UX design, SCSS architecture, and responsive layouts.
+A high-quality frontend project showcasing modern UI/UX design and SCSS architecture.
+* 📖 **Detailed Build:** [How to Make a Professional Website Using a Free Template](https://blog.emreguzel.ca/how-to-make-a-professional-website-using-free-template)
+* 📖 **Detailed Build:** [How to Make a Website by Using CSS](https://blog.emreguzel.ca/how-to-make-a-website-by-using-css)
 
 ### 🐣 [my_first_webpage](./my_first_webpage)
-The foundational starting point of my development journey, focusing on HTML5 and CSS basics.
+The starting point of my development journey, focusing on HTML5 and CSS basics.
+* 📖 **Detailed Build:** [How to Make Your First Webpage](https://blog.emreguzel.ca/how-to-make-your-first-webpage)
 
 ### 📜 [histories](./histories)
 Project logs and historical notes regarding the evolution and versioning of these samples.
@@ -46,8 +52,8 @@ The root directory contains assets used for testing **CSS animations** and **ima
 
 For detailed project walkthroughs, my professional portfolio, and further contact information, please visit:
 
-* **🌐 Main Portfolio**: [emreguzel.ca](https://emreguzel.ca/) — View my full range of work and professional services.
-* **✍️ Technical Blog**: [blog.emreguzel.ca](https://blog.emreguzel.ca/) — Read step-by-step guides and deep dives into the code found in this repository.
+* **🌐 Main Portfolio**: [emreguzel.ca](https://emreguzel.ca/) — My full range of work and professional services.
+* **✍️ Technical Blog**: [blog.emreguzel.ca](https://blog.emreguzel.ca/) — Step-by-step guides for the code in this repository.
 * **🖥️ GitHub Profile**: [@PrimeEmre](https://github.com/PrimeEmre)
 
 ---
