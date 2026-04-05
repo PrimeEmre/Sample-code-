@@ -14,21 +14,21 @@ Backend logic, automation scripts, and AI agents.
 * **AI Web Agent**: Intelligent scripts for navigating and interacting with web content.
 * **AI Audiobook Agent**: Automation for text-to-speech processing.
 * 📖 **Detailed Build:** [How to Make an AI in Python](https://blog.emreguzel.ca/how-to-make-ai-in-python)
-* 📖 **Detailed Build:** [How to Make an tkinter project  in Python](https://blog.emreguzel.ca/2026/01/02/python-modules-the-ultimate-guide/)
-* 📖 **Detailed Build:** [Basics of Python  ](https://blog.emreguzel.ca/2025/12/15/learn-python-for-beginners/)
+* 📖 **Detailed Build:** [How to Make a Tkinter Project in Python](https://blog.emreguzel.ca/2026/01/02/python-modules-the-ultimate-guide/)
+* 📖 **Detailed Build:** [Basics of Python](https://blog.emreguzel.ca/2025/12/15/learn-python-for-beginners/)
 
 ### 🎨 [Javascript-projects](./Javascript-projects)
 A collection of interactive frontend applications and logic exercises built with vanilla JavaScript.
-* 📖 **Detailed Build:** [How to make webistes using API JavaScript](https://blog.emreguzel.ca/2025/12/06/how-to-make-webistes-using-api/)
+* 📖 **Detailed Build:** [How to Make Websites Using API JavaScript](https://blog.emreguzel.ca/2025/12/06/how-to-make-webistes-using-api/)
 * 📖 **Detailed Build:** [How to Make Mini Projects Using JavaScript](https://blog.emreguzel.ca/2025/10/13/javascript-mini-projects-for-beginners/)
 * 📖 **Detailed Build:** [Addition Program: Getting Values from Input](https://blog.emreguzel.ca/2025/10/13/javascript-mini-projects-for-beginners/)
-* 📖 **Detailed Build:** [How to Make a Website Using JS](https://blog.emreguzel.ca/2025/10/12/take-your-web-development-skills-to-the-next-level-this-guide-teaches-you-how-to-build-a-website-from-scratch-using-html-css-and-the-power-of-javascript-for-interactivity-a-beginners-guide-to-cr/)
+* 📖 **Detailed Build:** [How to Build a Website from Scratch Using HTML, CSS, and JS](https://blog.emreguzel.ca/2025/10/12/take-your-web-development-skills-to-the-next-level-this-guide-teaches-you-how-to-build-a-website-from-scratch-using-html-css-and-the-power-of-javascript-for-interactivity-a-beginners-guide-to-cr/)
 
 ### 🎮 [maze_game](./maze_game)
 A dedicated project exploring game mechanics, including collision detection and pathfinding logic.
 * 📖 **Detailed Build:** [How to Make a 3D Maze Game in Unity: A Beginner’s Guide](https://blog.emreguzel.ca/2025/08/21/program-a-game-in-unity/)
-* 📖 **Detailed Build:** [How to create a mini project in unity](https://blog.emreguzel.ca/2025/08/14/how-to-create-a-mini-project-in-unity/)
-* 📖 **Detailed Build:** [How to use unity with right installations](https://blog.emreguzel.ca/2025/08/13/how-to-use-unity-with-right-installations/)
+* 📖 **Detailed Build:** [How to Create a Mini Project in Unity](https://blog.emreguzel.ca/2025/08/14/how-to-create-a-mini-project-in-unity/)
+* 📖 **Detailed Build:** [How to Use Unity with Right Installations](https://blog.emreguzel.ca/2025/08/13/how-to-use-unity-with-right-installations/)
 
 ### 💼 [professional_website](./professional_website)
 A high-quality frontend project showcasing modern UI/UX design and SCSS architecture.
