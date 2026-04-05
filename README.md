@@ -32,12 +32,12 @@ A dedicated project exploring game mechanics, including collision detection and 
 
 ### 💼 [professional_website](./professional_website)
 A high-quality frontend project showcasing modern UI/UX design and SCSS architecture.
-* 📖 **Detailed Build:** [How to Make a Professional Website Using a Free Template](https://blog.emreguzel.ca/how-to-make-a-professional-website-using-free-template)
-* 📖 **Detailed Build:** [How to Make a Website by Using CSS](https://blog.emreguzel.ca/how-to-make-a-website-by-using-css)
+* 📖 **Detailed Build:** [How to Make a Professional Website Using a Free Template](https://blog.emreguzel.ca/2025/09/27/learn-web-design-how-to-build-your-first-professional-website/)
+* 📖 **Detailed Build:** [How to Make a Website by Using CSS](https://blog.emreguzel.ca/2025/09/10/how-to-make-a-website-with-html-and-css/)
 
 ### 🐣 [my_first_webpage](./my_first_webpage)
 The starting point of my development journey, focusing on HTML5 and CSS basics.
-* 📖 **Detailed Build:** [How to Make Your First Webpage](https://blog.emreguzel.ca/how-to-make-your-first-webpage)
+* 📖 **Detailed Build:** [How to Make Your First Webpage](https://blog.emreguzel.ca/2025/08/27/how-to-make-your-first-webpage/)
 
 ### 📜 [histories](./histories)
 Project logs and historical notes regarding the evolution and versioning of these samples.
