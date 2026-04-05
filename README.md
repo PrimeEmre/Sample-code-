@@ -14,31 +14,31 @@ If you are following my Python tutorials, you can find the source code in these 
 
 * 📖 **Creating Agents: A Complete Guide**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/03/16/creating-agents/) 
-  * 📁 **GitHub Folder:** [`/Agent`](./Agent)
+  * 📁 **GitHub Folder:** [./Agent](./tree/main/Agent)
 * 📖 **How to Make an AI in Python (Book Agent)**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/how-to-make-ai-in-python) 
-  * 📁 **GitHub Folder:** [`/Python-AI-Projects`](./Python-AI-Projects)
+  * 📁 **GitHub Folder:** [./Python-AI-Projects](./tree/main/Python-AI-Projects)
 * 📖 **How to Make a Tkinter Project in Python**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/01/02/python-modules-the-ultimate-guide/) 
-  * 📁 **GitHub Folder:** [`/Tkinter`](./Tkinter)
+  * 📁 **GitHub Folder:** [./Tkinter](./tree/main/Tkinter)
 * 📖 **Basics of Python & Stock Trackers**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/15/learn-python-for-beginners/) 
-  * 📁 **GitHub Folders:** [`/Basics-Of-Python`](./Basics-Of-Python) or [`/Python-module`](./Python-module)
+  * 📁 **GitHub Folders:** [./Basics-Of-Python](./tree/main/Basics-Of-Python) or [./Python-module](./tree/main/Python-module)
 
 ### 🎨 JavaScript Projects
-**Source Folder:** [`/Javascript-projects`](./Javascript-projects)
+**Source Folder:** [./Javascript-projects](./tree/main/Javascript-projects)
 * 📖 **How to Make Websites Using API JavaScript** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/06/how-to-make-webistes-using-api/)
 * 📖 **Addition Program / Mini Projects** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/13/javascript-mini-projects-for-beginners/)
 * 📖 **Full Website Build (HTML/CSS/JS)** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/12/take-your-web-development-skills-to-the-next-level-this-guide-teaches-you-how-to-build-a-website-from-scratch-using-html-css-and-the-power-of-javascript-for-interactivity-a-beginners-guide-to-cr/)
 
 ### 🎮 Unity & Game Design
-**Source Folder:** [`/maze_game`](./maze_game)
+**Source Folder:** [./maze_game](./tree/main/maze_game)
 * 📖 **3D Maze Game in Unity** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/08/21/program-a-game-in-unity/)
 * 📖 **Create a Mini Project in Unity** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/08/14/how-to-create-a-mini-project-in-unity/)
 * 📖 **Unity Installation Guide** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/08/13/how-to-use-unity-with-right-installations/)
 
 ### 💼 Web Design & Portfolios
-**Source Folders:** [`/professional_website`](./professional_website) & [`/my_first_webpage`](./my_first_webpage)
+**Source Folders:** [./professional_website](./tree/main/professional_website) & [./my_first_webpage](./tree/main/my_first_webpage)
 * 📖 **Professional Website Build** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/27/learn-web-design-how-to-build-your-first-professional-website/)
 * 📖 **Website using CSS** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/10/how-to-make-a-website-with-html-and-css/)
 * 📖 **Your First Webpage** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/08/27/how-to-make-your-first-webpage/)
