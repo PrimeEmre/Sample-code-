@@ -19,8 +19,8 @@ GOOGLE_TTS_KEY = os.getenv("GOOGLE_TTS_KEY")
 GOOGLE_TTS_URL = f"https://texttospeech.googleapis.com/v1/text:synthesize?key={GOOGLE_TTS_KEY}"
 
 # Replace those 3 lines with this:
-CREWAI_CREW_URL    = "https://seo-blog-ghostwriter-ai-v1-c5fb92e4-7e15-40-45b0bc5a.crewai.com"
-CREWAI_CREW_TOKEN  = "3b9436da6ec8"
+CREWAI_CREW_URL    = "your url"
+CREWAI_CREW_TOKEN  = "your token"
 CREWAI_KICKOFF_URL = f"{CREWAI_CREW_URL}/kickoff"
 CREWAI_STATUS_URL = f"{CREWAI_CREW_URL}/status/{{kickoff_id}}"
 
