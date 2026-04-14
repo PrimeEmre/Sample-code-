@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GhostWriter AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">✍️ GhostWriter <span>AI</span></div>
+    <div class="tagline">Powered by CrewAI · SEO-Optimized Blog Posts in Minutes</div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <div class="card">
+      <h1>What should we write about?</h1>
+      <p class="subtitle">Enter a topic and our AI crew will research, write, and polish a full blog post for you.</p>
+
+      <!-- Topic Input -->
+      <div class="input-group">
+        <label for="topic">Topic / Title</label>
+        <textarea id="topic" rows="3" placeholder="e.g. The Future of AI in Healthcare, 10 Tips for Remote Work Productivity..."></textarea>
+        <div class="char-count"><span id="charCount">0</span>/500</div>
+      </div>
+
+      <!-- Options Row -->
+      <div class="options-row">
+
+        <div class="option-group">
+          <label>Tone</label>
+          <div class="pills" id="tonePills">
+            <button class="pill active" data-value="professional">Professional</button>
+            <button class="pill" data-value="casual">Casual</button>
+            <button class="pill" data-value="persuasive">Persuasive</button>
+            <button class="pill" data-value="storytelling">Storytelling</button>
+          </div>
+        </div>
+
+        <div class="option-group">
+          <label>Length</label>
+          <div class="pills" id="lengthPills">
+            <button class="pill" data-value="short">Short <span class="hint">~700w</span></button>
+            <button class="pill active" data-value="medium">Medium <span class="hint">~1500w</span></button>
+            <button class="pill" data-value="long">Long <span class="hint">~3000w</span></button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Generate Button -->
+      <button id="generateBtn" onclick="generate()">
+        <span id="btnText">✨ Generate Blog Post</span>
+        <span id="btnLoader" class="hidden">
+          <span class="spinner"></span> Writing your post...
+        </span>
+      </button>
+
+    </div>
+
+    <!-- Status Bar -->
+    <div id="statusBar" class="status-bar hidden">
+      <div class="status-steps">
+        <div class="step active" id="step1">🔍 Researching topic...</div>
+        <div class="step" id="step2">✍️ Writing blog post...</div>
+        <div class="step" id="step3">✅ Editing & polishing...</div>
+      </div>
+    </div>
+
+    <!-- Error -->
+    <div id="errorBox" class="error-box hidden"></div>
+
+    <!-- Result -->
+    <div id="resultCard" class="result-card hidden">
+      <div class="result-header">
+        <div class="result-meta">
+          <span id="resultTopic" class="result-topic"></span>
+          <span id="resultBadges" class="result-badges"></span>
+        </div>
+        <div class="result-actions">
+          <button onclick="copyPost()" class="action-btn">📋 Copy</button>
+          <button onclick="downloadPost()" class="action-btn">💾 Download</button>
+          <button onclick="resetForm()" class="action-btn secondary">↩ New Post</button>
+        </div>
+      </div>
+      <div id="blogOutput" class="blog-output"></div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Built with CrewAI · Flask · Ollama &nbsp;|&nbsp; EmreGuzelBlog</p>
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
