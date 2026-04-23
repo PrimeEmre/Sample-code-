@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Code Explainer</title>
+    <link rel="stylesheet" href="/static/style.css" />
+<link rel="icon" type="image/x-icon"       href="/icons/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16"  href="/icons/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32"  href="/icons/favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180"     href="/icons/apple-touch-icon.png" />
+<link rel="manifest"                             href="/icons/site.webmanifest" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/static/style.css" />
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <rect width="28" height="28" rx="7" fill="#238636" />
+                <path
+                    d="M14 4C8.477 4 4 8.477 4 14c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.341-3.369-1.341-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0114 9.294c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C21.138 22.163 24 18.418 24 14c0-5.523-4.477-10-10-10z"
+                    fill="white" />
+            </svg>
+            <div>
+                <div class="logo-name">GitHub Code Explainer</div>
+                <div class="logo-sub">Powered by CrewAI</div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="status-dot"></div>
+            <span class="status-text">Crew Online</span>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- LEFT PANEL -->
+        <aside>
+            <section class="card">
+                <h2>Generate Post</h2>
+
+                <div class="field">
+                    <label>Repository / Topic <span class="req">*</span></label>
+                    <textarea id="blog-topic" rows="4"
+                        placeholder="e.g. Add authentication middleware to Express.js API"></textarea>
+                    <div class="char-count" id="tcnt">0 / 500</div>
+                </div>
+
+                <div class="field">
+                    <label>Tone</label>
+                    <div class="chip-group">
+                        <button class="chip active" data-g="tone" data-v="professional">Professional</button>
+                        <button class="chip" data-g="tone" data-v="casual">Casual</button>
+                        <button class="chip" data-g="tone" data-v="persuasive">Persuasive</button>
+                        <button class="chip" data-g="tone" data-v="storytelling">Storytelling</button>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Post Length</label>
+                    <div class="chip-group">
+                        <button class="chip" data-g="length" data-v="short">Short</button>
+                        <button class="chip active" data-g="length" data-v="medium">Medium</button>
+                        <button class="chip" data-g="length" data-v="long">Long</button>
+                    </div>
+                </div>
+
+                <div class="agents-row">
+                    <div class="agent-pill">
+                        <span class="agent-dot"></span>
+                        Technical Analyst
+                    </div>
+                    <div class="agent-pill">
+                        <span class="agent-dot"></span>
+                        DevLog Writer
+                    </div>
+                </div>
+
+                <button class="btn-generate" id="btn-generate" onclick="generateBlog()">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    Generate Post
+                </button>
+            </section>
+
+            <section class="card" id="history-card" style="display:none">
+                <h2>Recent Posts</h2>
+                <div id="histlist"></div>
+            </section>
+        </aside>
+
+        <!-- RIGHT PANEL -->
+        <div class="output-area">
+
+            <!-- Empty -->
+            <div class="empty-state" id="empty">
+                <div class="empty-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <rect width="40" height="40" rx="10" fill="#161b22" />
+                        <path
+                            d="M20 8C13.373 8 8 13.373 8 20c0 5.302 3.438 9.8 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0120 12.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C28.566 29.797 32 25.3 32 20c0-6.627-5.373-12-12-12z"
+                            fill="#7d8590" />
+                    </svg>
+                </div>
+                <h3>Ready to Explain</h3>
+                <p>Enter a GitHub repo topic or commit message and the CrewAI agents will generate a technical blog post
+                    for
+                    you.</p>
+                <div class="how-it-works">
+                    <div class="step-item">
+                        <span class="step-num">1</span>
+                        <span>Describe your code change</span>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-num">2</span>
+                        <span>Technical Analyst reviews it</span>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-num">3</span>
+                        <span>DevLog Writer crafts the post</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading -->
+            <div class="loading-state" id="loader" style="display:none">
+                <div class="loader-ring"></div>
+                <div class="loader-label" id="ltitle">Starting crew…</div>
+                <div class="loader-steps" id="steps"></div>
+            </div>
+
+            <!-- Result -->
+            <div id="result" style="display:none">
+                <div class="result-toolbar">
+                    <div class="result-meta" id="result-meta"></div>
+                    <div class="result-actions">
+                        <button class="action-btn" onclick="copyOut()">
+                            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                <rect x="5" y="5" width="9" height="9" rx="2" stroke="currentColor"
+                                    stroke-width="1.5" />
+                                <path d="M3 11H2a1 1 0 01-1-1V2a1 1 0 011-1h8a1 1 0 011 1v1" stroke="currentColor"
+                                    stroke-width="1.5" />
+                            </svg>
+                            Copy
+                        </button>
+                        <button class="action-btn" onclick="clearOut()">
+                            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 4h12M5 4V2h6v2M6 7v5M10 7v5M3 4l1 9a1 1 0 001 1h6a1 1 0 001-1l1-9"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                            Clear
+                        </button>
+                    </div>
+                </div>
+                <div class="result-body md" id="result-body"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="toasts" id="toasts"></div>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
