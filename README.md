@@ -12,7 +12,10 @@ This repository is a versatile workspace documenting my journey as a frontend de
 ### 🐍 Python & AI Projects
 Source code for my Python tutorials can be found within the [**/Python-projects**](./Python-projects/) directory:
 
-* 📖 **Creating Agents: A Complete Guide**
+* 📖 **Creating AI Agents Python: Part 2 (GitHub Code Explainer)**
+  * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/04/19/creating-ai-agents-python-part-2/) 
+  * 📁 **GitHub Folder:** [`/Python-projects/Agets-part-2/GitHub-Code-Explainer---local`](./Python-projects/Agets-part-2/GitHub-Code-Explainer---local/)
+* 📖 **Creating Agents: A Complete Guide (Part 1)**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/03/16/creating-agents/) 
   * 📁 **GitHub Folder:** [`/Python-projects/Agent`](./Python-projects/Agent/)
 * 📖 **How to Make an AI in Python (Book Agent)**
