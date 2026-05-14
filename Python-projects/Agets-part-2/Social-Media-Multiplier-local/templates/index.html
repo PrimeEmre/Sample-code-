@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Media Multiplier</title>
+  <link rel="icon" type="image/x-icon"            href="/icons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180"    href="/icons/apple-touch-icon.png" />
+  <link rel="manifest"                            href="/icons/site.webmanifest" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <!-- Dark / Light toggle -->
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  </button>
+
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-eyebrow">CrewAI · Social Media Multiplier</div>
+      <h1>Turn one post into <em>everywhere</em></h1>
+      <p>Paste a blog URL or raw text. Your crew audits the content, generates platform-ready posts, and suggests visuals.</p>
+    </header>
+
+    <!-- Pipeline -->
+    <div class="crew-pipeline">
+      <div class="pipeline-step">
+        <div class="step-node" id="node-auditor">
+          <div class="step-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <span class="step-name">Content Auditor</span>
+          <span class="step-sub">gpt-4o-mini</span>
+        </div>
+      </div>
+      <div class="pipeline-arrow" id="arrow-1"></div>
+      <div class="pipeline-step">
+        <div class="step-node" id="node-audit">
+          <div class="step-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <span class="step-name">Audit Blog</span>
+          <span class="step-sub">task 1</span>
+        </div>
+      </div>
+      <div class="pipeline-arrow" id="arrow-2"></div>
+      <div class="pipeline-step">
+        <div class="step-node" id="node-omni">
+          <div class="step-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="step-name">Omnichannel</span>
+          <span class="step-sub">gpt-4o-mini</span>
+        </div>
+      </div>
+      <div class="pipeline-arrow" id="arrow-3"></div>
+      <div class="pipeline-step">
+        <div class="step-node" id="node-posts">
+          <div class="step-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <span class="step-name">Social Posts</span>
+          <span class="step-sub">task 2</span>
+        </div>
+      </div>
+      <div class="pipeline-arrow" id="arrow-4"></div>
+      <div class="pipeline-step">
+        <div class="step-node" id="node-visual">
+          <div class="step-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <span class="step-name">Visual Advisor</span>
+          <span class="step-sub">task 3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status bar (live, phased) -->
+    <div class="status-bar" id="status-bar">
+      <div class="status-left">
+        <div class="spinner" id="status-spinner"></div>
+        <span id="status-text">Starting crew...</span>
+      </div>
+      <div class="status-phase" id="status-phase"></div>
+    </div>
+
+    <!-- Error bar -->
+    <div class="error-bar" id="error-bar">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span id="error-text">Something went wrong.</span>
+      <button class="error-close" onclick="hideError()">✕</button>
+    </div>
+
+    <!-- Content Source -->
+    <div class="card section-gap">
+      <div class="card-label">Content source</div>
+      <div class="input-group">
+        <div class="input-row" id="url-row">
+          <div class="input-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <input type="text" id="blog-url" placeholder="https://yourblog.com/post/..." />
+        </div>
+        <div class="divider-row">or paste text</div>
+        <div class="input-row textarea-row">
+          <div class="input-icon" style="margin-top:2px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h12"/></svg>
+          </div>
+          <textarea id="blog-text" placeholder="Paste your blog post content here..." oninput="updateCharCount(this)"></textarea>
+        </div>
+        <div class="char-count" id="char-count">0 chars</div>
+      </div>
+    </div>
+
+    <!-- Platforms -->
+    <div class="card section-gap">
+      <div class="card-label">Target platforms</div>
+      <div class="platforms-grid">
+        <div class="platform-chip active" data-platform="x" onclick="togglePlatform(this)">
+          <div class="platform-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </div>
+          X / Twitter
+        </div>
+        <div class="platform-chip active" data-platform="linkedin" onclick="togglePlatform(this)">
+          <div class="platform-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          LinkedIn
+        </div>
+        <div class="platform-chip" data-platform="instagram" onclick="togglePlatform(this)">
+          <div class="platform-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          Instagram
+        </div>
+      </div>
+    </div>
+
+    <!-- Tone -->
+    <div class="card section-gap">
+      <div class="card-label">Tone</div>
+      <div class="tone-grid">
+        <button class="tone-btn active" data-tone="educational" onclick="selectTone(this)">
+          Educational <span class="desc">Informative, clear insights</span>
+        </button>
+        <button class="tone-btn" data-tone="punchy" onclick="selectTone(this)">
+          Punchy <span class="desc">Short, bold, high-impact</span>
+        </button>
+        <button class="tone-btn" data-tone="storytelling" onclick="selectTone(this)">
+          Storytelling <span class="desc">Narrative, emotional hook</span>
+        </button>
+        <button class="tone-btn" data-tone="professional" onclick="selectTone(this)">
+          Professional <span class="desc">Formal, authority-building</span>
+        </button>
+      </div>
+    </div>
+
+    <button class="run-btn" id="run-btn" onclick="runCrew()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Run crew
+    </button>
+
+    <!-- Results -->
+    <div class="results-section" id="results"></div>
+
+    <!-- Visual suggestions -->
+    <div class="visual-section" id="visual-section">
+      <div class="visual-header">
+        <div class="visual-header-left">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Visual Suggestions
+        </div>
+        <span class="visual-badge">AI-generated</span>
+      </div>
+      <div class="visual-body" id="visual-body"></div>
+    </div>
+
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
