@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Stock Intelligence Terminal</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  
+  <!-- Icons -->
+  <link rel="icon" type="image/x-icon" href="/icons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="/icons/site.webmanifest" />
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+
+<div class="page">
+  <!-- TOP HEADER -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 22 22">
+          <polyline points="1,17 6,10 11,13 16,5 21,8" />
+          <line x1="1" y1="21" x2="21" y2="21" stroke="currentColor" stroke-width="2" />
+        </svg>
+      </div>
+      <div class="logo-text">
+        <h1 class="title">STOCK <span>INTELLIGENCE</span></h1>
+        <p class="tagline">Neural Analysis Terminal v2.0</p>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="status-pill">
+        <div class="pulse-dot"></div>
+        <span class="status-text">LIVE ENGINE: GPT-4o MINI</span>
+      </div>
+      <div class="meta-stack">
+        <div class="clock" id="clock">00:00:00</div>
+        <div class="date" id="date">MAY 06 2026</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TICKER TAPE -->
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="ticker-track">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+  <!-- METRICS ROW -->
+  <div class="metrics-row">
+    <div class="metric">
+      <p class="metric-label">Analyses Run</p>
+      <h2 class="metric-value" id="m-runs">0</h2>
+      <p class="metric-sub">Current Session</p>
+    </div>
+    <div class="metric">
+      <p class="metric-label">Confidence</p>
+      <h2 class="metric-value green" id="m-conf">—</h2>
+      <p class="metric-sub">Aggregate Avg</p>
+    </div>
+    <div class="metric">
+      <p class="metric-label">Data Sources</p>
+      <h2 class="metric-value">03</h2>
+      <p class="metric-sub">Serper · News · Web</p>
+    </div>
+    <div class="metric">
+      <p class="metric-label">Pipeline</p>
+      <h2 class="metric-value" style="font-size: 18px;">SEQUENTIAL</h2>
+      <p class="metric-sub">3-Stage Neural Path</p>
+    </div>
+  </div>
+
+  <main class="main-grid">
+    <!-- LEFT COLUMN -->
+    <div class="left-col">
+      
+      <!-- SEARCH PANEL -->
+      <div class="panel cornered">
+        <div class="corner-tl"></div>
+        <div class="corner-br"></div>
+        <div class="panel-head">
+          <span class="panel-label">Ticker Analysis</span>
+          <span class="panel-badge badge-green" id="search-status">Ready</span>
+        </div>
+        <div class="search-panel">
+          <div class="search-inner">
+            <div class="prompt">&gt;</div>
+            <input class="search-input" id="ticker-input" type="text" placeholder="ENTER TICKER SYMBOL (E.G. NVDA)..." maxlength="12" />
+            <button class="run-btn" id="run-btn">Analyze</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXECUTION PIPELINE -->
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-label">Execution Pipeline</span>
+          <span class="panel-badge badge-amber">Sequential</span>
+        </div>
+        <div class="stages">
+          <div class="stage" id="stage-1">
+            <div class="stage-header">
+              <span class="stage-num">01</span>
+              <span class="stage-st st-idle" id="st-1">STANDBY</span>
+            </div>
+            <div class="stage-name">Market Data Extraction</div>
+            <div class="stage-agent">Senior Financial Data Researcher</div>
+            <div class="progress-track"><div class="progress-fill" id="pf-1"></div></div>
+          </div>
+
+          <div class="connector">↓</div>
+
+          <div class="stage" id="stage-2">
+            <div class="stage-header">
+              <span class="stage-num">02</span>
+              <span class="stage-st st-idle" id="st-2">STANDBY</span>
+            </div>
+            <div class="stage-name">Sentiment Analysis</div>
+            <div class="stage-agent">News & Social Media Analyst</div>
+            <div class="progress-track"><div class="progress-fill" id="pf-2"></div></div>
+          </div>
+
+          <div class="connector">↓</div>
+
+          <div class="stage" id="stage-3">
+            <div class="stage-header">
+              <span class="stage-num">03</span>
+              <span class="stage-st st-idle" id="st-3">STANDBY</span>
+            </div>
+            <div class="stage-name">Investment Thesis Generation</div>
+            <div class="stage-agent">Hedge Fund Investment Strategist</div>
+            <div class="progress-track"><div class="progress-fill" id="pf-3"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INVESTMENT THESIS -->
+      <div class="panel cornered">
+        <div class="corner-tl"></div>
+        <div class="corner-br"></div>
+        <div class="panel-head">
+          <span class="panel-label">Investment Thesis</span>
+        </div>
+        <div class="thesis-body" id="thesis-body">
+          <p class="thesis-placeholder">Awaiting ticker input for neural synthesis...</p>
+        </div>
+        <div class="thesis-footer" id="thesis-footer" style="display:none;">
+          <span class="signal-tag sig-buy" id="signal-tag">BUY</span>
+          <span class="signal-note" id="signal-note">Strong fundamental convergence detected.</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="sidebar">
+      <!-- CURRENT STOCK INFO -->
+      <div class="panel" id="stock-info-panel" style="display:none;">
+        <div class="panel-head">
+          <span class="panel-label" id="stock-symbol">—</span>
+        </div>
+        <div class="price-body">
+          <div class="price-big" id="stock-price">$—</div>
+          <div class="price-sub green" id="stock-change">+0.00%</div>
+        </div>
+      </div>
+
+      <!-- SENTIMENT -->
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-label">Market Sentiment</span>
+        </div>
+        <div class="sent-body">
+          <div class="sent-row">
+            <span class="sent-label">Bullish</span>
+            <div class="sent-track"><div class="sent-bar g-green" id="sb-bull" style="width: 0%;"></div></div>
+            <span class="sent-pct" id="sp-bull">0%</span>
+          </div>
+          <div class="sent-row">
+            <span class="sent-label">Bearish</span>
+            <div class="sent-track"><div class="sent-bar g-red" id="sb-bear" style="width: 0%;"></div></div>
+            <span class="sent-pct" id="sp-bear">0%</span>
+          </div>
+        </div>
+        <div class="overall-score">
+          <div class="score-num" id="sentiment-score">—</div>
+          <div class="score-label">SENTIMENT SCORE</div>
+        </div>
+      </div>
+
+      <!-- ACTIVE AGENTS -->
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-label">Neural Agents</span>
+        </div>
+        <div class="agents-body">
+          <div class="agent-card">
+            <div class="agent-icon">R</div>
+            <div class="agent-info">
+              <div class="agent-name">Data Researcher</div>
+              <div class="agent-model">GPT-4o-mini</div>
+            </div>
+            <div class="agent-dot dot-idle" id="ad-1"></div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">S</div>
+            <div class="agent-info">
+              <div class="agent-name">Sentiment Analyst</div>
+              <div class="agent-model">GPT-4o-mini</div>
+            </div>
+            <div class="agent-dot dot-idle" id="ad-2"></div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">I</div>
+            <div class="agent-info">
+              <div class="agent-name">Investment Strategist</div>
+              <div class="agent-model">GPT-4o-mini</div>
+            </div>
+            <div class="agent-dot dot-idle" id="ad-3"></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bottom-bar">
+    <div class="bb-left">
+      <div class="bb-item">SYSTEM: <span>STABLE</span></div>
+      <div class="bb-item">LATENCY: <span id="latency">14ms</span></div>
+      <div class="bb-item">UPTIME: <span id="uptime">00:00:00</span></div>
+    </div>
+    <div class="bb-right">
+      <div class="bb-dot"></div>
+      <span class="bb-active">ENCRYPTED CONNECTION ACTIVE</span>
+    </div>
+  </footer>
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
