@@ -12,18 +12,28 @@ This repository is a versatile workspace documenting my journey as a frontend de
 ### 🐍 Python & AI Projects
 Source code for my Python tutorials can be found within the [**/Python-projects**](./Python-projects/) directory:
 
-* 📖 **Creating AI Agents Python: Part 2 **
+* 📖 **Creating AI Agents Python: Part 2 (Project Suite)**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/04/19/creating-ai-agents-python-part-2/) 
-  * 📁 **GitHub Folder:** [`/Python-projects/Agets-part-2/GitHub-Code-Explainer---local`](./Python-projects/Agets-part-2)
+  * 📁 **Main Directory:** [`/Python-projects/Agets-part-2/`](./Python-projects/Agets-part-2/)
+  * *Sub-Projects in this directory:*
+    * 🛡️ [`The-Tech-Security-Threat-Briefing--local`](./Python-projects/Agets-part-2/The-Tech-Security-Threat-Briefing--local) — Local privacy-focused threat intelligence tool.
+    * 🤖 [`GitHub-Code-Explainer---local`](./Python-projects/Agets-part-2/GitHub-Code-Explainer---local) — Local AI agent that analyzes and explains codebases.
+    * 📈 [`The-Stock-Intelligence-Terminal---Local---PC--local`](./Python-projects/Agets-part-2/The-Stock-Intelligence-Terminal---Local---PC--local) — AI-driven financial market tracker (PC Optimized).
+    * 💻 [`The-Stock-Intelligence-Terminal--laptop--local`](./Python-projects/Agets-part-2/The-Stock-Intelligence-Terminal--laptop--local) — AI-driven financial market tracker (Laptop/VRAM Optimized).
+    * 📱 [`Social-Media-Multiplier-local`](./Python-projects/Agets-part-2/Social-Media-Multiplier-local) — Local automated content distribution tool.
+
 * 📖 **Creating Agents: A Complete Guide (Part 1)**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/03/16/creating-agents/) 
   * 📁 **GitHub Folder:** [`/Python-projects/Agent`](./Python-projects/Agent/)
+
 * 📖 **How to Make an AI in Python (Book Agent)**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/how-to-make-ai-in-python) 
   * 📁 **GitHub Folder:** [`/Python-projects/Python-Al-Projects`](./Python-projects/Python-Al-Projects/)
+
 * 📖 **How to Make a Tkinter Project in Python**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/01/02/python-modules-the-ultimate-guide/) 
   * 📁 **GitHub Folder:** [`/Python-projects/Tkinter`](./Python-projects/Tkinter/)
+
 * 📖 **Basics of Python & Stock Trackers**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/15/learn-python-for-beginners/) 
   * 📁 **GitHub Folders:** [`/Python-projects/Basics-Of-Python`](./Python-projects/Basics-Of-Python/) or [`/Python-projects/Python-module`](./Python-projects/Python-module/)
