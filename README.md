@@ -45,11 +45,11 @@ Source code for my Python tutorials can be found within the [**/Python-projects*
 ### 🎨 JavaScript Projects
 Source code for my frontend interactions can be found within the [**/Javascript-projects**](./Javascript-projects/) directory:
 
-* 📖 **Websites Using APIs** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/06/how-to-make-webistes-using-api/)
+* 📖 **Websites Using APIs** — 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/06/how-to-make-webistes-using-api/)
   * 📁 **Sub-Folders:** [`Advenced-API-projects`](./Javascript-projects/Advenced-API-projects/) or [`Javascript-API-Projects`](./Javascript-projects/Javascript-API-Projects/)
-* 📖 **User Input & Mini Projects** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/13/javascript-mini-projects-for-beginners/) 
+* 📖 **User Input & Mini Projects** — 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/13/javascript-mini-projects-for-beginners/) 
   * 📁 **Sub-Folders:** [`Advenced-userinput-projects`](./Javascript-projects/Advenced-userinput-projects/) or [`basic-userinput-projects`](./Javascript-projects/basic-userinput-projects/)
-* 📖 **First JS Website Build** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/12/take-your-web-development-skills-to-the-next-level-this-guide-teaches-you-how-to-build-a-website-from-scratch-using-html-css-and-the-power-of-javascript-for-interactivity-a-beginners-guide-to-cr/) 
+* 📖 **First JS Website Build** — 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/12/take-your-web-development-skills-to-the-next-level-this-guide-teaches-you-how-to-build-a-website-from-scratch-using-html-css-and-the-power-of-javascript-for-interactivity-a-beginners-guide-to-cr/) 
   * 📁 **Sub-Folder:** [`my-first-javascript-website`](./Javascript-projects/my-first-javascript-website/)
 
 ### 🎮 Unity & Game Design
@@ -60,7 +60,7 @@ Source code for my frontend interactions can be found within the [**/Javascript-
 ### 💼 Web Design & Portfolios
 **Source Folders:** [`/professional_website`](./professional_website/) & [`/my_first_webpage`](./my_first_webpage/)
 * 📖 **Professional Website Build** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/27/learn-web-design-how-to-build-your-first-professional-website/) | 📁 Main File: [`index.html`](./professional_website/index.html)
-* 📖 **HTML & CSS Foundations** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/10/how-to-make-a-website-with-html-and-css/) | 📁 Main Files: [`chess.html`](./professional_website/chess.html) , [`coding.html`](./professional_website/coding.html) , [`vedio_game.html`](./professional_website/vedio_game.html)
+* 📖 **HTML & CSS Foundations** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/10/how-to-make-a-website-with-html-and-css/) | 📁 Main Files: [`chess.html`](./professional_website/chess.html) , [`coding.html`](./professional_website/coding.html) , [`video_game.html`](./professional_website/video_game.html)
 * 📖 **Your First Webpage** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/08/27/how-to-make-your-first-webpage/) | 📁 Main File: [`my_first_webpage/index.html`](./my_first_webpage/index.html)
 
 ---
@@ -85,4 +85,4 @@ Found in the **root directory**, these assets are used for testing animations an
 
 1. **Clone the Repository**:
    ```bash
-   git clone [https://github.com/PrimeEmre/Sample-code-.git](https://github.com/PrimeEmre/Sample-code-.git)
+   git clone https://github.com/PrimeEmre/Sample-code-.git
