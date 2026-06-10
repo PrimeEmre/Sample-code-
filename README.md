@@ -22,9 +22,13 @@ Source code for my Python tutorials can be found within the [**/Python-projects*
     * 💻 [`The-Stock-Intelligence-Terminal--laptop--local`](./Python-projects/Agets-part-2/The-Stock-Intelligence-Terminal--laptop--local) — AI-driven financial market tracker (Laptop/VRAM Optimized).
     * 📱 [`Social-Media-Multiplier-local`](./Python-projects/Agets-part-2/Social-Media-Multiplier-local) — Local automated content distribution tool.
 
-* 📖 **Creating Agents: A Complete Guide (Part 1)**
+* 📖 **Creating Agents: A Complete Guide (Part 1 - Project Suite)**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/03/16/creating-agents/) 
-  * 📁 **GitHub Folder:** [`/Python-projects/Agent`](./Python-projects/Agent/)
+  * 📁 **Main Directory:** [`/Python-projects/Agent/`](./Python-projects/Agent/)
+  * *Sub-Projects in this directory:*
+    * 🤖 [`Code-AI-Agent-code`](./Python-projects/Agent/Code-AI-Agent-code) — Automated coding companion and script generation logic.
+    * 📉 [`Crypto-Stock-Price-Predictor`](./Python-projects/Agent/Crypto-Stock-Price-Predictor) — Predictive intelligence terminal targeting crypto market tracking.
+    * ✍️ [`Ghostwriter-AI`](./Python-projects/Agent/Ghostwriter-AI) — Generative writing engine built to assist in creative content workflows.
 
 * 📖 **How to Make an AI in Python (Book Agent)**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/how-to-make-ai-in-python) 
@@ -39,10 +43,14 @@ Source code for my Python tutorials can be found within the [**/Python-projects*
   * 📁 **GitHub Folders:** [`/Python-projects/Basics-Of-Python`](./Python-projects/Basics-Of-Python/) or [`/Python-projects/Python-module`](./Python-projects/Python-module/)
 
 ### 🎨 JavaScript Projects
-**Source Folder:** [`/Javascript-projects`](./Javascript-projects/)
-* 📖 **Websites Using APIs** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/06/how-to-make-webistes-using-api/) | 📁 Sub-Folders: [`Advenced-API-projects`](./Javascript-projects/Advenced-API-projects/) or [`Javascript-API-projects`](./Javascript-projects/Javascript-API-projects/)
-* 📖 **User Input & Mini Projects** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/13/javascript-mini-projects-for-beginners/) | 📁 Sub-Folders: [`basic-userInput-projects`](./Javascript-projects/basic-userInput-projects/) or [`Advenced-userInput-projects`](./Javascript-projects/Advenced-userInput-projects/)
-* 📖 **First JS Website Build** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/12/take-your-web-development-skills-to-the-next-level-this-guide-teaches-you-how-to-build-a-website-from-scratch-using-html-css-and-the-power-of-javascript-for-interactivity-a-beginners-guide-to-cr/) | 📁 Sub-Folder: [`my-first-javascript-website`](./Javascript-projects/my-first-javascript-website/)
+Source code for my frontend interactions can be found within the [**/Javascript-projects**](./Javascript-projects/) directory:
+
+* 📖 **Websites Using APIs** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/06/how-to-make-webistes-using-api/)
+  * 📁 **Sub-Folders:** [`Advenced-API-projects`](./Javascript-projects/Advenced-API-projects/) or [`Javascript-API-Projects`](./Javascript-projects/Javascript-API-Projects/)
+* 📖 **User Input & Mini Projects** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/13/javascript-mini-projects-for-beginners/) 
+  * 📁 **Sub-Folders:** [`Advenced-userinput-projects`](./Javascript-projects/Advenced-userinput-projects/) or [`basic-userinput-projects`](./Javascript-projects/basic-userinput-projects/)
+* 📖 **First JS Website Build** * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/12/take-your-web-development-skills-to-the-next-level-this-guide-teaches-you-how-to-build-a-website-from-scratch-using-html-css-and-the-power-of-javascript-for-interactivity-a-beginners-guide-to-cr/) 
+  * 📁 **Sub-Folder:** [`my-first-javascript-website`](./Javascript-projects/my-first-javascript-website/)
 
 ### 🎮 Unity & Game Design
 **Source Folder:** [`/maze_game`](./maze_game/)
