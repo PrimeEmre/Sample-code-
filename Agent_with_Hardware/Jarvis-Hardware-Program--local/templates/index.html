@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S. Interface</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- Left Sidebar: Hardware Status & TTS -->
+        <aside class="hardware-sidebar">
+            <div class="sidebar-header">
+                <h2>HARDWARE<br>TELEMETRY</h2>
+            </div>
+            
+            <div class="orb-container">
+                <div id="main-orb" class="status-orb orb-idle"></div>
+                <p id="status-text" class="status-label">STANDBY</p>
+                <p id="sub-status-text" class="status-sub-label">System Idle</p>
+            </div>
+
+            <div class="hardware-map">
+                <p class="map-title">PIN STATES</p>
+                <div class="map-item">
+                    <span class="pin-indicator" id="pin-12"></span> 
+                    <span>PIN 12 (Research)</span>
+                </div>
+                <div class="map-item">
+                    <span class="pin-indicator" id="pin-13"></span> 
+                    <span>PIN 13 (Debate)</span>
+                </div>
+                <div class="map-item">
+                    <span class="pin-indicator" id="relay-1"></span> 
+                    <span>RELAY 1 (Complete)</span>
+                </div>
+            </div>
+
+            <!-- NEW: EXPLICIT TEXT-TO-SPEECH MODULE -->
+            <div class="tts-panel">
+                <p class="map-title">VOICE SYNTHESIZER</p>
+                <textarea id="manual-tts-input" placeholder="Type text here to test the voice..."></textarea>
+                <button id="manual-speak-btn">SPEAK</button>
+            </div>
+
+            <div class="system-info">
+                <p>CREW AI: <span class="text-success">ONLINE</span></p>
+                <p>TTS ENGINE: <span class="text-success">ACTIVE</span></p>
+            </div>
+        </aside>
+
+        <!-- Main Area: Chat Interface -->
+        <main class="chat-main">
+            
+            <header class="chat-header">
+                <h1>J.A.R.V.I.S.</h1>
+                <p>Conversational Task Deployment Interface</p>
+            </header>
+
+            <div class="chat-messages" id="chat-log">
+                <div class="message jarvis-message">
+                    <div class="message-content">
+                        {{ boot_greeting }}
+                        <button class="inline-speak-btn">🔊</button>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="chat-input-area">
+                <div class="input-wrapper">
+                    <input id="user-input" type="text" placeholder="Type a message to J.A.R.V.I.S..." autocomplete="off" />
+                    <button id="send-btn" title="Send Message">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/static/script.js" defer></script>
+</body>
+</html>
