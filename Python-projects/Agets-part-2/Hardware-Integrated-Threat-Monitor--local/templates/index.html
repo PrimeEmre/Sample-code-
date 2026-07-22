@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTINEL // AI Threat Monitor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Markdown parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Critical alert overlay -->
+    <div id="criticalOverlay" class="critical-overlay">
+        <div class="overlay-content">
+            <div class="overlay-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <div class="overlay-label">CRITICAL THREAT DETECTED</div>
+            <div class="overlay-threat" id="overlayThreatName">--</div>
+            <div class="overlay-sub">ARDUINO SIGNAL DISPATCHED · DESK LIGHTS ACTIVE</div>
+        </div>
+    </div>
+
+    <div class="app">
+        <header class="header">
+            <div class="brand">
+                <div class="brand-mark"><div class="mark-inner"></div></div>
+                <div class="brand-text">
+                    <div class="brand-title">SENTINEL</div>
+                    <div class="brand-sub">AI Hardware-Integrated Monitor</div>
+                </div>
+            </div>
+            <div class="header-status">
+                <div class="status-pill"><span class="pulse-dot"></span><span class="pill-label">CrewAI</span><span class="pill-value">ACTIVE</span></div>
+                <div class="status-pill"><span class="pulse-dot"></span><span class="pill-label">Serial</span><span class="pill-value" id="serialPort">COM3 · 9600bps</span></div>
+                <div class="status-pill"><span class="pulse-dot"></span><span class="pill-label">Arduino</span><span class="pill-value" id="arduinoStatus">CONNECTED</span></div>
+                <div class="clock" id="clock">00:00:00</div>
+            </div>
+        </header>
+
+        <main class="main-grid">
+            <!-- LEFT: Input & Briefing -->
+            <section class="panel threat-feed-panel">
+                <div class="panel-header">
+                    <div class="panel-title"><i class="fa-solid fa-keyboard"></i><span>Generate Briefing</span></div>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="topicInput" placeholder="e.g., Apple, Microsoft, Cisco" maxlength="75">
+                    <button class="ctrl-btn" id="btnGenerate"><i class="fa-solid fa-bolt"></i> Generate</button>
+                </div>
+                <div class="panel-header" style="margin-top:10px;">
+                    <div class="panel-title"><i class="fa-solid fa-file-shield"></i><span>Intelligence Report</span></div>
+                    <div class="panel-meta" id="outputMeta">Awaiting input...</div>
+                </div>
+                <div class="threat-list" id="threatList" style="padding: 20px; max-height: 500px;">
+                    <div class="empty-state">
+                        <i class="fa-solid fa-newspaper"></i>
+                        <p>Generated briefings will appear here.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CENTER: Hardware -->
+            <section class="panel hardware-panel">
+                <div class="panel-header">
+                    <div class="panel-title"><i class="fa-solid fa-microchip"></i><span>Physical Hardware</span></div>
+                    <div class="panel-meta">Desk Unit · Live</div>
+                </div>
+
+                <div class="lcd-container">
+                    <div class="lcd-bezel">
+                        <div class="lcd-screen" id="lcdScreen">
+                            <div class="lcd-row" id="lcdRow1">SENTINEL v2.4 READY</div>
+                            <div class="lcd-row" id="lcdRow2">AWAITING SIGNAL...</div>
+                        </div>
+                        <div class="lcd-screws"><span></span><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="lcd-label">16x2 CHARACTER LCD · I2C</div>
+                </div>
+
+                <div class="led-section">
+                    <div class="led-section-label">
+                        <span>WS2812B LED STRIP · 30 LEDs</span>
+                        <span class="led-state" id="ledState">STANDBY</span>
+                    </div>
+                    <div class="led-strip" id="ledStrip"></div>
+                </div>
+
+                <div class="arduino-section">
+                    <div class="arduino-board">
+                        <div class="board-label">ARDUINO UNO R3</div>
+                        <div class="board-chip"></div>
+                        <div class="board-leds">
+                            <div class="board-led" id="boardLedTx"><span>TX</span></div>
+                            <div class="board-led" id="boardLedRx"><span>RX</span></div>
+                            <div class="board-led" id="boardLed13"><span>L</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="signal-flow">
+                    <div class="flow-node"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                    <div class="flow-line"><div class="flow-pulse" id="flowPulse1"></div></div>
+                    <div class="flow-node"><i class="fa-solid fa-plug"></i><span>Serial</span></div>
+                    <div class="flow-line"><div class="flow-pulse" id="flowPulse2"></div></div>
+                    <div class="flow-node active"><i class="fa-solid fa-microchip"></i><span>Arduino</span></div>
+                    <div class="flow-line"><div class="flow-pulse" id="flowPulse3"></div></div>
+                    <div class="flow-node"><i class="fa-solid fa-lightbulb"></i><span>Output</span></div>
+                </div>
+            </section>
+
+            <!-- RIGHT: Stats & Serial -->
+            <section class="right-column">
+                <div class="panel stats-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><i class="fa-solid fa-chart-line"></i><span>System Metrics</span></div>
+                    </div>
+                    <div class="signal-counter">
+                        <div class="signal-label">Signals Sent to Arduino</div>
+                        <div class="signal-value" id="signalCount">000</div>
+                    </div>
+                </div>
+
+                <div class="panel serial-panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><i class="fa-solid fa-terminal"></i><span>Serial Monitor</span></div>
+                        <div class="panel-meta">9600 baud</div>
+                    </div>
+                    <div class="serial-output" id="serialOutput"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="control-bar">
+            <button class="ctrl-btn" id="btnTestHW">
+                <i class="fa-solid fa-play"></i> Test Hardware (Red LED)
+            </button>
+            <button class="ctrl-btn secondary" id="btnReset">
+                <i class="fa-solid fa-rotate"></i> Reset Hardware (Green LED)
+            </button>
+            <div class="footer-info">
+                SENTINEL <span class="highlight">v2.4</span> &nbsp;·&nbsp; CrewAI + Arduino Integration
+            </div>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
