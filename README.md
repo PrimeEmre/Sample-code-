@@ -12,27 +12,45 @@ This repository is a versatile workspace documenting my journey as a frontend de
 ### 🐍 Python & AI Projects
 Source code for my Python tutorials can be found within the [**/Python-projects**](./Python-projects/) directory:
 
-* 📖 **Creating AI Agents Python: Part 2 **
+* 📖 **Creating AI Agents Python: Part 2 (Project Suite)**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/04/19/creating-ai-agents-python-part-2/) 
-  * 📁 **GitHub Folder:** [`/Python-projects/Agets-part-2/GitHub-Code-Explainer---local`](./Python-projects/Agets-part-2)
-* 📖 **Creating Agents: A Complete Guide (Part 1)**
+  * 📁 **Main Directory:** [`/Python-projects/Agets-part-2/`](./Python-projects/Agets-part-2/)
+  * *Sub-Projects in this directory:*
+    * 🛡️ [`The-Tech-Security-Threat-Briefing--local`](./Python-projects/Agets-part-2/The-Tech-Security-Threat-Briefing--local) — Local privacy-focused threat intelligence tool.
+    * 🤖 [`GitHub-Code-Explainer---local`](./Python-projects/Agets-part-2/GitHub-Code-Explainer---local) — Local AI agent that analyzes and explains codebases.
+    * 📈 [`The-Stock-Intelligence-Terminal---Local---PC--local`](./Python-projects/Agets-part-2/The-Stock-Intelligence-Terminal---Local---PC--local) — AI-driven financial market tracker (PC Optimized).
+    * 💻 [`The-Stock-Intelligence-Terminal--laptop--local`](./Python-projects/Agets-part-2/The-Stock-Intelligence-Terminal--laptop--local) — AI-driven financial market tracker (Laptop/VRAM Optimized).
+    * 📱 [`Social-Media-Multiplier-local`](./Python-projects/Agets-part-2/Social-Media-Multiplier-local) — Local automated content distribution tool.
+
+* 📖 **Creating Agents: A Complete Guide (Part 1 - Project Suite)**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/03/16/creating-agents/) 
-  * 📁 **GitHub Folder:** [`/Python-projects/Agent`](./Python-projects/Agent/)
+  * 📁 **Main Directory:** [`/Python-projects/Agent/`](./Python-projects/Agent/)
+  * *Sub-Projects in this directory:*
+    * 🤖 [`Code-AI-Agent-code`](./Python-projects/Agent/Code-AI-Agent-code) — Automated coding companion and script generation logic.
+    * 📉 [`Crypto-Stock-Price-Predictor`](./Python-projects/Agent/Crypto-Stock-Price-Predictor) — Predictive intelligence terminal targeting crypto market tracking.
+    * ✍️ [`Ghostwriter-AI`](./Python-projects/Agent/Ghostwriter-AI) — Generative writing engine built to assist in creative content workflows.
+
 * 📖 **How to Make an AI in Python (Book Agent)**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/how-to-make-ai-in-python) 
   * 📁 **GitHub Folder:** [`/Python-projects/Python-Al-Projects`](./Python-projects/Python-Al-Projects/)
+
 * 📖 **How to Make a Tkinter Project in Python**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/01/02/python-modules-the-ultimate-guide/) 
   * 📁 **GitHub Folder:** [`/Python-projects/Tkinter`](./Python-projects/Tkinter/)
+
 * 📖 **Basics of Python & Stock Trackers**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/15/learn-python-for-beginners/) 
   * 📁 **GitHub Folders:** [`/Python-projects/Basics-Of-Python`](./Python-projects/Basics-Of-Python/) or [`/Python-projects/Python-module`](./Python-projects/Python-module/)
 
 ### 🎨 JavaScript Projects
-**Source Folder:** [`/Javascript-projects`](./Javascript-projects/)
-* 📖 **Websites Using APIs** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/06/how-to-make-webistes-using-api/) | 📁 Sub-Folders: [`Advenced-API-projects`](./Javascript-projects/Advenced-API-projects/) or [`Javascript-API-projects`](./Javascript-projects/Javascript-API-projects/)
-* 📖 **User Input & Mini Projects** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/13/javascript-mini-projects-for-beginners/) | 📁 Sub-Folders: [`basic-userInput-projects`](./Javascript-projects/basic-userInput-projects/) or [`Advenced-userInput-projects`](./Javascript-projects/Advenced-userInput-projects/)
-* 📖 **First JS Website Build** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/12/take-your-web-development-skills-to-the-next-level-this-guide-teaches-you-how-to-build-a-website-from-scratch-using-html-css-and-the-power-of-javascript-for-interactivity-a-beginners-guide-to-cr/) | 📁 Sub-Folder: [`my-first-javascript-website`](./Javascript-projects/my-first-javascript-website/)
+Source code for my frontend interactions can be found within the [**/Javascript-projects**](./Javascript-projects/) directory:
+
+* 📖 **Websites Using APIs** — 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/06/how-to-make-webistes-using-api/)
+  * 📁 **Sub-Folders:** [`Advenced-API-projects`](./Javascript-projects/Advenced-API-projects/) or [`Javascript-API-Projects`](./Javascript-projects/Javascript-API-Projects/)
+* 📖 **User Input & Mini Projects** — 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/13/javascript-mini-projects-for-beginners/) 
+  * 📁 **Sub-Folders:** [`Advenced-userinput-projects`](./Javascript-projects/Advenced-userinput-projects/) or [`basic-userinput-projects`](./Javascript-projects/basic-userinput-projects/)
+* 📖 **First JS Website Build** — 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/12/take-your-web-development-skills-to-the-next-level-this-guide-teaches-you-how-to-build-a-website-from-scratch-using-html-css-and-the-power-of-javascript-for-interactivity-a-beginners-guide-to-cr/) 
+  * 📁 **Sub-Folder:** [`my-first-javascript-website`](./Javascript-projects/my-first-javascript-website/)
 
 ### 🎮 Unity & Game Design
 **Source Folder:** [`/maze_game`](./maze_game/)
@@ -42,7 +60,7 @@ Source code for my Python tutorials can be found within the [**/Python-projects*
 ### 💼 Web Design & Portfolios
 **Source Folders:** [`/professional_website`](./professional_website/) & [`/my_first_webpage`](./my_first_webpage/)
 * 📖 **Professional Website Build** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/27/learn-web-design-how-to-build-your-first-professional-website/) | 📁 Main File: [`index.html`](./professional_website/index.html)
-* 📖 **HTML & CSS Foundations** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/10/how-to-make-a-website-with-html-and-css/) | 📁 Main Files: [`chess.html`](./professional_website/chess.html) , [`coding.html`](./professional_website/coding.html) , [`vedio_game.html`](./professional_website/vedio_game.html)
+* 📖 **HTML & CSS Foundations** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/10/how-to-make-a-website-with-html-and-css/) | 📁 Main Files: [`chess.html`](./professional_website/chess.html) , [`coding.html`](./professional_website/coding.html) , [`video_game.html`](./professional_website/video_game.html)
 * 📖 **Your First Webpage** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/08/27/how-to-make-your-first-webpage/) | 📁 Main File: [`my_first_webpage/index.html`](./my_first_webpage/index.html)
 
 ---
@@ -67,4 +85,4 @@ Found in the **root directory**, these assets are used for testing animations an
 
 1. **Clone the Repository**:
    ```bash
-   git clone [https://github.com/PrimeEmre/Sample-code-.git](https://github.com/PrimeEmre/Sample-code-.git)
+   git clone https://github.com/PrimeEmre/Sample-code-.git

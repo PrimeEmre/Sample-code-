@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Intel | Daily Briefing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-group">
+                <div class="logo-icon">🛡️</div>
+                <div>
+                    <h1>THREAT <span>INTEL</span></h1>
+                    <p class="subtitle">Automated Security Briefing Engine</p>
+                </div>
+            </div>
+            <div class="status-indicator">
+                <div class="pulse"></div>
+                <span id="system-status">SYSTEM IDLE</span>
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <aside class="control-panel">
+                <div class="panel">
+                    <h2>Briefing Parameters</h2>
+                    <div class="input-group">
+                        <label>Target Topic</label>
+                        <input type="text" id="topic-input" value="Cybersecurity Threats and AI Developments" placeholder="Enter topic...">
+                    </div>
+                    <button id="generate-btn" class="primary-btn">GENERATE BRIEFING</button>
+                </div>
+
+                <div class="panel metrics-panel">
+                    <h2>Engine Status</h2>
+                    <div class="metric">
+                        <span>Source:</span>
+                        <span id="source-display" class="highlight">Awaiting...</span>
+                    </div>
+                    <div class="metric">
+                        <span>Latency:</span>
+                        <span id="latency-display">--</span>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="feed-panel">
+                <div class="panel-header">
+                    <h2>Daily Report</h2>
+                    <span class="date-badge" id="current-date">--</span>
+                </div>
+                <div id="newsletter-content" class="markdown-body">
+                    <div class="placeholder">
+                        > Enter a topic and initialize the sequence to generate today's threat briefing.
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
