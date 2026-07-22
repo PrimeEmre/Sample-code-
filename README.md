@@ -12,6 +12,12 @@ This repository is a versatile workspace documenting my journey as a frontend de
 ### 🐍 Python & AI Projects
 Source code for my Python tutorials can be found within the [**/Python-projects**](./Python-projects/) directory:
 
+### 🔌 AI Agent & Hardware Integration
+**Source Folder:** [`/Agent_with_Hardware`](./Agent_with_Hardware/)
+* 📖 **Architecting Autonomous AI Agents with Hardware Integration**
+  * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/07/19/architecting-autonomous-ai-agents-with-hardware-integration/)
+  * 📁 **GitHub Folder:** [`/Agent_with_Hardware/Jarvis-Hardware-Program--local`](./Agent_with_Hardware/Jarvis-Hardware-Program--local/) — J.A.R.V.I.S. hardware-integrated AI agent (Arduino + CrewAI + local LLM + local TTS).
+
 * 📖 **Creating AI Agents Python: Part 2 (Project Suite)**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/04/19/creating-ai-agents-python-part-2/) 
   * 📁 **Main Directory:** [`/Python-projects/Agets-part-2/`](./Python-projects/Agets-part-2/)
