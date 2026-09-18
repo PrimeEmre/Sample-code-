@@ -9,6 +9,5 @@ int main(){
     printf("\n");
     printf("Favorite food\n");
     printf("Adana Kebab \n");
-
     return 0;
 }
