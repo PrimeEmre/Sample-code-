@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 int main(){
-    printf( "1 + 1 = %d\n", 1+1 );
+    printf( "Emre Guzel\n");
+    printf("Favorite place in the world?\n");
+    printf("Istanbul\n");
     return 0;
 }
-
