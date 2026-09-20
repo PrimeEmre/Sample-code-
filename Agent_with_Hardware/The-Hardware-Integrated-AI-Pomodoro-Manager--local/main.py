@@ -5,7 +5,13 @@ import tempfile
 import time
 import winsound
 import requests
+import truststore
 from dotenv import load_dotenv
+
+# Use Windows' own certificate trust store instead of certifi's bundled one,
+# so HTTPS requests still verify correctly when Kaspersky (or similar AV)
+# intercepts TLS traffic with its own locally-trusted root certificate.
+truststore.inject_into_ssl()
 
 # KittenTTS needs eSpeak NG's DLL on PATH; point at the default winget install
 # location so this works regardless of the shell's own PATH being stale.
@@ -110,14 +116,22 @@ def listen_and_trigger():
         while True:
             # Check if the Arduino has sent any text
             if arduino.in_waiting > 0:
-                message = arduino.readline().decode('utf-8').strip()
+                raw = arduino.readline()
+                message = raw.decode('utf-8', errors='replace').strip()
 
-                # If we get the exact signal from our C++ firmware
-                if message == "TRIGGER_AI":
-                    print("\nSignal received! Triggering the AI research crew...")
-                    run_crew(arduino)
-                    print("\nResearch complete and summarized!")
-                    print("Listening for the next trigger...\n")
+                if not message:
+                    continue
+
+                # Print anything the Arduino sends so wiring/firmware issues
+                # are visible instead of silently swallowed.
+                if message != "TRIGGER_AI":
+                    print(f"[Arduino] {message!r}")
+                    continue
+
+                print("\nSignal received! Triggering the AI research crew...")
+                run_crew(arduino)
+                print("\nResearch complete and summarized!")
+                print("Listening for the next trigger...\n")
 
     except serial.SerialException as e:
         print(f"\nSerial Connection Error: {e}")

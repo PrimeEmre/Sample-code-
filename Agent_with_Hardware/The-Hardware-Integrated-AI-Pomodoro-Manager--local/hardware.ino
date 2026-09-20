@@ -12,8 +12,10 @@ const int manualAISwitch = A3; // Forces AI to run
 // --- Variables ---
 unsigned long previousMillis = 0;
 const long interval = 1000; // 1 second update
-int minutes = 5;
-int seconds = 0;
+// Set to 5*60 for the real 5-minute Pomodoro; lowered for fast bench testing.
+const int POMODORO_SECONDS = 15;
+int minutes = POMODORO_SECONDS / 60;
+int seconds = POMODORO_SECONDS % 60;
 bool isTimerRunning = false;
 
 // --- AI research status (red LED blinks while Python is still working) ---
@@ -75,7 +77,8 @@ void loop() {
         digitalWrite(pomodoroLED, LOW);
         Serial.println("TRIGGER_AI"); // Send signal to Python
         startResearching();
-        minutes = 5; // Reset for next time
+        minutes = POMODORO_SECONDS / 60; // Reset for next time
+        seconds = POMODORO_SECONDS % 60;
       } else {
         minutes--;
         seconds = 59;
