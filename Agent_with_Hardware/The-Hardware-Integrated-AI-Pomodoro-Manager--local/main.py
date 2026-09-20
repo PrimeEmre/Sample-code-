@@ -31,7 +31,7 @@ BAUD_RATE = 9600
 # Deployed CrewAI Enterprise crew (runs in the cloud, no local LLM key needed)
 CREW_URL = os.getenv('CREWAI_CREW_URL')
 CREW_TOKEN = os.getenv('CREWAI_CREW_TOKEN')
-POLL_SECONDS = 5
+POLL_SECONDS = 2
 POLL_TIMEOUT_SECONDS = 300
 
 # Voice used to read the crew's result aloud during the break
