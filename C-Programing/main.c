@@ -42,9 +42,17 @@
 //     return 0;
 // }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main(){
-    printf( "100 X 100 = %d\n", 100 * 100 );
-    return 0;
-}
+// int main(){
+//     printf( "100 X 100 = %d\n", 100 * 100 );
+//     return 0;
+// }
+
+// #include <stdio.h>
+
+// int main(){
+//     printf( "500 / 5 = %d\n", 500 / 5 );
+//     return 0;
+// }
+
