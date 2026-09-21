@@ -65,9 +65,11 @@
 //     printf("100 + 200 is eqaul to : %d\n", num1 + num2);
 // }
 
+//Area of rectangle
+//a= lw
 int main(){
-    int num1 = 500;
-    int num2 = 2;
-    int sum = num1 / num2;
-    printf("100 + 200 is equal to : %d\n", sum);
+    int legnth = 5;
+    int width = 4;
+    int result = legnth * width;
+    printf("Area of the rectangle is: %d %s\n", result, "mm²");
 }
