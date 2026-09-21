@@ -58,9 +58,16 @@
 
 // Creating veriables and printing them
 
-#include <stdio.h>
+// #include <stdio.h>
+// int main(){
+//     int num1 = 100;
+//     int num2 = 200;
+//     printf("100 + 200 is eqaul to : %d\n", num1 + num2);
+// }
+
 int main(){
-    int num1 = 100;
-    int num2 = 200;
-    printf("100 + 200 is eqaul to : %d\n", num1 + num2);
+    int num1 = 500;
+    int num2 = 2;
+    int sum = num1 / num2;
+    printf("100 + 200 is equal to : %d\n", sum);
 }
