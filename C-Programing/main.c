@@ -56,3 +56,11 @@
 //     return 0;
 // }
 
+// Creating veriables and printing them
+
+#include <stdio.h>
+int main(){
+    int num1 = 100;
+    int num2 = 200;
+    printf("100 + 200 is eqaul to : %d\n", num1 + num2);
+}
