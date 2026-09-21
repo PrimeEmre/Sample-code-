@@ -1,4 +1,5 @@
 // Hello world program in C
+
 // #include <stdio.h>
 
 // int main(){
@@ -6,6 +7,7 @@
 //     return 0;
 
 // Priting our name 
+
 // #include <stdio.h>
 
 // int main(){
@@ -15,7 +17,8 @@
 //     return 0;
 // }
 
-// About us program
+// About me program
+
 // #include <stdio.h>
 
 // int main(){
@@ -27,6 +30,15 @@
 //     printf("\n");
 //     printf("Favorite food\n");
 //     printf("Adana Kebab \n");
+//     return 0;
+// }
+
+// Caluclating 
+
+// #include <stdio.h>
+
+// int main(){
+//     printf( "1 + 1 = %d\n", 1 + 1 );
 //     return 0;
 // }
 
