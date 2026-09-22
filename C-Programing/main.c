@@ -75,11 +75,22 @@
 // }
 
 // float veriables
+// #include <stdio.h>
+// int main(){
+//     float num1 = 9.9;
+//     float num2 = 10.4;
+//     float result = num1 + num2;
+//     printf("9.9 + 10.4 is equal to: %.2f\n", result);
+//     return 0;
+// }
+
 #include <stdio.h>
+// Circumference of circle 
+//C= 2πr 
 int main(){
-    float num1 = 9.9;
-    float num2 = 10.4;
-    float result = num1 + num2;
-    printf("9.9 + 10.4 is equal to: %.2f\n", result);
+    const float TAU = 6.28; //3.14 * 2 = 6.28
+    float radius = 65.78;
+    float Circumference = radius * TAU;
+    printf("Circumference of the circle is: %.3f\n", Circumference);
     return 0;
 }
