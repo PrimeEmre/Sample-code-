@@ -67,9 +67,19 @@
 
 //Area of rectangle
 //a= lw
+// int main(){
+//     int legnth = 5;
+//     int width = 4;
+//     int result = legnth * width;
+//     printf("Area of the rectangle is: %d %s\n", result, "mm²");
+// }
+
+// float veriables
+#include <stdio.h>
 int main(){
-    int legnth = 5;
-    int width = 4;
-    int result = legnth * width;
-    printf("Area of the rectangle is: %d %s\n", result, "mm²");
+    float num1 = 9.9;
+    float num2 = 10.4;
+    float result = num1 + num2;
+    printf("9.9 + 10.4 is equal to: %.2f\n", result);
+    return 0;
 }
