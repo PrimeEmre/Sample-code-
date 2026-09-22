@@ -84,13 +84,24 @@
 //     return 0;
 // }
 
+// #include <stdio.h>
+// // Circumference of circle 
+// //C= 2πr 
+// int main(){
+//     const float TAU = 6.28; //3.14 * 2 = 6.28
+//     float radius = 65.78;
+//     float Circumference = radius * TAU;
+//     printf("Circumference of the circle is: %.3f\n", Circumference);
+//     return 0;
+// }
+
 #include <stdio.h>
-// Circumference of circle 
-//C= 2πr 
+// Area of triangle  
+// A = 1/2 * b * h 
 int main(){
-    const float TAU = 6.28; //3.14 * 2 = 6.28
-    float radius = 65.78;
-    float Circumference = radius * TAU;
-    printf("Circumference of the circle is: %.3f\n", Circumference);
+    float base = 140.3;
+    float height = 9.9;
+    float result =  base * height / 2;
+    printf("Area of the triangle is: %.2f %s\n", result,"m^2");
     return 0;
 }
