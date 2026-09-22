@@ -95,13 +95,23 @@
 //     return 0;
 // }
 
+// #include <stdio.h>
+// // Area of triangle  
+// // A = 1/2 * b * h 
+// int main(){
+//     float base = 140.3;
+//     float height = 9.9;
+//     float result =  base * height / 2;
+//     printf("Area of the triangle is: %.2f %s\n", result,"m^2");
+//     return 0;
+// }
+
+// creating string veriables
 #include <stdio.h>
-// Area of triangle  
-// A = 1/2 * b * h 
 int main(){
-    float base = 140.3;
-    float height = 9.9;
-    float result =  base * height / 2;
-    printf("Area of the triangle is: %.2f %s\n", result,"m^2");
+    char name[] = "Emre Guzel";
+    char favorite_place[] = "Istanbul";
+    printf("My name is: %s\n", name);
+    printf("My favorite place in the world is: %s\n", favorite_place);
     return 0;
 }
