@@ -107,11 +107,29 @@
 // }
 
 // creating string veriables
+// #include <stdio.h>
+// int main(){
+//     char name[] = "Emre Guzel";
+//     char favorite_place[] = "Istanbul";
+//     printf("My name is: %s\n", name);
+//     printf("My favorite place in the world is: %s\n", favorite_place);
+//     return 0;
+// }
+
+// about me prgram with veribles 
 #include <stdio.h>
 int main(){
     char name[] = "Emre Guzel";
-    char favorite_place[] = "Istanbul";
+    char place[] = "Dubia";
+    char favoriteRestaurant[] = "Aga Baba";
+    char favoriteFood[] = "Rotsted lamb";
+    char favoriteCar[] = "Mercedes Maybach S class s 500";
+    char favoriteCodingLanguage[] = "Python";
     printf("My name is: %s\n", name);
-    printf("My favorite place in the world is: %s\n", favorite_place);
+    printf("My favorite place in the world is: %s\n", place);
+    printf("My favorite restaurant is: %s\n", favoriteRestaurant);
+    printf("My favorite food is: %s\n", favoriteFood);
+    printf("My favorite car is: %s\n", favoriteCar);
+    printf("My favorite coding language is: %s\n", favoriteCodingLanguage);
     return 0;
 }
