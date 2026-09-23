@@ -6,7 +6,7 @@
 //     printf("Hello, World!\n");
 //     return 0;
 
-// Priting our name 
+// Printing our name
 
 // #include <stdio.h>
 
@@ -25,7 +25,7 @@
 //     printf( "Favorite car? \n");
 //     printf("Mercedes Maybach S class s 500 \n");
 //     printf("\n");
-//     printf("Favorite Resturan\n");
+//     printf("Favorite Restaurant\n");
 //     printf("Nusret\n");
 //     printf("\n");
 //     printf("Favorite food\n");
@@ -33,7 +33,7 @@
 //     return 0;
 // }
 
-// Caluclating 
+// Calculating
 
 // #include <stdio.h>
 
@@ -56,25 +56,25 @@
 //     return 0;
 // }
 
-// Creating veriables and printing them
+// Creating variables and printing them
 
 // #include <stdio.h>
 // int main(){
 //     int num1 = 100;
 //     int num2 = 200;
-//     printf("100 + 200 is eqaul to : %d\n", num1 + num2);
+//     printf("100 + 200 is equal to: %d\n", num1 + num2);
 // }
 
 //Area of rectangle
 //a= lw
 // int main(){
-//     int legnth = 5;
+//     int length = 5;
 //     int width = 4;
-//     int result = legnth * width;
-//     printf("Area of the rectangle is: %d %s\n", result, "mm²");
+//     int result = length * width;
+//     printf("Area of the rectangle is: %d %s\n", result, "mm^2");
 // }
 
-// float veriables
+// float variables
 // #include <stdio.h>
 // int main(){
 //     float num1 = 9.9;
@@ -85,8 +85,8 @@
 // }
 
 // #include <stdio.h>
-// // Circumference of circle 
-// //C= 2πr 
+// // Circumference of circle
+// //C= 2πr
 // int main(){
 //     const float TAU = 6.28; //3.14 * 2 = 6.28
 //     float radius = 65.78;
@@ -96,8 +96,8 @@
 // }
 
 // #include <stdio.h>
-// // Area of triangle  
-// // A = 1/2 * b * h 
+// // Area of triangle
+// // A = 1/2 * b * h
 // int main(){
 //     float base = 140.3;
 //     float height = 9.9;
@@ -106,7 +106,7 @@
 //     return 0;
 // }
 
-// creating string veriables
+// creating string variables
 // #include <stdio.h>
 // int main(){
 //     char name[] = "Emre Guzel";
@@ -116,20 +116,35 @@
 //     return 0;
 // }
 
-// about me prgram with veribles 
+// about me program with variables
+// #include <stdio.h>
+// int main(){
+//     char name[] = "Emre Guzel";
+//     char place[] = "Dubai";
+//     char favoriteRestaurant[] = "Aga Baba";
+//     char favoriteFood[] = "Roasted lamb";
+//     char favoriteCar[] = "Mercedes Maybach S class s 500";
+//     char favoriteCodingLanguage[] = "Python";
+//     printf("My name is: %s\n", name);
+//     printf("My favorite place in the world is: %s\n", place);
+//     printf("My favorite restaurant is: %s\n", favoriteRestaurant);
+//     printf("My favorite food is: %s\n", favoriteFood);
+//     printf("My favorite car is: %s\n", favoriteCar);
+//     printf("My favorite coding language is: %s\n", favoriteCodingLanguage);
+//     return 0;
+// }
+
+// Creating the question about favorite subjects, hobbies, video games, and cars
 #include <stdio.h>
 int main(){
-    char name[] = "Emre Guzel";
-    char place[] = "Dubai";
-    char favoriteRestaurant[] = "Aga Baba";
-    char favoriteFood[] = "Roasted lamb";
-    char favoriteCar[] = "Mercedes Maybach S class s 500";
-    char favoriteCodingLanguage[] = "Python";
-    printf("My name is: %s\n", name);
-    printf("My favorite place in the world is: %s\n", place);
-    printf("My favorite restaurant is: %s\n", favoriteRestaurant);
-    printf("My favorite food is: %s\n", favoriteFood);
+    char favoriteSubjects[] = "Math, Coding";
+    char favoriteHobby[] = "Coding, AI development, and hardware development with AI; finally, I like to play chess";
+    char favoriteVideoGame[] = "GTA 5";
+    char favoriteCar[] = "Mercedes Maybach S class S 500, and Mercedes G Wagon 4x4, "
+                          "Rolls Royce Phantom, and BMW 7 series";
+    printf("My favorite subject is: %s\n", favoriteSubjects);
+    printf("My favorite hobby is: %s\n", favoriteHobby);
+    printf("My favorite video game is: %s\n", favoriteVideoGame);
     printf("My favorite car is: %s\n", favoriteCar);
-    printf("My favorite coding language is: %s\n", favoriteCodingLanguage);
     return 0;
 }
