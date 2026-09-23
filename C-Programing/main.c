@@ -120,9 +120,9 @@
 #include <stdio.h>
 int main(){
     char name[] = "Emre Guzel";
-    char place[] = "Dubia";
+    char place[] = "Dubai";
     char favoriteRestaurant[] = "Aga Baba";
-    char favoriteFood[] = "Rotsted lamb";
+    char favoriteFood[] = "Roasted lamb";
     char favoriteCar[] = "Mercedes Maybach S class s 500";
     char favoriteCodingLanguage[] = "Python";
     printf("My name is: %s\n", name);
