@@ -48,6 +48,10 @@ Source code for my Python tutorials can be found within the [**/Python-projects*
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/15/learn-python-for-beginners/) 
   * 📁 **GitHub Folders:** [`/Python-projects/Basics-Of-Python`](./Python-projects/Basics-Of-Python/) or [`/Python-projects/Python-module`](./Python-projects/Python-module/)
 
+### 🖥️ C Programming
+**Source Folder:** [`/C-Programing`](./C-Programing/)
+* 📖 **Introduction to C Programming** 🔗 [Blog Post](https://blog.emreguzel.ca/2026/09/17/introduction-to-c-programming/) | 📁 Main File: [`main.c`](./C-Programing/main.c)
+
 ### 🎨 JavaScript Projects
 Source code for my frontend interactions can be found within the [**/Javascript-projects**](./Javascript-projects/) directory:
 
