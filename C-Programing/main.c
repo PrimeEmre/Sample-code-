@@ -134,17 +134,28 @@
 //     return 0;
 // }
 
-// Creating the question about favorite subjects, hobbies, video games, and cars
+//  Creating the question about favorite subjects, hobbies, video games, and cars
+// #include <stdio.h>
+// int main(){
+//     char favoriteSubjects[] = "Math, Coding";
+//     char favoriteHobby[] = "Coding, AI development, and hardware development with AI; finally, I like to play chess";
+//     char favoriteVideoGame[] = "GTA 5";
+//     char favoriteCar[] = "Mercedes Maybach S class S 500, and Mercedes G Wagon 4x4, "
+//                           "Rolls Royce Phantom, and BMW 7 series";
+//     printf("My favorite subject is: %s\n", favoriteSubjects);
+//     printf("My favorite hobby is: %s\n", favoriteHobby);
+//     printf("My favorite video game is: %s\n", favoriteVideoGame);
+//     printf("My favorite car is: %s\n", favoriteCar);
+//     return 0;
+// }
+
 #include <stdio.h>
 int main(){
-    char favoriteSubjects[] = "Math, Coding";
-    char favoriteHobby[] = "Coding, AI development, and hardware development with AI; finally, I like to play chess";
-    char favoriteVideoGame[] = "GTA 5";
-    char favoriteCar[] = "Mercedes Maybach S class S 500, and Mercedes G Wagon 4x4, "
-                          "Rolls Royce Phantom, and BMW 7 series";
-    printf("My favorite subject is: %s\n", favoriteSubjects);
-    printf("My favorite hobby is: %s\n", favoriteHobby);
-    printf("My favorite video game is: %s\n", favoriteVideoGame);
-    printf("My favorite car is: %s\n", favoriteCar);
+    char Name[] = "Alexhander";
+    int age = 25;
+    float monthsOld = 25 * 12;
+    printf("My name is: %s\n", Name);
+    printf("I am %d years old.\n", age);
+    printf("I am %.1f months old.\n", monthsOld);
     return 0;
 }
