@@ -149,13 +149,32 @@
 //     return 0;
 // }
 
+// #include <stdio.h>
+// int main(){
+//     char Name[] = "Alexhander";
+//     int age = 25;
+//     float monthsOld = 25 * 12;
+//     printf("My name is: %s\n", Name);
+//     printf("I am %d years old.\n", age);
+//     printf("I am %.1f months old.\n", monthsOld);
+//     return 0;
+// }
+
 #include <stdio.h>
 int main(){
-    char Name[] = "Alexhander";
-    int age = 25;
-    float monthsOld = 25 * 12;
-    printf("My name is: %s\n", Name);
-    printf("I am %d years old.\n", age);
-    printf("I am %.1f months old.\n", monthsOld);
+    char favouriteCar[] = "Rolls Royce Cullinan";
+    char favourtieFood[] = "Shawarma";
+    int FavouriteNumber = 9;
+    float succesRate = 99.9;
+    long long myCompanysNetWorth = 10000000000000000LL;
+    float myNetWorth = 999999999.999;
+
+    printf("My favorite car is: %s\n", favouriteCar);
+    printf("My favorite food is: %s\n", favourtieFood);
+    printf("My favorite number is: %d\n", FavouriteNumber);
+    printf("My success rate is: %.1f\n", succesRate);
+    printf("My company's net worth is: %d\n", myCompanysNetWorth);
+    printf("My net worth is: %.2f\n", myNetWorth);
     return 0;
 }
+
