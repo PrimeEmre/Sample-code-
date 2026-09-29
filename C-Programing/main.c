@@ -162,20 +162,28 @@
 
 // Succes and about me program
 #include <stdio.h>
-int main(){
-    char favouriteCar[] = "Rolls Royce Cullinan";
-    char favourtieFood[] = "Shawarma";
-    int FavouriteNumber = 9;
-    float succesRate = 99.9;
-    long long myCompanysNetWorth = 10000000000000000;
-    float myNetWorth = 999999999.999;
 
-    printf("My favorite car is: %s\n", favouriteCar);
-    printf("My favorite food is: %s\n", favourtieFood);
-    printf("My favorite number is: %d\n", FavouriteNumber);
-    printf("My success rate is: %.1f\n", succesRate);
-    printf("My company's net worth is: %d\n", myCompanysNetWorth);
-    printf("My net worth is: %.2f\n", myNetWorth);
+int main() {
+    // Personal preferences
+    const char FAVORITE_CAR[] = "Rolls Royce Cullinan";
+    const char FAVORITE_FOOD[] = "Shawarma";
+    const int FAVORITE_NUMBER = 9;
+
+    // Performance and financial metrics
+    const float SUCCESS_RATE = 99.9f;
+    const long long COMPANY_NET_WORTH = 10000000000000000LL;
+    const double PERSONAL_NET_WORTH = 999999999.999;
+
+    // Displaying the data
+    printf("My favorite car is: %s\n", FAVORITE_CAR);
+    printf("My favorite food is: %s\n", FAVORITE_FOOD);
+    printf("My favorite number is: %d\n", FAVORITE_NUMBER);
+    
+    // Output formatting includes relevant symbols (%, $) for readability
+    printf("My success rate is: %.1f%%\n", SUCCESS_RATE);
+    printf("My company's net worth is: $%lld\n", COMPANY_NET_WORTH);
+    printf("My net worth is: $%.2f\n", PERSONAL_NET_WORTH);
+    
     return 0;
 }
 
