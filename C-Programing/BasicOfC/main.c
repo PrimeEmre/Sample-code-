@@ -1,0 +1,202 @@
+// Hello world program in C
+
+// #include <stdio.h>
+
+// int main(){
+//     printf("Hello, World!\n");
+//     return 0;
+
+// Printing our name
+
+// #include <stdio.h>
+
+// int main(){
+//     printf( "Emre Guzel\n");
+//     printf("Favorite place in the world?\n");
+//     printf("Istanbul\n");
+//     return 0;
+// }
+
+// About me program
+
+// #include <stdio.h>
+
+// int main(){
+//     printf( "Favorite car? \n");
+//     printf("Mercedes Maybach S class s 500 \n");
+//     printf("\n");
+//     printf("Favorite Restaurant\n");
+//     printf("Nusret\n");
+//     printf("\n");
+//     printf("Favorite food\n");
+//     printf("Adana Kebab \n");
+//     return 0;
+// }
+
+// Calculating
+
+// #include <stdio.h>
+
+// int main(){
+//     printf( "1 + 1 = %d\n", 1 + 1 );
+//     return 0;
+// }
+
+// #include <stdio.h>
+
+// int main(){
+//     printf( "100 X 100 = %d\n", 100 * 100 );
+//     return 0;
+// }
+
+// #include <stdio.h>
+
+// int main(){
+//     printf( "500 / 5 = %d\n", 500 / 5 );
+//     return 0;
+// }
+
+// Creating variables and printing them
+
+// #include <stdio.h>
+// int main(){
+//     int num1 = 100;
+//     int num2 = 200;
+//     printf("100 + 200 is equal to: %d\n", num1 + num2);
+// }
+
+//Area of rectangle
+//a= lw
+// int main(){
+//     int length = 5;
+//     int width = 4;
+//     int result = length * width;
+//     printf("Area of the rectangle is: %d %s\n", result, "mm^2");
+// }
+
+// float variables
+// #include <stdio.h>
+// int main(){
+//     float num1 = 9.9;
+//     float num2 = 10.4;
+//     float result = num1 + num2;
+//     printf("9.9 + 10.4 is equal to: %.2f\n", result);
+//     return 0;
+// }
+
+// #include <stdio.h>
+// // Circumference of circle
+// //C= 2πr
+// int main(){
+//     const float TAU = 6.28; //3.14 * 2 = 6.28
+//     float radius = 65.78;
+//     float Circumference = radius * TAU;
+//     printf("Circumference of the circle is: %.3f\n", Circumference);
+//     return 0;
+// }
+
+// #include <stdio.h>
+// // Area of triangle
+// // A = 1/2 * b * h
+// int main(){
+//     float base = 140.3;
+//     float height = 9.9;
+//     float result =  base * height / 2;
+//     printf("Area of the triangle is: %.2f %s\n", result,"m^2");
+//     return 0;
+// }
+
+// creating string variables
+// #include <stdio.h>
+// int main(){
+//     char name[] = "Emre Guzel";
+//     char favorite_place[] = "Istanbul";
+//     printf("My name is: %s\n", name);
+//     printf("My favorite place in the world is: %s\n", favorite_place);
+//     return 0;
+// }
+
+// about me program with variables
+// #include <stdio.h>
+// int main(){
+//     char name[] = "Emre Guzel";
+//     char place[] = "Dubai";
+//     char favoriteRestaurant[] = "Aga Baba";
+//     char favoriteFood[] = "Roasted lamb";
+//     char favoriteCar[] = "Mercedes Maybach S class s 500";
+//     char favoriteCodingLanguage[] = "Python";
+//     printf("My name is: %s\n", name);
+//     printf("My favorite place in the world is: %s\n", place);
+//     printf("My favorite restaurant is: %s\n", favoriteRestaurant);
+//     printf("My favorite food is: %s\n", favoriteFood);
+//     printf("My favorite car is: %s\n", favoriteCar);
+//     printf("My favorite coding language is: %s\n", favoriteCodingLanguage);
+//     return 0;
+// }
+
+//  Creating the question about favorite subjects, hobbies, video games, and cars
+// #include <stdio.h>
+// int main(){
+//     char favoriteSubjects[] = "Math, Coding";
+//     char favoriteHobby[] = "Coding, AI development, and hardware development with AI; finally, I like to play chess";
+//     char favoriteVideoGame[] = "GTA 5";
+//     char favoriteCar[] = "Mercedes Maybach S class S 500, and Mercedes G Wagon 4x4, "
+//                           "Rolls Royce Phantom, and BMW 7 series";
+//     printf("My favorite subject is: %s\n", favoriteSubjects);
+//     printf("My favorite hobby is: %s\n", favoriteHobby);
+//     printf("My favorite video game is: %s\n", favoriteVideoGame);
+//     printf("My favorite car is: %s\n", favoriteCar);
+//     return 0;
+// }
+
+// #include <stdio.h>
+// int main(){
+//     char Name[] = "Alexhander";
+//     int age = 25;
+//     float monthsOld = 25 * 12;
+//     printf("My name is: %s\n", Name);
+//     printf("I am %d years old.\n", age);
+//     printf("I am %.1f months old.\n", monthsOld);
+//     return 0;
+// }
+
+// Succes and about me program
+// #include <stdio.h>
+
+// int main() {
+//     // Personal preferences
+//     const char FAVORITE_CAR[] = "Rolls Royce Cullinan";
+//     const char FAVORITE_FOOD[] = "Shawarma";
+//     const int FAVORITE_NUMBER = 9;
+
+//     // Performance and financial metrics
+//     const float SUCCESS_RATE = 99.9f;
+//     const long long COMPANY_NET_WORTH = 10000000000000000LL;
+//     const double PERSONAL_NET_WORTH = 999999999.999;
+
+//     // Displaying the data
+//     printf("My favorite car is: %s\n", FAVORITE_CAR);
+//     printf("My favorite food is: %s\n", FAVORITE_FOOD);
+//     printf("My favorite number is: %d\n", FAVORITE_NUMBER);
+    
+//     // Output formatting includes relevant symbols (%, $) for readability
+//     printf("My success rate is: %.1f%%\n", SUCCESS_RATE);
+//     printf("My company's net worth is: $%lld\n", COMPANY_NET_WORTH);
+//     printf("My net worth is: $%.2f\n", PERSONAL_NET_WORTH);
+    
+//     return 0;
+// }
+
+// Job title and salary program
+#include <stdio.h>
+int main() {
+    const char JOB_TITLE[] = "Software Engineer";
+    const char COMPANY_NAME[] = "OpenAI";
+    const float SALARY = 2500000.00;
+
+    printf("My job title is: %s\n", JOB_TITLE);
+    printf("I work at: %s\n", COMPANY_NAME);
+    printf("My annual salary is: $%.2f\n", SALARY);
+
+    return 0;
+}
