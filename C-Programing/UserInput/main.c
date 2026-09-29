@@ -1,15 +1,16 @@
-// calculating the area of a rectangle using user input
+// calculating the area of cicumfrence of circle 
+// formula is A = π * r^2
+
+#define _USE_MATH_DEFINES // needed for M_PI with MSVC (cl.exe)
+#include <math.h>
 #include <stdio.h>
 
 int main() {
- int length;
- int width;
- printf("Enter the length of the rectangle: ");
-    scanf("%d", &length);
-    printf("Enter the width of the rectangle: ");
-    scanf("%d", &width);
-    int area = length * width;
-    printf("\n");
-    printf("The area of the rectangle is %d cm^2\n", area);
-    return 0;5
+ int  radius ;
+ printf("Enter the radius of the circle: ");
+    scanf("%d", &radius);
+
+   double area = M_PI * radius * radius;
+    printf("The area of the circle is %.2f cm^2\n", area);
+    return 0;
 }
