@@ -25,7 +25,7 @@ Source code for my Python tutorials can be found within the [**/Python-projects*
     * 🛡️ [`The-Tech-Security-Threat-Briefing--local`](./Python-projects/Agets-part-2/The-Tech-Security-Threat-Briefing--local) — Local privacy-focused threat intelligence tool.
     * 🤖 [`GitHub-Code-Explainer---local`](./Python-projects/Agets-part-2/GitHub-Code-Explainer---local) — Local AI agent that analyzes and explains codebases.
     * 📈 [`The-Stock-Intelligence-Terminal---Local---PC--local`](./Python-projects/Agets-part-2/The-Stock-Intelligence-Terminal---Local---PC--local) — AI-driven financial market tracker (PC Optimized).
-    * 💻 [`The-Stock-Intelligence-Terminal--laptop--local`](./Python-projects/Agets-part-2/The-Stock-Intelligence-Terminal--laptop--local) — AI-driven financial market tracker (Laptop/VRAM Optimized).
+    * 💻 [`The-Stock-Intelligence-Terminal--laptop---local`](./Python-projects/Agets-part-2/The-Stock-Intelligence-Terminal--laptop---local) — AI-driven financial market tracker (Laptop/VRAM Optimized).
     * 📱 [`Social-Media-Multiplier-local`](./Python-projects/Agets-part-2/Social-Media-Multiplier-local) — Local automated content distribution tool.
 
 * 📖 **Creating Agents: A Complete Guide (Part 1 - Project Suite)**
@@ -38,7 +38,7 @@ Source code for my Python tutorials can be found within the [**/Python-projects*
 
 * 📖 **How to Make an AI in Python (Book Agent)**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/how-to-make-ai-in-python) 
-  * 📁 **GitHub Folder:** [`/Python-projects/Python-Al-Projects`](./Python-projects/Python-Al-Projects/)
+  * 📁 **GitHub Folder:** [`/Python-projects/Python-AI-Projects`](./Python-projects/Python-AI-Projects/)
 
 * 📖 **How to Make a Tkinter Project in Python**
   * 🔗 [Blog Post](https://blog.emreguzel.ca/2026/01/02/python-modules-the-ultimate-guide/) 
@@ -51,6 +51,9 @@ Source code for my Python tutorials can be found within the [**/Python-projects*
 ### 🖥️ C Programming
 **Source Folder:** [`/C-Programing`](./C-Programing/)
 * 📖 **Introduction to C Programming** 🔗 [Blog Post](https://blog.emreguzel.ca/2026/09/17/introduction-to-c-programming/) | 📁 Main File: [`main.c`](./C-Programing/main.c)
+  * *Sub-Folders:*
+    * 🔤 [`BasicOfC`](./C-Programing/BasicOfC/main.c) — Beginner exercises: Hello World, printing, arithmetic, variables, and strings.
+    * ⌨️ [`UserInput`](./C-Programing/UserInput/main.c) — Reading user input with `scanf` (rectangle area calculator).
 
 ### 🎨 JavaScript Projects
 Source code for my frontend interactions can be found within the [**/Javascript-projects**](./Javascript-projects/) directory:
@@ -58,7 +61,7 @@ Source code for my frontend interactions can be found within the [**/Javascript-
 * 📖 **Websites Using APIs** — 🔗 [Blog Post](https://blog.emreguzel.ca/2025/12/06/how-to-make-webistes-using-api/)
   * 📁 **Sub-Folders:** [`Advenced-API-projects`](./Javascript-projects/Advenced-API-projects/) or [`Javascript-API-Projects`](./Javascript-projects/Javascript-API-Projects/)
 * 📖 **User Input & Mini Projects** — 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/13/javascript-mini-projects-for-beginners/) 
-  * 📁 **Sub-Folders:** [`Advenced-userinput-projects`](./Javascript-projects/Advenced-userinput-projects/) or [`basic-userinput-projects`](./Javascript-projects/basic-userinput-projects/)
+  * 📁 **Sub-Folders:** [`Advenced-userInput-projects`](./Javascript-projects/Advenced-userInput-projects/) or [`basic-userInput-projects`](./Javascript-projects/basic-userInput-projects/)
 * 📖 **First JS Website Build** — 🔗 [Blog Post](https://blog.emreguzel.ca/2025/10/12/take-your-web-development-skills-to-the-next-level-this-guide-teaches-you-how-to-build-a-website-from-scratch-using-html-css-and-the-power-of-javascript-for-interactivity-a-beginners-guide-to-cr/) 
   * 📁 **Sub-Folder:** [`my-first-javascript-website`](./Javascript-projects/my-first-javascript-website/)
 
@@ -70,16 +73,18 @@ Source code for my frontend interactions can be found within the [**/Javascript-
 ### 💼 Web Design & Portfolios
 **Source Folders:** [`/professional_website`](./professional_website/) & [`/my_first_webpage`](./my_first_webpage/)
 * 📖 **Professional Website Build** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/27/learn-web-design-how-to-build-your-first-professional-website/) | 📁 Main File: [`index.html`](./professional_website/index.html)
-* 📖 **HTML & CSS Foundations** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/10/how-to-make-a-website-with-html-and-css/) | 📁 Main Files: [`chess.html`](./professional_website/chess.html) , [`coding.html`](./professional_website/coding.html) , [`video_game.html`](./professional_website/video_game.html)
+* 📖 **HTML & CSS Foundations** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/09/10/how-to-make-a-website-with-html-and-css/) | 📁 Main Files: [`chess.html`](./professional_website/chess.html) , [`coding.html`](./professional_website/coding.html) , [`vedio_game.html`](./professional_website/vedio_game.html)
 * 📖 **Your First Webpage** 🔗 [Blog Post](https://blog.emreguzel.ca/2025/08/27/how-to-make-your-first-webpage/) | 📁 Main File: [`my_first_webpage/index.html`](./my_first_webpage/index.html)
 
 ---
 
 ## 🖼️ Media & Image Processing
 Found in the **root directory**, these assets are used for testing animations and image logic:
-* [`rotated_billgates_90.jpg`](./rotated_billgates_90.jpg)
+* [`billgates.jpg`](./billgates.jpg) — original source image
+* Rotations: [`rotated_billgates_90.jpg`](./rotated_billgates_90.jpg), [`rotated_billgates_180.jpg`](./rotated_billgates_180.jpg), [`rotated_billgates_270.jpg`](./rotated_billgates_270.jpg), [`rotated_billgates_360.jpg`](./rotated_billgates_360.jpg)
 * [`animated_billgates.gif`](./animated_billgates.gif)
 * [`billgates_card.jpg`](./billgates_card.jpg)
+* [`og_image_generator.png`](./og_image_generator.png)
 
 ---
 
