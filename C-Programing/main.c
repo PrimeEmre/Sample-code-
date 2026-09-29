@@ -161,29 +161,42 @@
 // }
 
 // Succes and about me program
+// #include <stdio.h>
+
+// int main() {
+//     // Personal preferences
+//     const char FAVORITE_CAR[] = "Rolls Royce Cullinan";
+//     const char FAVORITE_FOOD[] = "Shawarma";
+//     const int FAVORITE_NUMBER = 9;
+
+//     // Performance and financial metrics
+//     const float SUCCESS_RATE = 99.9f;
+//     const long long COMPANY_NET_WORTH = 10000000000000000LL;
+//     const double PERSONAL_NET_WORTH = 999999999.999;
+
+//     // Displaying the data
+//     printf("My favorite car is: %s\n", FAVORITE_CAR);
+//     printf("My favorite food is: %s\n", FAVORITE_FOOD);
+//     printf("My favorite number is: %d\n", FAVORITE_NUMBER);
+    
+//     // Output formatting includes relevant symbols (%, $) for readability
+//     printf("My success rate is: %.1f%%\n", SUCCESS_RATE);
+//     printf("My company's net worth is: $%lld\n", COMPANY_NET_WORTH);
+//     printf("My net worth is: $%.2f\n", PERSONAL_NET_WORTH);
+    
+//     return 0;
+// }
+
+// Job title and salary program
 #include <stdio.h>
-
 int main() {
-    // Personal preferences
-    const char FAVORITE_CAR[] = "Rolls Royce Cullinan";
-    const char FAVORITE_FOOD[] = "Shawarma";
-    const int FAVORITE_NUMBER = 9;
+    const char JOB_TITLE[] = "Software Engineer";
+    const char COMPANY_NAME[] = "OpenAI";
+    const float SALARY = 2500000.00;
 
-    // Performance and financial metrics
-    const float SUCCESS_RATE = 99.9f;
-    const long long COMPANY_NET_WORTH = 10000000000000000LL;
-    const double PERSONAL_NET_WORTH = 999999999.999;
+    printf("My job title is: %s\n", JOB_TITLE);
+    printf("I work at: %s\n", COMPANY_NAME);
+    printf("My annual salary is: $%.2f\n", SALARY);
 
-    // Displaying the data
-    printf("My favorite car is: %s\n", FAVORITE_CAR);
-    printf("My favorite food is: %s\n", FAVORITE_FOOD);
-    printf("My favorite number is: %d\n", FAVORITE_NUMBER);
-    
-    // Output formatting includes relevant symbols (%, $) for readability
-    printf("My success rate is: %.1f%%\n", SUCCESS_RATE);
-    printf("My company's net worth is: $%lld\n", COMPANY_NET_WORTH);
-    printf("My net worth is: $%.2f\n", PERSONAL_NET_WORTH);
-    
     return 0;
 }
-
