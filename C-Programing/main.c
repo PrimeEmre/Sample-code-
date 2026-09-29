@@ -167,7 +167,7 @@ int main(){
     char favourtieFood[] = "Shawarma";
     int FavouriteNumber = 9;
     float succesRate = 99.9;
-    long long myCompanysNetWorth = 10000000000000000LL;
+    long long myCompanysNetWorth = 10000000000000000;
     float myNetWorth = 999999999.999;
 
     printf("My favorite car is: %s\n", favouriteCar);
