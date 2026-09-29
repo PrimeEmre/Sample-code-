@@ -1,8 +1,11 @@
-# Compiled C binaries
-C-Programing/*.exe
-C-Programing/*.app
-C-Programing/*.out
-C-Programing/*.o
+# Compiled C binaries and build artifacts
+C-Programing/**/*.exe
+C-Programing/**/*.app
+C-Programing/**/*.out
+C-Programing/**/*.o
+C-Programing/**/*.obj
+C-Programing/**/*.ilk
+C-Programing/**/*.pdb
 
 # Unity generated files
 maze_game/obj/

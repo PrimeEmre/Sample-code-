@@ -10,7 +10,7 @@ See [README.md](README.md) for the full folder-to-blog-post mapping.
 
 ## Structure
 
-- `C-Programing/` — standalone C exercises. Compile per-file with gcc (e.g. `gcc ./main.c -o main.exe`), no Makefile/build system.
+- `C-Programing/` — standalone C exercises (`main.c` at the root plus `BasicOfC/` and `UserInput/`, each its own program). No Makefile. The default VS Code build task (`.vscode/tasks.json`) compiles the active file with MSVC: `cl.exe /Zi /EHsc /nologo /Fe<name>.exe <file>.c`, run from a Developer Command Prompt so `cl.exe` is on PATH. The resulting `.exe`/`.obj`/`.pdb`/`.ilk` files are committed. Don't delete them or add them to the commit unless asked.
 - `Python-projects/` — multiple independent Python scripts and small AI-agent projects, each in its own subfolder:
   - `Agent/`, `Agets-part-2/` — AI agent tutorial projects (per-subfolder scripts, not a shared package). Folder names ending in `--local` or `-local` denote agents meant to run against local models rather than cloud APIs.
   - `Python-AI-Projects/`, `Tkinter/`, `Python-module/`, `Basics-Of-Python/` — beginner/tutorial scripts, each with its own `main.py`.
@@ -27,5 +27,6 @@ See [README.md](README.md) for the full folder-to-blog-post mapping.
 ## Working conventions
 
 - Projects with folder names ending in `-local`/`--local` are designed to run fully locally (local LLMs, local TTS, no cloud calls) — don't introduce cloud API dependencies into them without checking with the user first.
+- There is no `.gitignore` at the repo root, so check `git status` before committing so stray build outputs, `venv`s, or `.env` files don't get staged.
 - Several Python agent subfolders contain `.env` files with local configuration/secrets — never read, print, or commit contents of `.env` files.
 - Since each subfolder is independent, always check for a subfolder-specific `README.md`, `AGENTS.md`, or `CLAUDE.md` before making changes there — those override this top-level file for their own directory.
