@@ -11,5 +11,5 @@ int main() {
     int area = length * width;
     printf("\n");
     printf("The area of the rectangle is %d cm^2\n", area);
-    return 0;
+    return 0;5
 }
