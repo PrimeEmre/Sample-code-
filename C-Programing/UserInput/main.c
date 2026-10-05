@@ -17,15 +17,37 @@
 //     return 0;
 // }
 
+// #include <stdio.h>
+
+// int main() {
+//     char name[50];
+//     printf("Enter your full name: ");
+//     fgets(name, sizeof(name), stdin);
+//     printf("Hello, %s", name);
+//     return 0;
+// }
+
 #include <stdio.h>
 
 int main() {
-    char name[50];
-    printf("Enter your full name: ");
-    fgets(name, sizeof(name), stdin);
-    printf("Hello, %s", name);
+    int age;
+    int result;
+    int c;
+
+    printf("Please enter your age: ");
+    while ((result = scanf("%d", &age)) != 1) {
+        if (result == EOF) {
+            return 1;  // no more input, so stop
+        }
+        while ((c = getchar()) != '\n' && c != EOF) {
+            // throw away the rest of the bad line
+        }
+        printf("That's not a number. Please enter your age: ");
+    }
+    printf("You are %d years old.\n", age);
     return 0;
 }
+
 
 // logic statments using if and else 
 
