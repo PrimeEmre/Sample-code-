@@ -51,45 +51,61 @@
 
 // logic statments using if and else 
 
- #include <stdio.h>
+//  #include <stdio.h>
 
- int main(void) {
-     int score;
+//  int main(void) {
+//      int score;
 
-     printf("Enter your score (0-100): ");
-    if (scanf("%d", &score) != 1 || score < 0 || score > 100) {
-        printf("Please enter a number from 0 to 100.\n");
-         return 1;
-     }
+//      printf("Enter your score (0-100): ");
+//     if (scanf("%d", &score) != 1 || score < 0 || score > 100) {
+//         printf("Please enter a number from 0 to 100.\n");
+//          return 1;
+//      }
 
-     if (score >= 100) {
-         printf("Grade: A+\n");
-    } else if (score >= 85) {
-           printf("Grade: A\n");
-       } else if (score >= 80) {
-           printf("Grade: A-\n");
-       } else if (score >= 79) {
-           printf("Grade: B+\n");
-            } else if (score >= 79) {
-           printf("Grade: B+\n");
-       } else if (score >= 75) {
-           printf("Grade: B\n");
-       } else if (score >= 70) {
-           printf("Grade: B-\n");
-       } else if (score >= 69) {
-           printf("Grade: C+\n");
-       } else if (score >= 65) {
-           printf("Grade: C\n");
-       } else if (score >= 60) {
-           printf("Grade: C-\n");
-       } else if (score >= 59) {
-           printf("Grade: D+\n");
-       } else if (score >= 55) {
-           printf("Grade: D\n");
-       } else if (score >= 50) {
-           printf("Grade: D-\n");
-       } else {
-           printf("Grade: F\n");
-       }
-         return 0;
- }
+//      if (score >= 100) {
+//          printf("Grade: A+\n");
+//     } else if (score >= 85) {
+//            printf("Grade: A\n");
+//        } else if (score >= 80) {
+//            printf("Grade: A-\n");
+//        } else if (score >= 79) {
+//            printf("Grade: B+\n");
+//             } else if (score >= 79) {
+//            printf("Grade: B+\n");
+//        } else if (score >= 75) {
+//            printf("Grade: B\n");
+//        } else if (score >= 70) {
+//            printf("Grade: B-\n");
+//        } else if (score >= 69) {
+//            printf("Grade: C+\n");
+//        } else if (score >= 65) {
+//            printf("Grade: C\n");
+//        } else if (score >= 60) {
+//            printf("Grade: C-\n");
+//        } else if (score >= 59) {
+//            printf("Grade: D+\n");
+//        } else if (score >= 55) {
+//            printf("Grade: D\n");
+//        } else if (score >= 50) {
+//            printf("Grade: D-\n");
+//        } else {
+//            printf("Grade: F\n");
+//        }
+//          return 0;
+//  }
+
+#include <stdio.h>
+
+int main (void) {
+
+    int age;
+    printf("Please enter your age: ");
+    scanf("%d", &age);  
+    if (age >= 18){
+        printf("You are eligible to vote\n");
+    } else {
+        printf("You are not eligible to vote\n");
+    }   
+
+    return 0;
+}
