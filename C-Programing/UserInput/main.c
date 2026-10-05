@@ -1,4 +1,6 @@
-// user input 
+// user input
+
+#include <stdio.h> // keep this line active - every program below needs it
 
 // calculating the area of circumference of circle 
 // formula is A = π * r^2
@@ -94,18 +96,56 @@
 //          return 0;
 //  }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main (void) {
+// int main (void) {
 
-    int age;
-    printf("Please enter your age: ");
-    scanf("%d", &age);  
-    if (age >= 18){
-        printf("You are eligible to vote\n");
+//     int age;
+//     printf("Please enter your age: ");
+//     scanf("%d", &age);  
+//     if (age >= 18){
+//         printf("You are eligible to vote\n");
+//     } else {
+//         printf("You are not eligible to vote\n");
+//     }   
+
+//     return 0;
+// }
+
+// foumla = BMI = weight (kg) / height^2 (m^2)
+
+int main (void){
+
+    float weight;
+    float height;
+
+    printf("Please enter your weight in kg: ");
+    scanf("%f", &weight);
+    
+    printf("Please enter your height in cm: ");
+    scanf("%f", &height);
+    height = height / 100;
+
+    float bmi = weight / (height * height);
+    printf("Your BMI is %.1f\n", bmi);
+
+    if (bmi < 16) {
+        printf("You are in Severe Thinness class\n");
+    } else if (bmi < 17) {
+        printf("You are in Moderate Thinness class\n");
+    } else if (bmi < 18.5) {
+        printf("You are in Mild Thinness class\n");
+    } else if (bmi < 25) {
+        printf("You are in Normal class\n");
+    } else if (bmi < 30) {
+        printf("You are in Overweight class\n");
+    } else if (bmi < 35) {
+        printf("You are in Obese class 1\n");
+    } else if (bmi < 40) {
+        printf("You are in Obese class 2\n");
     } else {
-        printf("You are not eligible to vote\n");
-    }   
-
+        printf("You are in Obese class 3\n");
+    }
     return 0;
 }
+
