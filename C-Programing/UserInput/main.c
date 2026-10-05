@@ -1,6 +1,6 @@
 // user input
 
-#include <stdio.h> // keep this line active - every program below needs it
+// #include <stdio.h> // keep this line active - every program below needs it
 
 // calculating the area of circumference of circle 
 // formula is A = π * r^2
@@ -114,38 +114,59 @@
 
 // foumla = BMI = weight (kg) / height^2 (m^2)
 
-int main (void){
+// int main (void){
 
-    float weight;
-    float height;
+//     float weight;
+//     float height;
 
-    printf("Please enter your weight in kg: ");
-    scanf("%f", &weight);
+//     printf("Please enter your weight in kg: ");
+//     scanf("%f", &weight);
     
-    printf("Please enter your height in cm: ");
-    scanf("%f", &height);
-    height = height / 100;
+//     printf("Please enter your height in cm: ");
+//     scanf("%f", &height);
+//     height = height / 100;
 
-    float bmi = weight / (height * height);
-    printf("Your BMI is %.1f\n", bmi);
+//     float bmi = weight / (height * height);
+//     printf("Your BMI is %.1f\n", bmi);
 
-    if (bmi < 16) {
-        printf("You are in Severe Thinness class\n");
-    } else if (bmi < 17) {
-        printf("You are in Moderate Thinness class\n");
-    } else if (bmi < 18.5) {
-        printf("You are in Mild Thinness class\n");
-    } else if (bmi < 25) {
-        printf("You are in Normal class\n");
-    } else if (bmi < 30) {
-        printf("You are in Overweight class\n");
-    } else if (bmi < 35) {
-        printf("You are in Obese class 1\n");
-    } else if (bmi < 40) {
-        printf("You are in Obese class 2\n");
+//     if (bmi < 16) {
+//         printf("You are in Severe Thinness class\n");
+//     } else if (bmi < 17) {
+//         printf("You are in Moderate Thinness class\n");
+//     } else if (bmi < 18.5) {
+//         printf("You are in Mild Thinness class\n");
+//     } else if (bmi < 25) {
+//         printf("You are in Normal class\n");
+//     } else if (bmi < 30) {
+//         printf("You are in Overweight class\n");
+//     } else if (bmi < 35) {
+//         printf("You are in Obese class 1\n");
+//     } else if (bmi < 40) {
+//         printf("You are in Obese class 2\n");
+//     } else {
+//         printf("You are in Obese class 3\n");
+//     }
+//     return 0;
+// }
+
+// Discount calculator
+
+int main(void) {
+    float price, discount, discounted_price;
+
+    printf("Enter the original price: ");
+    scanf("%f", &price);
+
+    printf("Enter the discount percentage: ");
+    scanf("%f", &discount);
+
+    discounted_price = price - (price * (discount / 100));
+
+    if (discounted_price < 0) {
+        printf("Error: Discounted price cannot be negative.\n");
     } else {
-        printf("You are in Obese class 3\n");
+        printf("The discounted price is: %.2f\n", discounted_price);
     }
+    printf("discounted price is: %.2f\n", discounted_price);
     return 0;
 }
-
