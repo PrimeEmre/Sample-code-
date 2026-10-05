@@ -1,3 +1,5 @@
+// user input 
+
 // calculating the area of circumference of circle 
 // formula is A = π * r^2
 
@@ -25,6 +27,7 @@ int main() {
     return 0;
 }
 
+// logic statments using if and else 
 
 // #include <stdio.h>
 
