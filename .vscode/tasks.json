@@ -1,6 +1,19 @@
 {
     "tasks": [
         {
+            "type": "shell",
+            "label": "Close old run of the program",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "taskkill /F /IM ${fileBasenameNoExtension}.exe >nul 2>&1 & exit 0"
+            ],
+            "presentation": {
+                "reveal": "never"
+            },
+            "problemMatcher": []
+        },
+        {
             "type": "cppbuild",
             "label": "C/C++: cl.exe build active file",
             "command": "cl.exe",
@@ -14,6 +27,7 @@
             "options": {
                 "cwd": "${fileDirname}"
             },
+            "dependsOn": "Close old run of the program",
             "problemMatcher": [
                 "$msCompile"
             ],
