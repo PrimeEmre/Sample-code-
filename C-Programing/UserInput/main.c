@@ -174,52 +174,62 @@
 
 // Math Quiz program
 
-#include <stdio.h>
-#include <string.h>
-int main (){
-const char *questions[] = {
-    "What is 5 + 3?",
-    "What is 10 - 4?",
-    "What is 6 * 7?",
-    "What is 20 / 5?",
-    "What is 15 -4?",
-    "What is 8 + 2?",
-    "What is 12 * 3?",
-    "what is 100 / 25?",
-    "What is 9 + 2?",
-    "What is 20 - 16?",
-    "What is 5 * 7?",
-    "What is 18 / 3?"
-};
-const char *answers[] = {
-    "8",
-    "6",
-    "42",
-    "4",
-    "11",
-    "10",
-    "36",
-    "4",
-    "11",
-    "4",
-    "35",
-    "6"
-};
-char user_answer[10];
-int score = 0;
-int total = sizeof(questions) / sizeof(questions[0]);
+// #include <stdio.h>
+// #include <string.h>
+// int main (){
+// const char *questions[] = {
+//     "What is 5 + 3?",
+//     "What is 10 - 4?",
+//     "What is 6 * 7?",
+//     "What is 20 / 5?",
+//     "What is 15 -4?",
+//     "What is 8 + 2?",
+//     "What is 12 * 3?",
+//     "what is 100 / 25?",
+//     "What is 9 + 2?",
+//     "What is 20 - 16?",
+//     "What is 5 * 7?",
+//     "What is 18 / 3?"
+// };
+// const char *answers[] = {
+//     "8",
+//     "6",
+//     "42",
+//     "4",
+//     "11",
+//     "10",
+//     "36",
+//     "4",
+//     "11",
+//     "4",
+//     "35",
+//     "6"
+// };
+// char user_answer[10];
+// int score = 0;
+// int total = sizeof(questions) / sizeof(questions[0]);
 
-for (int i = 0; i < total; i++) {
-    printf("%s ", questions[i]);
-    scanf("%9s", user_answer); 
-    if (strcmp(user_answer, answers[i]) == 0) {
-        printf("Correct!\n");
-        score++;
-    } else {
-        printf("Wrong! The answer is %s\n", answers[i]);
+// for (int i = 0; i < total; i++) {
+//     printf("%s ", questions[i]);
+//     scanf("%9s", user_answer); 
+//     if (strcmp(user_answer, answers[i]) == 0) {
+//         printf("Correct!\n");
+//         score++;
+//     } else {
+//         printf("Wrong! The answer is %s\n", answers[i]);
+//     }
+// }
+// printf("Your score is: %d out of %d (%d%%)\n", score, total, score * 100 / total);
+
+// return 0;
+// }
+
+// Count from 1 to 10
+int main(void) {
+    int number = 0;
+    for (int i = 1; i <= 10; i++) {
+        number += 1;
+        printf("%d\n", number);
+        scnaf("%d", &number);
     }
-}
-printf("Your score is: %d out of %d (%d%%)\n", score, total, score * 100 / total);
-
-return 0;
 }
