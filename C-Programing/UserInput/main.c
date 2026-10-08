@@ -225,11 +225,14 @@
 // }
 
 // Count from 1 to 10
+#include <stdio.h>
+
 int main(void) {
     int number = 0;
     for (int i = 1; i <= 10; i++) {
         number += 1;
         printf("%d\n", number);
-        scnaf("%d", &number);
+        scanf("%*c"); // Wait for user to press Enter
     }
+    return 0;
 }
