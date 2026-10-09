@@ -225,14 +225,39 @@
 // }
 
 // Count from 1 to 10
-#include <stdio.h>
+// #include <stdio.h>
 
-int main(void) {
-    int number = 0;
-    for (int i = 1; i <= 10; i++) {
-        number += 1;
-        printf("%d\n", number);
-        scanf("%*c"); // Wait for user to press Enter
+// int main(void) {
+//     int number = 0;
+//     for (int i = 1; i <= 10; i++) {
+//         number += 1;
+//         printf("%d\n", number);
+//         scanf("%*c"); // Wait for user to press Enter
+//     }
+//     return 0;
+// }
+
+// Dice Roller
+
+#include <stdio.h>  
+#include <stdlib.h> 
+#include <time.h> 
+
+int main(void){
+    int dice1 , dice2;
+    srand(time(NULL));
+    printf("Press Enter to roll the dice...");
+    scanf("%*c");
+    dice1 = (rand() % 6) + 1;
+    dice2 = (rand() % 6) + 1;
+    printf("For dice 1 you rolled a %d and a %d\n", dice1, dice2);
+    for (int i =0; i < 6; i++){
+        printf("Rolling the dice...\n");
+        scanf("%*c");
+        dice1 = (rand() % 6) + 1;
+        dice2 = (rand() % 6) + 1;
+        printf("For dice 2 you rolled a %d and a %d\n", dice1, dice2);
+
     }
     return 0;
 }
