@@ -239,25 +239,38 @@
 
 // Dice Roller
 
-#include <stdio.h>  
-#include <stdlib.h> 
-#include <time.h> 
+// #include <stdio.h>  
+// #include <stdlib.h> 
+// #include <time.h> 
 
-int main(void){
-    int dice1 , dice2;
-    srand(time(NULL));
-    printf("Press Enter to roll the dice...");
-    scanf("%*c");
-    dice1 = (rand() % 6) + 1;
-    dice2 = (rand() % 6) + 1;
-    printf("For dice 1 you rolled a %d and a %d\n", dice1, dice2);
-    for (int i =0; i < 6; i++){
-        printf("Rolling the dice...\n");
-        scanf("%*c");
-        dice1 = (rand() % 6) + 1;
-        dice2 = (rand() % 6) + 1;
-        printf("For dice 2 you rolled a %d and a %d\n", dice1, dice2);
+// int main(void){
+//     int dice1 , dice2;
+//     srand(time(NULL));
+//     printf("Press Enter to roll the dice...");
+//     scanf("%*c");
+//     dice1 = (rand() % 6) + 1;
+//     dice2 = (rand() % 6) + 1;
+//     printf("For dice 1 you rolled a %d and a %d\n", dice1, dice2);
+//     for (int i =0; i < 6; i++){
+//         printf("Rolling the dice...\n");
+//         scanf("%*c");
+//         dice1 = (rand() % 6) + 1;
+//         dice2 = (rand() % 6) + 1;
+//         printf("For dice 2 you rolled a %d and a %d\n", dice1, dice2);
 
-    }
+//     }
+//     return 0;
+// }
+
+// Factorial Calculato
+
+# include <stdio.h>
+int main (void){
+    int num1;
+    int num2;
+    int result = 1;
+    
+
+
     return 0;
 }
