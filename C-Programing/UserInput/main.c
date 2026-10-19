@@ -1,6 +1,6 @@
 // user input
 
-// #include <stdio.h> // keep this line active - every program below needs it
+#include <stdio.h> // keep this line active - every program below needs it
 
 // calculating the area of circumference of circle 
 // formula is A = π * r^2
@@ -263,31 +263,56 @@
 // }
 
 // Sum & average calculator
-#include <stdio.h>
-int main(void){
+// #include <stdio.h>
+// int main(void){
  
-    int num, sum = 0;
-    float average;
+//     int num, sum = 0;
+//     float average;
 
-    printf("Enter the number of integers you want to input: ");
-    scanf("%d", &num);
+//     printf("Enter the number of integers you want to input: ");
+//     scanf("%d", &num);
 
-      if (num == 1) {
-        printf("Not a number  %d\n", num);
+//       if (num == 1) {
+//         printf("Not a number  %d\n", num);
+//     } else {
+//         printf("You did not enter an integer.\n");
+//     }
+
+//     for (int i = 0; i < num; i++) {
+//         int input;
+//         printf("Enter integer %d: ", i + 1);
+//         scanf("%d", &input);
+//         sum += input;
+//     }
+
+//     average = (float)sum / num;
+//     printf("The sum is: %d\n", sum);
+//     printf("The average is: %.2f\n", average);
+
+//     return 0;
+// }
+
+
+//Factorial Calculator
+int main(void) {
+    int num, i;
+    unsigned long long factorial = 1;
+
+    printf("Enter a positive integer: ");
+    if (scanf("%d", &num) != 1) {
+        printf("That was not a number.\n");
+        return 1;
+    }
+    if (num < 0) {
+        printf("Error! Factorial of a negative number doesn't exist.\n");
+    } else if (num > 20) {
+        printf("Error! %d! is too big for this program (max is 20).\n", num);
     } else {
-        printf("You did not enter an integer.\n");
+        for (i = 1; i <= num; ++i) {
+            factorial *= i;
+        }
+        printf("Factorial of %d = %llu\n", num, factorial);
     }
-
-    for (int i = 0; i < num; i++) {
-        int input;
-        printf("Enter integer %d: ", i + 1);
-        scanf("%d", &input);
-        sum += input;
-    }
-
-    average = (float)sum / num;
-    printf("The sum is: %d\n", sum);
-    printf("The average is: %.2f\n", average);
 
     return 0;
 }
