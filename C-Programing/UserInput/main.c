@@ -262,15 +262,43 @@
 //     return 0;
 // }
 
-// Factorial Calculato
+// Sum & average calculator
+#include <stdio.h>
+int main(void){
+ 
+    int num, sum = 0;
+    float average;
 
-# include <stdio.h>
-int main (void){
-    int num1;
-    int num2;
-    int result = 1;
-    
+    printf("Enter the number of integers you want to input: ");
+    scanf("%d", &num);
 
+      if (num == 1) {
+        printf("Not a number  %d\n", num);
+    } else {
+        printf("You did not enter an integer.\n");
+    }
+
+    for (int i = 0; i < num; i++) {
+        int input;
+        printf("Enter integer %d: ", i + 1);
+        scanf("%d", &input);
+        sum += input;
+    }
+
+    average = (float)sum / num;
+    printf("The sum is: %d\n", sum);
+    printf("The average is: %.2f\n", average);
 
     return 0;
 }
+
+// Factorial Calculator (in progress)
+
+// # include <stdio.h>
+// int main (void){
+//     int num1;
+//     int num2;
+//     int result = 1;
+//
+//     return 0;
+// }
