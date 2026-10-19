@@ -1,6 +1,6 @@
 // user input
 
-#include <stdio.h> // keep this line active - every program below needs it
+// #include <stdio.h> // keep this line active - every program below needs it
 
 // calculating the area of circumference of circle 
 // formula is A = π * r^2
@@ -295,21 +295,23 @@
 
 //Factorial Calculator
 int main(void) {
-    int num, i;
+    int num, count;
     unsigned long long factorial = 1;
 
     printf("Enter a positive integer: ");
-    if (scanf("%d", &num) != 1) {
-        printf("That was not a number.\n");
-        return 1;
+    scanf("%d", &num);
+
+        if (num == 1) {
+    printf("Not a number  %d\n", num);
+    } else {
+        printf("You did not enter an integer.\n");
     }
+     
     if (num < 0) {
         printf("Error! Factorial of a negative number doesn't exist.\n");
-    } else if (num > 20) {
-        printf("Error! %d! is too big for this program (max is 20).\n", num);
     } else {
-        for (i = 1; i <= num; ++i) {
-            factorial *= i;
+        for (count = 1; count <= num; ++count) {
+            factorial *= count;
         }
         printf("Factorial of %d = %llu\n", num, factorial);
     }
