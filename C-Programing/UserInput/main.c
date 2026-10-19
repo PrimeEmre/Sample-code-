@@ -239,25 +239,55 @@
 
 // Dice Roller
 
-#include <stdio.h>  
-#include <stdlib.h> 
-#include <time.h> 
+// #include <stdio.h>  
+// #include <stdlib.h> 
+// #include <time.h> 
 
+// int main(void){
+//     int dice1 , dice2;
+//     srand(time(NULL));
+//     printf("Press Enter to roll the dice...");
+//     scanf("%*c");
+//     dice1 = (rand() % 6) + 1;
+//     dice2 = (rand() % 6) + 1;
+//     printf("For dice 1 you rolled a %d and a %d\n", dice1, dice2);
+//     for (int i =0; i < 6; i++){
+//         printf("Rolling the dice...\n");
+//         scanf("%*c");
+//         dice1 = (rand() % 6) + 1;
+//         dice2 = (rand() % 6) + 1;
+//         printf("For dice 2 you rolled a %d and a %d\n", dice1, dice2);
+
+//     }
+//     return 0;
+// }
+
+// Sum & average calculator
+#include <stdio.h>
 int main(void){
-    int dice1 , dice2;
-    srand(time(NULL));
-    printf("Press Enter to roll the dice...");
-    scanf("%*c");
-    dice1 = (rand() % 6) + 1;
-    dice2 = (rand() % 6) + 1;
-    printf("For dice 1 you rolled a %d and a %d\n", dice1, dice2);
-    for (int i =0; i < 6; i++){
-        printf("Rolling the dice...\n");
-        scanf("%*c");
-        dice1 = (rand() % 6) + 1;
-        dice2 = (rand() % 6) + 1;
-        printf("For dice 2 you rolled a %d and a %d\n", dice1, dice2);
+ 
+    int num, sum = 0;
+    float average;
 
+    printf("Enter the number of integers you want to input: ");
+    scanf("%d", &num);
+
+      if (num == 1) {
+        printf("Not a number  %d\n", num);
+    } else {
+        printf("You did not enter an integer.\n");
     }
+
+    for (int i = 0; i < num; i++) {
+        int input;
+        printf("Enter integer %d: ", i + 1);
+        scanf("%d", &input);
+        sum += input;
+    }
+
+    average = (float)sum / num;
+    printf("The sum is: %d\n", sum);
+    printf("The average is: %.2f\n", average);
+
     return 0;
 }
