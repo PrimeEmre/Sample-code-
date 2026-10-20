@@ -3,5 +3,16 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": []
+    "configurations": [
+        {
+            "name": "Debug C program (cl.exe)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "cwd": "${fileDirname}",
+            "preLaunchTask": "C/C++: cl.exe build active file",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        }
+    ]
 }

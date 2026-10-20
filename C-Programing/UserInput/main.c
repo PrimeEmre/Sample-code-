@@ -1,6 +1,6 @@
 // user input
 
-// #include <stdio.h> // keep this line active - every program below needs it
+#include <stdio.h> // keep this line active - every program below needs it
 
 // calculating the area of circumference of circle 
 // formula is A = π * r^2
