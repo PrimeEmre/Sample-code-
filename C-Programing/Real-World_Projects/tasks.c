@@ -40,6 +40,18 @@ int tasklist_add(TaskList *list, const char *text) {
     return 0;
 }
 
+int tasklist_remove(TaskList *list, size_t index) {
+    if (index >= list->count) {
+        return 1;
+    }
+    free(list->items[index].text);
+    for (size_t i = index; i + 1 < list->count; i++) {
+        list->items[i] = list->items[i + 1];
+    }
+    list->count--;
+    return 0;
+}
+
 /* File format: one task per line, "<0|1>|<text>". */
 int tasklist_load(TaskList *list, const char *path) {
     FILE *file = fopen(path, "r");

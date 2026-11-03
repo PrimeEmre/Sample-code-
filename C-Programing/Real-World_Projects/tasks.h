@@ -24,4 +24,7 @@ int tasklist_save(const TaskList *list, const char *path);
 /* Copies text into the list. Returns 0 on success. */
 int tasklist_add(TaskList *list, const char *text);
 
+/* Removes the task at index (0-based) and frees its text. Returns 0 on success. */
+int tasklist_remove(TaskList *list, size_t index);
+
 #endif
