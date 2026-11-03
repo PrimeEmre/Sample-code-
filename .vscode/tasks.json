@@ -15,21 +15,20 @@
         },
         {
             "type": "cppbuild",
-            "label": "C/C++: cl.exe build active file",
-            "command": "cl.exe",
+            "label": "C/C++: gcc build folder",
+            "command": "gcc",
             "args": [
-                "/Zi",
-                "/EHsc",
-                "/nologo",
-                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${file}"
+                "-g",
+                "${fileDirname}\\*.c",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
             },
             "dependsOn": "Close old run of the program",
             "problemMatcher": [
-                "$msCompile"
+                "$gcc"
             ],
             "group": {
                 "kind": "build",

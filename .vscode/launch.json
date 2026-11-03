@@ -5,13 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug C program (cl.exe)",
-            "type": "cppvsdbg",
+            "name": "Debug C program (gcc)",
+            "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "cwd": "${fileDirname}",
-            "preLaunchTask": "C/C++: cl.exe build active file",
-            "console": "integratedTerminal",
+            "preLaunchTask": "C/C++: gcc build folder",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
             "stopAtEntry": false
         }
     ]
