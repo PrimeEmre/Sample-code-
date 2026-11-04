@@ -32,7 +32,7 @@
 
 // function genareteImg() {
 //     // setting the veribles for the APIS
-//     const apiKey = "TYZi0oVILORrouXMNncM9RLpxUGiZAe31n0osVqe"
+//     const apiKey = "YOUR_API_KEY"
 //     const baseURL = "https://api.nasa.gov/planetary/apod"
 //     const apiUrl = `${baseURL}?api_key=${apiKey}`
 //     console.log("fetching from", apiUrl)
@@ -52,7 +52,7 @@
 
 // Weather API
 //setting the API
-const apikey = '6ed4f81aa0ad45d082c34616250612'
+const apikey = 'YOUR_API_KEY'
 
 //Setting the function and veribles 
 async function getWeather() {

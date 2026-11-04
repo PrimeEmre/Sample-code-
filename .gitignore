@@ -17,3 +17,7 @@ C-Programing/Real-World_Projects/tasks.txt
 Python-projects/IboChat/.env
 Python-projects/IboChat/*.db
 Python-projects/IboChat/voice_cache/
+
+# Secrets: never commit an .env anywhere in this repo
+.env
+**/.env

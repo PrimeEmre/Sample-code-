@@ -466,7 +466,7 @@
 # # APi key
 # # 6ed4f81aa0ad45d082c34616250612
 
-# api_key = "6ed4f81aa0ad45d082c34616250612"
+# api_key = "YOUR_API_KEY"
 # api_url = 'http://api.weatherapi.com/v1/current.json'
 
 
@@ -517,7 +517,7 @@
 # APi key
 # 6ed4f81aa0ad45d082c34616250612
 
-# api_key = "6ed4f81aa0ad45d082c34616250612"
+# api_key = "YOUR_API_KEY"
 # api_url = 'http://api.weatherapi.com/v1/current.json'
 
 
@@ -581,7 +581,7 @@
 # APi key
 # 6ed4f81aa0ad45d082c34616250612
 
-# api_key = "6ed4f81aa0ad45d082c34616250612"
+# api_key = "YOUR_API_KEY"
 # api_url = 'http://api.weatherapi.com/v1/current.json'
 
 
