@@ -110,6 +110,8 @@ Sample-code-/
 
 Sub-projects inside `Python-AI-Projects`: [`AI-Web-Agent`](./Python-projects/Python-AI-Projects/AI-Web-Agent/), [`Audio-Book-Agent`](./Python-projects/Python-AI-Projects/Audio-Book-Agent/), [`Bulding-Chatbot-In-Website-`](./Python-projects/Python-AI-Projects/Bulding-Chatbot-In-Website-/), [`Jarvis_Text_Bot`](./Python-projects/Python-AI-Projects/Jarvis_Text_Bot/).
 
+Bug-fix examples: [`Troubleshooting/tkinter-freeze`](./Python-projects/Troubleshooting/tkinter-freeze/) · [Why your Tkinter app freezes](https://blog.emreguzel.ca/2026/10/11/tkinter-app-freezes-not-responding-fix/)
+
 <a id="c-programming"></a>
 ### 🖥️ C Programming
 
