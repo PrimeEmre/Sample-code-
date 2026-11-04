@@ -12,3 +12,8 @@ maze_game/obj/
 
 # Task manager runtime data (created by the program)
 C-Programing/Real-World_Projects/tasks.txt
+
+# IboChat runtime/secret files (never commit)
+Python-projects/IboChat/.env
+Python-projects/IboChat/*.db
+Python-projects/IboChat/voice_cache/

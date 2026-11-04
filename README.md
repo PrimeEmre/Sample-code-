@@ -112,6 +112,8 @@ Sub-projects inside `Python-AI-Projects`: [`AI-Web-Agent`](./Python-projects/Pyt
 
 Bug-fix examples: [`Troubleshooting/tkinter-freeze`](./Python-projects/Troubleshooting/tkinter-freeze/) · [Why your Tkinter app freezes](https://blog.emreguzel.ca/2026/10/11/tkinter-app-freezes-not-responding-fix/)
 
+**IboChat** (AI voice-chat app with custom characters): [`IboChat`](./Python-projects/IboChat/) · [How I built IboChat](https://blog.emreguzel.ca/2026/10/16/how-i-built-ibochat/). Source only: it needs your own `.env` (see `.env.example`), and the database and voice cache are not included.
+
 <a id="c-programming"></a>
 ### 🖥️ C Programming
 

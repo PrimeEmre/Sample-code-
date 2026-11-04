@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with AI Characters by Voice — IboChat</title>
+    <meta name="description" content="Chat with your AI character by voice in 24+ languages. AI parodies only — not affiliated with any real person." />
+    <meta name="keywords" content="AI voice chat, AI parody character, chatbot, voice, AI" />
+    <link rel="canonical" href="https://chat.emreguzel.ca/chat.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chat.emreguzel.ca/chat.html" />
+    <meta property="og:title" content="Chat with AI Characters by Voice — IboChat" />
+    <meta property="og:description" content="Chat with your AI character by voice in 24+ languages. Built by Emre Guzel." />
+    <meta property="og:image" content="https://chat.emreguzel.ca/Chat_icon/apple-touch-icon.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Chat with AI Characters by Voice — IboChat" />
+    <meta name="twitter:description" content="Voice-chat with AI characters in 24+ languages." />
+    <meta name="author" content="yi.zhou and Emre Guzel" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/Chat_icon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Chat_icon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Chat_icon/favicon-16x16.png" />
+
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0d1117">
+    <!-- Standard tag first (what Chrome/Edge/Android actually read now —
+         apple-mobile-web-app-capable is deprecated in their engines, though
+         Safari/iOS still wants the apple- prefixed ones, so both stay. -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="IboChat">
+
+    <link href="/static/vendor/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="/static/css/chat.css?v=2">
+</head>
+<body id="chat-page">
+    <noscript>
+        <div class="alert alert-warning text-center m-3" role="alert">
+            This application requires JavaScript to function properly. Please enable JavaScript in your browser settings.
+        </div>
+    </noscript>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tarkan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#professionalNavbar" aria-controls="professionalNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="professionalNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="chat-list">
+                    </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="new-chat-btn" data-translate-key="chat_new_chat"><i class="fa-solid fa-plus me-2"></i>New Chat</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarUserMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-translate-key="chat_settings">
+                            <i class="fa-solid fa-user-gear"></i> Settings
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="navbarUserMenu">
+                            <li>
+                                <a class="dropdown-item" href="#" id="btn-toggle" data-translate-key="chat_change_theme">
+                                    <i class="fa-solid fa-moon fa-fw me-2"></i>Change Theme
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="index.html" data-translate-key="chat_return_to_search">
+                                    <i class="fa-solid fa-sign-out-alt fa-fw me-2"></i>Return to Search
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <main role="main">
+        <header class="chat-header">
+            <h1 id="famouse-show">Chat with AI Characters by Voice</h1>
+            <p id="celebrity-voice-status" class="celebrity-voice-status" style="display:none"></p>
+        </header>
+        
+        <div class="chat-area" id="chat-area" role="log" aria-live="polite">
+            <div class="chat-message bot-message" id="initial-greeting-message" role="status">👋 </div>
+        </div>
+
+        <div class="input-container-wrapper">
+            <p id="speechRecognitionStatus" class="text-center text-muted mb-2"></p>
+            <form id="chat-form" class="input-container" aria-label="Chat input form">
+                <textarea placeholder="Ask Tarkan a question..." id="user-input" rows="1" aria-label="Type your message to Tarkan"></textarea>
+                <div class="input-actions">
+                    <button type="button" id="microphoneBtn" class="btn" aria-label="Send message with voice">
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+                    <button type="button" id="toggle-voice-btn" class="btn" aria-label="Enable or disable AI voice responses">
+                        <i class="fa-solid fa-volume-xmark"></i>
+                    </button>
+                    <button type="button" id="call-btn" class="btn" aria-label="Call this character">
+                        <i class="fa-solid fa-phone"></i>
+                    </button>
+                    <div class="dropdown">
+                        <button type="button" id="celebrity-voice-btn" class="btn" aria-label="Select celebrity voice" data-bs-toggle="dropdown" aria-expanded="false" title="Celebrity Voice">
+                            <i class="fa-solid fa-star"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" id="celebrity-voice-menu">
+                            <li><span class="dropdown-item-text text-muted small">Loading voices...</span></li>
+                        </ul>
+                    </div>
+                    <button type="submit" id="send" class="btn" aria-label="Send message">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Full-screen "phone call" overlay — reuses the exact same chat/TTS
+         pipeline as the normal chat window (see setupCallMode() in chat.js),
+         just wrapped in call-style chrome: ringing, connected timer, live
+         captions, mute/hang-up. Hidden by default. -->
+    <div id="call-overlay" class="call-overlay d-none" role="dialog" aria-modal="true" aria-label="Phone call">
+        <div id="call-avatar" class="call-avatar"><i class="fa-solid fa-user"></i></div>
+        <h2 id="call-person-name" class="call-person-name"></h2>
+        <p id="call-status-line" class="call-status-line">Calling…</p>
+        <p id="call-timer" class="call-timer d-none">00:00</p>
+        <p id="call-avatar-attribution" class="call-avatar-attribution d-none"></p>
+
+        <div id="call-captions" class="call-captions" aria-live="polite"></div>
+
+        <!-- Self-view only — your own webcam, shown to you, same as the
+             corner "you" preview in FaceTime/Zoom. Never sent anywhere,
+             never recorded: no video stream leaves this browser tab. This
+             is NOT a synthetic video of the character — nothing here fakes
+             anyone else's face or likeness. -->
+        <video id="call-self-video" class="call-self-video d-none" autoplay muted playsinline></video>
+
+        <div class="call-controls">
+            <button type="button" id="call-mute-btn" class="call-control-btn" aria-label="Mute microphone" title="Mute">
+                <i class="fa-solid fa-microphone"></i>
+            </button>
+            <!-- Manual fallback that never depends on the browser's own
+                 (free, rate-limit-prone) speech-recognition service — this
+                 just records raw audio and uploads it to our own server for
+                 transcription (see /api/transcribe in app.py). Always
+                 available, not just when the automatic listener is
+                 struggling, since it's a genuinely more reliable path. -->
+            <button type="button" id="call-hold-talk-btn" class="call-control-btn" aria-label="Hold to talk" title="Hold to talk (works even if auto-listen is failing)">
+                <i class="fa-solid fa-keyboard"></i>
+            </button>
+            <button type="button" id="call-camera-btn" class="call-control-btn" aria-label="Turn camera on" title="Turn camera on">
+                <i class="fa-solid fa-video-slash"></i>
+            </button>
+            <button type="button" id="call-hangup-btn" class="call-control-btn call-hangup" aria-label="Hang up" title="Hang up">
+                <i class="fa-solid fa-phone-slash"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="/static/vendor/bootstrap.bundle.min.js"></script>
+    <script src="/static/JS/audio-store.js?v=2"></script>
+    <script src="/static/JS/chat.js?v=24"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch((e) => {
+                    console.warn('[pwa] service worker registration failed:', e);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

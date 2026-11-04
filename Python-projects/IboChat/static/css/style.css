@@ -1,0 +1,50 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    /* Default Light Theme */
+    background-color: #f4f7f6;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+    background-color: #222;
+    color: #eee;
+}
+
+/* === FIX STARTS HERE: Overriding Bootstrap Component Styles for Dark Theme === */
+
+/* Style the Card component in dark mode */
+body.dark-theme .card {
+    background-color: #333;
+    border-color: #555;
+    color: #eee; /* Ensure text inside the card is light */
+}
+
+/* Style the Form Input in dark mode */
+body.dark-theme .form-control {
+    background-color: #444;
+    color: #eee;
+    border-color: #555;
+}
+
+body.dark-theme .form-control::placeholder {
+    color: #aaa;
+}
+
+/* Style the Search Results section in dark mode */
+body.dark-theme #searchResults {
+    background-color: #333;
+    border-color: #555 !important; /* Use !important to override Bootstrap's border */
+}
+
+/* Ensure links in search results are visible in dark mode */
+body.dark-theme #searchResults a {
+    color: #9bd0ff;
+}
+
+/* === FIX ENDS HERE === */

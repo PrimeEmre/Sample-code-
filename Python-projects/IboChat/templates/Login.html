@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In — IboChat</title>
+    <meta name="description" content="Sign in to IboChat to continue voice-chatting with your AI characters in 24+ languages." />
+    <link rel="canonical" href="https://chat.emreguzel.ca/login.html" />
+
+    <link href="/static/vendor/bootstrap.min.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="./Loginicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./Loginicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./Loginicon/favicon-16x16.png">
+    <link rel="manifest" href="./Loginicon/site.webmanifest">
+    <link rel="stylesheet" href="/static/css/login.css">
+
+    <script src="https://accounts.google.com/gsi/client" async defer onload="initGoogleSignIn()"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@4.13.2/lib/msal-browser.min.js"></script>
+</head>
+
+<body class="bg-light d-flex justify-content-center align-items-center min-vh-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5">
+                <div class="card shadow-lg p-4 rounded-3">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Login</h2>
+                        <form class="login-form">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Enter your password" required>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary login-button">Login</button>
+                            </div>
+                        </form>
+
+                        <div class="text-center my-4">
+                            <p class="text-muted">Or login with:</p>
+                            <div class="d-grid gap-2">
+                                <div id="google-btn" class="d-flex justify-content-center mb-2"></div>
+                                <button class="btn btn-outline-secondary microsoft-btn">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png"
+                                        alt="Microsoft logo" width="20" class="me-2">
+                                    Login with Microsoft
+                                </button>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <p class="text-muted">Don't have an account? <a href="register.html">Register here</a></p>
+                        </div>
+                        <div class="text-center mt-4">
+                            <p class="text-muted">Connect with:</p>
+                            <div class="social-icons">
+                                <a href="#" aria-label="Facebook" class="text-primary mx-2 fs-4"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Twitter" class="text-info mx-2 fs-4"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="LinkedIn" class="text-secondary mx-2 fs-4"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="profileinfo" class="container mt-4" style="display:none;">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5">
+                <div class="card shadow-lg p-4 rounded-3 text-center">
+                    <div class="card-body" id="profile-card-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/vendor/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/e21db9b111.js" crossorigin="anonymous"></script>
+    <script src="/static/JS/login.js"></script>
+</body>
+
+</html>

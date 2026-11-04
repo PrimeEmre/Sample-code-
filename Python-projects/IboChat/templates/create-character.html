@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Own AI Character — IboChat</title>
+    <meta name="description" content="Build your own AI character for IboChat in minutes: choose the personality, the voice and languages, then talk to it by voice. Free, browser-based, no installs." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://chat.emreguzel.ca/create-character.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Create Your Own AI Character — IboChat" />
+    <meta property="og:description" content="Pick a personality, a voice and languages — your AI character is ready to chat by voice in minutes." />
+    <link rel="apple-touch-icon" sizes="180x180" href="/Chat_icon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Chat_icon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Chat_icon/favicon-16x16.png" />
+    <link href="/static/vendor/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css?v=2">
+</head>
+
+<body class="ibo-chat">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Character Studio</a>
+            <div class="d-flex align-items-center ms-auto gap-2">
+                <a href="index.html" class="btn btn-outline-light btn-sm" data-translate-key="cs_celebrity_chat">
+                    <i class="fa-solid fa-star me-1"></i>Celebrity Chat
+                </a>
+                <span id="logged-in-user" class="navbar-text ms-2"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title mb-1" data-translate-key="cs_heading">Create Your Own Character</h2>
+                        <p class="text-muted small mb-4" data-translate-key="cs_desc">Make up a name and personality — no real person involved.
+                            Optionally record your own voice (or someone else's, with their consent) for the character to speak with.</p>
+
+                        <form id="characterForm">
+                            <div class="mb-3">
+                                <label for="charName" class="form-label" data-translate-key="cs_name_label">Name</label>
+                                <input type="text" class="form-control" id="charName" data-translate-key="cs_name_placeholder" placeholder="e.g. Captain Nova" required maxlength="60">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="charPersonality" class="form-label" data-translate-key="cs_personality_label">Personality</label>
+                                <textarea class="form-control" id="charPersonality" rows="4" data-translate-key="cs_personality_placeholder"
+                                    placeholder="e.g. An upbeat, sarcastic space explorer who loves cheesy jokes and gives surprisingly good advice." required maxlength="1000"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label d-block" data-translate-key="cs_voice_label">Voice (optional)</label>
+                                <p class="text-muted small mb-2" data-translate-key="cs_voice_desc">
+                                    Read this out loud, clearly, in a quiet room — the longer and cleaner this
+                                    recording is, the less robotic the clone will sound (aim for at least 15-20 seconds):
+                                </p>
+                                <blockquote class="border-start border-3 ps-3 mb-3 fst-italic" id="verificationPhrase" data-translate-key="cs_phrase">
+                                    "Hi there, this is my own voice, and I'm excited to bring my character to life.
+                                    I like walking outside on a sunny afternoon, grabbing a coffee with friends, and
+                                    talking about whatever comes to mind. It's funny how a normal Tuesday can turn
+                                    into one of the best days of the week if you're around the right people."
+                                </blockquote>
+
+                                <div class="d-flex align-items-center gap-2 flex-wrap">
+                                    <button type="button" id="recordBtn" class="btn btn-outline-primary" data-translate-key="cs_record">
+                                        <i class="fa-solid fa-microphone me-1"></i>Record
+                                    </button>
+                                    <button type="button" id="stopBtn" class="btn btn-outline-danger d-none" data-translate-key="cs_stop">
+                                        <i class="fa-solid fa-stop me-1"></i>Stop
+                                    </button>
+                                    <span id="recordStatus" class="text-muted small"></span>
+                                </div>
+
+                                <div id="playbackWrap" class="mt-3 d-none">
+                                    <audio id="playbackAudio" controls class="w-100"></audio>
+                                    <button type="button" id="reRecordBtn" class="btn btn-link btn-sm mt-1" data-translate-key="cs_rerecord">Re-record</button>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="createBtn" class="btn btn-primary w-100" data-translate-key="cs_create">
+                                <i class="fa-solid fa-wand-magic-sparkles me-2"></i>Create Character
+                            </button>
+                        </form>
+
+                        <div id="createResult" class="mt-3"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/vendor/bootstrap.bundle.min.js"></script>
+    <script src="/static/JS/audio-store.js?v=2"></script>
+    <script src="/static/JS/create-character.js?v=8"></script>
+</body>
+
+</html>

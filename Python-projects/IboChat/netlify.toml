@@ -1,0 +1,17 @@
+# This is a more explicit configuration file for Netlify.
+# It forces the 'netlify dev' command to recognize all parts of your project.
+
+[build]
+  # This tells Netlify where your main website files are located.
+  # "." means the current root folder.
+  publish = "."
+  
+  # This explicitly tells Netlify where your serverless functions are.
+  functions = "functions/"
+
+[dev]
+  # This tells the local server which folder to serve.
+  publish = "."
+  
+  # This tells the local server which port to use for your website.
+  port = 8888

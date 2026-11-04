@@ -1,0 +1,32 @@
+# Temel Python imajını kullan
+FROM python:3.11-slim
+
+# Ortam değişkenlerini ayarla
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Gerekli sistem kütüphanelerini kur
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libsqlite3-dev \
+    ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
+# Çalışma dizini oluştur
+WORKDIR /app
+
+# Gereken dosyaları kopyala
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Tüm proje dosyasını container’a al
+COPY . .
+
+# .env dosyasını dahil etme (manuel kopyalayabilirsin)
+# COPY .env .  # optional
+
+# Portu tanımla (local erişim için dışarı açılmaz)
+EXPOSE 5005
+
+# Container başlarken Flask’i başlat
+CMD ["python", "app.py"]

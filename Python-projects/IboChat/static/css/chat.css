@@ -1,0 +1,347 @@
+/* ==========================================================================
+   Professional Chat Stylesheet (Combined & Corrected for Top Navbar)
+   ========================================================================== */
+
+/* --- 1. Color & Font Variables for Theming --- */
+:root {
+    --bg-color: #f9fafb;
+    --text-color: #1f2937;
+    --header-bg: #ffffff;
+    --user-msg-bg: #3b82f6;
+    --user-msg-text: #ffffff;
+    --bot-msg-bg: #e5e7eb;
+    --bot-msg-text: #374151;
+    --input-bg: #ffffff;
+    --input-border: #d1d5db;
+    --input-focus-border: #3b82f6;
+    --button-icon-color: #6b7280;
+    --send-icon-color: #3b82f6;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body.dark-theme {
+    --bg-color: #111827;
+    --text-color: #f9fafb;
+    --header-bg: #1f2937;
+    --user-msg-bg: #2563eb;
+    --bot-msg-text: #e5e7eb;
+    --bot-msg-bg: #374151;
+    --input-bg: #374151;
+    --input-border: #4b5563;
+    --input-focus-border: #60a5fa;
+    --button-icon-color: #9ca3af;
+    --send-icon-color: #60a5fa;
+}
+
+/* --- 2. Base & Layout for Top Navbar --- */
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar.bg-dark {
+    /* Override Bootstrap's dark with our theme's dark */
+    background-color: #0d1117 !important;
+}
+
+main {
+    padding-top: 56px; /* Space for the fixed navbar */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 56px);
+}
+
+/* --- 3. Components --- */
+.chat-header {
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid var(--input-border);
+    background-color: var(--header-bg);
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.chat-header h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.celebrity-voice-status {
+    font-size: 0.8rem;
+    margin: 0.35rem 0 0;
+}
+
+.celebrity-voice-status--pending {
+    color: var(--text-muted, #888);
+}
+
+.celebrity-voice-status--ok {
+    color: #2e9e5b;
+}
+
+.celebrity-voice-status--warn {
+    color: #d9822b;
+}
+
+.chat-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+.chat-message {
+    max-width: 80%;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+    line-height: 1.5;
+    box-shadow: var(--shadow-sm);
+}
+
+.user-message {
+    background-color: var(--user-msg-bg);
+    color: var(--user-msg-text);
+    margin-left: auto;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.bot-message {
+    background-color: var(--bot-msg-bg);
+    color: var(--bot-msg-text);
+    margin-right: auto;
+    border-bottom-left-radius: 0.25rem;
+}
+
+/* Input Area */
+.input-container-wrapper {
+    padding: 1rem 1.5rem;
+    background-color: var(--header-bg);
+    border-top: 1px solid var(--input-border);
+    flex-shrink: 0;
+}
+
+#chat-form {
+    position: relative;
+}
+
+#user-input {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 1.5rem;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    padding: 0.75rem 8.5rem 0.75rem 1.5rem; /* Increased right padding for 3 buttons */
+    resize: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    line-height: 1.5;
+    font-size: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+#user-input:focus {
+    outline: none;
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--input-focus-border), transparent 60%);
+}
+
+.input-actions {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.input-actions .btn {
+    background: none;
+    border: none;
+    color: var(--button-icon-color);
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.input-actions .btn:hover {
+    color: var(--text-color);
+    background-color: var(--bot-msg-bg);
+}
+
+#send {
+    color: var(--send-icon-color);
+}
+
+#microphoneBtn.text-danger {
+    color: #dc2626 !important; /* Red when listening */
+}
+
+/* --- 8. Phone call overlay --- */
+.call-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: linear-gradient(160deg, #0f172a, #1e293b);
+    color: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.call-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #cbd5e1;
+    animation: call-ring-pulse 1.6s ease-in-out infinite;
+    overflow: hidden;
+}
+
+.call-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.call-overlay.call-connected .call-avatar {
+    animation: none;
+}
+
+.call-avatar-attribution {
+    font-size: 0.7rem;
+    color: #64748b;
+    margin: -0.25rem 0 0;
+}
+
+@keyframes call-ring-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.55); }
+    50%      { box-shadow: 0 0 0 18px rgba(59, 130, 246, 0); }
+}
+
+.call-person-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.call-status-line {
+    color: #94a3b8;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.call-timer {
+    color: #cbd5e1;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.call-captions {
+    width: 100%;
+    max-width: 480px;
+    min-height: 4.5rem;
+    max-height: 30vh;
+    overflow-y: auto;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #e2e8f0;
+}
+
+.call-captions .call-caption-line {
+    margin: 0.35rem 0;
+}
+
+.call-captions .call-caption-line.you::before {
+    content: "You: ";
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+.call-captions .call-caption-line.them::before {
+    content: attr(data-name) ": ";
+    color: #fbbf24;
+    font-weight: 600;
+}
+
+.call-self-video {
+    position: fixed;
+    bottom: 6.5rem;
+    right: 1.25rem;
+    width: 130px;
+    height: 174px;
+    border-radius: 12px;
+    object-fit: cover;
+    background: #000;
+    border: 2px solid #334155;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    transform: scaleX(-1); /* mirror, like every other self-view camera preview */
+}
+
+.call-control-btn.call-camera-on {
+    background: #2563eb;
+}
+
+.call-controls {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.call-control-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: #334155;
+    color: #f9fafb;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.call-control-btn:hover {
+    transform: scale(1.05);
+}
+
+.call-control-btn.call-muted {
+    background: #f59e0b;
+    color: #1f2937;
+}
+
+.call-hangup {
+    background: #dc2626;
+}
+
+.call-hangup:hover {
+    background: #b91c1c;
+}

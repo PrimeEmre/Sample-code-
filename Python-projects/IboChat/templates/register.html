@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Account — IboChat</title>
+    <meta name="description" content="Create a free IboChat account to voice-chat with AI characters in 24+ languages and build your own characters." />
+    <link rel="canonical" href="https://chat.emreguzel.ca/register.html" />
+    
+    <link href="/static/vendor/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="/static/css/login.css"> 
+</head>
+<body class="bg-light d-flex justify-content-center align-items-center min-vh-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5">
+                <div class="card shadow-lg p-4 rounded-3 border-0">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4 fw-bold">Create Account</h2>
+                        
+                        <form id="register-form">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="password" placeholder="Create password" required>
+                                    <button class="btn btn-outline-secondary toggle-password" type="button" data-target="password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="confirm-password" class="form-label">Confirm Password</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="confirm-password" placeholder="Repeat password" required>
+                                    <button class="btn btn-outline-secondary toggle-password" type="button" data-target="confirm-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2 mt-4">
+                                <button type="submit" class="btn btn-primary py-2 fw-semibold">Register</button>
+                            </div>
+                        </form>
+
+                        <div id="message" class="mt-3" style="display:none;"></div>
+
+                        <div class="text-center mt-4">
+                            <p class="text-muted small">Already have an account? <a href="login.html" class="text-decoration-none">Login here</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/JS/register.js"></script>
+</body>
+</html>

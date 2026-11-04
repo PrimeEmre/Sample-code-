@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IboChat — Talk to AI Characters by Voice, in 24+ Languages</title>
+    <meta name="description" content="Chat with AI characters and hear them reply out loud — speak by voice in 24+ languages or build your own in minutes. AI parodies, not the real people." />
+    <meta name="keywords" content="AI voice chat, AI characters, custom AI character, AI parody voices, talk to AI, voice chat app, multilingual AI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://chat.emreguzel.ca/" />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chat.emreguzel.ca/" />
+    <meta property="og:title" content="IboChat — Talk to AI Characters by Voice, in 24+ Languages" />
+    <meta property="og:description" content="Speak with AI characters out loud in 24+ languages, or build your own custom character in minutes. Built by Emre Guzel." />
+    <meta property="og:image" content="https://chat.emreguzel.ca/Chat_icon/apple-touch-icon.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="IboChat — Talk to AI Characters by Voice" />
+    <meta name="twitter:description" content="Voice-chat with AI characters in 24+ languages, or build your own in minutes." />
+
+    <!-- Structured data: app identity + the two questions every landing page gets asked -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "IboChat",
+      "url": "https://chat.emreguzel.ca/",
+      "applicationCategory": "EntertainmentApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": {
+        "@type": "Person",
+        "name": "Emre Guzel",
+        "url": "https://emreguzel.ca/"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are the characters real people?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. All characters on IboChat are AI-generated parodies. They are not affiliated with, endorsed by, or connected to any real person." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I create my own character?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use Create a Character to pick a personality, a voice and languages, and your character is ready to chat by voice in minutes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which languages does IboChat speak?",
+          "acceptedAnswer": { "@type": "Answer", "text": "IboChat characters can speak 24+ languages, and you can switch the language mid-chat from the language menu." }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/Chat_icon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Chat_icon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Chat_icon/favicon-16x16.png" />
+
+    <!-- PWA: makes the site installable (Chrome's "Install app" prompt on
+         Android/desktop, Safari's "Add to Home Screen" on iOS) -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0d1117">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="IboChat">
+
+    <!-- Bootstrap self-hosted (see static/vendor/) instead of the jsdelivr
+         CDN — that CDN request alone measured as ~1.1s of render-blocking
+         time (network/TLS round trip to a third party), which same-origin
+         serving skips entirely. Font Awesome stays on cdnjs since it's a
+         bigger, less critical asset and only used for icons. -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <link href="/static/vendor/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Flag Icon CSS — only actually seen once the language dropdown is
+         opened, so it doesn't need to block first paint like the two above.
+         Loaded async via the preload+onload swap trick, with a plain
+         <noscript> fallback for the rare case JS is off. -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"></noscript>
+
+    <link rel="stylesheet" href="/static/css/style.css?v=2">
+</head>
+
+<body class="ibo-chat">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#" id="ibochat-title" data-translate-key="main_title">IboChat</a>
+            <div class="d-flex align-items-center ms-auto gap-2">
+                <a href="create-character.html" class="btn btn-outline-light btn-sm" data-translate-key="create_character_button">
+                    <i class="fa-solid fa-wand-magic-sparkles me-1"></i>Create a Character
+                </a>
+                <span id="logged-in-user" class="navbar-text ms-2"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h1 class="card-title" id="search-favorite-singer" style="font-size:1.4rem" data-translate-key="search_title">Talk to AI Characters by Voice</h1>
+                        <form id="searchForm" action="#" method="get">
+                            <div class="input-group">
+                                <input id="search" class="form-control" type="search" placeholder="Enter singer name"
+                                    aria-label="Search for a singer" data-translate-key="search_placeholder">
+                                <button id="searchButton" class="btn btn-primary" type="submit"
+                                    data-translate-key="search_button">
+                                    <i class="fas fa-search"></i> Search
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <section class="mt-3 d-flex justify-content-end gap-2">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdownButton"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-translate-key="language_button">
+                            <i class="fas fa-globe me-1"></i> Choose a language
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdownButton"
+                            style="max-height: 280px; overflow-y: auto;">
+                            <li class="p-2">
+                                <input type="text" class="form-control" id="languageSearchInput"
+                                    placeholder="Search languages...">
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <!-- Languages with flags -->
+                            <li><a class="dropdown-item" href="#" data-lang-code="tr"
+                                    data-lang-name="Türkçe (Turkish)"><span
+                                        class="flag-icon flag-icon-tr me-2"></span>Türkçe (Turkish)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="en" data-lang-name="English"><span
+                                        class="flag-icon flag-icon-gb me-2"></span>English</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="fr"
+                                    data-lang-name="Français (French)"><span
+                                        class="flag-icon flag-icon-fr me-2"></span>Français (French)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="de"
+                                    data-lang-name="Deutsch (German)"><span
+                                        class="flag-icon flag-icon-de me-2"></span>Deutsch (German)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ar"
+                                    data-lang-name="العربية (Arabic)"><span
+                                        class="flag-icon flag-icon-sa me-2"></span>العربية (Arabic)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="zh"
+                                    data-lang-name="中文 (Chinese)"><span class="flag-icon flag-icon-cn me-2"></span>中文
+                                    (Chinese)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="cs"
+                                    data-lang-name="Česky (Czech)"><span
+                                        class="flag-icon flag-icon-cz me-2"></span>Česky (Czech)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="da"
+                                    data-lang-name="Dansk (Danish)"><span
+                                        class="flag-icon flag-icon-dk me-2"></span>Dansk (Danish)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="nl"
+                                    data-lang-name="Nederlands (Dutch)"><span
+                                        class="flag-icon flag-icon-nl me-2"></span>Nederlands (Dutch)</a></li>
+
+                            <li><a class="dropdown-item" href="#" data-lang-code="fi"
+                                    data-lang-name="Suomi (Finnish)"><span
+                                        class="flag-icon flag-icon-fi me-2"></span>Suomi (Finnish)</a></li>
+
+                            <li><a class="dropdown-item" href="#" data-lang-code="el"
+                                    data-lang-name="Ελληνικά (Greek)"><span
+                                        class="flag-icon flag-icon-gr me-2"></span>Ελληνικά (Greek)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="hi"
+                                    data-lang-name="हिन्दी (Hindi)"><span
+                                        class="flag-icon flag-icon-in me-2"></span>हिन्दी (Hindi)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="hu"
+                                    data-lang-name="Magyar (Hungarian)"><span
+                                        class="flag-icon flag-icon-hu me-2"></span>Magyar (Hungarian)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="id"
+                                    data-lang-name="Bahasa Indonesia (Indonesian)"><span
+                                        class="flag-icon flag-icon-id me-2"></span>Bahasa Indonesia (Indonesian)</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="it"
+                                    data-lang-name="Italiano (Italian)"><span
+                                        class="flag-icon flag-icon-it me-2"></span>Italiano (Italian)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ja"
+                                    data-lang-name="日本語 (Japanese)"><span class="flag-icon flag-icon-jp me-2"></span>日本語
+                                    (Japanese)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ko"
+                                    data-lang-name="한국어 (Korean)"><span class="flag-icon flag-icon-kr me-2"></span>한국어
+                                    (Korean)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="pl"
+                                    data-lang-name="Polski (Polish)"><span
+                                        class="flag-icon flag-icon-pl me-2"></span>Polski (Polish)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="pt"
+                                    data-lang-name="Português (Portuguese)"><span
+                                        class="flag-icon flag-icon-pt me-2"></span>Português (Portuguese)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ro"
+                                    data-lang-name="Română (Romanian)"><span
+                                        class="flag-icon flag-icon-ro me-2"></span>Română (Romanian)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ru"
+                                    data-lang-name="Русский (Russian)"><span
+                                        class="flag-icon flag-icon-ru me-2"></span>Русский (Russian)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="es"
+                                    data-lang-name="Español (Spanish)"><span
+                                        class="flag-icon flag-icon-es me-2"></span>Español (Spanish)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="sv"
+                                    data-lang-name="Svenska (Swedish)"><span
+                                        class="flag-icon flag-icon-se me-2"></span>Svenska (Swedish)</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="th" data-lang-name="ไทย (Thai)"><span
+                                        class="flag-icon flag-icon-th me-2"></span>ไทย (Thai)</a></li>
+
+                            <li><a class="dropdown-item" href="#" data-lang-code="vi"
+                                    data-lang-name="Tiếng Việt (Vietnamese)"><span
+                                        class="flag-icon flag-icon-vn me-2"></span>Tiếng Việt (Vietnamese)</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li><a class="dropdown-item" href="#" data-lang-code="ab"><span
+                                        class="flag-icon flag-icon-ge me-2"></span>Abkhazian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="aa"><span
+                                        class="flag-icon flag-icon-dj me-2"></span>Afar</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="af"><span
+                                        class="flag-icon flag-icon-za me-2"></span>Afrikaans</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="sq"><span
+                                        class="flag-icon flag-icon-al me-2"></span>Albanian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="am"><span
+                                        class="flag-icon flag-icon-et me-2"></span>Amharic</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="an"><span
+                                        class="flag-icon flag-icon-es me-2"></span>Aragonese</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="hy"><span
+                                        class="flag-icon flag-icon-am me-2"></span>Armenian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="as"><span
+                                        class="flag-icon flag-icon-in me-2"></span>Assamese</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ay"><span
+                                        class="flag-icon flag-icon-bo me-2"></span>Aymara</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="az"><span
+                                        class="flag-icon flag-icon-az me-2"></span>Azerbaijani</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ba"><span
+                                        class="flag-icon flag-icon-ru me-2"></span>Bashkir</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="eu"><span
+                                        class="flag-icon flag-icon-es me-2"></span>Basque</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="be"><span
+                                        class="flag-icon flag-icon-by me-2"></span>Belarusian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="bn"><span
+                                        class="flag-icon flag-icon-bd me-2"></span>Bengali</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="dz"><span
+                                        class="flag-icon flag-icon-bt me-2"></span>Bhutani</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="bi"><span
+                                        class="flag-icon flag-icon-vu me-2"></span>Bislama</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="br"><span
+                                        class="flag-icon flag-icon-fr me-2"></span>Breton</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="bg"><span
+                                        class="flag-icon flag-icon-bg me-2"></span>Bulgarian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="my"><span
+                                        class="flag-icon flag-icon-mm me-2"></span>Burmese</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="km"><span
+                                        class="flag-icon flag-icon-kh me-2"></span>Cambodian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ca"><span
+                                        class="flag-icon flag-icon-ad me-2"></span>Catalan</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="co"><span
+                                        class="flag-icon flag-icon-fr me-2"></span>Corsican</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="hr"><span
+                                        class="flag-icon flag-icon-hr me-2"></span>Croatian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="eo">Esperanto</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="et"><span
+                                        class="flag-icon flag-icon-ee me-2"></span>Estonian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="fo"><span
+                                        class="flag-icon flag-icon-fo me-2"></span>Faroese</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="fj"><span
+                                        class="flag-icon flag-icon-fj me-2"></span>Fiji</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="fy"><span
+                                        class="flag-icon flag-icon-nl me-2"></span>Frisian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="gl"><span
+                                        class="flag-icon flag-icon-es me-2"></span>Galician</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ka"><span
+                                        class="flag-icon flag-icon-ge me-2"></span>Georgian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="kl"><span
+                                        class="flag-icon flag-icon-gl me-2"></span>Greenlandic</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="gn"><span
+                                        class="flag-icon flag-icon-py me-2"></span>Guarani</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="gu"><span
+                                        class="flag-icon flag-icon-in me-2"></span>Gujarati</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ha"><span
+                                        class="flag-icon flag-icon-ng me-2"></span>Hausa</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="is"><span
+                                        class="flag-icon flag-icon-is me-2"></span>Icelandic</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ia">Interlingua</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ie">Interlingue</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ik"><span
+                                        class="flag-icon flag-icon-us me-2"></span>Inupiak</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ga"><span
+                                        class="flag-icon flag-icon-ie me-2"></span>Irish</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="jv"><span
+                                        class="flag-icon flag-icon-id me-2"></span>Javanese</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="kn"><span
+                                        class="flag-icon flag-icon-in me-2"></span>Kannada</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ks"><span
+                                        class="flag-icon flag-icon-in me-2"></span>Kashmiri</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="kk"><span
+                                        class="flag-icon flag-icon-kz me-2"></span>Kazakh</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="rw"><span
+                                        class="flag-icon flag-icon-rw me-2"></span>Kinyarwanda</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ky"><span
+                                        class="flag-icon flag-icon-kg me-2"></span>Kirghiz</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="rn"><span
+                                        class="flag-icon flag-icon-bi me-2"></span>Kirundi</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ku">Kurdish</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="lo"><span
+                                        class="flag-icon flag-icon-la me-2"></span>Laothian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="la"><span
+                                        class="flag-icon flag-icon-va me-2"></span>Latin</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="lv"><span
+                                        class="flag-icon flag-icon-lv me-2"></span>Latvian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ln"><span
+                                        class="flag-icon flag-icon-cd me-2"></span>Lingala</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="lt"><span
+                                        class="flag-icon flag-icon-lt me-2"></span>Lithuanian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="mk"><span
+                                        class="flag-icon flag-icon-mk me-2"></span>Macedonian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="mg"><span
+                                        class="flag-icon flag-icon-mg me-2"></span>Malagasy</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ms"><span
+                                        class="flag-icon flag-icon-my me-2"></span>Malay</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ml"><span
+                                        class="flag-icon flag-icon-in me-2"></span>Malayalam</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="mt"><span
+                                        class="flag-icon flag-icon-mt me-2"></span>Maltese</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="mi"><span
+                                        class="flag-icon flag-icon-nz me-2"></span>Maori</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="mr"><span
+                                        class="flag-icon flag-icon-in me-2"></span>Marathi</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="mo"><span
+                                        class="flag-icon flag-icon-md me-2"></span>Moldavian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="mn"><span
+                                        class="flag-icon flag-icon-mn me-2"></span>Mongolian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="na"><span
+                                        class="flag-icon flag-icon-nr me-2"></span>Nauru</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ne"><span
+                                        class="flag-icon flag-icon-np me-2"></span>Nepali</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="no"><span
+                                        class="flag-icon flag-icon-no me-2"></span>Norwegian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="oc"><span
+                                        class="flag-icon flag-icon-fr me-2"></span>Occitan</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="or"><span
+                                        class="flag-icon flag-icon-in me-2"></span>Oriya</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ps"><span
+                                        class="flag-icon flag-icon-af me-2"></span>Pashto, Pushto</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="fa"><span
+                                        class="flag-icon flag-icon-ir me-2"></span>Persian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="pa"><span
+                                        class="flag-icon flag-icon-in me-2"></span>Punjabi</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="qu"><span
+                                        class="flag-icon flag-icon-pe me-2"></span>Quechua</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="sm"><span
+                                        class="flag-icon flag-icon-ws me-2"></span>Samoan</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="sg"><span
+                                        class="flag-icon flag-icon-cf me-2"></span>Sangro</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="sa"><span
+                                        class="flag-icon flag-icon-in me-2"></span>Sanskrit</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="gd"><span
+                                        class="flag-icon flag-icon-gb-sct me-2"></span>Scots Gaelic</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="sr"><span
+                                        class="flag-icon flag-icon-rs me-2"></span>Serbian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="sh">Serbo-Croatian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="st"><span
+                                        class="flag-icon flag-icon-ls me-2"></span>Sesotho</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="tn"><span
+                                        class="flag-icon flag-icon-bw me-2"></span>Setswana</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="sn"><span
+                                        class="flag-icon flag-icon-zw me-2"></span>Shona</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="sd"><span
+                                        class="flag-icon flag-icon-pk me-2"></span>Sindhi</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="si"><span
+                                        class="flag-icon flag-icon-lk me-2"></span>Sinhala</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ss"><span
+                                        class="flag-icon flag-icon-sz me-2"></span>Siswati</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="sk"><span
+                                        class="flag-icon flag-icon-sk me-2"></span>Slovak</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="sl"><span
+                                        class="flag-icon flag-icon-si me-2"></span>Slovenian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="so"><span
+                                        class="flag-icon flag-icon-so me-2"></span>Somali</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="su"><span
+                                        class="flag-icon flag-icon-id me-2"></span>Sundanese</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="sw"><span
+                                        class="flag-icon flag-icon-tz me-2"></span>Swahili</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="tl"><span
+                                        class="flag-icon flag-icon-ph me-2"></span>Tagalog</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="tg"><span
+                                        class="flag-icon flag-icon-tj me-2"></span>Tajik</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ta"><span
+                                        class="flag-icon flag-icon-lk me-2"></span>Tamil</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="tt"><span
+                                        class="flag-icon flag-icon-ru me-2"></span>Tatar</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="te"><span
+                                        class="flag-icon flag-icon-in me-2"></span>Telugu</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="bo"><span
+                                        class="flag-icon flag-icon-cn me-2"></span>Tibetan</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ti"><span
+                                        class="flag-icon flag-icon-er me-2"></span>Tigrinya</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="to"><span
+                                        class="flag-icon flag-icon-to me-2"></span>Tonga</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ts"><span
+                                        class="flag-icon flag-icon-za me-2"></span>Tsonga</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="tk"><span
+                                        class="flag-icon flag-icon-tm me-2"></span>Turkmen</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="tw"><span
+                                        class="flag-icon flag-icon-gh me-2"></span>Twi</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ug"><span
+                                        class="flag-icon flag-icon-cn me-2"></span>Uighur</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="uk"><span
+                                        class="flag-icon flag-icon-ua me-2"></span>Ukrainian</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="ur"><span
+                                        class="flag-icon flag-icon-pk me-2"></span>Urdu</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="uz"><span
+                                        class="flag-icon flag-icon-uz me-2"></span>Uzbek</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="vo">Volapük</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="cy"><span
+                                        class="flag-icon flag-icon-gb-wls me-2"></span>Welsh</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="wo"><span
+                                        class="flag-icon flag-icon-sn me-2"></span>Wolof</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="xh"><span
+                                        class="flag-icon flag-icon-za me-2"></span>Xhosa</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="yi">Yiddish</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="yo"><span
+                                        class="flag-icon flag-icon-ng me-2"></span>Yoruba</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-code="zu"><span
+                                        class="flag-icon flag-icon-za me-2"></span>Zulu</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="settingsDropdownButton"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-translate-key="settings_button">
+                            <i class="fas fa-cog me-1"></i> Settings
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingsDropdownButton">
+                            <li><a class="dropdown-item" href="#" id="btn-toggle" data-translate-key="theme_button"><i
+                                        class="fas fa-adjust me-2"></i>Change Theme</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="#" id="logoutBtn"
+                                    data-translate-key="logout_button"><i class="fas fa-sign-out-alt me-2"></i>Log
+                                    Out</a></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="searchResults" class="mt-4 p-3 border rounded">
+                    <!-- Search results, translations, and UI messages will be displayed here -->
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS Bundle (includes Popper for dropdowns) — self-hosted, see note above -->
+    <script src="/static/vendor/bootstrap.bundle.min.js"></script>
+
+    <!-- All custom logic is now in this single, external file -->
+    <script src="/static/JS/script.js?v=5"></script>
+
+    <!-- PWA install support — registers the caching/offline service worker.
+         Wrapped in a feature check since older browsers without
+         serviceWorker support should just silently skip this. -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch((e) => {
+                    console.warn('[pwa] service worker registration failed:', e);
+                });
+            });
+        }
+    </script>
+    <footer style="text-align:center;padding:1.2em 0;font-size:.9em;opacity:.85">
+        Made by <a href="https://emreguzel.ca/">Emre Guzel</a> &middot;
+        Read how this was built on the
+        <a href="https://blog.emreguzel.ca/">Emre Guzel Coding Blog</a>
+        <br>All characters are AI-generated parodies, not affiliated with any real person.
+    </footer>
+</body>
+
+</html>

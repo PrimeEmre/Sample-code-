@@ -1,0 +1,10 @@
+Flask
+Flask-Cors
+python-dotenv
+requests
+Werkzeug
+edge-tts
+websockets
+yt-dlp
+gunicorn
+faster-whisper

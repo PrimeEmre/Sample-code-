@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ibo Show — AI Voice Talk Show | IboChat</title>
+    <meta name="description" content="The Ibo Show: an AI voice talk-show parody. Ask questions and hear AI answers out loud in 24+ languages. Not affiliated with any real person." />
+    <link rel="canonical" href="https://chat.emreguzel.ca/ibochatbot.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chat.emreguzel.ca/ibochatbot.html" />
+    <meta property="og:title" content="The Ibo Show — AI Voice Talk Show | IboChat" />
+    <meta property="og:description" content="An AI voice talk-show parody: ask questions, hear AI answers in 24+ languages. Built by Emre Guzel." />
+    <meta property="og:image" content="https://chat.emreguzel.ca/Chat_icon/apple-touch-icon.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="The Ibo Show — AI Voice Talk Show" />
+    <meta name="twitter:description" content="An AI voice talk-show parody in 24+ languages." />
+    <meta name="keywords" content="AI voice chat, AI parody character, chatbot, multilingual AI" />
+    <meta name="author" content="yi.zhou and Emre Guzel" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/Chat_icon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Chat_icon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Chat_icon/favicon-16x16.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="/static/css/chat.css?v=2">
+</head>
+
+<body>
+    <noscript>
+        <div style="text-align: center; padding: 20px; background-color: #ffe0b2; color: #e65100; border: 1px solid #ffcc80; margin: 20px;">
+            <p>This application requires JavaScript to function properly. Please enable JavaScript in your browser settings.</p>
+        </div>
+    </noscript>
+
+    <nav id="sidebar" class="d-flex flex-column p-3">
+        <h4 class="m-0 mb-4">IboChat</h4>
+        <button id="new-chat-btn" class="btn btn-dark w-100 border-secondary mb-3" aria-label="Start a new chat">
+            <i class="fa-solid fa-plus me-2"></i> Yeni Sohbet
+        </button>
+        <div id="chat-list" class="flex-grow-1 overflow-auto" role="menu">
+            <ul class="list-unstyled chat-conversation-list">
+                <li class="my-1 sidebar-item" role="none">
+                    <a href="#" data-chat-id="default-chat"
+                        class="d-flex align-items-center text-light text-decoration-none p-2 rounded active-chat"
+                        aria-current="page" aria-label="Default Chat Conversation" role="menuitem">
+                        <i class="fa-regular fa-comment me-2"></i>
+                        <span class="flex-grow-1 text-truncate">Default Sohbet</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <br>
+        <div class="mt-auto">
+            <button id="btn-toggle" class="btn btn-dark w-100 text-start border-secondary" aria-label="Toggle dark and light theme">
+                <i class="fa-solid fa-moon me-2"></i> Change Theme
+            </button>
+        </div>
+        <a href="index.html"
+                class="btn btn-dark w-25 text-start border-secondary"
+                aria-label="Log Out" role="menuitem">
+                <i class="fa-solid fa-sign-out-alt me-2"></i> Çıkış Yap
+            </a>
+    </nav>
+
+    <main role="main">
+        <header class="chat-header">
+            <h1>The Ibo Show — AI Voice Talk Show 🎤</h1>
+        </header>
+        
+        <div class="chat-area" id="chat-area" role="log" aria-live="polite">
+            <div class="chat-message bot-message" role="status">👋 Sen nasılsın iyisin?</div>
+        </div>
+
+        <div class="input-container-wrapper">
+            <p id="speechRecognitionStatus" class="text-center text-muted mb-2"></p>
+            <form id="chat-form" class="input-container" aria-label="Chat input form">
+                <textarea placeholder="Ask Ibochat..." id="user-input" rows="1" aria-label="Type your message"></textarea>
+                <div class="input-actions">
+                    <button type="button" id="microphoneBtn" class="btn" aria-label="Activate voice input">
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+                    <button type="button" id="toggle-voice-btn" class="btn" aria-label="Toggle AI voice playback">
+                        <i class="fa-solid fa-volume-xmark"></i> </button>
+                    <button type="submit" id="send" class="btn" aria-label="Send message">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+                <div class="audio-player-container d-none" aria-hidden="true"> 
+                    <audio id="backgroundMusicGelsin" src="vedio/İbrahim Tatlıses - Gelmesin-yt.savetube.me.mp3" preload="auto" loop></audio>
+                    <audio id="backgroundMusicMavisim" src="vedio/İbrahim Tatlıses - Mavişim (Official Audio)-yt.savetube.me.mp3" preload="auto" loop></audio>
+                    <audio id="backgroundMusicTosuno" src="vedio/İbrahim Tatlıses - Tosuno - İbo Show-yt.savetube.me.mp3" preload="auto" loop></audio>
+                    <audio id="backgroundMusicKaraUzum" src="vedio/Kara Üzüm Habbesi -İbrahim Tatlıses-yt.savetube.me.mp3" preload="auto" loop></audio>
+                    <audio id="backgroundMusicLeylim" src="vedio/Leylim Ley-yt.savetube.me.mp3" preload="auto" loop></audio>
+                    <audio id="backgroundMusicUrfaliyam" src="vedio/Urfaliyam Ezelden - İbrahim Tatlıses - Canlı Performans.mp3" preload="auto" loop></audio>
+                    <audio id="backgroundMusicCakmak" src="vedio/Çakmak Çakmağa Geldik.mp3" preload="auto" loop></audio>
+                    <audio id="backgroundMusicSemmane" src="vedio/Şemmame - İbrahim Tatlıses (Official Video).mp3" preload="auto" loop></audio>
+                    <audio id="backgroundMusicEsabini" src="vedio/İbrahim Tatlıses-Eşarbını Yan Bağlama.mp3" preload="auto" loop></audio>
+                    <audio id="backgroundMusicMaden" src="vedio/Maden Dağı.mp3" preload="auto" loop></audio>
+                    <audio id="iboShowAudio" src="vedio/İbrahim Tatlıses Ağlayarak Hayatını Anlattı (1).mp3" preload="auto"></audio>
+                    <audio id="newIboQuote" src="vedio/Kadınlara İsyan Etti - İbrahim Tatlıses.mp3" preload="auto"></audio>
+                </div>
+        </div>
+        
+        <div class="d-none"> 
+            <audio id="backgroundMusicGelsin" src="vedio/İbrahim Tatlıses - Gelmesin-yt.savetube.me.mp3" preload="auto" loop></audio>
+            </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <script src="/static/JS/ibochatbot.js"></script>
+</body>
+</html>
