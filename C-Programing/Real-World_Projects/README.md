@@ -20,4 +20,4 @@ tasks.exe delete 1
 ```
 
 ## File format
-One task per line: `<0|1>|<text>` (1 = done).
+One task per line: `<0|1>|<text>` (1 = done). The first character must be `0` or `1`, followed by `|`, otherwise the line is skipped. See [`tasks.example.txt`](./tasks.example.txt). `tasks.txt` itself is created by the program and is not tracked by git.

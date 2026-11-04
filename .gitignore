@@ -9,3 +9,6 @@ C-Programing/**/*.pdb
 
 # Unity generated files
 maze_game/obj/
+
+# Task manager runtime data (created by the program)
+C-Programing/Real-World_Projects/tasks.txt

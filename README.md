@@ -55,7 +55,7 @@ Sample-code-/
 │   ├── Tkinter/                  # GUI tutorial
 │   ├── Python-module/            # Modules & image processing
 │   └── Basics-Of-Python/         # Beginner fundamentals
-├── C-Programing/                 # Intro to C (main.c, BasicOfC/, UserInput/)
+├── C-Programing/                 # Intro to C, user input, task manager project, bug-fix examples
 ├── Javascript-projects/          # API sites, user-input mini projects, first JS site
 ├── maze_game/                    # Unity 3D maze game
 ├── professional_website/         # Portfolio website (HTML/CSS/Sass)
@@ -113,13 +113,14 @@ Sub-projects inside `Python-AI-Projects`: [`AI-Web-Agent`](./Python-projects/Pyt
 <a id="c-programming"></a>
 ### 🖥️ C Programming
 
-🔗 [Introduction to C Programming](https://blog.emreguzel.ca/2026/09/17/introduction-to-c-programming/) · 📁 [`/C-Programing`](./C-Programing/)
+📁 [`/C-Programing`](./C-Programing/)
 
-| File | Topics |
-|---|---|
-| [`main.c`](./C-Programing/main.c) | Constants and formatted output (job title & salary program) |
-| [`BasicOfC/main.c`](./C-Programing/BasicOfC/main.c) | Hello World, printing, arithmetic, variables, and strings |
-| [`UserInput/main.c`](./C-Programing/UserInput/main.c) | Reading user input with `scanf` (rectangle area calculator) |
+| Folder | Topics | Blog Post |
+|---|---|---|
+| [`BasicOfC`](./C-Programing/BasicOfC/) | Hello World, printing, arithmetic, variables, and strings | [Read](https://blog.emreguzel.ca/2026/09/17/introduction-to-c-programming/) |
+| [`UserInput`](./C-Programing/UserInput/) | Reading user input with `scanf` (rectangle area calculator) | [Read](https://blog.emreguzel.ca/2026/09/29/user-input-in-c-a-complete-guide-for-beginners/) |
+| [`Real-World_Projects`](./C-Programing/Real-World_Projects/) | Task manager CLI: structs, `realloc`, file storage, command-line arguments | [Read](https://blog.emreguzel.ca/2026/11/03/how-to-build-real-world-projects-in-c-step-by-step/) |
+| [`Troubleshooting`](./C-Programing/Troubleshooting/) | Broken and fixed code for five common `scanf` / uninitialised-variable bugs | see the table in its README |
 
 <a id="javascript"></a>
 ### 🎨 JavaScript
