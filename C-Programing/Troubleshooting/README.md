@@ -9,6 +9,7 @@ Each folder holds the code from one "Problems & Solutions" post on the blog: `bu
 | [`scanf-skips-input`](./scanf-skips-input/) | The second `scanf` never waits for input | [Read](https://blog.emreguzel.ca/2026/10/13/c-scanf-skips-input/) |
 | [`scanf-infinite-loop`](./scanf-infinite-loop/) | Typing a letter makes the loop run forever | [Read](https://blog.emreguzel.ca/2026/10/11/c-scanf-infinite-loop-fix/) |
 | [`scanf-vs-fgets`](./scanf-vs-fgets/) | `scanf("%s")` stops at the first space | [Read](https://blog.emreguzel.ca/2026/10/27/scanf-vs-fgets-in-c/) |
+| [`segmentation-fault`](./segmentation-fault/) | Segmentation fault: NULL pointer, out-of-bounds array, string literal write, infinite recursion (one subfolder each) | [Read](https://blog.emreguzel.ca/2026/11/04/segmentation-fault-in-c-find-the-exact-line/) |
 
 ## Build and run
 
