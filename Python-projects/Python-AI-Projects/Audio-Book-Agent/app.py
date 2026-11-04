@@ -10,7 +10,7 @@ from datetime import date
 import PyPDF2
 
 app = Flask(__name__, static_folder='static')
-app.secret_key = "emre_ai_secret_123"
+app.secret_key = os.getenv("SECRET_KEY") or os.urandom(32)
 
 # ── Configuration ──────────────────────────────────────────────
 GOOGLE_TTS_KEY = "yout api key "  # ← paste privately in PyCharm

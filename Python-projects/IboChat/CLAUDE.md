@@ -19,12 +19,6 @@ ZAI_API_KEY=your_key_here
 ZAI_MODEL=glm-4.5-air   # optional, this is the default
 ```
 
-Docker:
-```bash
-docker build -t ibochat .
-docker run -p 5005:5005 ibochat
-```
-
 ## Architecture
 
 Single-file Flask backend ([app.py](app.py)) serving both HTML pages and a JSON API. No session-based auth — login/register are stateless API calls; the frontend stores login state in `localStorage`.
@@ -49,7 +43,7 @@ Single-file Flask backend ([app.py](app.py)) serving both HTML pages and a JSON 
 |---|---|---|
 | `ZAI_API_KEY` | Yes | `""` |
 | `ZAI_MODEL` | No | `glm-4.5-air` |
-| `SECRET_KEY` | No | `ibochat_secret_123` |
+| `SECRET_KEY` | No | random per start (set it to keep sessions across restarts) |
 | `OMNIVOICE_URL` | No | `http://localhost:3900` |
 | `GPT_SOVITS_URL` | No | `http://localhost:9880` |
 | `GPT_SOVITS_MANAGED` | No | `1` — set to `0` if GPT-SoVITS runs on a different machine than this Flask process (disables local subprocess start/stop, just calls `GPT_SOVITS_URL`) |

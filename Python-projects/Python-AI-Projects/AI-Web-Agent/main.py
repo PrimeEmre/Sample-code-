@@ -10,7 +10,7 @@ import io
 from datetime import date
 
 app = Flask(__name__)
-app.secret_key = "emre_ai_secret_123"
+app.secret_key = os.getenv("SECRET_KEY") or os.urandom(32)
 
 ELEVENLABS_API_KEY = "your api"
 

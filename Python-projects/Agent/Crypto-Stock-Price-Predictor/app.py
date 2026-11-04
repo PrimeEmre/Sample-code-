@@ -12,7 +12,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import yfinance as yf
 
 app = Flask(__name__, static_folder='static')
-app.secret_key = "code_agent_secret_123"
+app.secret_key = os.getenv("SECRET_KEY") or os.urandom(32)
 
 # ── Configuration ──────────────────────────────────────────────
 GOOGLE_TTS_KEY = "your_api"

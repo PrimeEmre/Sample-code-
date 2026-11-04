@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
-app.secret_key = "hybrid_agent_secret_999"
+app.secret_key = os.getenv("SECRET_KEY") or os.urandom(32)
 
 # ── CONFIGURATION ──────────────────────────────────────────────
 CREWAI_CREW_URL    = os.getenv("CREWAI_CREW_URL")

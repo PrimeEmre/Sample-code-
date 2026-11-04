@@ -16,7 +16,7 @@ load_dotenv()
 
 # ── App Setup ─────────────────────────────────────────────────
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY", "ibochat_secret_123")
+app.secret_key = os.getenv("SECRET_KEY") or os.urandom(32)
 CORS(app)
 
 # ── Config ────────────────────────────────────────────────────
