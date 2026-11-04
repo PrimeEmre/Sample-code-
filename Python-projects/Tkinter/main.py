@@ -464,7 +464,7 @@
 # import requests
 
 # # APi key
-# # 6ed4f81aa0ad45d082c34616250612
+# # YOUR_API_KEY
 
 # api_key = "YOUR_API_KEY"
 # api_url = 'http://api.weatherapi.com/v1/current.json'
@@ -515,7 +515,7 @@
 # from io import BytesIO
 
 # APi key
-# 6ed4f81aa0ad45d082c34616250612
+# YOUR_API_KEY
 
 # api_key = "YOUR_API_KEY"
 # api_url = 'http://api.weatherapi.com/v1/current.json'
@@ -579,7 +579,7 @@
 # window.config(padx=2, pady=2)
 
 # APi key
-# 6ed4f81aa0ad45d082c34616250612
+# YOUR_API_KEY
 
 # api_key = "YOUR_API_KEY"
 # api_url = 'http://api.weatherapi.com/v1/current.json'
