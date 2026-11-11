@@ -8,6 +8,8 @@ Code from the "Problems & Solutions" posts on the blog. `bug.py` reproduces the 
 | [`tkinter-image-doesnt-exist`](./tkinter-image-doesnt-exist/) | `TclError: image "pyimage1" doesn't exist`: three causes, plus `Too early to create image` | [Read](https://blog.emreguzel.ca/2026/11/10/tkinter-tclerror-image-doesnt-exist-fix/) |
 | [`unboundlocalerror`](./unboundlocalerror/) | `UnboundLocalError`: six causes, from `count = count + 1` to nested functions | [Read](https://blog.emreguzel.ca/2026/11/10/unboundlocalerror-variable-referenced-before-assignment/) |
 | [`indexerror`](./indexerror/) | `IndexError: list index out of range`: six causes, plus the tuple, string and `pop` variants | [Read](https://blog.emreguzel.ca/2026/11/11/indexerror-list-index-out-of-range-fix/) |
+| [`typeerror-nonetype`](./typeerror-nonetype/) | `TypeError: 'NoneType' object is not subscriptable`: seven causes, from a missing `return` to `sort()` | [Read](https://blog.emreguzel.ca/2026/11/11/typeerror-nonetype-object-is-not-subscriptable-fix/) |
+| [`indentationerror`](./indentationerror/) | `IndentationError` and `TabError`: six causes, from a missing indent to mixed tabs | [Read](https://blog.emreguzel.ca/2026/11/11/indentationerror-expected-an-indented-block-fix/) |
 | [`pyserial-no-attribute-serial`](./pyserial-no-attribute-serial/) | `module 'serial' has no attribute 'Serial'`: a diagnostic script for three causes | [Read](https://blog.emreguzel.ca/2026/11/09/pyserial-module-serial-has-no-attribute-serial/) |
 
 ## Run
