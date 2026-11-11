@@ -6,6 +6,8 @@
       Skipped for touch screens and for reduced motion. */
 (function () {
     'use strict';
+    /* Follow the theme chosen on the home page, so every page matches (runs even with reduced motion). */
+    try { if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-theme'); } catch (e) {}
     var mq = window.matchMedia ? window.matchMedia.bind(window) : null;
     var reduced = mq && mq('(prefers-reduced-motion: reduce)').matches;
     if (reduced) return;
