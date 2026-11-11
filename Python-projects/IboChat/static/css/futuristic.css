@@ -1,0 +1,256 @@
+/* IboChat visual layer (home page + Character Studio): one stylesheet, one look.
+   1. Readability: the About section, muted text, outline buttons and footer are readable on BOTH themes.
+   2. Atmosphere: soft aurora glow and a faint dot grid behind the page.
+   3. Polish: refined type, glass cards with a slow accent line and a mouse-following highlight,
+      gradient buttons, a navbar accent line, staggered entrance and scroll reveal.
+   All motion is switched off for visitors who ask for reduced motion (last block). */
+
+:root {
+    --fx-teal: 78 201 176;      /* rgb triplets, so they can take an alpha: rgb(var(--fx-teal) / .3) */
+    --fx-violet: 139 92 246;
+    --fx-blue: 59 130 246;
+}
+
+/* ---------- 1. Type and basics ---------- */
+body.ibo-fx {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow-x: hidden;
+    /* faint dot grid */
+    background-image: radial-gradient(rgb(var(--fx-teal) / .12) 1px, transparent 1.3px);
+    background-size: 26px 26px;
+}
+body.dark-theme.ibo-fx { background-image: radial-gradient(rgb(var(--fx-teal) / .09) 1px, transparent 1.3px); }
+.ibo-fx .card-title { font-weight: 600; letter-spacing: -.01em; }
+.ibo-fx ::selection { background: rgb(var(--fx-teal) / .35); }
+.ibo-fx :focus-visible { outline: 2px solid rgb(var(--fx-teal)); outline-offset: 2px; }
+html { scrollbar-width: thin; scrollbar-color: rgb(var(--fx-teal) / .55) transparent; }
+
+/* ---------- 2. Readability fixes (both themes) ---------- */
+/* About section ("What is IboChat?") */
+.ibochat-about {
+    /* sits in the same Bootstrap column as the cards (col-lg-8), so the left and right edges line up */
+    margin: 1.5rem 0 1rem;
+    padding: 1.25rem 1.5rem;
+    font-size: .95rem;
+    line-height: 1.7;
+    color: #34424d;
+    background: rgb(255 255 255 / .65);
+    border: 1px solid rgb(var(--fx-teal) / .25);
+    border-left: 3px solid rgb(var(--fx-teal));
+    border-radius: .75rem;
+    backdrop-filter: blur(8px);
+}
+.ibochat-about h2 { color: #12202b; font-size: 1.2rem; margin-bottom: .6rem; font-weight: 600; }
+.ibochat-about p { margin-bottom: .7rem; }
+.ibochat-about p:last-child { margin-bottom: 0; }
+.ibochat-about a { color: #0a6b5c; text-decoration: underline; text-underline-offset: 3px; }
+.ibochat-about a:hover { color: #0f8f7a; }
+body.dark-theme .ibochat-about { color: #cfd8dc; background: rgb(30 30 42 / .6); }
+body.dark-theme .ibochat-about h2 { color: #fff; }
+body.dark-theme .ibochat-about a { color: #4ec9b0; }
+body.dark-theme .ibochat-about a:hover { color: #7ee3cc; }
+
+/* Bootstrap's .text-muted is dark grey at 75% opacity: fine on white, nearly invisible on the dark cards */
+.ibo-fx .text-muted { color: #566370 !important; }
+body.dark-theme.ibo-fx .text-muted { color: #aab4bd !important; }
+
+/* Outline buttons ("Record"): Bootstrap's blue is under 4.5:1 on light and 3.3:1 on dark */
+.ibo-fx .btn-outline-primary { color: #0a58ca; border-color: #0a58ca; }
+.ibo-fx .btn-outline-primary:hover,
+.ibo-fx .btn-outline-primary:focus-visible,
+.ibo-fx .btn-outline-primary:active { color: #fff; background-color: #0a58ca; border-color: #0a58ca; }
+body.dark-theme.ibo-fx .btn-outline-primary { color: #8ab8ff; border-color: #8ab8ff; }
+body.dark-theme.ibo-fx .btn-outline-primary:hover,
+body.dark-theme.ibo-fx .btn-outline-primary:focus-visible,
+body.dark-theme.ibo-fx .btn-outline-primary:active { color: #0b1a2e; background-color: #8ab8ff; border-color: #8ab8ff; }
+
+/* ---------- 3. Footer (identical on every page) ---------- */
+.ibo-fx .site-footer {
+    text-align: center;
+    padding: 1.6rem 1rem 2.4rem;
+    font-size: .9rem;
+    line-height: 1.7;
+    color: #4a5560;
+}
+.ibo-fx .site-footer::before {
+    content: "";
+    display: block;
+    width: min(560px, 80%);
+    height: 1px;
+    margin: 0 auto 1.1rem;
+    background: linear-gradient(90deg, transparent, rgb(var(--fx-teal) / .6), rgb(var(--fx-violet) / .5), transparent);
+}
+.ibo-fx .site-footer a { color: #0a58ca; }
+body.dark-theme.ibo-fx .site-footer { color: #b5bfc7; }
+body.dark-theme.ibo-fx .site-footer a { color: #8ab8ff; }
+body.dark-theme.ibo-fx .site-footer a:hover { color: #b6d3ff; }
+
+/* ---------- 4. Atmosphere: drifting aurora ---------- */
+body.ibo-fx::before,
+body.ibo-fx::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    width: 60vmax;
+    height: 60vmax;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: .35;
+    will-change: transform;
+}
+body.ibo-fx::before {
+    top: -22vmax; left: -16vmax;
+    background: radial-gradient(circle, rgb(var(--fx-teal) / .6), transparent 65%);
+    animation: fx-drift-a 26s ease-in-out infinite alternate;
+}
+body.ibo-fx::after {
+    bottom: -26vmax; right: -20vmax;
+    background: radial-gradient(circle, rgb(var(--fx-violet) / .55), transparent 65%);
+    animation: fx-drift-b 32s ease-in-out infinite alternate;
+}
+body.dark-theme.ibo-fx::before, body.dark-theme.ibo-fx::after { opacity: .5; }
+@media (max-width: 600px) {
+    body.ibo-fx::before, body.ibo-fx::after { width: 90vmax; height: 90vmax; filter: blur(60px); }
+}
+@keyframes fx-drift-a { to { transform: translate(18vmax, 12vmax) scale(1.15); } }
+@keyframes fx-drift-b { to { transform: translate(-16vmax, -10vmax) scale(1.2); } }
+
+/* ---------- 5. Navbar: shadow, accent line, light sweep on the logo ---------- */
+.ibo-fx .navbar { position: relative; box-shadow: 0 8px 28px rgb(0 0 0 / .12); }
+.ibo-fx .navbar::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(var(--fx-teal) / .8), rgb(var(--fx-violet) / .8), transparent);
+    pointer-events: none;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .ibo-fx .navbar-brand {
+        background: linear-gradient(90deg, #ffffff 0%, rgb(var(--fx-teal)) 45%, #ffffff 90%);
+        background-size: 220% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        font-weight: 700;
+        letter-spacing: .05em;
+        animation: fx-shine 8s linear infinite;
+    }
+}
+@keyframes fx-shine { to { background-position: 220% center; } }
+
+/* ---------- 6. Glass cards: accent line, mouse highlight, soft lift ---------- */
+.ibo-fx .card {
+    position: relative;
+    background-color: rgb(255 255 255 / .72);
+    border: 1px solid rgb(var(--fx-teal) / .28);
+    border-radius: .85rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 2px rgb(15 23 42 / .05), 0 10px 30px rgb(15 23 42 / .08);
+    transition: box-shadow .3s ease, transform .3s ease, border-color .3s ease;
+}
+body.dark-theme.ibo-fx .card { background-color: rgb(40 40 52 / .62); border-color: rgb(var(--fx-teal) / .38); }
+.ibo-fx .card > .card-body { position: relative; z-index: 1; }
+/* slow-moving accent line along the top edge */
+.ibo-fx .card::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 2px;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: .85rem .85rem 0 0;
+    background: linear-gradient(90deg, transparent 0%, rgb(var(--fx-teal)) 30%, rgb(var(--fx-violet)) 70%, transparent 100%);
+    background-size: 200% 100%;
+    opacity: .85;
+    animation: fx-line 9s linear infinite;
+}
+@keyframes fx-line { to { background-position: -200% 0; } }
+/* soft spotlight that follows the mouse (position set by fx.js) */
+.ibo-fx .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity .35s ease;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgb(var(--fx-teal) / .14), transparent 60%);
+}
+.ibo-fx .card:hover::after { opacity: 1; }
+.ibo-fx .card:hover,
+.ibo-fx .card:focus-within {
+    transform: translateY(-2px);
+    border-color: rgb(var(--fx-teal) / .6);
+    box-shadow: 0 0 0 1px rgb(var(--fx-teal) / .3), 0 14px 44px rgb(var(--fx-teal) / .2);
+}
+
+/* ---------- 7. Fields and buttons ---------- */
+.ibo-fx .form-control { border-radius: .6rem; transition: border-color .2s ease, box-shadow .2s ease; }
+.ibo-fx .form-control:focus {
+    border-color: rgb(var(--fx-teal));
+    box-shadow: 0 0 0 .2rem rgb(var(--fx-teal) / .28);
+}
+.ibo-fx .btn { border-radius: .6rem; transition: transform .2s ease, box-shadow .25s ease, filter .25s ease; position: relative; overflow: hidden; }
+.ibo-fx .btn:hover { transform: translateY(-1px); }
+.ibo-fx .btn:active { transform: translateY(0) scale(.985); }
+/* main action: deep blue to indigo gradient (white text stays above 5:1 everywhere) */
+.ibo-fx .btn-primary {
+    background-image: linear-gradient(135deg, #0b5ed7 0%, #2563eb 55%, #4f46e5 100%);
+    border-color: transparent;
+    box-shadow: 0 1px 2px rgb(15 23 42 / .15), 0 6px 18px rgb(37 99 235 / .28);
+}
+.ibo-fx .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 1px 2px rgb(15 23 42 / .15), 0 10px 26px rgb(79 70 229 / .38); }
+.ibo-fx .btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / .35) 50%, transparent 70%);
+    transform: translateX(-120%);
+    pointer-events: none;
+}
+.ibo-fx .btn-primary:hover::after { animation: fx-sweep .9s ease; }
+@keyframes fx-sweep { to { transform: translateX(120%); } }
+/* secondary buttons: slate instead of flat grey */
+.ibo-fx .btn-secondary { background-color: #475569; border-color: #475569; }
+.ibo-fx .btn-secondary:hover, .ibo-fx .btn-secondary:focus-visible { background-color: #566378; border-color: #566378; box-shadow: 0 6px 18px rgb(71 85 105 / .3); }
+/* Character Studio: the Stop button pulses red while a voice recording is running */
+@keyframes fx-rec {
+    0%   { box-shadow: 0 0 0 0 rgb(220 53 69 / .55); }
+    70%  { box-shadow: 0 0 0 12px rgb(220 53 69 / 0); }
+    100% { box-shadow: 0 0 0 0 rgb(220 53 69 / 0); }
+}
+.ibo-fx #stopBtn:not(.d-none) { animation: fx-rec 1.4s ease-out infinite; }
+
+/* ---------- 8. Entrance: cards rise in, form rows follow one after another ---------- */
+@keyframes fx-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.ibo-fx .card { animation: fx-rise .7s cubic-bezier(.2, .7, .2, 1) backwards; }
+.ibo-fx main > .row section.mt-3 { animation: fx-rise .7s .12s cubic-bezier(.2, .7, .2, 1) backwards; }
+.ibo-fx form > * { animation: fx-rise .6s cubic-bezier(.2, .7, .2, 1) backwards; }
+.ibo-fx form > *:nth-child(1) { animation-delay: .08s; }
+.ibo-fx form > *:nth-child(2) { animation-delay: .14s; }
+.ibo-fx form > *:nth-child(3) { animation-delay: .20s; }
+.ibo-fx form > *:nth-child(4) { animation-delay: .26s; }
+.ibo-fx form > *:nth-child(5) { animation-delay: .32s; }
+.ibo-fx form > *:nth-child(6) { animation-delay: .38s; }
+
+/* Scroll reveal: only hidden once fx.js has run, so the text is always visible without JavaScript. */
+.fx-ready .fx-reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+.fx-ready .fx-reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- 9. Touch screens: no hover lift or mouse spotlight ---------- */
+@media (hover: none) {
+    .ibo-fx .card::after { display: none; }
+    .ibo-fx .card:hover, .ibo-fx .btn:hover { transform: none; }
+}
+
+/* ---------- 10. Reduced motion: no animation at all ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .fx-ready .fx-reveal { opacity: 1; transform: none; }
+}

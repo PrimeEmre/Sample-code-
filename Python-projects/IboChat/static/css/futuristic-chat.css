@@ -1,0 +1,123 @@
+/* IboChat chat pages (chat.html and ibochatbot.html): the same visual language as the rest of the site
+   (teal and violet accents, glass, gradient buttons), added as a layer on top of chat.css.
+   It changes colours, shadows and motion only. It never changes the size or position of the chat itself,
+   except for the sidebar of ibochatbot.html, which had no layout CSS at all (see section 5).
+   Motion is switched off for visitors who ask for reduced motion (last block). */
+
+:root {
+    --fx-teal: 78 201 176;
+    --fx-violet: 139 92 246;
+}
+
+/* ---------- 1. Soft aurora behind the page (the message bubbles and header stay solid) ---------- */
+body.ibo-app { position: relative; }
+body.ibo-app::before,
+body.ibo-app::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    width: 60vmax;
+    height: 60vmax;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: .22;
+    will-change: transform;
+}
+body.ibo-app::before {
+    top: -22vmax; left: -16vmax;
+    background: radial-gradient(circle, rgb(var(--fx-teal) / .6), transparent 65%);
+    animation: fxc-drift-a 28s ease-in-out infinite alternate;
+}
+body.ibo-app::after {
+    bottom: -26vmax; right: -20vmax;
+    background: radial-gradient(circle, rgb(var(--fx-violet) / .55), transparent 65%);
+    animation: fxc-drift-b 34s ease-in-out infinite alternate;
+}
+body.dark-theme.ibo-app::before, body.dark-theme.ibo-app::after { opacity: .34; }
+@keyframes fxc-drift-a { to { transform: translate(18vmax, 12vmax) scale(1.15); } }
+@keyframes fxc-drift-b { to { transform: translate(-16vmax, -10vmax) scale(1.2); } }
+
+/* ---------- 2. Top bar (chat.html): accent line and a light sweep on the name ---------- */
+.ibo-app .navbar { box-shadow: 0 8px 28px rgb(0 0 0 / .18); }
+.ibo-app .navbar::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(var(--fx-teal) / .8), rgb(var(--fx-violet) / .8), transparent);
+    pointer-events: none;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .ibo-app .navbar-brand {
+        background: linear-gradient(90deg, #ffffff 0%, rgb(var(--fx-teal)) 45%, #ffffff 90%);
+        background-size: 220% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        font-weight: 700;
+        letter-spacing: .04em;
+        animation: fxc-shine 8s linear infinite;
+    }
+}
+@keyframes fxc-shine { to { background-position: 220% center; } }
+.ibo-app .chat-header { box-shadow: inset 0 -1px 0 rgb(var(--fx-teal) / .35); }
+
+/* ---------- 3. Messages: gradient for you, a fine border for the reply, a quick pop-in ---------- */
+.ibo-app .user-message {
+    background-image: linear-gradient(135deg, #1d4ed8 0%, #2563eb 55%, #4f46e5 100%);
+    box-shadow: 0 1px 2px rgb(15 23 42 / .12), 0 6px 18px rgb(37 99 235 / .22);
+}
+.ibo-app .bot-message { border: 1px solid rgb(var(--fx-teal) / .22); }
+.ibo-app .chat-message { animation: fxc-pop .35s cubic-bezier(.2, .7, .2, 1) backwards; }
+@keyframes fxc-pop { from { opacity: 0; transform: translateY(8px) scale(.985); } to { opacity: 1; transform: none; } }
+
+/* ---------- 4. Message box and buttons ---------- */
+.ibo-app .input-container-wrapper { box-shadow: 0 -10px 28px rgb(15 23 42 / .06); }
+.ibo-app #user-input:focus {
+    border-color: rgb(var(--fx-teal));
+    box-shadow: 0 0 0 3px rgb(var(--fx-teal) / .28);
+}
+.ibo-app .input-actions .btn:hover { box-shadow: 0 0 0 1px rgb(var(--fx-teal) / .35); }
+.ibo-app #send:hover { color: #fff; background-image: linear-gradient(135deg, #2563eb, #4f46e5); }
+.ibo-app :focus-visible { outline: 2px solid rgb(var(--fx-teal)); outline-offset: 2px; }
+
+/* ---------- 5. ibochatbot.html: a real sidebar ----------
+   That page loaded no Bootstrap and no sidebar CSS, so its sidebar showed as raw default buttons and links.
+   Bootstrap is now loaded, and this gives the sidebar its layout: a column on the left of the chat. */
+body.ibo-bot { flex-direction: row; }
+body.ibo-bot #sidebar {
+    flex: 0 0 260px;
+    height: 100vh;
+    overflow-y: auto;
+    color: #e5e7eb;
+    background: linear-gradient(180deg, #0d1117 0%, #111827 100%);
+    border-right: 1px solid rgb(var(--fx-teal) / .25);
+}
+body.ibo-bot #sidebar h4 {
+    font-weight: 700;
+    letter-spacing: .04em;
+    background: linear-gradient(90deg, #ffffff, rgb(var(--fx-teal)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+body.ibo-bot #sidebar .btn-dark { background-color: #1f2937; border-color: #374151 !important; }
+body.ibo-bot #sidebar .btn-dark:hover { background-color: #273449; border-color: rgb(var(--fx-teal) / .6) !important; }
+body.ibo-bot #sidebar > a.btn { width: 100% !important; margin-top: .6rem; }
+body.ibo-bot #sidebar .sidebar-item a { transition: background-color .2s ease; }
+body.ibo-bot #sidebar .sidebar-item a:hover { background-color: rgb(255 255 255 / .08); }
+body.ibo-bot #sidebar .active-chat { background-color: rgb(var(--fx-teal) / .18); }
+body.ibo-bot main { padding-top: 0; height: 100vh; flex: 1 1 auto; min-width: 0; }
+@media (max-width: 767.98px) {            /* phones: the sidebar becomes a short bar above the chat */
+    body.ibo-bot { flex-direction: column; }
+    body.ibo-bot #sidebar { flex: none; height: auto; max-height: 38vh; }
+    body.ibo-bot main { height: auto; flex: 1 1 0; min-height: 0; }
+}
+
+/* ---------- 6. Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+}

@@ -260,10 +260,65 @@ async function loadCustomCharacter() {
                 toggleVoiceBtn.classList.remove('btn-secondary');
                 toggleVoiceBtn.classList.add('btn-success');
             }
+        } else {
+            showVoiceMissingNotice(data.name);
         }
     } catch (e) {
         console.error('[custom-character] failed to load:', e);
     }
+}
+
+// Cloning can fail at creation time (OmniVoice Studio not running is the
+// common one) and the character is then saved with voice_id = NULL — the
+// chat works, but every reply uses the generic edge-tts voice instead of
+// the user's cloned one. Surface that here instead of leaving it silent,
+// and offer one-click recovery: the raw recording from create-character.js
+// is still in IndexedDB (character_recording::<id>), so the /reclone
+// endpoint can retry the OmniVoice clone and patch voice_id in place.
+function showVoiceMissingNotice(characterName) {
+    const chatArea = document.getElementById('chat-area');
+    if (!chatArea) return;
+
+    const banner = document.createElement('div');
+    banner.className = 'alert alert-warning mx-3 mt-2 py-2';
+    banner.innerHTML = `<strong>${characterName}</strong> has no cloned voice yet — replies will use a default voice. `;
+
+    const recloneBtn = document.createElement('button');
+    recloneBtn.className = 'btn btn-sm btn-warning ms-1';
+    recloneBtn.textContent = 'Re-clone from saved recording';
+    recloneBtn.addEventListener('click', async () => {
+        recloneBtn.disabled = true;
+        recloneBtn.textContent = 'Cloning...';
+        try {
+            const blob = (typeof IboAudioStore !== 'undefined')
+                ? await IboAudioStore.get(`character_recording::${characterId}`)
+                : null;
+            if (!blob) {
+                recloneBtn.textContent = 'No saved recording in this browser';
+                return;
+            }
+            const fd = new FormData();
+            fd.append('voice_sample', blob, 'voice_sample.webm');
+            const resp = await fetch(`/api/characters/${characterId}/reclone`, { method: 'POST', body: fd });
+            const data = await resp.json().catch(() => ({}));
+            if (!resp.ok || !data.voice_id) throw new Error(data.error || `Re-clone failed (${resp.status})`);
+
+            activeCelebrityVoiceId = data.voice_id;
+            const btn = document.getElementById('celebrity-voice-btn');
+            if (btn) {
+                btn.innerHTML = '<i class="fa-solid fa-star" style="color:#ffc107"></i>';
+                btn.title = `Using ${person}'s cloned voice`;
+            }
+            banner.remove();
+        } catch (err) {
+            console.error('[custom-character] re-clone failed:', err);
+            recloneBtn.disabled = false;
+            recloneBtn.textContent = 'Re-clone failed — is OmniVoice running? Retry';
+        }
+    });
+
+    banner.appendChild(recloneBtn);
+    chatArea.insertAdjacentElement('beforebegin', banner);
 }
 
 function appendMessage(text, sender, elementId = null) {

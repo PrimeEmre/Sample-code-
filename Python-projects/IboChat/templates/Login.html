@@ -14,12 +14,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./Loginicon/favicon-16x16.png">
     <link rel="manifest" href="./Loginicon/site.webmanifest">
     <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/futuristic.css?v=6">
 
     <script src="https://accounts.google.com/gsi/client" async defer onload="initGoogleSignIn()"></script>
     <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@4.13.2/lib/msal-browser.min.js"></script>
 </head>
 
-<body class="bg-light d-flex justify-content-center align-items-center min-vh-100">
+<!-- ibo-fx is styling only. Do NOT use the class "ibo-chat" here: script.js redirects those pages to login. -->
+<body class="ibo-fx bg-light d-flex justify-content-center align-items-center min-vh-100">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-5">
@@ -47,8 +49,11 @@
                             <div class="d-grid gap-2">
                                 <div id="google-btn" class="d-flex justify-content-center mb-2"></div>
                                 <button class="btn btn-outline-secondary microsoft-btn">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png"
-                                        alt="Microsoft logo" width="20" class="me-2">
+                                    <!-- inline logo: no external image that can fail to load -->
+                                    <svg class="me-2" width="20" height="20" viewBox="0 0 23 23" role="img" aria-label="Microsoft logo">
+                                        <path fill="#f25022" d="M1 1h10v10H1z"/><path fill="#7fba00" d="M12 1h10v10H12z"/>
+                                        <path fill="#00a4ef" d="M1 12h10v10H1z"/><path fill="#ffb900" d="M12 12h10v10H12z"/>
+                                    </svg>
                                     Login with Microsoft
                                 </button>
                             </div>
@@ -87,6 +92,7 @@
     <script src="/static/vendor/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/e21db9b111.js" crossorigin="anonymous"></script>
     <script src="/static/JS/login.js"></script>
+    <script src="/static/JS/fx.js?v=2" defer></script>
 </body>
 
 </html>

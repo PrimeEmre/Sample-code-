@@ -92,9 +92,10 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"></noscript>
 
     <link rel="stylesheet" href="/static/css/style.css?v=2">
+    <link rel="stylesheet" href="/static/css/futuristic.css?v=6">
 </head>
 
-<body class="ibo-chat">
+<body class="ibo-chat ibo-fx">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -466,11 +467,37 @@
         </div>
     </main>
 
+    <!-- Colours and spacing live in /static/css/futuristic.css (light AND dark theme); no inline styles. -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+    <section class="ibochat-about fx-reveal">
+        <h2>What is IboChat?</h2>
+        <p>
+            IboChat is a free AI voice chat app: pick a character, talk out loud, and hear a
+            realistic voice answer in 24+ languages. Character voices are cloned with
+            GPT-SoVITS, speech input runs on Whisper, and the conversation is powered by the
+            GLM large language model — all served from a single Flask app.
+        </p>
+        <p>
+            Curious how it works? Read
+            <a href="https://blog.emreguzel.ca/2026/10/16/how-i-built-ibochat/">How I Built IboChat: An AI Voice Chat App with Custom Characters</a>,
+            or browse the
+            <a href="https://blog.emreguzel.ca/">Emre Guzel Coding Blog</a>
+            for more on building AI agents in Python. All characters are AI-generated parodies,
+            not affiliated with any real person.
+        </p>
+    </section>
+        </div>
+      </div>
+    </div>
+
     <!-- Bootstrap JS Bundle (includes Popper for dropdowns) — self-hosted, see note above -->
     <script src="/static/vendor/bootstrap.bundle.min.js"></script>
 
     <!-- All custom logic is now in this single, external file -->
     <script src="/static/JS/script.js?v=5"></script>
+    <script src="/static/JS/fx.js?v=2" defer></script>
 
     <!-- PWA install support — registers the caching/offline service worker.
          Wrapped in a feature check since older browsers without
@@ -484,7 +511,7 @@
             });
         }
     </script>
-    <footer style="text-align:center;padding:1.2em 0;font-size:.9em;opacity:.85">
+    <footer class="site-footer fx-reveal">
         Made by <a href="https://emreguzel.ca/">Emre Guzel</a> &middot;
         Read how this was built on the
         <a href="https://blog.emreguzel.ca/">Emre Guzel Coding Blog</a>

@@ -227,8 +227,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 IboAudioStore.set(`character_recording::${data.id}`, recordedBlob);
             }
 
+            if (recordedBlob && !data.voice_id) {
+                // Cloning failed server-side (OmniVoice Studio not running is
+                // the common one). The character still works, but saying
+                // "ready!" and redirecting as if the cloned voice is in there
+                // is exactly how "I can't hear my voice in the chat" happens.
+                // Tell the user, stay on the page, and let the chat page's
+                // re-clone notice finish the job from the saved recording.
+                createResult.innerHTML = `<div class="alert alert-warning">
+                    <strong>${name}</strong> was created, but the voice clone failed
+                    (is OmniVoice Studio running?). The character will use a default
+                    voice for now — open its chat and use "Re-clone from saved
+                    recording" to attach your voice.
+                </div>`;
+                createBtn.disabled = false;
+                createBtn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles me-2"></i>Create Character';
+                return;
+            }
+
             createResult.innerHTML = `<div class="alert alert-success">
-                <strong>${name}</strong> is ready! Redirecting to chat…
+                <strong>${name}</strong> is ready! Redirecting to chat...
             </div>`;
             setTimeout(() => {
                 window.location.href = `chat.html?character_id=${encodeURIComponent(data.id)}`;
