@@ -10,6 +10,8 @@ Code from the "Problems & Solutions" posts on the blog. `bug.py` reproduces the 
 | [`indexerror`](./indexerror/) | `IndexError: list index out of range`: six causes, plus the tuple, string and `pop` variants | [Read](https://blog.emreguzel.ca/2026/11/11/indexerror-list-index-out-of-range-fix/) |
 | [`typeerror-nonetype`](./typeerror-nonetype/) | `TypeError: 'NoneType' object is not subscriptable`: seven causes, from a missing `return` to `sort()` | [Read](https://blog.emreguzel.ca/2026/11/11/typeerror-nonetype-object-is-not-subscriptable-fix/) |
 | [`indentationerror`](./indentationerror/) | `IndentationError` and `TabError`: six causes, from a missing indent to mixed tabs | [Read](https://blog.emreguzel.ca/2026/11/11/indentationerror-expected-an-indented-block-fix/) |
+| [`keyerror`](./keyerror/) | `KeyError`: six causes, from a missing key to a hidden space in a CSV header | [Read](https://blog.emreguzel.ca/2026/11/12/keyerror-in-python-causes-and-fixes/) |
+| [`valueerror-invalid-literal-int`](./valueerror-invalid-literal-int/) | `ValueError: invalid literal for int()`: six inputs that fail, from `''` to `'3.50'` | [Read](https://blog.emreguzel.ca/2026/11/12/valueerror-invalid-literal-for-int-with-base-10-fix/) |
 | [`pyserial-no-attribute-serial`](./pyserial-no-attribute-serial/) | `module 'serial' has no attribute 'Serial'`: a diagnostic script for three causes | [Read](https://blog.emreguzel.ca/2026/11/09/pyserial-module-serial-has-no-attribute-serial/) |
 
 ## Run
