@@ -12,6 +12,7 @@ Code from the "Problems & Solutions" posts on the blog. `bug.py` reproduces the 
 | [`indentationerror`](./indentationerror/) | `IndentationError` and `TabError`: six causes, from a missing indent to mixed tabs | [Read](https://blog.emreguzel.ca/2026/11/11/indentationerror-expected-an-indented-block-fix/) |
 | [`keyerror`](./keyerror/) | `KeyError`: six causes, from a missing key to a hidden space in a CSV header | [Read](https://blog.emreguzel.ca/2026/11/12/keyerror-in-python-causes-and-fixes/) |
 | [`valueerror-invalid-literal-int`](./valueerror-invalid-literal-int/) | `ValueError: invalid literal for int()`: six inputs that fail, from `''` to `'3.50'` | [Read](https://blog.emreguzel.ca/2026/11/12/valueerror-invalid-literal-for-int-with-base-10-fix/) |
+| [`filenotfounderror`](./filenotfounderror/) | `FileNotFoundError: [Errno 2]`: six causes, from the working directory to a hidden `.txt.txt` | [Read](https://blog.emreguzel.ca/2026/11/12/filenotfounderror-errno-2-no-such-file-or-directory-fix/) |
 | [`pyserial-no-attribute-serial`](./pyserial-no-attribute-serial/) | `module 'serial' has no attribute 'Serial'`: a diagnostic script for three causes | [Read](https://blog.emreguzel.ca/2026/11/09/pyserial-module-serial-has-no-attribute-serial/) |
 
 ## Run
