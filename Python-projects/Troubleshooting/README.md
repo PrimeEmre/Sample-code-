@@ -14,6 +14,7 @@ Code from the "Problems & Solutions" posts on the blog. `bug.py` reproduces the 
 | [`valueerror-invalid-literal-int`](./valueerror-invalid-literal-int/) | `ValueError: invalid literal for int()`: six inputs that fail, from `''` to `'3.50'` | [Read](https://blog.emreguzel.ca/2026/11/12/valueerror-invalid-literal-for-int-with-base-10-fix/) |
 | [`filenotfounderror`](./filenotfounderror/) | `FileNotFoundError: [Errno 2]`: six causes, from the working directory to a hidden `.txt.txt` | [Read](https://blog.emreguzel.ca/2026/11/12/filenotfounderror-errno-2-no-such-file-or-directory-fix/) |
 | [`recursionerror`](./recursionerror/) | `RecursionError: maximum recursion depth exceeded`: six causes, from a missing base case to a property that calls itself | [Read](https://blog.emreguzel.ca/2026/11/12/recursionerror-maximum-recursion-depth-exceeded-fix/) |
+| [`typeerror-not-callable`](./typeerror-not-callable/) | `TypeError: 'int' object is not callable`: six causes, from `sum = 0` to a missing `*` | [Read](https://blog.emreguzel.ca/2026/11/17/typeerror-int-object-is-not-callable-fix/) |
 | [`pyserial-no-attribute-serial`](./pyserial-no-attribute-serial/) | `module 'serial' has no attribute 'Serial'`: a diagnostic script for three causes | [Read](https://blog.emreguzel.ca/2026/11/09/pyserial-module-serial-has-no-attribute-serial/) |
 
 ## Run
